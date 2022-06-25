@@ -1,4 +1,4 @@
-import { View, Text, Modal, ImageBackground, StyleSheet, Animated, TouchableOpacity, ScrollView} from 'react-native'
+import { View, Text, Modal, ImageBackground, StyleSheet, Animated, TouchableOpacity, ScrollView, StatusBar} from 'react-native'
 import React, {useEffect, useRef, useState} from 'react'
 import About from '../components/restaurantDetail/About'
 import { Divider } from 'react-native-elements'
@@ -270,8 +270,10 @@ const RestaurantImage = (props)=>(
   style={styles.container}
   source={{uri: props.image }}
 >
-
-  <ArrowBack navigation={props.navigation}/>
+   <View style={{ paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,}}>
+    <ArrowBack navigation={props.navigation}/>
+   </View>
+  
 
 
 </ImageBackground>

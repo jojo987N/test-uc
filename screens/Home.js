@@ -106,11 +106,11 @@ export default function Home({navigation}) {
   
   },[city, activeTab])
   return (
-    // <SafeAreaView style={{
-    //   paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-    //   backgroundColor: "#eee",
-    //   flex: 1
-    // }}>
+    <SafeAreaView style={{
+      paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+      backgroundColor: "#eee",
+      flex: 1
+    }}>
      <View style={{flex: 1}}>
       <View style={{ backgroundColor: "white", padding: 15 }}>
 
@@ -125,6 +125,6 @@ export default function Home({navigation}) {
       <Divider width={1}/>
       {/* <BottomTabs /> */}
      </View>
-    // </SafeAreaView>
+     </SafeAreaView>
   )
 }

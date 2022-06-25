@@ -37,18 +37,18 @@ export default function RootNavigation({statusBarColor}) {
 
   return (
      
-    <SafeAreaView style={{
-      paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-      backgroundColor: statusBarColor?statusBarColor:"#eee",
-      flex: 1
-    }}> 
+    // <SafeAreaView style={{
+    //   paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    //   backgroundColor: statusBarColor?statusBarColor:"#eee",
+    //   flex: 1
+    // }}> 
 
     <ReduxProvider store={store}>
       <NavigationContainer>
           <Stack.Navigator /*initialRouteName='BottomTabs' */ screenOptions={screenOptions}>
               {/* <Stack.Screen name="Home" component={Home}/> */}
               {/* <Stack.Screen name="Loader" component={Loader}/> */}
-              {/* <Stack.Screen name="Onboarding" component={OnboardingScreen}/> */}
+              <Stack.Screen name="Onboarding" component={OnboardingScreen}/>
               <Stack.Screen name="Splash" component={Splash}/>
               <Stack.Screen name="SignIn" component={SignIn}/>
               <Stack.Screen name="SignInWelcomeScreen" component={SignInWelcomeScreen}/>
@@ -70,6 +70,6 @@ export default function RootNavigation({statusBarColor}) {
       </NavigationContainer>
     </ReduxProvider>
 
-    </SafeAreaView>
+    // </SafeAreaView>
   )
 }

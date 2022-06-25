@@ -1,11 +1,11 @@
-import { View, Text, Image, ImageBackground, StyleSheet} from 'react-native'
+import { View, Text, Image, ImageBackground, StyleSheet, TouchableOpacity} from 'react-native'
 import React, { useEffect, useState } from 'react'
 import Onboarding from 'react-native-onboarding-swiper'
 import * as Animatable from "react-native-animatable"
 
 
 
-export default function OnboardingScreen() {
+export default function OnboardingScreen({navigation}) {
 
   const [splash, setSplash]= useState(true)
 
@@ -36,10 +36,12 @@ export default function OnboardingScreen() {
       <View style={styles.box}>
         <Text style={styles.discoverText}>Discover Foods</Text>
 
-        <View style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={()=>{
+          navigation.navigate("SignIn")
+        }}>
 
           <Text style={styles.buttonText}>Continue</Text>
-        </View>
+        </TouchableOpacity>
 
       </View>
       </Animatable.View>

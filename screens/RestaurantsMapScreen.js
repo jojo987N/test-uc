@@ -1,4 +1,4 @@
-import { View, Text, useWindowDimensions, Image, ScrollView, Animated, StyleSheet, TouchableOpacity} from 'react-native'
+import { View, Text, useWindowDimensions, Image, ScrollView, Animated, StyleSheet, TouchableOpacity, StatusBar} from 'react-native'
 import React, {useEffect, useRef, useState} from 'react'
 import MapView, { Callout, Marker } from 'react-native-maps'
 import RestaurantItems from '../components/home/RestaurantItems'
@@ -105,7 +105,7 @@ export default function RestaurantsMapScreen({route, navigation}) {
    
   return (
     <View style={{
-    // flex: 1,
+      //flex: 1,
      // alignItems: "center",
      // justifyContent: "center"
     }}>
@@ -349,6 +349,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: "white",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     paddingBottom: 10,
     zIndex: 1
 },
