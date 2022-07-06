@@ -5,11 +5,12 @@ import SearchComponent from '../components/SearchComponent'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { categories, dataTest, filterData} from '../data'
 import List from '../components/List'
+import { Menu } from '../components/home/HomeHeader'
 
 const SCREEN_WIDTH = Dimensions.get('window').width
 
 
-export default function SearchScreen() {
+export default function SearchScreen({navigation}) {
 
   const [clicked, setCLicked] = useState(false)
   const [searchPhrase, setSearchPhrase] = useState("")
@@ -31,13 +32,15 @@ export default function SearchScreen() {
       setCLicked={setCLicked}
       setSearchPhrase={setSearchPhrase}/> */}
 
- 
-      <SearchComponent
-        searchPhrase={searchPhrase}
-        setSearchPhrase={setSearchPhrase}
-        clicked={clicked}
-        setCLicked={setCLicked}
-      />
+      <View style={styles.header}>
+        <Menu navigation={navigation} />
+        <SearchComponent
+          searchPhrase={searchPhrase}
+          setSearchPhrase={setSearchPhrase}
+          clicked={clicked}
+          setCLicked={setCLicked}
+        />
+      </View>
        
 
          {clicked?(<List
@@ -83,6 +86,11 @@ export default function SearchScreen() {
 }
 
 const styles = StyleSheet.create({
+  header: {
+    flexDirection: "row", 
+    alignItems: "center",
+    marginHorizontal: 10
+  },
   imageView: {
     alignItems: "center",
     justifyContent: "center",
@@ -107,9 +115,5 @@ const styles = StyleSheet.create({
     height: 30,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20
-     
-     
-    
-     
   }
 })

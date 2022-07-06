@@ -15,17 +15,7 @@ export default function HomeHeader({navigation}) {
             justifyContent: "space-between",
             //padding: 10
           }}>
-              <View style={{
-                 // marginLeft: 15
-              }}>
-                  <Icon
-                      type="material-community"
-                      name='menu'
-                      color="black"
-                      size={32}
-                      onPress={()=>navigation.toggleDrawer()}
-                  />
-              </View>
+             <Menu navigation={navigation}/>
               <TouchableOpacity onPress={()=>setFilter(true)}>
           
                   <FontAwesome
@@ -40,4 +30,19 @@ export default function HomeHeader({navigation}) {
           <FilterModal visible={filter} setVisible={setFilter}/>
       </>
   )
+}
+
+export const Menu = ({navigation}) => {
+
+    return  <View style={{
+        // marginLeft: 15
+     }}>
+         <Icon
+             type="material-community"
+             name='menu'
+             color="black"
+             size={32}
+             onPress={()=>navigation.toggleDrawer()}
+         />
+     </View>
 }

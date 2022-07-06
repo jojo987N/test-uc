@@ -4,6 +4,7 @@ import BottomTabs from './BottomTabs'
 import { Icon } from 'react-native-elements';
 import BusinessConsoleScreen from '../screens/BusinessConsoleScreen';
 import DrawerContent from '../components/DrawerContent';
+import { SearchNavigator } from './Stacks';
 
 const Drawer = createDrawerNavigator();
 
@@ -17,7 +18,7 @@ export default function DrawerNavigator() {
             name = "BottomTabs"
             component={BottomTabs}
             options={{
-                title: "Client",
+                title: "Home",
                 drawerIcon: ({focussed, size}) =>(
                   <Icon 
                     type="material-community"
@@ -29,6 +30,21 @@ export default function DrawerNavigator() {
             }}
         />
         <Drawer.Screen 
+            name = "Search"
+            component={SearchNavigator}
+            options={{
+                title: "Search",
+                drawerIcon: ({focussed, size}) =>(
+                  <Icon 
+                    type="material"
+                    name="search"
+                    color={focussed ? "black":""}
+                    size={size}
+                  />  
+                )
+            }}
+        />
+        {/* <Drawer.Screen 
             name = "BusinessConsoleScreen"
             component={BusinessConsoleScreen}
             options={{
@@ -42,7 +58,7 @@ export default function DrawerNavigator() {
                   />  
                 )
             }}
-        />
+        /> */}
     </Drawer.Navigator>
   )
 }

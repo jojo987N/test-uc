@@ -1,5 +1,5 @@
 import { View, Text, SafeAreaView, StatusBar, ScrollView} from 'react-native'
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import HeaderTabs from '../components/home/HeaderTabs'
 //import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes'
 import SearchBar from '../components/home/SearchBar'
@@ -11,9 +11,10 @@ import { restaurants } from '../data'
 //import { restaurants } from '../firebase'
 import HomeHeader from '../components/home/HomeHeader'
 
-import { getRestaurantsFromFirebase } from '../firebase'
+import { addRestaurants, getRestaurantsFromFirebase } from '../firebase'
 
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { AntDesign } from '@expo/vector-icons'
 
 
  
@@ -38,29 +39,7 @@ export default function Home({navigation}) {
   const [activeTab, setActiveTab]= useState("Delivery")
    
 
-
-
-  
-  // const getRestaurantsFromFirebase = () => {
-
-  //   //const db = getFirestore(firebaseApp)
-  //   //const colRef = collection(db, 'restaurants')
-
-    
-  //   const restaurants = []
-
-  //   getDocs(restaurantsColRef)
-  //     .then((snapshot) => {
-  //       snapshot.docs.forEach((doc) => {
-
-  //         restaurants.push(doc.data())
-
-  //       })
-  //     })
-  //     .then(()=> setRestaurantData(restaurants))
-
-  // }
-  //getRestaurantsFromFirebase().then((restaurants)=> setRestaurantData(restaurants))
+  const flatlist = useRef(null)
 
   const getRestaurantsFromYelp = ()=>{
 
@@ -76,7 +55,8 @@ export default function Home({navigation}) {
     .then(res => res.json())
     .then(json => {
       //console.log(json.businesses)
-     // setRestaurantData(json.businesses.filter((business)=> business.transactions.includes(activeTab.toLowerCase())))
+      //addRestaurants(json.businesses.filter((business)=> business.transactions.includes(activeTab.toLowerCase())))
+      setRestaurantData(json.businesses.filter((business)=> business.transactions.includes(activeTab.toLowerCase())))
     })
   
   }
@@ -100,11 +80,33 @@ export default function Home({navigation}) {
           let restaurants = JSON.parse(value)
           setRestaurantData(restaurants)
            
-        }) 
+        }).then(() => {
+          let i = 1
+          setInterval(()=>{
+     
+            
+           // setTimeout(()=>{
+
+              if (flatlist.current)
+              flatlist.current.scrollToIndex({
+                animated: true,
+                index: i%2===0?0:1
+              })
+
+              i++
+  
+           // }, 500)
+
+
+          }, 4000)
+
+        })
       }
-    })
+    }) 
   
   },[city, activeTab])
+
+   
   return (
     <SafeAreaView style={{
       paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
@@ -118,13 +120,24 @@ export default function Home({navigation}) {
        <HomeHeader navigation={navigation}/>
         <SearchBar cityHandler={setCity}/>
       </View>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <Categories />
-        <RestaurantItems restaurantData={restaurantData} navigation={navigation}/>
-      </ScrollView>
+       
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <Categories />
+          <RestaurantItems restaurantData={restaurantData} reward="$60 until $9 reward" navigation={navigation} size="100%" horizontal={true}/>
+        
+          <RestaurantItems restaurantData={restaurantData}  navigation={navigation} ads={true} size="100%" flatlist={flatlist} horizontal={true}/>
+        
+        
+          <RestaurantItems restaurantData={restaurantData.filter(restaurant => restaurant.theme === "Everyday savings")}  navigation={navigation} theme="Everyday savings"  horizontal={true}/>
+        </ScrollView>
+       
+      
       <Divider width={1}/>
       {/* <BottomTabs /> */}
      </View>
      </SafeAreaView>
   )
 }
+
+ 
+ 

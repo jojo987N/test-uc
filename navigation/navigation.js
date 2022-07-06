@@ -48,12 +48,13 @@ export default function RootNavigation({statusBarColor}) {
           <Stack.Navigator /*initialRouteName='BottomTabs' */ screenOptions={screenOptions}>
               {/* <Stack.Screen name="Home" component={Home}/> */}
               {/* <Stack.Screen name="Loader" component={Loader}/> */}
+              {/* <Stack.Screen name="SignUpScreen" component={SignUpScreen}/> */}
               <Stack.Screen name="Onboarding" component={OnboardingScreen}/>
               <Stack.Screen name="Splash" component={Splash}/>
               <Stack.Screen name="SignIn" component={SignIn}/>
               <Stack.Screen name="SignInWelcomeScreen" component={SignInWelcomeScreen}/>
               <Stack.Screen name="SignScreen" component={SignScreen}/>
-              <Stack.Screen name="SignUpScreen" component={SignUpScreen}/>
+              {/* <Stack.Screen name="SignUpScreen" component={SignUpScreen}/> */}
               <Stack.Screen name="DrawerNavigator" component={DrawerNavigator}/>
               {/* <Stack.Screen name="BottomTabs" component={BottomTabs}/> */}
               {/* <Stack.Screen name="RestaurantDetail" component={RestaurantDetail}/> */}

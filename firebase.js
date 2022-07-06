@@ -4,7 +4,7 @@ import { getAuth } from 'firebase/auth';
 
 import {addDoc, getFirestore, collection, getDocs, doc, deleteDoc, orderBy, query, limit,
 where, onSnapshot, serverTimestamp, updateDoc} from 'firebase/firestore'
-import { restaurants } from './data';
+//import { restaurants } from './data';
 import {getStorage, ref, getDownloadURL} from 'firebase/storage'
 import { LogBox } from 'react-native';
 LogBox.ignoreLogs(['AsyncStorage has been extracted from react-native core'])
@@ -181,7 +181,7 @@ const testt = ()=>{
 //testt()
 
 // ADD DOCS TO FIREBASE
-const addRestaurants = ()=>{
+export const addRestaurants = (restaurants)=>{
 
   restaurants.forEach((restaurant)=>{
     addDoc(restaurantsCol, restaurant)
@@ -420,6 +420,28 @@ const addOrderToFirebase = () => {
            })
 
      
+}
+
+const populateRestaurant = ()=> {
+
+  [3,4,8,12,14].forEach(val => {
+    
+     
+  })
+
+  return getDocs(restaurantsCol)
+    .then( snapshot => {
+      snapshot.docs.forEach((docc) => {
+
+        updateDoc( doc(db, 'restaurants', docc.id), {
+
+          group : Math.floor(Math.random()*9+1)
+       
+        }).then(()=> console.log('Updated'))
+
+      })
+})
+
 }
  
 

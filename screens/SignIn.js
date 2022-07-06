@@ -84,8 +84,18 @@ export default function SignIn({navigation}) {
 useEffect(()=>{
     AsyncStorage.getItem("userData")
     .then((value)=>{
-      if(value)
-      navigation.navigate('DrawerNavigator')
+      if(value){
+
+        let userData = JSON.parse(value)
+
+        dispatch({
+            type: 'ADD_USER',
+            payload: userData
+          });
+
+          navigation.navigate('DrawerNavigator')
+      }
+      
     })
 //   const checkAuth = onAuthStateChanged(auth, (user)=>{
        

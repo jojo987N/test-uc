@@ -105,4 +105,6 @@ function deg2rad(deg) {
 
 //console.log(getDistanceFromLatLonInKm(4.07151, 9.73124, 4.0956516, 9.7426032))
 
+
+ 
  

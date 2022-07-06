@@ -1,7 +1,9 @@
-import { View, Text,Image, TouchableOpacity, FlatList} from 'react-native'
-import React, {useState, useEffect} from 'react'
+import { View, Text,Image, TouchableOpacity, FlatList, useWindowDimensions, StyleSheet} from 'react-native'
+import React, {useState, useEffect, useRef} from 'react'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { AntDesign } from '@expo/vector-icons';
+import Categories from './Categories';
+import { Reward } from '../../screens/Offers';
 
 export const localRestaurants = [
     {
@@ -37,14 +39,70 @@ export const localRestaurants = [
 
 export default function RestaurantItems({navigation,...props}) {
 
-     
+    const { width, height } = useWindowDimensions();
+
+    
      
   return (
       <View style={{
          // flexDirection: "row"
           }}>
+
+              <FlatList 
+                  ref={props.flatlist}
+                  data={props.reward?props.restaurantData.filter(restaurant => restaurant.reward === props.reward):props.ads?props.restaurantData.filter(restaurant => restaurant.ads ):props.restaurantData}
+                  keyExtractor={(item, index)=>index}
+                  renderItem={({item, index})=> {
+
+                    return (
+                           
+                        <TouchableOpacity 
+                        key={index}
+                        activeOpacity={1} 
+                        style={{
+                           // marginBottom: 30
+                        }}
+                        onPress={()=>navigation.navigate("RestaurantDetail",
+                        {
+                          restaurant: item
+          
+                        })}
+                        >
+                            <View  
+                                style={{
+                                    marginTop: 8,
+                                    padding: 15,
+                                    backgroundColor: "white",
+                                    //width: 100
+                                   // marginHorizontal: 10
+                                   width: props.size?width:width*0.8
+                                }}>
+                                <View >
+                                    <RestaurantImage image={item.image_url} />
+                                    {props.reward?<Reward restaurant={item}/>:<></>}
+                                    {props.ads && <Affiche ads={item.ads} adsColor={item.adsColor}/>}
+                                </View>
+                                
+                                <RestaurantInfo 
+                                    name={item.name.substring(0,20)}
+                                    rating={item.rating} 
+                                    city={item.location.city}/>
+                                  
+                            </View>
+                        </TouchableOpacity>
+                        
+                        
+
+                    )
+                  }}
+
+                  
+                  //scrollEnabled={false}
+                  horizontal={props.horizontal}
+                  showsHorizontalScrollIndicator={false}
+              />
              
-          {props.restaurantData.map((restaurant, index) => (
+          {/* {props.restaurantData.map((restaurant, index) => (
 
               <TouchableOpacity 
               key={index}
@@ -54,15 +112,6 @@ export default function RestaurantItems({navigation,...props}) {
               }}
               onPress={()=>navigation.navigate("RestaurantDetail",
               {
-                //   name: restaurant.name,
-                //   image: restaurant.image_url,
-                //   price: restaurant.price,
-                //   reviews: restaurant.review_count,
-                //   rating: restaurant.rating,
-                //   categories: restaurant.categories,
-                //  dishes: restaurant.dishes,
-                //   collectTime: restaurant.collectTime
-
                 restaurant: restaurant
 
               })}
@@ -81,7 +130,7 @@ export default function RestaurantItems({navigation,...props}) {
                           city={restaurant.location.city}/>
                   </View>
               </TouchableOpacity>
-          ))}
+          ))} */}
            
       </View>
   )
@@ -96,7 +145,7 @@ export const RestaurantImage= (props)=>{
                 uri: props.image
             }}
 
-            style={{ width: "100%", height: 180 }}
+            style={{ width: "100%", height: 140 }}
            // style={{ width: 100, height: 180 }}
 
 
@@ -155,3 +204,62 @@ export const RestaurantInfo = (props)=>(
         </View>
     </View>
 )
+
+const Affiche = (props)=> {
+    return (
+      <View style={styles.container}>
+         
+          <View style={{...styles.container1, backgroundColor: props.adsColor}}>
+            <Text style={{...styles.text, color: props.adsColor==="#800000"?"white":"black"}}>{props.ads}</Text>
+            <View style={styles.button}>
+              <Text style={styles.buttonText}>Browse Offers</Text>
+              <AntDesign name="arrowright" size={18} color="black" />
+            </View>
+          </View>
+          
+      </View>
+    )
+  }
+
+  const styles = StyleSheet.create({
+
+    container: {
+  
+      position: "absolute",
+      height: "100%",
+      width: "100%"
+  
+    },
+
+    container1: {
+        backgroundColor: "#e0ccff",
+       height: "100%",
+        //borderWidth: 2,
+        padding: 10,
+        width: "60%"
+    },
+     
+    button: {
+  
+      flexDirection: "row",
+      paddingVertical: 2,
+     backgroundColor: "white",
+      marginTop: 5,
+      width: 125,
+      paddingHorizontal: 6,
+      borderRadius: 10,
+      justifyContent: "space-between",
+      alignItems: "center",
+
+       
+  
+    },
+    buttonText: {
+        fontFamily: "Roboto_500Medium"  
+    },
+    text: {
+        fontSize: 25,
+        fontFamily: "Roboto_500Medium"
+    }
+  
+  })

@@ -19,6 +19,7 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton})
      
     const {name, phone, address, lat, lng, loc, id} = useSelector((state)=>state.userReducer)
      
+    console.log(lat, lng)
      const navigation = useNavigation()
 
     const items = useSelector((state)=>state.cartReducer).filter(item => item.restaurantName === restaurantName)
@@ -80,11 +81,8 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton})
                     setLoading(true)
                     //  addOrderToFirebase()  //ICIII
                     // setModalVisible(false);
-                    setTimeout(()=>{
-
-                     //setLoader(false) 
-
-                    navigation.navigate('OrderRequest',{
+                    setTimeout(()=>{          // Dummy
+                    navigation.navigate('OrderRequest',{   
                             lat: lat,
                             lng: lng
                         })
