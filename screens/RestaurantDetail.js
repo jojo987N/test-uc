@@ -143,8 +143,8 @@ export default function RestaurantDetail({route, navigation}) {
     let user = JSON.parse(value)
     //console.log(user)
     setUserLocation({
-      latitude: user.lat,
-      longitude: user.lng
+      latitude: user.address.location.lat,
+      longitude: user.address.location.lng
     })
   })
 
@@ -180,7 +180,7 @@ export default function RestaurantDetail({route, navigation}) {
        
 
 
-       <BottomSheet ref={bottomSheet} index={1} snapPoints={["45%","75%", "95%"]} 
+       <BottomSheet ref={bottomSheet} index={1} snapPoints={["47%","75%", "90%"]} 
        handleIndicatorStyle={{ backgroundColor: "#d9d9d9", width: 100 }}
        onChange={(index)=>{ 
          if(index === 2){

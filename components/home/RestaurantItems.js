@@ -3,7 +3,8 @@ import React, {useState, useEffect, useRef} from 'react'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { AntDesign } from '@expo/vector-icons';
 import Categories from './Categories';
-import { Reward } from '../../screens/Offers';
+//import { Reward } from '../../screens/Offers';
+import Reward from '../Reward';
 
 export const localRestaurants = [
     {

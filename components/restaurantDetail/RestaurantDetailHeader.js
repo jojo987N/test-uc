@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet} from 'react-native'
+import { View, Text, StyleSheet, StatusBar} from 'react-native'
 import React from 'react'
 import GroupFoodHeader from '../GroupFoodHeader'
 import { ArrowBack } from './About'
@@ -24,7 +24,9 @@ const styles = StyleSheet.create({
     container: {
        // position: "absolute",
         // zIndex: 1,
-        backgroundColor: "white"
+        backgroundColor: "white",
+        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+
     },
     head: {
      flexDirection: "row",

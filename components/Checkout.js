@@ -17,9 +17,9 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton})
     const {setLoading} = useContext(LoaderContext)
 
      
-    const {name, phone, address, lat, lng, loc, id} = useSelector((state)=>state.userReducer)
+    const {name, phone, address, id} = useSelector((state)=>state.userReducer)
      
-    console.log(lat, lng)
+    
      const navigation = useNavigation()
 
     const items = useSelector((state)=>state.cartReducer).filter(item => item.restaurantName === restaurantName)
@@ -35,7 +35,7 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton})
 
         setViewCartButton(false)
        // setLoading(true)
-       setLoader(true)
+      // setLoader(true)
         addDoc(ordersCol, {
             orderId: generateUID(),
             restaurantId: items[0].restaurant.restaurantId,
@@ -49,21 +49,23 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton})
             User: {
                     id: id,
                     name: name,
-                     lat: lat,
-                     lng: lng,
+                     lat: address.location.lat,
+                     lng: address.location.lng,
                     phone: phone,
-                    address: address,
-                    items: items
+                    address: address.description,
+                    items: items,
+
                 },
                 status: "pending",
                 createdAt: serverTimestamp(),
         }).then(()=> {
             dispatch({ type: 'CLEAR_RESTAURANT', payload: restaurantName })
-            setLoader(false)
+            //setLoader(false)
+            setLoading(false)
            // navigation.navigate('OrderRequest', {loc: loc})
            navigation.navigate('OrderRequest',{
-               lat: lat,
-               lng: lng
+               lat: address.location.lat,
+               lng: address.location.lng
            })
         })
     }
@@ -79,14 +81,15 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton})
                   onPress={() => {
                     //setLoader(true)
                     setLoading(true)
-                    //  addOrderToFirebase()  //ICIII
+                      addOrderToFirebase()  //ICIII
                     // setModalVisible(false);
-                    setTimeout(()=>{          // Dummy
-                    navigation.navigate('OrderRequest',{   
-                            lat: lat,
-                            lng: lng
-                        })
-                    }, 4000)
+                    
+                    // setTimeout(()=>{          // Dummy
+                    // navigation.navigate('OrderRequest',{   
+                    //         lat: lat,
+                    //         lng: lng
+                    //     })
+                    // }, 4000)
                     
 
                      

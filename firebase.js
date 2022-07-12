@@ -95,7 +95,7 @@ export const ordersCol = collection(db, 'orders')
 
   }
 
-  export const getDriverInfos = (setDriverName, setCar, setDriverImage, bottomSheet, setDriverLat, setDriverLng, mapRef)=>{
+  export const getDriverInfos = async (setDriverName, setCar, setDriverImage, bottomSheet, setDriverLat, setDriverLng, mapRef)=>{
 
     //const q= query(ordersCol, orderBy('createdAt', 'desc'), limit(1))
     //const q= query(ordersCol, where('createdAt', 'desc'), limit(1))
@@ -109,7 +109,7 @@ export const ordersCol = collection(db, 'orders')
          
          snapshot.docs.forEach((doc) => {
           
-        if(doc.data().createdAt && doc.data().status === 'ACCEPTED' && doc.data().User.id === auth.currentUser?.uid) {
+        if(doc.data().createdAt && doc.data().status === 'ACCEPTED' && doc.data().User.id === auth.currentUser?.uid, doc.data().driverId) {
           
           bottomSheet?.current.collapse()
 
@@ -320,7 +320,7 @@ export const addRestaurants = (restaurants)=>{
  //Collection User
   const userRef = collection(db, 'users')
 
-  export const addUser = (userCredentials,name,phone) => {
+  export const addUser = async (userCredentials,name,phone, address) => {
 
    // const userRef = collection(db, 'users')
     addDoc(userRef, {
@@ -330,7 +330,8 @@ export const addRestaurants = (restaurants)=>{
      // email: auth.currentUser?.email,
       email: userCredentials.user.email,
       //address: address,
-      phone: phone
+      phone: phone,
+      address: address
      // lat: 40.71,
      // lng: -74,
 

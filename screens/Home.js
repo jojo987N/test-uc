@@ -98,7 +98,7 @@ export default function Home({navigation}) {
            // }, 500)
 
 
-          }, 4000)
+          }, 3000)
 
         })
       }

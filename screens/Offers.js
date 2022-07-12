@@ -4,8 +4,7 @@ import { AntDesign } from '@expo/vector-icons'
 import { ArrowBack } from '../components/restaurantDetail/About'
 import {restaurants} from '../data'
 import { RestaurantInfo, RestaurantImage} from '../components/home/RestaurantItems'
-
-
+import Reward from '../components/Reward'
 
 export default function Offers({navigation}) {
   return (
@@ -34,12 +33,12 @@ export default function Offers({navigation}) {
   )
 }
 
-export const Reward = ({restaurant})=>(
+// export const Reward = ({restaurant})=>(
   
-    <View style={styles.reward}>
-        <Text style={styles.rewardText}>{restaurant.reward}</Text>
-    </View>
-)
+//     <View style={styles.reward}>
+//         <Text style={styles.rewardText}>{restaurant.reward}</Text>
+//     </View>
+// )
 
 const styles = StyleSheet.create({
     container:{
@@ -59,19 +58,19 @@ const styles = StyleSheet.create({
     restaurantsContainer: {
         marginVertical: 10
     }, 
-    reward: {
-        position: "absolute",
-        backgroundColor: "green",
-        top: 20,
-        borderTopRightRadius: 20,
-        borderBottomRightRadius: 20
+    // reward: {
+    //     position: "absolute",
+    //     backgroundColor: "green",
+    //     top: 20,
+    //     borderTopRightRadius: 20,
+    //     borderBottomRightRadius: 20
          
-    },
-    rewardText: {
-        paddingVertical : 5,
-        //fontSize: 20,
-        color: "white",
-        paddingHorizontal: 20
-    }
+    // },
+    // rewardText: {
+    //     paddingVertical : 5,
+    //     //fontSize: 20,
+    //     color: "white",
+    //     paddingHorizontal: 20
+    // }
 
 })

@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView, FlatList} from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, FlatList, StatusBar} from 'react-native'
 import React, { useState } from 'react'
 import { groupFoods } from '../data'
 import { BottomSheetFlatList } from '@gorhom/bottom-sheet'
@@ -73,8 +73,8 @@ const styles = StyleSheet.create({
      //flex: 1
      height: 60,
      borderBottomWidth: 3,
-     borderBottomColor: grey1
-     
+     borderBottomColor: grey1,
+      
     },
     textContainer: {
         marginHorizontal: 20,

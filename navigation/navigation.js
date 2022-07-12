@@ -24,7 +24,8 @@ import Offers from '../screens/Offers'
 import Wallet from '../screens/Wallet'
 import AddCard from '../screens/AddCard'
  import OnboardingScreen from '../screens/Onboarding'
-
+import SignUp from '../screens/SignUp'
+ 
 
 const store = configureStore();
 
@@ -52,6 +53,7 @@ export default function RootNavigation({statusBarColor}) {
               <Stack.Screen name="Onboarding" component={OnboardingScreen}/>
               <Stack.Screen name="Splash" component={Splash}/>
               <Stack.Screen name="SignIn" component={SignIn}/>
+              <Stack.Screen name="SignUp" component={SignUp}/>
               <Stack.Screen name="SignInWelcomeScreen" component={SignInWelcomeScreen}/>
               <Stack.Screen name="SignScreen" component={SignScreen}/>
               {/* <Stack.Screen name="SignUpScreen" component={SignUpScreen}/> */}

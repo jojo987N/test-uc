@@ -42,7 +42,8 @@ opacity, setCategoriesFood}) {
 
   // const [foods, setFoods] = useState([])
 
-   const [foods, setFoods] = useState(restaurant.productData)
+  // const [foods, setFoods] = useState(restaurant.productData)
+  const [foods, setFoods] = useState([])
 
    const [loader, setLoader] = useState(false)
 

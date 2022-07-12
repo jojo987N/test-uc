@@ -12,7 +12,9 @@ import SearchBar from '../components/home/SearchBar'
 import BottomSheet from '@gorhom/bottom-sheet'
 import Categories from '../components/home/Categories'
 import {FlatList} from 'react-native-gesture-handler'
-import { Reward } from './Offers'
+//import { Reward } from './Offers'
+import Reward from '../components/Reward'
+import { getDistanceFromLatLonInKm } from '../utils'
 
 
 
@@ -23,6 +25,21 @@ export default function RestaurantsMapScreen({route, navigation}) {
   //const {lat, lng} = useSelector((state)=>state.userReducer)
 
   const {restaurantData} = route.params
+
+
+  const restaurantDataSort1 = restaurantData.sort((a, b)=>{
+
+    return getDistanceFromLatLonInKm(a.coordinates.latitude, a.coordinates.longitude, 
+      37.769535,
+      -122.429213 ) - getDistanceFromLatLonInKm(b.coordinates.latitude, b.coordinates.longitude, 
+        37.769535,
+        -122.429213 )
+    
+  }).filter(c => getDistanceFromLatLonInKm(c.coordinates.latitude, c.coordinates.longitude,
+    37.769535,-122.429213)<5)
+
+  const restaurantDataSort = restaurantData.filter(c => getDistanceFromLatLonInKm(c.coordinates.latitude, c.coordinates.longitude,
+    37.769535,-122.429213)<5)
 
   const { width, height } = useWindowDimensions();
 
@@ -140,7 +157,7 @@ export default function RestaurantsMapScreen({route, navigation}) {
               }}/>
             </Marker> */}
 
-            <RestaurantMarkers restaurantData={restaurantData} focus={focus} setFocusFunction={setFocusFunction} restaurantsRef={restaurantsRef}
+            <RestaurantMarkers restaurantDataSort={restaurantDataSort} focus={focus} setFocusFunction={setFocusFunction} restaurantsRef={restaurantsRef}
             visible={visible} setVisible={setVisible}/>
               
              
@@ -168,21 +185,21 @@ export default function RestaurantsMapScreen({route, navigation}) {
          }
       }}
       >
-        <RestaurantsView restaurantsRef={restaurantsRef} restaurantData={restaurantData} setFocusFunction={setFocusFunction}
+        <RestaurantsView restaurantsRef={restaurantsRef} restaurantDataSort={restaurantDataSort} setFocusFunction={setFocusFunction}
      focus={focus} _map={_map} width={width} horizontal={false} Categories={Categories} scrollEnabled={scrollEnabled}
      setDirection={setDirection} setOffset={setOffset} offset={offset} direction={direction}
      setScrollEnabled={setScrollEnabled}/>
       </BottomSheet>}
 
      
-     {!visible && <RestaurantsView restaurantsRef={restaurantsRef} restaurantData={restaurantData} setFocusFunction={setFocusFunction}
+     {!visible && <RestaurantsView restaurantsRef={restaurantsRef} restaurantDataSort={restaurantDataSort} setFocusFunction={setFocusFunction}
      focus={focus} _map={_map} width={width} horizontal={true}/>}
                  
     </View>
   )
 }
 
-const RestaurantsView = ({_map, restaurantsRef, restaurantData, setFocusFunction, focus, width, horizontal,
+const RestaurantsView = ({_map, restaurantsRef, restaurantDataSort, setFocusFunction, focus, width, horizontal,
 Categories, scrollEnabled, offset, setOffset, direction, setDirection, setScrollEnabled})=>{
 
   return (
@@ -191,7 +208,7 @@ Categories, scrollEnabled, offset, setOffset, direction, setDirection, setScroll
     <FlatList
          ref={restaurantsRef}
          horizontal={horizontal}
-         data={restaurantData}
+         data={restaurantDataSort}
          keyExtractor={(item, index)=>index}
          renderItem={({item, index})=>{
          return <View style={{...styles.restaurant, 
@@ -231,8 +248,8 @@ Categories, scrollEnabled, offset, setOffset, direction, setDirection, setScroll
           console.log(index)
 
           _map.current.animateToRegion({
-             latitude: restaurantData[Math.round(x/w)].coordinates.latitude,
-             longitude: restaurantData[Math.round(x/w)].coordinates.longitude,
+             latitude: restaurantDataSort[Math.round(x/w)].coordinates.latitude,
+             longitude: restaurantDataSort[Math.round(x/w)].coordinates.longitude,
               
              latitudeDelta: 0.0922,
              longitudeDelta: 0.0421
@@ -274,9 +291,9 @@ Categories, scrollEnabled, offset, setOffset, direction, setDirection, setScroll
 
  
 
-const RestaurantMarkers = ({restaurantData, focus, setFocusFunction, restaurantsRef, visible, setVisible})=>{
+const RestaurantMarkers = ({restaurantDataSort, focus, setFocusFunction, restaurantsRef, visible, setVisible})=>{
 
-  return restaurantData.map((restaurant, index)=>{
+  return restaurantDataSort.map((restaurant, index)=>{
 
     return(
       <Marker key={index} title={restaurant.name} description="nasso"

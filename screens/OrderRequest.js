@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, useWindowDimensions, Image, Animated} from 'react-native'
 import React, { useEffect, useRef, useState } from 'react'
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
-//import {getDriverInfos} from '../firebase'
+import {getDriverInfos} from '../firebase'
 import BottomSheet from '@gorhom/bottom-sheet'
 import { Icon} from 'react-native-elements'
 import LottieView from 'lottie-react-native';
@@ -12,256 +12,89 @@ import { positions } from '../positions'
 import { sin } from 'react-native-reanimated'
 import OrderCountDown from '../components/OrderCountDown'
 import { Polyline } from 'react-native-maps'
+import { bearing } from '../utils'
+import { updateInterface, move, PolylineDemo} from '../demo'
+ 
 
  
 
 export default function OrderRequest({navigation, route}) {
   
- //console.log(positions.gpx.trk.trkseg.trkpt.length)
+//  const lat = 48.8714859    //lat lng pour demo
+//  const lng = 2.3371311
 
- //console.log(positions.gpx.wpt[0].lat, positions.gpx.wpt[0].lon)
-
-//  console.log(positions.gpx.trk.trkseg.trkpt.map(p => ({
-//    latitude: p.lat, longitude: p.lon})))
-
-  const lat = 48.8714859
-  const lng = 2.3371311
-  //const {lat, lng} = route.params
+  const {lat, lng} = route.params
   const { width, height } = useWindowDimensions();
   const [driver, setDriver] = useState()
   const [driverName, setDriverName] = useState()
   const [car, setCar] = useState()
   const [driverImage, setDriverImage] = useState()
-  //const [driverLat, setDriverLat] = useState()
-  const [driverLat, setDriverLat] = useState(parseFloat(positions.gpx.wpt[0].lat))
-  //const [driverLng, setDriverLng] = useState()
-  const [driverLng, setDriverLng] = useState(parseFloat(positions.gpx.wpt[0].lon))
+  const [driverLat, setDriverLat] = useState()
+  //const [driverLat, setDriverLat] = useState(parseFloat(positions.gpx.wpt[0].lat))
+  const [driverLng, setDriverLng] = useState()
+
+  const [regionLat, setRegionLat] = useState(lat)
+  const [regionLng, setRegionLng] = useState(lng)
+  //const [driverLng, setDriverLng] = useState(parseFloat(positions.gpx.wpt[0].lon))
   const bottomSheet = useRef(null)
   const mapRef = useRef(null)
-  const [local, setLocal] = useState(true)
-  //const [angle, setAngle] = useState('0deg')
-  const [totalMinutes, setTotalMinutes]=useState(51)
-  const [timeLeft, setTimeLeft] = useState(Math.round(51/4))
- 
+  const [local, setLocal] = useState(false)  // Demo
+  const [totalMinutes, setTotalMinutes]=useState(51)    // Demo
+  const [timeLeft, setTimeLeft] = useState(Math.round(51/4)) // Demo
+
 
    
-   
-
-  const updateInterface = async ()=>{
-    bottomSheet?.current.collapse()
-     
-  }
-   
-  // const updateInterface = async ()=>{
-    
-  //   setTimeout(()=>{
-  //     bottomSheet?.current.collapse()
-  //     setDriverImage(require('../assets/images/driver.png'))
-
-  //   }, 15000)
-     
-  // }
-
-  // updateInterface()
-  // .then(()=>{
-  //   setLocal(false)
-  //   move()
-  // })
-
-
-  const bearing = (φ1, λ1, φ2, λ2) => {
-    
-    const x = Math.sin((λ2 - λ1)*Math.PI/180) * Math.cos(φ2*Math.PI/180);
-   
-    //console.log(Math.sin(λ2 - λ1) * Math.cos(φ2))
-
-    const y = Math.cos(φ1*Math.PI/180) * Math.sin(φ2*Math.PI/180) -
-      Math.sin(φ1*Math.PI/180) * Math.cos(φ2*Math.PI/180) * Math.cos((λ2 - λ1)*Math.PI/180);
-    const θ = Math.atan2(x, y);
-
-  //console.log(x, y, θ)
-
-    return  (θ * 180 / Math.PI + 360) % 360; // in degrees
-    //return  (θ * 180 / Math.PI)  // in degrees
-
-
-  }
-
-  //console.log(bearing(39.099912, -94.581213, 38.627089, -90.200203).toString()+'deg')
-
-//console.log(bearing(39.099912, -94.581213, 38.627089, -90.200203))
- 
-  //const [angle, setAngle] = useState( '1deg')
-
 
    const angleValue = useState(new Animated.Value(1))[0]
    const angle = angleValue.interpolate({
      inputRange: [0, 1],
      outputRange: ['0deg', '360deg']
    })
-   const direction = useState(new Animated.ValueXY({
-     x:0, y:0
-   }))[0]
-
-    
- 
-
-
-    // console.log((-(bearing(positions.gpx.trk.trkseg.trkpt[0].lat, 
-    //   positions.gpx.trk.trkseg.trkpt[0].lon, 
-    //   positions.gpx.trk.trkseg.trkpt[1].lat, 
-    //   positions.gpx.trk.trkseg.trkpt[1].lon)-360)).toString()+'deg')
-
-   const move = ()=>{
-
-    
-    
-  
-
-    //  positions.forEach((position, index)=>{
-      
-    //    // setDriverLat(positions[index][0])
-    //    // setDriverLat(positions[index][1])
-    //  })
-     
-    let i = 0
-    
-
-
-    // console.log((bearing(positions.gpx.trk.trkseg.trkpt[i].lat, 
-    //   positions.gpx.trk.trkseg.trkpt[i].lon, 
-    //   positions.gpx.trk.trkseg.trkpt[i+1].lat, 
-    //   positions.gpx.trk.trkseg.trkpt[i+1].lon))/360)
-
-
-
-      var refreshId = setInterval(()=>{
-     
-        console.log(i, i+1, positions.gpx.trk.trkseg.trkpt.length)
-
-        // console.log((bearing(positions.gpx.trk.trkseg.trkpt[i].lat, 
-        //   positions.gpx.trk.trkseg.trkpt[i].lon, 
-        //   positions.gpx.trk.trkseg.trkpt[i+1].lat, 
-        //   positions.gpx.trk.trkseg.trkpt[i+1].lon))/360)
-      //console.log(positions.gpx.trk.trkseg.trkpt[i].lat, positions.gpx.trk.trkseg.trkpt[i].lon, i)
-
-   // console.log(cartesian(positions.gpx.trk.trkseg.trkpt[i].lat, positions.gpx.trk.trkseg.trkpt[i].lon))
-      // console.log(((bearing(positions.gpx.trk.trkseg.trkpt[i].lat, 
-      //   positions.gpx.trk.trkseg.trkpt[i].lon, 
-      //   positions.gpx.trk.trkseg.trkpt[i+1].lat, 
-      //   positions.gpx.trk.trkseg.trkpt[i+1].lon)-360)).toString()+'deg')
-
-      // console.log((bearing(positions.gpx.trk.trkseg.trkpt[i].lat, 
-      //   positions.gpx.trk.trkseg.trkpt[i].lon, 
-      //   positions.gpx.trk.trkseg.trkpt[i+1].lat, 
-      //   positions.gpx.trk.trkseg.trkpt[i+1].lon)).toString()+'deg')
-
-
-      
-
-          Animated.timing(angleValue, {
-            toValue: 0.25+(-360 + (bearing(positions.gpx.trk.trkseg.trkpt[i].lat, 
-              positions.gpx.trk.trkseg.trkpt[i].lon, 
-              positions.gpx.trk.trkseg.trkpt[i+1].lat, 
-              positions.gpx.trk.trkseg.trkpt[i+1].lon)))/360,
-            duration: 500,
-            useNativeDriver: false
-        }).start(()=>{
-
-        
-          // console.log((bearing(positions.gpx.trk.trkseg.trkpt[i].lat, 
-          //   positions.gpx.trk.trkseg.trkpt[i].lon, 
-          //   positions.gpx.trk.trkseg.trkpt[i+1].lat, 
-          //   positions.gpx.trk.trkseg.trkpt[i+1].lon))/360)
-
-
-          // console.log("good")
-         // const wait = new Promise(resolve => setTimeout(resolve, 2000));
-          //wait.then(()=>{
-
-            setDriverLat(parseFloat(positions.gpx.trk.trkseg.trkpt[i+1].lat))
-            setDriverLng(parseFloat(positions.gpx.trk.trkseg.trkpt[i+1].lon))
-  
-
-         // })
-           
-       //   console.log(positions.gpx.trk.trkseg.trkpt[i+1].lat,positions.gpx.trk.trkseg.trkpt[i+1].lon, i)
-
-          
-
-        i+=1
-        })
-
-      //   Animated.sequence([
-      //     Animated.timing(angleValue, {
-      //       toValue: 0,
-      //       duration: 1000,
-      //       useNativeDriver: false
-      //   }),
-      //      Animated.timing(opacity, {
-      //         toValue: 1,
-      //         duration: 1000,
-      //         useNativeDriver: false
-      //     }),
-      // ]).start()
-
-
-        
-
-
-
-
-    // setAngle(((bearing(positions.gpx.trk.trkseg.trkpt[i].lat, 
-    //     positions.gpx.trk.trkseg.trkpt[i].lon, 
-    //     positions.gpx.trk.trkseg.trkpt[i+1].lat, 
-    //     positions.gpx.trk.trkseg.trkpt[i+1].lon)-360)).toString()+'deg')
-      
-       
-      if(i+1 === positions.gpx.trk.trkseg.trkpt.length-3)
-       clearInterval(refreshId)
-
-      //   i++
-
-     }, 1000)
-
-
-   }
-
-
-
    
    useEffect(()=>{
      
 
-     setTimeout(()=>{
+    //  setTimeout(()=>{    // Demo
    
-      updateInterface()
-      .then(()=>{
-        setDriverImage(require('../assets/images/driver.png'))
-      }).then(()=>{
-        // setLocal(false)
-      })
-      .then(()=>{
-        move()
-      })
+    //   updateInterface(bottomSheet)
+    //   .then(()=>{
+    //     setDriverImage(require('../assets/images/driver.png'))
+    //   }).then(()=>{
+    //     // setLocal(false)
+    //   })
+    //   .then(()=>{
+    //     move(angleValue, setDriverLat, setDriverLng, positions)
+    //   })
       
-    }, 15000)
+    // }, 15000)
 
 
 
-  //move()
-   // getDriverInfos(setDriverName, setCar, setDriverImage, bottomSheet, setDriverLat, setDriverLng, mapRef)
+   
+    getDriverInfos(setDriverName, setCar, setDriverImage, bottomSheet, setDriverLat, setDriverLng, mapRef)
+    .then(()=>{
+      if(driverLat  && driverLng){
+
+        // setRegionLat(lat + (driverLat - lat)*0.5)
+        // setRegionLng(lng + (driverLng - lng)*0.5)
+      }
+    //  console.log(driverLat, driverLng)
+      console.log(lat + (driverLat - lat)*0.5, lng + (driverLng - lng)*0.5, "fff")
+    })
+    
    }, [])
   return (
     <View style={{}}>
       <MapView
         provider={PROVIDER_GOOGLE}
         ref={mapRef}
-        initialRegion={{latitude: lat,longitude: lng,latitudeDelta: 0.02522,longitudeDelta: 0.01721 }}
+       // initialRegion={{latitude: lat,longitude: lng,latitudeDelta: 0.02522,longitudeDelta: 0.01721 }} // demo
+       region={{latitude: regionLat,longitude: regionLng,latitudeDelta: 0.1122,longitudeDelta: 0.0621 }}
        style={{height: height, width: width}} showsUserLocation={true}>
 
+        
 
-        <Polyline
+        {/* <Polyline // Demo
             coordinates={[{
               latitude: parseFloat(positions.gpx.wpt[0].lat),
               longitude: parseFloat(positions.gpx.wpt[0].lon)
@@ -271,25 +104,18 @@ export default function OrderRequest({navigation, route}) {
             ]}
                   strokeWidth={5}
                   strokeColor="#86592d"
-                 />
+                 /> */}
 
       {/* <Marker  title="nass" description="nasso"
         coordinate={{latitude: parseFloat(positions.gpx.trk.trkseg.trkpt[1].lat),
           longitude: parseFloat(positions.gpx.trk.trkseg.trkpt[1].lon),}}
          
         ></Marker> */}
-
-
-
-
-
-
-
-        {/* <MyLocationMarker lat={lat} lng={lng} /> */}
+        
 
         <CustomMarker subject="user" lat={lat} lng={lng}/>
 
-        { driverLat && driverLng ?<CustomMarker subject="driver" lat={driverLat} lng={driverLng} angle={angle} direction={direction}/>:<></>}
+        { driverLat && driverLng ?<CustomMarker subject="driver" lat={driverLat} lng={driverLng} angle={angle} />:<></>}
 
        { driverLat && driverLng && !local ?<DisplayMapviewDirections apikey={apikey} toLat={lat} toLng={lng} fromLat={driverLat} fromLng={driverLng} 
        setTotalMinutes={setTotalMinutes} setTimeLeft={setTimeLeft}/>:<></>}
@@ -339,33 +165,17 @@ export default function OrderRequest({navigation, route}) {
   )
 }
 
-export const CustomMarker = ({subject, lat, lng, angle, direction})=>{
-
-  //console.log(lat, lng)
+export const CustomMarker = ({subject, lat, lng, angle, })=>{
 
   return (<Marker.Animated  title="nass" description="nasso"
-  coordinate={{latitude: lat,longitude: lng,}}
-
-   
-   
-
+  coordinate={{latitude: lat,longitude: lng}}
   >
-     
-
-      {subject === "user"?
-      // <OrderCountDown />
-    // <View style={styles.timeContainer}>
-    // <Text style={styles.time}>10 min</Text>
-    // <View style={{height:0, width: 0}}>
-      
-   //  </View>
-    
-   // </View>
-   <Image source={require('../assets/images/home1.png')} style={styles.homeMarkerImage}
+    {subject === "user"?
+    <Image source={require('../assets/images/home1.png')} style={styles.homeMarkerImage}
     resizeMode="contain"/>
     :
      <Animated.View  style={
-       //direction.getLayout()
+        
        {
       transform: [
         {
@@ -395,9 +205,9 @@ export const DisplayMapviewDirections = ({fromLat, fromLng, toLat, toLng, apikey
  
  <MapViewDirections 
          
- //origin={{latitude: fromLat,longitude: fromLng,}}
+ origin={{latitude: fromLat,longitude: fromLng,}}
 
- origin={{latitude: 48.8667514, longitude: 2.337234,}}
+ //origin={{latitude: 48.8667514, longitude: 2.337234,}}
  
  destination={{latitude: toLat,longitude: toLng}}
  
@@ -406,6 +216,10 @@ export const DisplayMapviewDirections = ({fromLat, fromLng, toLat, toLng, apikey
  apikey={apikey}
 
  onReady={(result)=>{
+
+  // console.log(result.duration)
+   setTotalMinutes(result.duration)
+   setTimeLeft(result.duration)
    
  }}
 
@@ -424,24 +238,6 @@ export const DisplayMapviewDirections = ({fromLat, fromLng, toLat, toLng, apikey
  />
 )}
 
-// const DisplayMapviewDirections = ({fromLat, fromLng, toLat, toLng, apikey})=>{
-  
-//    console.log(fromLat, fromLng, toLat, toLng)
-//   return(
-  
-//   <MapViewDirections 
-          
-//   origin={{latitude: fromLat,longitude: fromLng,}}
-  
-//   destination={{latitude: toLat,longitude: toLng}}
-  
-//   strokeWidth={10} strokeColor="green" 
-    
-//   apikey={apikey}
-
-    
-//   />
-// )}
 
 const AnimationCooking = ()=>{
   return (

@@ -3,38 +3,54 @@ import React from 'react'
 import {GooglePlacesAutocomplete}  from 'react-native-google-places-autocomplete'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import AntDesign from 'react-native-vector-icons/AntDesign' 
+import { apikey } from '../../global'
 
-export default function SearchBar({cityHandler}) {
+export default function SearchBar({cityHandler, style, setAddress}) {
+  
 
   return (
     <View style={{marginTop: 15, flexDirection: "row"}}>
 
       <GooglePlacesAutocomplete 
       query={{ 
-        key: "AIzaSyAwLZyznRMu86EDLO-fsRL8BgrCT7hXq7g",
+        key: apikey,
         language: 'en',
       }}
+
+      fetchDetails
 
       onPress={(data, details=null)=>{
          //console.log(data)
           const city = data.description.split(',')[0];
+
+          if(!style)
           cityHandler(city)
+
+          setAddress({
+            description: data.description,
+            location: details?.geometry?.location
+          })
+
+         // setLocation(details?.geometry?.location)
+
+         // console.log(details?.geometry?.location.lat, details?.geometry?.location.lng)
       }}
-      placeholder="Search"
+      placeholder={!style?"Search":"Address"}
       styles={{
         textInput :{
 
-            backgroundColor: '#eee',
+            backgroundColor: !style?'#eee':style.backgroundColor,
             borderRadius : 20,
             fontWeight: "700",
             marginTop: 7,
         },
         textInputContainer:{
-            backgroundColor: "#eee",
-            borderRadius: 50,
+            backgroundColor: !style?'#eee':style.backgroundColor,
+            borderRadius: !style?50:0,
             flexDirection: "row",
             alignItems: "center",
             marginRight : 10,
+            ...style?{borderBottomWidth: style.borderBottomWidth, borderBottomColor: style.borderBottomColor}:{}
         }  
 
           }}
@@ -44,7 +60,7 @@ export default function SearchBar({cityHandler}) {
                 <Ionicons name="location-sharp" size={24} />
             </View>
           )} 
-          renderRightButton={()=>(
+          renderRightButton={!style?()=>(
           <View style={{
              flexDirection: "row",
              marginRight: 8,
@@ -59,7 +75,7 @@ export default function SearchBar({cityHandler}) {
               <Text>Search</Text>
           </View>
           
-          )}/>
+          ):()=>{}}/>
     </View>
   )
 }

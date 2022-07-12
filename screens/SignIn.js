@@ -81,6 +81,10 @@ export default function SignIn({navigation}) {
     
 }
 
+loginState && setTimeout(()=>{
+  setLoginState(false)
+}, 10000)
+
 useEffect(()=>{
     AsyncStorage.getItem("userData")
     .then((value)=>{
@@ -147,17 +151,11 @@ useEffect(()=>{
               <TouchableOpacity onPress={() => SignInUser()}>
 
               <LinearGradient
-                          colors={['#ada996', '#f2f2f2', '#dbdbdb', '#eaeaea']}
+                          colors={['#948E99', '#2E1437']}
                           style={styles.signInButton} >
-                          <Text style={styles.signInText}>Sign In</Text>
+                          <Text style={{...styles.signInText, color: 'white'}}>Sign In</Text>
               </LinearGradient>
-                  {/* <View style={{
-                      backgroundColor: "#0080ff",
-                      marginHorizontal: 25,
-                      borderRadius: 5,
-                      marginTop: 20
-
-                  }}>
+                  {/* <View style={styles.signUpButton}>
                       <Text style={{
                           padding: 16,
                           textAlign: "center",
@@ -167,6 +165,16 @@ useEffect(()=>{
                           letterSpacing: 2
                       }}>Sign In</Text>
                   </View> */}
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
+
+              <LinearGradient
+                          colors={['#ada996', '#f2f2f2', '#dbdbdb', '#eaeaea']}
+                          style={styles.signInButton} >
+                          <Text style={styles.signInText}>Sign Up</Text>
+              </LinearGradient>
+              
               </TouchableOpacity>
 
 
@@ -238,5 +246,6 @@ const styles = StyleSheet.create({
        fontWeight: "bold",
        color: "#3d5c5c",
        letterSpacing: 1
-   }
+   },
+ 
 })
