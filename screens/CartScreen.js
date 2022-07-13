@@ -33,7 +33,7 @@ const CartScreen = () => {
                <View style={styles.name_quantity_price}>
                 <Text style={styles.name}>{restaurantName}</Text>
                 <Text style={styles.quantity_price}>{quantity} article{quantity>1?"s":""} • {items.reduce((a, v) => v.restaurantName === restaurantName ? a + v.price : a, 0).toLocaleString(language, {style: "currency", currency: currency})}</Text>
-                <Text style={styles.address}>deliver to {address}</Text>
+                <Text style={styles.address}>deliver to {address.description}</Text>
               </View>
                
               <AntDesign name="right" size={20} color="black" style={styles.icon}/>

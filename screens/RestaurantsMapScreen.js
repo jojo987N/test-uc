@@ -27,19 +27,19 @@ export default function RestaurantsMapScreen({route, navigation}) {
   const {restaurantData} = route.params
 
 
-  const restaurantDataSort1 = restaurantData.sort((a, b)=>{
+  // const restaurantDataSort1 = restaurantData.sort((a, b)=>{
 
-    return getDistanceFromLatLonInKm(a.coordinates.latitude, a.coordinates.longitude, 
-      37.769535,
-      -122.429213 ) - getDistanceFromLatLonInKm(b.coordinates.latitude, b.coordinates.longitude, 
-        37.769535,
-        -122.429213 )
+  //   return getDistanceFromLatLonInKm(a.coordinates.latitude, a.coordinates.longitude, 
+  //     37.769535,
+  //     -122.429213 ) - getDistanceFromLatLonInKm(b.coordinates.latitude, b.coordinates.longitude, 
+  //       37.769535,
+  //       -122.429213 )
     
-  }).filter(c => getDistanceFromLatLonInKm(c.coordinates.latitude, c.coordinates.longitude,
-    37.769535,-122.429213)<5)
+  // }).filter(c => getDistanceFromLatLonInKm(c.coordinates.latitude, c.coordinates.longitude,
+  //   37.769535,-122.429213)<5)
 
   const restaurantDataSort = restaurantData.filter(c => getDistanceFromLatLonInKm(c.coordinates.latitude, c.coordinates.longitude,
-    37.769535,-122.429213)<5)
+    37.769535,-122.429213) < 5)
 
   const { width, height } = useWindowDimensions();
 

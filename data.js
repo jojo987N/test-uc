@@ -1,3 +1,13 @@
+export const themes = [
+  "In a rush?",
+  "Best Overall",
+  "Everyday savings",
+  "Popular near you",
+  "Rewards for you",
+  "National brands",
+   "Only on Good Food",
+    
+]
 
  export const groupFoods = [
    {

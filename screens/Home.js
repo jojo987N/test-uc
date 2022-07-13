@@ -7,7 +7,7 @@ import Categories from '../components/home/Categories'
 import RestaurantItems, { localRestaurants } from '../components/home/RestaurantItems'
 import { Divider } from 'react-native-elements'
 //import BottomTabs from '../components/home/BottomTabs'
-import { restaurants } from '../data'
+import { restaurants, themes } from '../data'
 //import { restaurants } from '../firebase'
 import HomeHeader from '../components/home/HomeHeader'
 
@@ -15,6 +15,7 @@ import { addRestaurants, getRestaurantsFromFirebase } from '../firebase'
 
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { AntDesign } from '@expo/vector-icons'
+import Loader from './Loader'
 
 
  
@@ -81,7 +82,15 @@ export default function Home({navigation}) {
           setRestaurantData(restaurants)
            
         }).then(() => {
-          let i = 1
+           
+
+        })
+      }
+    }) 
+
+
+
+    let i = 1
           setInterval(()=>{
      
             
@@ -99,10 +108,6 @@ export default function Home({navigation}) {
 
 
           }, 3000)
-
-        })
-      }
-    }) 
   
   },[city, activeTab])
 
@@ -123,12 +128,25 @@ export default function Home({navigation}) {
        
         <ScrollView showsVerticalScrollIndicator={false}>
           <Categories />
-          <RestaurantItems restaurantData={restaurantData} reward="$60 until $9 reward" navigation={navigation} size="100%" horizontal={true}/>
+         <RestaurantItems restaurantData={restaurantData} reward="$60 until $9 reward" navigation={navigation} size="100%" horizontal={true}/>
         
           <RestaurantItems restaurantData={restaurantData}  navigation={navigation} ads={true} size="100%" flatlist={flatlist} horizontal={true}/>
         
-        
-          <RestaurantItems restaurantData={restaurantData.filter(restaurant => restaurant.theme === "Everyday savings")}  navigation={navigation} theme="Everyday savings"  horizontal={true}/>
+          {themes.map((theme, index)=>{
+            
+            return(
+            <View key={index}>
+              <Text>{theme}</Text>
+              <RestaurantItems restaurantData={restaurantData.filter(restaurant => restaurant.theme === theme)}  navigation={navigation}  horizontal={true}/>
+            </View>
+            
+            )
+          })}
+
+
+
+          {/* <RestaurantItems restaurantData={restaurantData.filter(restaurant => restaurant.theme === "Everyday savings")}  navigation={navigation} theme="Everyday savings"  horizontal={true}/> */}
+
         </ScrollView>
        
       

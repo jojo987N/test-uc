@@ -25,7 +25,8 @@ export default function SearchBar({cityHandler, style, setAddress}) {
 
           if(!style)
           cityHandler(city)
-
+          
+          if(style)
           setAddress({
             description: data.description,
             location: details?.geometry?.location

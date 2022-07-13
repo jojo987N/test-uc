@@ -425,18 +425,23 @@ const addOrderToFirebase = () => {
 
 const populateRestaurant = ()=> {
 
-  [3,4,8,12,14].forEach(val => {
-    
-     
-  })
+  const themes = [
+    "In a rush?",
+    "Best Overall",
+    "Popular near you",
+    "Rewards for you",
+    "National brands",
+     "Only on Good Food",
+     "Everyday savings"
+  ]
 
-  return getDocs(restaurantsCol)
+  getDocs(restaurantsCol)
     .then( snapshot => {
       snapshot.docs.forEach((docc) => {
 
         updateDoc( doc(db, 'restaurants', docc.id), {
 
-          group : Math.floor(Math.random()*9+1)
+          theme : themes[Math.floor(Math.random()*7)]
        
         }).then(()=> console.log('Updated'))
 
@@ -444,6 +449,10 @@ const populateRestaurant = ()=> {
 })
 
 }
+
+//populateRestaurant()
+
+
  
 
 
