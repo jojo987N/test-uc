@@ -20,10 +20,10 @@ import { updateInterface, move, PolylineDemo} from '../demo'
 
 export default function OrderRequest({navigation, route}) {
   
-//  const lat = 48.8714859    //lat lng pour demo
-//  const lng = 2.3371311
+ const lat = 48.8714859    //lat lng pour demo
+ const lng = 2.3371311
 
-  const {lat, lng} = route.params
+ // const {lat, lng} = route.params
   const { width, height } = useWindowDimensions();
   const [driver, setDriver] = useState()
   const [driverName, setDriverName] = useState()
@@ -38,7 +38,7 @@ export default function OrderRequest({navigation, route}) {
   //const [driverLng, setDriverLng] = useState(parseFloat(positions.gpx.wpt[0].lon))
   const bottomSheet = useRef(null)
   const mapRef = useRef(null)
-  const [local, setLocal] = useState(false)  // Demo
+  const [local, setLocal] = useState(true)  // Demo
   const [totalMinutes, setTotalMinutes]=useState(51)    // Demo
   const [timeLeft, setTimeLeft] = useState(Math.round(51/4)) // Demo
 
@@ -54,33 +54,33 @@ export default function OrderRequest({navigation, route}) {
    useEffect(()=>{
      
 
-    //  setTimeout(()=>{    // Demo
+     setTimeout(()=>{    // Demo
    
-    //   updateInterface(bottomSheet)
-    //   .then(()=>{
-    //     setDriverImage(require('../assets/images/driver.png'))
-    //   }).then(()=>{
-    //     // setLocal(false)
-    //   })
-    //   .then(()=>{
-    //     move(angleValue, setDriverLat, setDriverLng, positions)
-    //   })
+      updateInterface(bottomSheet)
+      .then(()=>{
+        setDriverImage(require('../assets/images/driver.png'))
+      }).then(()=>{
+        // setLocal(false)
+      })
+      .then(()=>{
+        move(angleValue, setDriverLat, setDriverLng, positions)
+      })
       
-    // }, 15000)
+    }, 15000)
 
 
 
    
-    getDriverInfos(setDriverName, setCar, setDriverImage, bottomSheet, setDriverLat, setDriverLng, mapRef)
-    .then(()=>{
-      if(driverLat  && driverLng){
+    // getDriverInfos(setDriverName, setCar, setDriverImage, bottomSheet, setDriverLat, setDriverLng, mapRef)
+    // .then(()=>{
+    //   if(driverLat  && driverLng){
 
-        // setRegionLat(lat + (driverLat - lat)*0.5)
-        // setRegionLng(lng + (driverLng - lng)*0.5)
-      }
-    //  console.log(driverLat, driverLng)
-      console.log(lat + (driverLat - lat)*0.5, lng + (driverLng - lng)*0.5, "fff")
-    })
+    //     // setRegionLat(lat + (driverLat - lat)*0.5)
+    //     // setRegionLng(lng + (driverLng - lng)*0.5)
+    //   }
+    // //  console.log(driverLat, driverLng)
+    //   console.log(lat + (driverLat - lat)*0.5, lng + (driverLng - lng)*0.5, "fff")
+    // })
     
    }, [])
   return (
@@ -88,13 +88,13 @@ export default function OrderRequest({navigation, route}) {
       <MapView
         provider={PROVIDER_GOOGLE}
         ref={mapRef}
-       // initialRegion={{latitude: lat,longitude: lng,latitudeDelta: 0.02522,longitudeDelta: 0.01721 }} // demo
-       region={{latitude: regionLat,longitude: regionLng,latitudeDelta: 0.1122,longitudeDelta: 0.0621 }}
+        initialRegion={{latitude: lat,longitude: lng,latitudeDelta: 0.02522,longitudeDelta: 0.01721 }} // demo
+       //region={{latitude: regionLat,longitude: regionLng,latitudeDelta: 0.1122,longitudeDelta: 0.0621 }}
        style={{height: height, width: width}} showsUserLocation={true}>
 
         
 
-        {/* <Polyline // Demo
+        <Polyline // Demo
             coordinates={[{
               latitude: parseFloat(positions.gpx.wpt[0].lat),
               longitude: parseFloat(positions.gpx.wpt[0].lon)
@@ -104,7 +104,7 @@ export default function OrderRequest({navigation, route}) {
             ]}
                   strokeWidth={5}
                   strokeColor="#86592d"
-                 /> */}
+                 />
 
       {/* <Marker  title="nass" description="nasso"
         coordinate={{latitude: parseFloat(positions.gpx.trk.trkseg.trkpt[1].lat),
@@ -122,7 +122,7 @@ export default function OrderRequest({navigation, route}) {
       </MapView>
       <NavigationMenu navigation={navigation} />
 
-     {/* {!local && <TimeLeft totalMinutes={totalMinutes} timeLeft={timeLeft} setTimeLeft={setTimeLeft}/>} */}
+     {!local && <TimeLeft totalMinutes={totalMinutes} timeLeft={timeLeft} setTimeLeft={setTimeLeft}/>}
       
  
       <BottomSheet ref={bottomSheet} index={1} snapPoints={["12%", "95%"]}
