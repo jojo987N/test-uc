@@ -5,6 +5,8 @@ import React, { useEffect, useState } from 'react'
 import { categories } from '../data'
 import {RestaurantImage, RestaurantInfo} from '../components/home/RestaurantItems'
 import Loader from './Loader'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+
 
 
 export default function SearchResults({route, navigation}) {
@@ -14,12 +16,20 @@ export default function SearchResults({route, navigation}) {
 
    
   useEffect(()=>{
+
+    AsyncStorage.getItem("restaurants").then(value => {
+
+      let restaurants = JSON.parse(value)
+      setRestaurantData(restaurants.filter((restaurant, index)=> restaurant.categories.some(categorie => categorie.title === route.params.name)))
+        // getRestaurantsFromFirebase().then((restaurants)=> {
+        //   //setLoader(false)
+        //   setRestaurantData(restaurants.filter((restaurant, index)=> restaurant.categories.some(categorie => categorie.title === route.params.name)))
+          
+        // })
+      
+    })
     
-    getRestaurantsFromFirebase().then((restaurants)=> {
-    //setLoader(false)
-    setRestaurantData(restaurants.filter((restaurant, index)=> restaurant.categories.some(categorie => categorie.title === route.params.name)))
     
-  })
 
     navigation.setOptions({title: route.params.name})
 

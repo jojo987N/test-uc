@@ -5,13 +5,13 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import AntDesign from 'react-native-vector-icons/AntDesign' 
 import { apikey } from '../../global'
 
-export default function SearchBar({cityHandler, style, setAddress}) {
+export default function SearchBar({searchbar, cityHandler, style, setAddress, navigation, restaurantData}) {
   
-
   return (
     <View style={{marginTop: 15, flexDirection: "row"}}>
 
       <GooglePlacesAutocomplete 
+      ref={searchbar}
       query={{ 
         key: apikey,
         language: 'en',
@@ -25,6 +25,10 @@ export default function SearchBar({cityHandler, style, setAddress}) {
 
           if(!style)
           cityHandler(city)
+         // navigation.navigate("RestaurantSearchResults", {city: city, restaurantData})
+          //navigation.navigate("DrawerNavigator", {screen: "SearchNavigator", params: {screen: "SearchResults"}})
+         // navigation.navigate("SearchNavigator", {screen: "SearchResults", params: {city: city}})
+        
           
           if(style)
           setAddress({

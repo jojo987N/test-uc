@@ -1,5 +1,5 @@
-import { View, Text, StatusBar, FlatList, TouchableWithoutFeedback, 
-  ImageBackground, StyleSheet, Dimensions} from 'react-native'
+import { View, Text, StatusBar, FlatList, 
+  ImageBackground, StyleSheet, Dimensions, TouchableOpacity} from 'react-native'
 import React , {useState} from 'react'
 import SearchComponent from '../components/SearchComponent'
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -57,7 +57,8 @@ export default function SearchScreen({navigation}) {
             renderItem={({item})=>{
               // console.log(item.image)
               return (
-              <TouchableWithoutFeedback>
+              <TouchableOpacity
+              onPress={()=>navigation.navigate("SearchResults", {name: item.name})} >
                 <View style={styles.imageView}>
                   <ImageBackground
                     style={styles.image}
@@ -73,7 +74,7 @@ export default function SearchScreen({navigation}) {
                   
                   </ImageBackground>
                 </View>
-              </TouchableWithoutFeedback>
+              </TouchableOpacity>
             )}}
              showsVerticalScrollIndicator={false}
              numColumns={2}
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: SCREEN_WIDTH*0.4475,
-    height: SCREEN_WIDTH*0.4475,
+    height: SCREEN_WIDTH*0.3475,
     justifyContent: "flex-end"
      
     //margin: 10

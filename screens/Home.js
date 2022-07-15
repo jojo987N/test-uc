@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StatusBar, ScrollView} from 'react-native'
+import { View, Text, SafeAreaView, StatusBar, ScrollView, StyleSheet} from 'react-native'
 import React, {useState, useEffect, useRef} from 'react'
 import HeaderTabs from '../components/home/HeaderTabs'
 //import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes'
@@ -32,15 +32,20 @@ export default function Home({navigation}) {
    //const [restaurantData, setRestaurantData]= useState(localRestaurants)
   // const [restaurantData, setRestaurantData]= useState([]) //ICIIII
 
-  const [restaurantData, setRestaurantData]= useState(restaurants)
+  //const [restaurantData, setRestaurantData]= useState(restaurants)
+
+  const [restaurantData, setRestaurantData]= useState()
      
   //const restaurantData = []
   //const restaurantData = restaurants
-  const [city, setCity] = useState("San Francisco");
+  //const [city, setCity] = useState("San Francisco");
+  const [city, setCity] = useState();
   const [activeTab, setActiveTab]= useState("Delivery")
    
 
   const flatlist = useRef(null)
+
+  const searchbar = useRef(null)
 
   const getRestaurantsFromYelp = ()=>{
 
@@ -108,8 +113,13 @@ export default function Home({navigation}) {
 
 
           }, 3000)
+
+        },[])
   
-  },[city, activeTab])
+  //},[city, activeTab])
+
+  if(!restaurantData)
+  return <Loader />
 
    
   return (
@@ -121,33 +131,27 @@ export default function Home({navigation}) {
      <View style={{flex: 1}}>
       <View style={{ backgroundColor: "white", padding: 15 }}>
 
-        <HeaderTabs activeTab={activeTab} setActiveTab={setActiveTab} navigation={navigation} restaurantData={restaurantData}/>
+        <HeaderTabs activeTab={activeTab} setActiveTab={setActiveTab} navigation={navigation} restaurantData={restaurantData} setCity={setCity} searchbar={searchbar}/>
        <HomeHeader navigation={navigation}/>
-        <SearchBar cityHandler={setCity}/>
+        <SearchBar cityHandler={setCity} navigation={navigation} restaurantData={restaurantData} searchbar={searchbar}/>
       </View>
        
+       {city?<RestaurantItems restaurantData={restaurantData.filter(restaurant => restaurant.location.city === city)} navigation={navigation}  size="100%"/>
+          :
         <ScrollView showsVerticalScrollIndicator={false}>
           <Categories />
-         <RestaurantItems restaurantData={restaurantData} reward="$60 until $9 reward" navigation={navigation} size="100%" horizontal={true}/>
+
+          <RestaurantItems restaurantData={restaurantData} reward="$60 until $9 reward" navigation={navigation} size="100%" horizontal={true}/>
         
           <RestaurantItems restaurantData={restaurantData}  navigation={navigation} ads={true} size="100%" flatlist={flatlist} horizontal={true}/>
         
-          {themes.map((theme, index)=>{
-            
-            return(
-            <View key={index}>
-              <Text>{theme}</Text>
-              <RestaurantItems restaurantData={restaurantData.filter(restaurant => restaurant.theme === theme)}  navigation={navigation}  horizontal={true}/>
-            </View>
-            
-            )
-          })}
-
+           
+          <RestaurantRowsItems themes={themes} restaurantData={restaurantData} navigation={navigation} />
 
 
           {/* <RestaurantItems restaurantData={restaurantData.filter(restaurant => restaurant.theme === "Everyday savings")}  navigation={navigation} theme="Everyday savings"  horizontal={true}/> */}
 
-        </ScrollView>
+        </ScrollView>}
        
       
       <Divider width={1}/>
@@ -157,5 +161,26 @@ export default function Home({navigation}) {
   )
 }
 
+const RestaurantRowsItems = ({themes, restaurantData, navigation}) => {
+
+  return themes.map((theme, index)=>{
+      return(
+        <View key={index}>
+          <View style={styles.row}>
+            <Text style={styles.rowsTitle}>{theme}</Text>
+            <RestaurantItems restaurantData={restaurantData.filter(restaurant => restaurant.theme === theme)} navigation={navigation} horizontal={true} />
+          </View>
+        </View>
+      
+      )
+    })
+  
+}
+
+const styles = StyleSheet.create({
+  row: {backgroundColor: "white", marginTop: 8},
+  rowsTitle: {fontSize: 25, paddingLeft: 15, fontFamily: "Roboto_700Bold", paddingTop: 15}
+
+})
  
  

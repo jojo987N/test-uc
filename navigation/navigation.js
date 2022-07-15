@@ -25,6 +25,7 @@ import Wallet from '../screens/Wallet'
 import AddCard from '../screens/AddCard'
  import OnboardingScreen from '../screens/Onboarding'
 import SignUp from '../screens/SignUp'
+
  
 
 const store = configureStore();
@@ -43,7 +44,7 @@ export default function RootNavigation({statusBarColor}) {
     //   backgroundColor: statusBarColor?statusBarColor:"#eee",
     //   flex: 1
     // }}> 
-
+    
     <ReduxProvider store={store}>
       <NavigationContainer>
           <Stack.Navigator /*initialRouteName='BottomTabs' */ screenOptions={screenOptions}>
@@ -69,7 +70,6 @@ export default function RootNavigation({statusBarColor}) {
               {/* <Stack.Screen name="MenuDetailScreen" component={menuDetailScreen}/> */}
               {/* <Stack.Screen name="RestaurantsMapScreen" component={RestaurantsMapScreen}/> */}
           </Stack.Navigator>
-          
       </NavigationContainer>
     </ReduxProvider>
 

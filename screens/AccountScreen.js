@@ -1,8 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity} from 'react-native'
 import React from 'react'
 import { Entypo, FontAwesome, FontAwesome5, Ionicons, MaterialIcons} from '@expo/vector-icons'
-import OrderCountDown from '../components/OrderCountDown'
- 
+  
  
  
 
@@ -30,9 +29,6 @@ export default function AccountScreen({navigation}) {
         <Entypo name="wallet" size={24} color="black" />
         <Text style={styles.text}>Wallet</Text>
       </TouchableOpacity>
-
-       
-       <OrderCountDown />
     </View>
   )
 }

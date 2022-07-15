@@ -15,7 +15,9 @@ export default function HeaderTabs(props) {
             textColor="white" 
             activeTab={props.activeTab} 
             setActiveTab={props.setActiveTab}
-            delivery={props.delivery}/>
+            delivery={props.delivery}
+            setCity={props.setCity}
+            searchbar={props.searchbar}/>
 
         <HeaderButton 
             text="Pickup" 
@@ -55,6 +57,13 @@ const HeaderButton = (props) => (
         if(props.text === 'Pickup') props.navigation.navigate('RestaurantsMapScreen',{
           restaurantData: props.restaurantData
         })
+
+        if(props.text === 'Delivery'){
+            props.setCity(null)
+            props.searchbar.current?.setAddressText("")
+        }
+        
+
 
         if(props.pickup){
             props.pickup()

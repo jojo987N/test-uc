@@ -80,7 +80,7 @@ export default function RestaurantItems({navigation,...props}) {
                                 }}>
                                 <View >
                                     <RestaurantImage image={item.image_url} />
-                                    {props.reward?<Reward restaurant={item}/>:<></>}
+                                    {props.reward || item.reward ?<Reward restaurant={item}/>:<></>}
                                     {props.ads && <Affiche ads={item.ads} adsColor={item.adsColor}/>}
                                 </View>
                                 

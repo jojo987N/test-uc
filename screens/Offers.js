@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView} from 'react-native'
+import { View, Text, StyleSheet, ScrollView, StatusBar} from 'react-native'
 import React from 'react'
 import { AntDesign } from '@expo/vector-icons'
 import { ArrowBack } from '../components/restaurantDetail/About'
@@ -18,7 +18,7 @@ export default function Offers({navigation}) {
       <ScrollView >
               {restaurants.map((restaurant, index)=>
 
-               <View style={styles.restaurantsContainer}>
+               <View key={index} style={styles.restaurantsContainer}>
                    <RestaurantImage image={restaurant.image_url} />
                    <RestaurantInfo
                                 name={restaurant.name}
@@ -42,7 +42,8 @@ export default function Offers({navigation}) {
 
 const styles = StyleSheet.create({
     container:{
-    marginTop: 10,
+    //marginTop: 10,
+    marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     marginHorizontal: 10
 
     },

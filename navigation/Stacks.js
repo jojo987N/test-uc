@@ -13,6 +13,7 @@ import OrdersScreen from '../screens/OrdersScreen'
 import OrderRequest from '../screens/OrderRequest'
 import CartScreen from '../screens/CartScreen'
 import RestaurantsMapScreen from '../screens/RestaurantsMapScreen'
+import RestaurantSearchResults from '../screens/RestaurantSearchResults'
 
 const  HomeStack = createStackNavigator()
 
@@ -24,7 +25,12 @@ export function HomeNavigator() {
           component={Home}
           options={{headerShown: false}}/>
 
-           <HomeStack.Screen 
+      <HomeStack.Screen 
+          name="RestaurantSearchResults"
+          component={RestaurantSearchResults}
+          options={{headerShown: false}}/>
+
+      <HomeStack.Screen 
           name="RestaurantDetail"
           component={RestaurantDetail}
           options={{headerShown: false}}/>
