@@ -93,32 +93,6 @@ export default function OrderRequest({navigation, route}) {
        style={{height: height, width: width}} showsUserLocation={true}>
 
         
-
-        <Polyline // Demo
-            coordinates={[{
-              latitude: parseFloat(positions.gpx.wpt[0].lat),
-              longitude: parseFloat(positions.gpx.wpt[0].lon)
-            },...positions.gpx.trk.trkseg.trkpt.map(p => ({
-                  latitude: parseFloat(p.lat), 
-                  longitude: parseFloat(p.lon)}))
-            ]}
-                  strokeWidth={5}
-                  strokeColor="#86592d"
-                 />
-
-      {/* <Marker  title="nass" description="nasso"
-        coordinate={{latitude: parseFloat(positions.gpx.trk.trkseg.trkpt[1].lat),
-          longitude: parseFloat(positions.gpx.trk.trkseg.trkpt[1].lon),}}
-         
-        ></Marker> */}
-        
-
-        <CustomMarker subject="user" lat={lat} lng={lng}/>
-
-        { driverLat && driverLng ?<CustomMarker subject="driver" lat={driverLat} lng={driverLng} angle={angle} />:<></>}
-
-       { driverLat && driverLng && !local ?<DisplayMapviewDirections apikey={apikey} toLat={lat} toLng={lng} fromLat={driverLat} fromLng={driverLng} 
-       setTotalMinutes={setTotalMinutes} setTimeLeft={setTimeLeft}/>:<></>}
       </MapView>
       <NavigationMenu navigation={navigation} />
 
