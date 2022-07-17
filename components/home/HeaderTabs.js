@@ -58,13 +58,13 @@ const HeaderButton = (props) => (
           restaurantData: props.restaurantData
         })
 
-        if(props.text === 'Delivery'){
+        if(props.text === 'Delivery' && !props.delivery){
             props.setCity(null)
             props.searchbar.current?.setAddressText("")
         }
         
 
-
+         
         if(props.pickup){
             props.pickup()
         }
