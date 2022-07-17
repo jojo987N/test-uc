@@ -1,5 +1,5 @@
 import { View, Text, Modal, ImageBackground, StyleSheet, Animated, TouchableOpacity, ScrollView, StatusBar} from 'react-native'
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useContext, useEffect, useRef, useState} from 'react'
 import About from '../components/restaurantDetail/About'
 import { Divider } from 'react-native-elements'
 import MenuItems from '../components/restaurantDetail/MenuItems'
@@ -34,7 +34,8 @@ export default function RestaurantDetail({route, navigation}) {
 
   const [userLocation, setUserLocation] = useState(null)
 
-  const [loading, setLoading] = useState(false)
+ // const [loading, setLoading] = useState(false)
+ const {loading,setLoading} = useContext(LoaderContext)
 
   const value = useState(new Animated.ValueXY({x:0,y:0}))[0]
 
@@ -243,9 +244,9 @@ export default function RestaurantDetail({route, navigation}) {
         {/* </BottomSheetScrollView> */}
         
       </BottomSheet>
-      <LoaderContext.Provider value={{loading, setLoading}}>
+      {/* <LoaderContext.Provider value={{loading, setLoading}}> */}
          <ViewCart navigation={navigation} route={route} />
-      </LoaderContext.Provider>
+      {/* </LoaderContext.Provider> */}
      
        
     </View>

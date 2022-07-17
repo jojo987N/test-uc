@@ -89,6 +89,7 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton})
                             lat: address.location.lat,
                             lng: address.location.lng,
                         })
+                    setLoading(false)
                     }, 4000)
                     
 

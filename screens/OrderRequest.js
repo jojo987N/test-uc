@@ -29,13 +29,13 @@ export default function OrderRequest({navigation, route}) {
   const [driverName, setDriverName] = useState()
   const [car, setCar] = useState()
   const [driverImage, setDriverImage] = useState()
-  const [driverLat, setDriverLat] = useState()
-  //const [driverLat, setDriverLat] = useState(parseFloat(positions.gpx.wpt[0].lat))
-  const [driverLng, setDriverLng] = useState()
+  // const [driverLat, setDriverLat] = useState()
+  const [driverLat, setDriverLat] = useState(parseFloat(positions.gpx.wpt[0].lat))
+  //const [driverLng, setDriverLng] = useState()
+  const [driverLng, setDriverLng] = useState(parseFloat(positions.gpx.wpt[0].lon))
 
   const [regionLat, setRegionLat] = useState(lat)
   const [regionLng, setRegionLng] = useState(lng)
-  //const [driverLng, setDriverLng] = useState(parseFloat(positions.gpx.wpt[0].lon))
   const bottomSheet = useRef(null)
   const mapRef = useRef(null)
   const [local, setLocal] = useState(true)  // Demo
