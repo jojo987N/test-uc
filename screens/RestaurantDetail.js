@@ -74,13 +74,13 @@ export default function RestaurantDetail({route, navigation}) {
     Animated.timing(value, {
       toValue: {x: 0, y: 205},
       duration: 1000,
-      useNativeDriver: false
+      useNativeDriver: true
     }).start()
 
     Animated.timing(value1, {
       toValue: {x: 0, y: -205},
       duration: 1000,
-      useNativeDriver: false
+      useNativeDriver: true
     }).start()
     
   }
@@ -89,14 +89,14 @@ export default function RestaurantDetail({route, navigation}) {
     Animated.timing(value, {
       toValue: {x: 0, y: 0},
       duration: 1000,
-      useNativeDriver: false
+      useNativeDriver: true
     }).start()
 
 
     Animated.timing(value1, {
       toValue: {x: 0, y: 0},
       duration: 1000,
-      useNativeDriver: false
+      useNativeDriver: true
     }).start()
   }
 
@@ -167,14 +167,14 @@ export default function RestaurantDetail({route, navigation}) {
           <RestaurantDetailHeader foodsRef={foodsRef} navigation={navigation} route={route}/>
        </Animated.View>}
        
-       <Animated.View style={value.getLayout()}>
+       <Animated.View style={value.getTranslateTransform()}>
       <RestaurantImage image={image_url} navigation={navigation}/>
       </Animated.View>
 
       <Divider width={5} color="white" style={{}} /> 
 
-       {/* Mapview */}
-       <Animated.View style={value1.getLayout()}>
+       {/* Mapview  //getLayout() avant */}
+       <Animated.View style={value1.getTranslateTransform()}>   
        < DisplayMapview userLocation={userLocation} mapRef={mapRef} apikey={apikey} restaurant={restaurant} />
        </Animated.View>
 
