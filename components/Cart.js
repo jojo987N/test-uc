@@ -43,7 +43,8 @@ const Cart = ({restaurantName, setViewCartButton, setModalVisible})=>{
                         })}</Text>
                     </View>
 
-                    <Checkout restaurantName={restaurantName} setLoader={setLoader} setViewCartButton={setViewCartButton}/>
+                    <Checkout restaurantName={restaurantName} setLoader={setLoader} setViewCartButton={setViewCartButton}
+                    setModalVisible={setModalVisible}/>
 
 
                 </TouchableOpacity>
