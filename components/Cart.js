@@ -22,8 +22,9 @@ const Cart = ({restaurantName, setViewCartButton, setModalVisible})=>{
 
     return (
         
-            <TouchableOpacity style={styles.modalContainer} onPress={()=> setModalVisible(false)}>
-                <TouchableWithoutFeedback style={styles.modalCheckoutContainer}>
+            <TouchableOpacity style={styles.modalContainer} onPress={()=> setModalVisible(false)} 
+            activeOpacity={1} >
+                <TouchableOpacity activeOpacity={1} onPress={()=>{}} style={styles.modalCheckoutContainer}>
                     <Text style={styles.restaurantName}>{restaurantName}</Text>
                     {/* {items.map((item, index) => (
                         <OrderItem key={index} item={item} />
@@ -45,7 +46,7 @@ const Cart = ({restaurantName, setViewCartButton, setModalVisible})=>{
                     <Checkout restaurantName={restaurantName} setLoader={setLoader} setViewCartButton={setViewCartButton}/>
 
 
-                </TouchableWithoutFeedback>
+                </TouchableOpacity>
 
             </TouchableOpacity>
             
