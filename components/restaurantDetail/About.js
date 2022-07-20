@@ -4,22 +4,6 @@ import { Icon } from 'react-native-elements';
 import RestaurantDetailComponent from '../RestaurantDetailComponent';
 import { apikey } from '../../global';
 
-const yelpRestaurantInfo = {
-  name: 'Farmouse Kitchen Thai Cuisine',
-  image: 'https://static.onecms.io/wp-content/uploads/sites/9/2020/04/24/ppp-why-wont-anyone-rescue-restaurants-FT-BLOG0420.jpg',
-  price: '$$',
-  reviews: '1500',
-  rating: '4.5',
-  categories: [
-    {title: "Thai"}, 
-    {title: "Confort Food"},
-    {title: "Indian"},
-    {title: "Coffee"},
-    {title: "Ice Cream"},
-    {title: "Snack"},
-  ]
-}
-
   
 export default function About(props) {
 

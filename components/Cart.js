@@ -5,9 +5,10 @@ import OrderItem from './restaurantDetail/OrderItem'
 import {language, currency}  from '../global'
 import Checkout from './Checkout'
 import Loader from '../screens/Loader'
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 
 
-const Cart = ({restaurantName, setViewCartButton})=>{
+const Cart = ({restaurantName, setViewCartButton, setModalVisible})=>{
 
     const items = useSelector((state)=>state.cartReducer).filter(item => item.restaurantName === restaurantName)
      
@@ -21,8 +22,8 @@ const Cart = ({restaurantName, setViewCartButton})=>{
 
     return (
         
-            <View style={styles.modalContainer}>
-                <View style={styles.modalCheckoutContainer}>
+            <TouchableOpacity style={styles.modalContainer} onPress={()=> setModalVisible(false)}>
+                <TouchableWithoutFeedback style={styles.modalCheckoutContainer}>
                     <Text style={styles.restaurantName}>{restaurantName}</Text>
                     {/* {items.map((item, index) => (
                         <OrderItem key={index} item={item} />
@@ -44,9 +45,9 @@ const Cart = ({restaurantName, setViewCartButton})=>{
                     <Checkout restaurantName={restaurantName} setLoader={setLoader} setViewCartButton={setViewCartButton}/>
 
 
-                </View>
+                </TouchableWithoutFeedback>
 
-            </View>
+            </TouchableOpacity>
             
         
          
