@@ -19,6 +19,9 @@ const CartScreen = () => {
 
   return (
     <View>
+     {/* <View style={{flex: 1, justifyContent: "center"}}>
+       <Image style={{width: 100, height: 100}} source={{uri: "https://img.icons8.com/fluency/344/shopping-cart.png"}} />
+       </View>  */}
       <CartModal modalVisible={modalVisible} setModalVisible={setModalVisible} restaurantName={restaurantName}/>
 
 {Object.entries(items.map(item => item.restaurantName).reduce((acc, curr) => (acc[curr] = (acc[curr] || 0) + 1, acc), {}))

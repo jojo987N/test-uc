@@ -162,10 +162,10 @@ export default function RestaurantDetail({route, navigation}) {
     <>
     <View style={{flex: 1}}>
        
-      {categoriesFood && <Animated.View style={{opacity: value3, backgroundColor:"white", zIndex: 1}}>
+      {/* {categoriesFood && <Animated.View style={{opacity: value3, backgroundColor:"white", zIndex: 1}}>
            
           <RestaurantDetailHeader foodsRef={foodsRef} navigation={navigation} route={route}/>
-       </Animated.View>}
+       </Animated.View>} */}
        
        <Animated.View style={value.getTranslateTransform()}>
       <RestaurantImage image={image_url} navigation={navigation}/>
@@ -181,7 +181,7 @@ export default function RestaurantDetail({route, navigation}) {
        
 
 
-       <BottomSheet ref={bottomSheet} index={1} snapPoints={["47%","75%", "90%"]} 
+       <BottomSheet ref={bottomSheet} index={1} snapPoints={["47%","75%", "100%"]} 
        handleIndicatorStyle={{ backgroundColor: "#d9d9d9", width: 100 }}
        onChange={(index)=>{ 
          if(index === 2){
