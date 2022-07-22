@@ -29,13 +29,13 @@ export default function OrderRequest({navigation, route}) {
   const [driverName, setDriverName] = useState()
   const [car, setCar] = useState()
   const [driverImage, setDriverImage] = useState()
-  const [driverLat, setDriverLat] = useState()
-  //const [driverLat, setDriverLat] = useState(parseFloat(positions.gpx.wpt[0].lat))
-  const [driverLng, setDriverLng] = useState()
+  // const [driverLat, setDriverLat] = useState()
+  const [driverLat, setDriverLat] = useState(parseFloat(positions.gpx.wpt[0].lat))
+  //const [driverLng, setDriverLng] = useState()
+  const [driverLng, setDriverLng] = useState(parseFloat(positions.gpx.wpt[0].lon))
 
   const [regionLat, setRegionLat] = useState(lat)
   const [regionLng, setRegionLng] = useState(lng)
-  //const [driverLng, setDriverLng] = useState(parseFloat(positions.gpx.wpt[0].lon))
   const bottomSheet = useRef(null)
   const mapRef = useRef(null)
   const [local, setLocal] = useState(true)  // Demo
@@ -263,7 +263,7 @@ const AnimationCooking = ()=>{
 
 const NavigationMenu = ({ navigation }) => (
   
-  <View style={styles.menu}>
+  <View style={styles.menu1}>
    <Icon type="material-community" name='menu' color="black" size={32} 
    onPress={() => navigation.navigate('Home')} />
 </View>
@@ -311,7 +311,7 @@ const CarIsHeading = ({lat, lng})=>{
 
 
 const styles = StyleSheet.create({
-  menu: {position: "absolute", left: 10},
+  menu1: {position: "absolute", left: 10, zIndex: 1},
   container: { 
    // position: "absolute", 
    // backgroundColor: "grey",

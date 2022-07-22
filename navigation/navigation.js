@@ -1,5 +1,5 @@
 import { View, Text, SafeAreaView, StatusBar} from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native'
 import Home from "../screens/Home"
@@ -25,13 +25,14 @@ import Wallet from '../screens/Wallet'
 import AddCard from '../screens/AddCard'
  import OnboardingScreen from '../screens/Onboarding'
 import SignUp from '../screens/SignUp'
-
+import { LoaderContext } from '../contexts/LoaderContext'
  
 
 const store = configureStore();
 
 export default function RootNavigation({statusBarColor}) {
     const Stack = createStackNavigator();
+    const [loading, setLoading] = useState(false)
 
     const screenOptions = {
         headerShown: false,
@@ -47,6 +48,7 @@ export default function RootNavigation({statusBarColor}) {
     
     <ReduxProvider store={store}>
       <NavigationContainer>
+      <LoaderContext.Provider value={{loading, setLoading}}>
           <Stack.Navigator /*initialRouteName='BottomTabs' */ screenOptions={screenOptions}>
               {/* <Stack.Screen name="Home" component={Home}/> */}
               {/* <Stack.Screen name="Loader" component={Loader}/> */}
@@ -70,6 +72,7 @@ export default function RootNavigation({statusBarColor}) {
               {/* <Stack.Screen name="MenuDetailScreen" component={menuDetailScreen}/> */}
               {/* <Stack.Screen name="RestaurantsMapScreen" component={RestaurantsMapScreen}/> */}
           </Stack.Navigator>
+          </LoaderContext.Provider>
       </NavigationContainer>
     </ReduxProvider>
 

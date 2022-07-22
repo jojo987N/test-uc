@@ -15,6 +15,7 @@ import {FlatList} from 'react-native-gesture-handler'
 //import { Reward } from './Offers'
 import Reward from '../components/Reward'
 import { getDistanceFromLatLonInKm } from '../utils'
+import { Icon} from 'react-native-elements'
 
 
 
@@ -170,6 +171,11 @@ export default function RestaurantsMapScreen({route, navigation}) {
            <SearchBar />
          </View>
       </View>
+
+      {/* <View style={{position: "absolute", top: 200, zIndex: 1}}>
+        <ListButton />
+      </View> */}
+       
        
 
      {visible && <BottomSheet  index={1} snapPoints={["20%","40%","95%"]} 
@@ -193,18 +199,18 @@ export default function RestaurantsMapScreen({route, navigation}) {
 
      
      {!visible && <RestaurantsView restaurantsRef={restaurantsRef} restaurantDataSort={restaurantDataSort} setFocusFunction={setFocusFunction}
-     focus={focus} _map={_map} width={width} horizontal={true}/>}
+     focus={focus} _map={_map} width={width} horizontal={true} setVisible={setVisible}/>}
                  
     </View>
   )
 }
 
 const RestaurantsView = ({_map, restaurantsRef, restaurantDataSort, setFocusFunction, focus, width, horizontal,
-Categories, scrollEnabled, offset, setOffset, direction, setDirection, setScrollEnabled})=>{
+Categories, scrollEnabled, offset, setOffset, direction, setDirection, setScrollEnabled, setVisible})=>{
 
   return (
     <View style={horizontal?styles.flatlist:{}}>
-         
+     {horizontal && <ListButton setVisible={setVisible}/>}   
     <FlatList
          ref={restaurantsRef}
          horizontal={horizontal}
@@ -359,6 +365,19 @@ const RestaurantMarkers = ({restaurantDataSort, focus, setFocusFunction, restaur
     )
   })
 }
+
+const ListButton = ({setVisible})=> {
+  return (
+    <View style={styles.menuList}>
+    <View style={styles.menuListBloc}>
+       <Icon type="material-community" name='menu' color="black" size={32} 
+        onPress={() => setVisible(true)} />
+        <Text style={{fontWeight: "bold"}}>List</Text>
+    </View>
+   
+ </View>
+  )
+}
 const styles = StyleSheet.create({
 
   header: {
@@ -448,6 +467,26 @@ const styles = StyleSheet.create({
       paddingHorizontal: 50,
       paddingVertical: 50,
     },
+
+    menuList: {
+      // backgroundColor: "white",
+      flexDirection: "row",
+      alignItems:"center",
+      justifyContent: "flex-end",
+
+    },
+    menuListBloc: {
+      backgroundColor: "white",
+      width: 70, 
+      flexDirection: "row", 
+      marginRight: 15,
+      alignItems: "center",
+      justifyContent: "space-around",
+      borderRadius: 20,
+      padding: 5,
+      marginBottom: 10
+
+    }
 
   
 })

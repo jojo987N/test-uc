@@ -1,5 +1,5 @@
 import { View, Text, Modal, ImageBackground, StyleSheet, Animated, TouchableOpacity, ScrollView, StatusBar} from 'react-native'
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useContext, useEffect, useRef, useState} from 'react'
 import About from '../components/restaurantDetail/About'
 import { Divider } from 'react-native-elements'
 import MenuItems from '../components/restaurantDetail/MenuItems'
@@ -34,7 +34,8 @@ export default function RestaurantDetail({route, navigation}) {
 
   const [userLocation, setUserLocation] = useState(null)
 
-  const [loading, setLoading] = useState(false)
+ // const [loading, setLoading] = useState(false)
+ const {loading,setLoading} = useContext(LoaderContext)
 
   const value = useState(new Animated.ValueXY({x:0,y:0}))[0]
 
@@ -73,13 +74,13 @@ export default function RestaurantDetail({route, navigation}) {
     Animated.timing(value, {
       toValue: {x: 0, y: 205},
       duration: 1000,
-      useNativeDriver: false
+      useNativeDriver: true
     }).start()
 
     Animated.timing(value1, {
       toValue: {x: 0, y: -205},
       duration: 1000,
-      useNativeDriver: false
+      useNativeDriver: true
     }).start()
     
   }
@@ -88,14 +89,14 @@ export default function RestaurantDetail({route, navigation}) {
     Animated.timing(value, {
       toValue: {x: 0, y: 0},
       duration: 1000,
-      useNativeDriver: false
+      useNativeDriver: true
     }).start()
 
 
     Animated.timing(value1, {
       toValue: {x: 0, y: 0},
       duration: 1000,
-      useNativeDriver: false
+      useNativeDriver: true
     }).start()
   }
 
@@ -161,26 +162,26 @@ export default function RestaurantDetail({route, navigation}) {
     <>
     <View style={{flex: 1}}>
        
-      {categoriesFood && <Animated.View style={{opacity: value3, backgroundColor:"white", zIndex: 1}}>
+      {/* {categoriesFood && <Animated.View style={{opacity: value3, backgroundColor:"white", zIndex: 1}}>
            
           <RestaurantDetailHeader foodsRef={foodsRef} navigation={navigation} route={route}/>
-       </Animated.View>}
+       </Animated.View>} */}
        
-       <Animated.View style={value.getLayout()}>
+       <Animated.View style={value.getTranslateTransform()}>
       <RestaurantImage image={image_url} navigation={navigation}/>
       </Animated.View>
 
       <Divider width={5} color="white" style={{}} /> 
 
-       {/* Mapview */}
-       <Animated.View style={value1.getLayout()}>
+       {/* Mapview  //getLayout() avant */}
+       <Animated.View style={value1.getTranslateTransform()}>   
        < DisplayMapview userLocation={userLocation} mapRef={mapRef} apikey={apikey} restaurant={restaurant} />
        </Animated.View>
 
        
 
 
-       <BottomSheet ref={bottomSheet} index={1} snapPoints={["47%","75%", "90%"]} 
+       <BottomSheet ref={bottomSheet} index={1} snapPoints={["47%","75%", "100%"]} 
        handleIndicatorStyle={{ backgroundColor: "#d9d9d9", width: 100 }}
        onChange={(index)=>{ 
          if(index === 2){
@@ -243,9 +244,9 @@ export default function RestaurantDetail({route, navigation}) {
         {/* </BottomSheetScrollView> */}
         
       </BottomSheet>
-      <LoaderContext.Provider value={{loading, setLoading}}>
+      {/* <LoaderContext.Provider value={{loading, setLoading}}> */}
          <ViewCart navigation={navigation} route={route} />
-      </LoaderContext.Provider>
+      {/* </LoaderContext.Provider> */}
      
        
     </View>

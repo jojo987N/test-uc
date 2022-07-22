@@ -14,7 +14,7 @@ export default function CartModal({modalVisible, setModalVisible, restaurantName
     transparent={true}
     onRequestClose={() => setModalVisible(false)}>
     {/* {checkoutModalContent()} */}
-    <Cart restaurantName={restaurantName} setViewCartButton={setViewCartButton}/>
+    <Cart restaurantName={restaurantName} setViewCartButton={setViewCartButton} setModalVisible={setModalVisible}/>
    </Modal>
   )
 }
