@@ -1,7 +1,7 @@
-import { View, Text, Image, ScrollView } from 'react-native'
+import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { FlatList } from 'react-native-gesture-handler';
-
+ 
 const items = [
 
   {
@@ -34,7 +34,8 @@ const items = [
   },
 ];
 
-export default function Categories() {
+export default function Categories({navigation}) {
+   
   return (
     <View style={{
       marginTop: 5,
@@ -51,7 +52,9 @@ export default function Categories() {
         renderItem={({ item, index }) => {
 
           return (
-            <View style={{ alignItems: "center", marginRight: 30 }}>
+            <TouchableOpacity
+            onPress={()=>navigation.navigate("SearchResults", {name: item.name})}
+            style={{ alignItems: "center", marginRight: 30 }}>
               <Image source={item.image} style={{
                 width: 40,
                 height: 40,
@@ -68,7 +71,7 @@ export default function Categories() {
               >
                 {item.text}
               </Text>
-            </View>
+            </TouchableOpacity>
           )
         }}
         showsHorizontalScrollIndicator={false}

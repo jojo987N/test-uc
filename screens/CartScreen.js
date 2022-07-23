@@ -27,7 +27,7 @@ const CartScreen = ({navigation}) => {
        <TouchableOpacity 
        onPress={()=>navigation.navigate("Home")}
             style={{backgroundColor: "black", borderRadius: 20}}>
-         <Text style={{color:"white", padding: 8, }}>Start shopping</Text>
+         <Text style={{color:"white", padding: 8, paddingHorizontal: 10 }}>Start shopping</Text>
        </TouchableOpacity>
        </View> 
        :
