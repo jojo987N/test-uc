@@ -9,7 +9,7 @@ import CartModal from "../components/CartModal";
 //const {Swipeable} = GestureHandler;
  
 
-const CartScreen = () => {
+const CartScreen = ({navigation}) => {
   
   const [modalVisible, setModalVisible] = useState(false);
   const [restaurantName, setRestaurantName] = useState("");
@@ -18,10 +18,21 @@ const CartScreen = () => {
   const {address} = useSelector((state)=>state.userReducer)
 
   return (
+    <View style={{flex: 1}}> 
+    {items.length === 0 ?
+      <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
+       <Image style={{width: 150, height: 150, marginBottom: 20}} source={{uri: "https://img.icons8.com/fluency/344/shopping-cart.png"}} />
+       <Text style={{fontSize: 20}}>Add items to start a cart</Text>
+       <Text style={{fontSize: 10, marginBottom: 15}}>Once you add items from a restaurant or store, your card will appear here</Text>
+       <TouchableOpacity 
+       onPress={()=>navigation.navigate("Home")}
+            style={{backgroundColor: "black", borderRadius: 20}}>
+         <Text style={{color:"white", padding: 8, paddingHorizontal: 10 }}>Start shopping</Text>
+       </TouchableOpacity>
+       </View> 
+       :
     <View>
-     {/* <View style={{flex: 1, justifyContent: "center"}}>
-       <Image style={{width: 100, height: 100}} source={{uri: "https://img.icons8.com/fluency/344/shopping-cart.png"}} />
-       </View>  */}
+      
       <CartModal modalVisible={modalVisible} setModalVisible={setModalVisible} restaurantName={restaurantName}/>
 
 {Object.entries(items.map(item => item.restaurantName).reduce((acc, curr) => (acc[curr] = (acc[curr] || 0) + 1, acc), {}))
@@ -45,6 +56,8 @@ const CartScreen = () => {
               
          ))}
     </View>
+         }
+         </View>
   );
 };
 

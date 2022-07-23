@@ -1,4 +1,4 @@
-import { View, Text, FlatList, StyleSheet} from 'react-native'
+import { View, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native'
 import React, { useEffect, useState } from 'react'
 
  import { getRestaurantsFromFirebase } from '../firebase'
@@ -38,7 +38,7 @@ export default function SearchResults({route, navigation}) {
   setTimeout(()=>{
   
     setLoader(false)
-  }, 4000)
+  }, 3000)
 
    
     if(loader)
@@ -60,13 +60,18 @@ export default function SearchResults({route, navigation}) {
               renderItem={({item})=>{
          
                 return(
-                   <View style={styles.itemContainer}>
+                   <TouchableOpacity onPress={()=>navigation.navigate("RestaurantDetail",
+                   {
+                     restaurant: item
+     
+                   })}
+                   style={styles.itemContainer}>
                    <RestaurantImage image={item.image_url} />
                   <RestaurantInfo
                             name={item.name}
                             rating={item.rating}
                             city={item.location.city}/>
-                    </View>
+                    </TouchableOpacity>
                 )
          
                 }}/>
