@@ -9,7 +9,7 @@ import CartModal from "../components/CartModal";
 //const {Swipeable} = GestureHandler;
  
 
-const CartScreen = () => {
+const CartScreen = ({navigation}) => {
   
   const [modalVisible, setModalVisible] = useState(false);
   const [restaurantName, setRestaurantName] = useState("");
@@ -23,7 +23,12 @@ const CartScreen = () => {
       <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
        <Image style={{width: 150, height: 150, marginBottom: 20}} source={{uri: "https://img.icons8.com/fluency/344/shopping-cart.png"}} />
        <Text style={{fontSize: 20}}>Add items to start a cart</Text>
-       <Text style={{fontSize: 10}}>Once you add items from a restaurant or store, your card will appear here</Text>
+       <Text style={{fontSize: 10, marginBottom: 15}}>Once you add items from a restaurant or store, your card will appear here</Text>
+       <TouchableOpacity 
+       onPress={()=>navigation.navigate("Home")}
+            style={{backgroundColor: "black", borderRadius: 20}}>
+         <Text style={{color:"white", padding: 8, }}>Start shopping</Text>
+       </TouchableOpacity>
        </View> 
        :
     <View>
