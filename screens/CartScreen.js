@@ -18,10 +18,16 @@ const CartScreen = () => {
   const {address} = useSelector((state)=>state.userReducer)
 
   return (
+    <View style={{flex: 1}}> 
+    {items.length === 0 ?
+      <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
+       <Image style={{width: 150, height: 150, marginBottom: 20}} source={{uri: "https://img.icons8.com/fluency/344/shopping-cart.png"}} />
+       <Text style={{fontSize: 20}}>Add items to start a cart</Text>
+       <Text style={{fontSize: 10}}>Once you add items from a restaurant or store, your card will appear here</Text>
+       </View> 
+       :
     <View>
-     {/* <View style={{flex: 1, justifyContent: "center"}}>
-       <Image style={{width: 100, height: 100}} source={{uri: "https://img.icons8.com/fluency/344/shopping-cart.png"}} />
-       </View>  */}
+      
       <CartModal modalVisible={modalVisible} setModalVisible={setModalVisible} restaurantName={restaurantName}/>
 
 {Object.entries(items.map(item => item.restaurantName).reduce((acc, curr) => (acc[curr] = (acc[curr] || 0) + 1, acc), {}))
@@ -45,6 +51,8 @@ const CartScreen = () => {
               
          ))}
     </View>
+         }
+         </View>
   );
 };
 
