@@ -217,9 +217,9 @@ export const DisplayMapviewDirections = ({fromLat, fromLng, toLat, toLng, apikey
 
  onReady={(result)=>{
 
-  // console.log(result.duration)
-   setTotalMinutes(result.duration)
-   setTimeLeft(result.duration)
+  //  console.log(result.duration)
+   setTotalMinutes(parseInt(parseInt(result.duration)))
+   setTimeLeft(parseInt(parseInt(result.duration)))
    
  }}
 
@@ -311,7 +311,7 @@ const CarIsHeading = ({lat, lng})=>{
 
 
 const styles = StyleSheet.create({
-  menu: {position: "absolute", left: 10},
+  // menu: {position: "absolute", left: 10},
   container: { 
    // position: "absolute", 
    // backgroundColor: "grey",
@@ -349,7 +349,7 @@ const styles = StyleSheet.create({
 
   driverImageContainer:{
     backgroundColor: "#e6e6e6",
-    padding: 10,
+    // padding: 10,
     borderRadius: 50
   },
   driverImage: {width: 60, height: 60},
