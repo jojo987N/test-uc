@@ -26,7 +26,7 @@ import AddCard from '../screens/AddCard'
  import OnboardingScreen from '../screens/Onboarding'
 import SignUp from '../screens/SignUp'
 import { LoaderContext } from '../contexts/LoaderContext'
- 
+  
 
 const store = configureStore();
 
@@ -69,7 +69,7 @@ export default function RootNavigation({statusBarColor}) {
               <Stack.Screen name="Offers" component={Offers}/>
               <Stack.Screen name="Wallet" component={Wallet}/>
               <Stack.Screen name="AddCard" component={AddCard}/>
-              {/* <Stack.Screen name="MenuDetailScreen" component={menuDetailScreen}/> */}
+               {/* <Stack.Screen name="MenuDetailScreen" component={menuDetailScreen}/> */}
               {/* <Stack.Screen name="RestaurantsMapScreen" component={RestaurantsMapScreen}/> */}
           </Stack.Navigator>
           </LoaderContext.Provider>

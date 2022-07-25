@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity} from 'react-native'
 import React from 'react'
 import { Entypo, FontAwesome, FontAwesome5, Ionicons, MaterialIcons} from '@expo/vector-icons'
+import SearchBar from '../components/home/SearchBar'
   
  
  
@@ -8,6 +9,7 @@ import { Entypo, FontAwesome, FontAwesome5, Ionicons, MaterialIcons} from '@expo
 export default function AccountScreen({navigation}) {
    
   return (
+    <View style={{flex: 1, backgroundColor: "white"}}> 
     <View style={styles.container}>
        <View style={styles.line}>
         <Ionicons name="person-circle-outline" size={25} color="black" />
@@ -29,6 +31,13 @@ export default function AccountScreen({navigation}) {
         <Entypo name="wallet" size={24} color="black" />
         <Text style={styles.text}>Wallet</Text>
       </TouchableOpacity>
+      
+        <Text>Address</Text>
+      <SearchBar 
+        //  setAddress={setAddress}
+         />
+      
+    </View>
     </View>
   )
 }
