@@ -53,6 +53,12 @@ export function HomeNavigator() {
           options={{headerShown: false}}/>
 
 
+<HomeStack.Screen 
+          name="SearchResults"
+          component={SearchResults}
+          options={{headerShown: false}}/>
+
+
        
 
 
@@ -98,10 +104,10 @@ export function SearchNavigator() {
           component={SearchScreen}
           options={{headerShown: false}}/>
 
-       <SearchStack.Screen 
+       {/* <SearchStack.Screen 
           name="SearchResults"
           component={SearchResults}
-          options={{}}/>
+          options={{}}/> */}
 
     </SearchStack.Navigator>
   )

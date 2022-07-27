@@ -53,12 +53,15 @@ export default function Categories({navigation}) {
 
           return (
             <TouchableOpacity
-            onPress={()=>navigation.navigate("DrawerNavigator",{
-              screen: "SearchNavigator", params: {
-                screen: "SearchResults",
-                params: {name: item.name}
-              }
+            onPress={()=>navigation.navigate("SearchNavigator",{
+              name: item.name
             })}
+            // onPress={()=>navigation.navigate("DrawerNavigator",{
+            //   screen: "SearchNavigator", params: {
+            //     screen: "SearchResults",
+            //     params: {name: item.name}
+            //   }
+            // })}
             style={{ alignItems: "center", marginRight: 30 }}>
               <Image source={item.image} style={{
                 width: 40,
