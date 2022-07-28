@@ -53,7 +53,7 @@ export default function Categories({navigation}) {
 
           return (
             <TouchableOpacity
-            onPress={()=>navigation.navigate("SearchNavigator",{
+            onPress={()=>navigation.navigate("SearchResults",{
               name: item.name
             })}
             // onPress={()=>navigation.navigate("DrawerNavigator",{
