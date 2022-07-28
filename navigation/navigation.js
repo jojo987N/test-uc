@@ -26,6 +26,7 @@ import AddCard from '../screens/AddCard'
  import OnboardingScreen from '../screens/Onboarding'
 import SignUp from '../screens/SignUp'
 import { LoaderContext } from '../contexts/LoaderContext'
+// import {StripeProvider} from '@storybook/addon-actions'
  
 
 const store = configureStore();

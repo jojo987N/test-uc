@@ -18,6 +18,8 @@ import {
   Roboto_900Black_Italic 
 } from '@expo-google-fonts/roboto'
 import Loader from "./screens/Loader";
+
+// import {StripeProvider} from '@storybook/addon-actions'
  
 
 export default function App() {
