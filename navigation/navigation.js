@@ -26,7 +26,7 @@ import AddCard from '../screens/AddCard'
  import OnboardingScreen from '../screens/Onboarding'
 import SignUp from '../screens/SignUp'
 import { LoaderContext } from '../contexts/LoaderContext'
-// import {StripeProvider} from '@storybook/addon-actions'
+import {StripeProvider} from '@stripe/stripe-react-native'
  
 
 const store = configureStore();
@@ -50,6 +50,7 @@ export default function RootNavigation({statusBarColor}) {
     <ReduxProvider store={store}>
       <NavigationContainer>
       <LoaderContext.Provider value={{loading, setLoading}}>
+        <StripeProvider> 
           <Stack.Navigator /*initialRouteName='BottomTabs' */ screenOptions={screenOptions}>
               {/* <Stack.Screen name="Home" component={Home}/> */}
               {/* <Stack.Screen name="Loader" component={Loader}/> */}
@@ -73,6 +74,7 @@ export default function RootNavigation({statusBarColor}) {
               {/* <Stack.Screen name="MenuDetailScreen" component={menuDetailScreen}/> */}
               {/* <Stack.Screen name="RestaurantsMapScreen" component={RestaurantsMapScreen}/> */}
           </Stack.Navigator>
+          </StripeProvider>
           </LoaderContext.Provider>
       </NavigationContainer>
     </ReduxProvider>
