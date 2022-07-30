@@ -52,6 +52,11 @@ export function HomeNavigator() {
           component={RestaurantsMapScreen}
           options={{headerShown: false}}/>
 
+          <HomeStack.Screen 
+          name="SearchResults"
+          component={SearchResults}
+          options={{}}/>
+
 
        
 
