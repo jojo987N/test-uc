@@ -10,6 +10,7 @@ import {signOut } from 'firebase/auth'
 import { auth } from '../firebase'
 import { useNavigation } from '@react-navigation/native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { MaterialIcons } from '@expo/vector-icons'
 
 
 export default function DrawerContent(props) {
@@ -60,7 +61,7 @@ export default function DrawerContent(props) {
              
             <DrawerItemList {...props} />
 
-            <DrawerItem 
+            {/* <DrawerItem 
                 label= "Payment"
                 icon = {({color,size})=>(
                     <Icon 
@@ -70,9 +71,36 @@ export default function DrawerContent(props) {
                         size={size}
                     />
                 )}
-            />
-            
+            /> */}
             <DrawerItem 
+                label= "Delivery"
+                icon = {({color,size})=>(
+                    <MaterialIcons 
+                        name="delivery-dining"
+                        color={color}
+                        size={size}
+                    />
+                )}
+                onPress={()=>{
+                    navigation.navigate("Home")
+                }}
+            />
+             {/* <DrawerItem 
+                label= "Pickup"
+                icon = {({color,size})=>(
+                    <MaterialIcons 
+                        name="takeout-dining"
+                        color={color}
+                        size={size}
+                    />
+                )}
+
+                onPress={()=>{
+                    navigation.navigate("RestautsMapScreen")
+                }}
+            /> */}
+            
+            {/* <DrawerItem 
                 label= "Settings"
                 icon = {({color,size})=>(
                     <Icon 
@@ -82,7 +110,7 @@ export default function DrawerContent(props) {
                         size={size}
                     />
                 )}
-            />
+            /> */}
             
         </DrawerContentScrollView>
        <DrawerItem 
