@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, useWindowDimensions, Image, Animated} from 'react-native'
+import { View, Text, StyleSheet, useWindowDimensions, Image, Animated, StatusBar} from 'react-native'
 import React, { useEffect, useRef, useState } from 'react'
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 import {getDriverInfos} from '../firebase'
@@ -58,7 +58,7 @@ export default function OrderRequest({navigation, route}) {
    
       updateInterface(bottomSheet)
       .then(()=>{
-        setDriverImage(require('../assets/images/driver.png'))
+        setDriverImage(require('../assets/images/driverDrive2.png'))
       }).then(()=>{
         // setLocal(false)
       })
@@ -84,7 +84,7 @@ export default function OrderRequest({navigation, route}) {
     
    }, [])
   return (
-    <View style={{}}>
+    <View style={{paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,}}>
       <MapView
         provider={PROVIDER_GOOGLE}
         ref={mapRef}
@@ -352,7 +352,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 50
   },
-  driverImage: {width: 60, height: 60},
+  driverImage: {width: 100, height: 100},
   car: {color: "black", fontSize: 20, fontWeight: "bold"}
 
 })
