@@ -5,6 +5,9 @@ import { Icon } from 'react-native-elements';
 import BusinessConsoleScreen from '../screens/BusinessConsoleScreen';
 import DrawerContent from '../components/DrawerContent';
 import { SearchNavigator } from './Stacks';
+import RestaurantsMapScreen from '../screens/RestaurantsMapScreen';
+import { MaterialIcons } from '@expo/vector-icons'
+
 
 const Drawer = createDrawerNavigator();
 
@@ -26,6 +29,20 @@ export default function DrawerNavigator() {
                     color={focussed ? "black":""}
                     size={size}
                   />  
+                )
+            }}
+        />
+        <Drawer.Screen 
+            name = "Pickup"
+            component={RestaurantsMapScreen}
+            options={{
+                title: "Pickup",
+                drawerIcon: ({focussed, size}) =>(
+                  <MaterialIcons 
+                  name="takeout-dining"
+                  color={focussed}
+                  size={size}
+              /> 
                 )
             }}
         />
