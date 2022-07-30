@@ -79,10 +79,18 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
                   style={styles.checkoutButton}
 
                   onPress={() => {
+
+                    fetch("http://192.241.139.136:3000/", {
+                      method: 'POST',
+                      body: JSON.stringify({name: "nass", phone: "+1234"}),
+                      headers: {
+                        'Content-Type': 'application/json'
+                      }
+                    })
                     //setLoader(true)
                     // setLoading(true)
                     //  addOrderToFirebase()  //ICIII
-                     setModalVisible(false);
+                    //  setModalVisible(false);
                     
                     // setTimeout(()=>{          // Dummy
                     // navigation.navigate('OrderRequest',{   
