@@ -80,9 +80,15 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
 
                   onPress={() => {
 
+                    //sk_test_6PfwPBTOfkh5YlxclL6KfQue
+
                     fetch("http://192.241.139.136:3000/", {
                       method: 'POST',
-                      body: JSON.stringify({name: "nass", phone: "+1234"}),
+                      body: JSON.stringify({
+                        amount: 1099,
+                        currency: 'usd',
+                        payment_method_types: ['card'],
+                      }),
                       headers: {
                         'Content-Type': 'application/json'
                       }
