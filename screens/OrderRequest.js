@@ -348,11 +348,16 @@ const styles = StyleSheet.create({
   driverName:{color: "black", fontSize: 20, fontWeight: "bold"},
 
   driverImageContainer:{
-    backgroundColor: "#e6e6e6",
-    padding: 10,
-    borderRadius: 50
+    // backgroundColor: "#e6e6e6",
+    // padding: 10,
+    // borderRadius: 50
   },
-  driverImage: {width: 100, height: 100},
+  driverImage: {
+    width: 60,
+    
+    height: 50
+    //  height: 40
+    },
   car: {color: "black", fontSize: 20, fontWeight: "bold"}
 
 })
