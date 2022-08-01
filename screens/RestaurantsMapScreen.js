@@ -1,5 +1,5 @@
 import { View, Text, useWindowDimensions, Image, ScrollView, Animated, StyleSheet, TouchableOpacity, StatusBar} from 'react-native'
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useContext, useEffect, useRef, useState} from 'react'
 import MapView, { Callout, Marker } from 'react-native-maps'
 import RestaurantItems from '../components/home/RestaurantItems'
 import LottieView from 'lottie-react-native'
@@ -16,6 +16,7 @@ import {FlatList} from 'react-native-gesture-handler'
 import Reward from '../components/Reward'
 import { getDistanceFromLatLonInKm } from '../utils'
 import { Icon} from 'react-native-elements'
+import { RestaurantsContext } from '../contexts/RestaurantsContext'
 
 
 
@@ -25,7 +26,9 @@ export default function RestaurantsMapScreen({route, navigation}) {
   
   //const {lat, lng} = useSelector((state)=>state.userReducer)
 
-  const {restaurantData} = route.params
+  // const {restaurantData} = route.params
+
+  const {restaurantData} = useContext(RestaurantsContext)
 
 
   // const restaurantDataSort1 = restaurantData.sort((a, b)=>{
