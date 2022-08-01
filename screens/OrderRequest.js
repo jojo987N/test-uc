@@ -187,7 +187,9 @@ export const CustomMarker = ({subject, lat, lng, angle, })=>{
     }
     
     }>
-      <Image source={require('../assets/images/car2.png')} 
+      {/* <Image source={require('../assets/images/car2.png')}  */}
+
+      <Image source={require('../assets/images/car-new-size.png')} 
      
     style={styles.carMarkerImage}
     resizeMode="contain"/>
