@@ -81,7 +81,7 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
                   onPress={() => {
 
                     //sk_test_6PfwPBTOfkh5YlxclL6KfQue
-
+                    
                     fetch("http://192.241.139.136:3000/", {
                       method: 'POST',
                       body: JSON.stringify({
@@ -92,7 +92,15 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
                       headers: {
                         'Content-Type': 'application/json'
                       }
+                    }).then((response)=>{
+                        
+                        response.json().then(json => console.log(json))
+                        // console.log(JSON.stringify(response.json()))
                     })
+
+                    
+                
+
                     //setLoader(true)
                     // setLoading(true)
                     //  addOrderToFirebase()  //ICIII
