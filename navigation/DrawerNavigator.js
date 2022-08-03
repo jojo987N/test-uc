@@ -7,6 +7,7 @@ import DrawerContent from '../components/DrawerContent';
 import { SearchNavigator } from './Stacks';
 import RestaurantsMapScreen from '../screens/RestaurantsMapScreen';
 import { MaterialIcons } from '@expo/vector-icons'
+import RestaurantDetail from '../screens/RestaurantDetail';
 
 
 const Drawer = createDrawerNavigator();
@@ -21,7 +22,7 @@ export default function DrawerNavigator() {
             name = "BottomTabs"
             component={BottomTabs}
             options={{
-                title: "Home",
+                title: "Restaurants",
                 drawerIcon: ({focussed, size}) =>(
                   <Icon 
                     type="material-community"
@@ -32,6 +33,7 @@ export default function DrawerNavigator() {
                 )
             }}
         />
+         
         <Drawer.Screen 
             name = "Pickup"
             component={RestaurantsMapScreen}

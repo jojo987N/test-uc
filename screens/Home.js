@@ -1,5 +1,5 @@
 import { View, Text, SafeAreaView, StatusBar, ScrollView, StyleSheet} from 'react-native'
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useEffect, useRef, useContext} from 'react'
 import HeaderTabs from '../components/home/HeaderTabs'
 //import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes'
 import SearchBar from '../components/home/SearchBar'
@@ -16,6 +16,7 @@ import { addRestaurants, getRestaurantsFromFirebase } from '../firebase'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { AntDesign } from '@expo/vector-icons'
 import Loader from './Loader'
+import { RestaurantsContext } from '../contexts/RestaurantsContext'
 
 
  
@@ -34,7 +35,9 @@ export default function Home({navigation}) {
 
   //const [restaurantData, setRestaurantData]= useState(restaurants)
 
-  const [restaurantData, setRestaurantData]= useState()
+  // const [restaurantData, setRestaurantData]= useState()
+
+  const {restaurantData, setRestaurantData} = useContext(RestaurantsContext)
      
   //const restaurantData = []
   //const restaurantData = restaurants
@@ -93,8 +96,6 @@ export default function Home({navigation}) {
       }
     }) 
 
-
-
     let i = 1
           setInterval(()=>{
      
@@ -109,9 +110,6 @@ export default function Home({navigation}) {
 
               i++
   
-           // }, 500)
-
-
           }, 3000)
 
         },[])

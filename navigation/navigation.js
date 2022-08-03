@@ -26,6 +26,7 @@ import AddCard from '../screens/AddCard'
  import OnboardingScreen from '../screens/Onboarding'
 import SignUp from '../screens/SignUp'
 import { LoaderContext } from '../contexts/LoaderContext'
+import { RestaurantsContext } from '../contexts/RestaurantsContext'
  
 
 const store = configureStore();
@@ -33,6 +34,7 @@ const store = configureStore();
 export default function RootNavigation({statusBarColor}) {
     const Stack = createStackNavigator();
     const [loading, setLoading] = useState(false)
+    const [restaurantData, setRestaurantData]= useState()
 
     const screenOptions = {
         headerShown: false,
@@ -49,6 +51,7 @@ export default function RootNavigation({statusBarColor}) {
     <ReduxProvider store={store}>
       <NavigationContainer>
       <LoaderContext.Provider value={{loading, setLoading}}>
+        <RestaurantsContext.Provider value={{restaurantData, setRestaurantData}}> 
           <Stack.Navigator /*initialRouteName='BottomTabs' */ screenOptions={screenOptions}>
               {/* <Stack.Screen name="Home" component={Home}/> */}
               {/* <Stack.Screen name="Loader" component={Loader}/> */}
@@ -72,6 +75,7 @@ export default function RootNavigation({statusBarColor}) {
               {/* <Stack.Screen name="MenuDetailScreen" component={menuDetailScreen}/> */}
               {/* <Stack.Screen name="RestaurantsMapScreen" component={RestaurantsMapScreen}/> */}
           </Stack.Navigator>
+          </RestaurantsContext.Provider>
           </LoaderContext.Provider>
       </NavigationContainer>
     </ReduxProvider>
