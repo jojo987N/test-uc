@@ -7,6 +7,10 @@ import { Icon, withBadge} from 'react-native-elements'
 
 import Home from '../screens/Home'
 
+import SignUp from '../screens/SignUp'
+
+
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import SearchScreen from '../screens/SearchScreen'
 import MyOrdersScreen from '../screens/MyOrdersScreen'
@@ -90,7 +94,8 @@ export default function BottomTabs() {
 
         <Tab.Screen 
          name = "Account" 
-         component={AccountScreen} 
+          component={AccountScreen} 
+        // component={SignUp}
          options ={{
             
            tabBarIcon: ({color, size}) =>(
