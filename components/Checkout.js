@@ -10,6 +10,7 @@ import { useNavigation } from '@react-navigation/native'
 import Loader from '../screens/Loader'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { LoaderContext } from '../contexts/LoaderContext'
+import { useStripe } from '@stripe/stripe-react-native';
 
 
 export default function Checkout({restaurantName, setLoader, setViewCartButton, setModalVisible}) {
@@ -29,6 +30,8 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
     // const [loading, setLoading] = useState(false)
 
     const dispatch = useDispatch();   
+
+     const stripe = useStripe();
 
 
     const addOrderToFirebase = () => {
@@ -94,7 +97,22 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
                       }
                     }).then((response)=>{
                         
-                        response.json().then(json => console.log(json))
+                        response.json().then(json =>{
+                            console.log(json)
+
+                            stripe.initPaymentSheet({
+                                paymentIntentClientSecret: json.clientSecret,
+                              }).then(initSheet => {
+                                  console.log(initSheet)
+
+                                  stripe.presentPaymentSheet({
+                                    clientSecret: json.clientSecret,
+                                  }).then(presentSheet =>{
+                                      
+                                  })
+                              })
+                            
+                        })
                         // console.log(JSON.stringify(response.json()))
                     })
 
