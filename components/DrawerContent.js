@@ -10,7 +10,7 @@ import {signOut } from 'firebase/auth'
 import { auth } from '../firebase'
 import { useNavigation } from '@react-navigation/native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { MaterialIcons } from '@expo/vector-icons'
+import { Entypo, MaterialIcons } from '@expo/vector-icons'
 
 
 export default function DrawerContent(props) {
@@ -83,6 +83,19 @@ export default function DrawerContent(props) {
                 )}
                 onPress={()=>{
                     navigation.navigate("Home")
+                }}
+            />
+            <DrawerItem 
+                label= "Wallet"
+                icon = {({color,size})=>(
+                    <Entypo 
+                        name="wallet"
+                        color={color}
+                        size={size}
+                    />
+                )}
+                onPress={()=>{
+                    navigation.navigate("Wallet")
                 }}
             />
              {/* <DrawerItem 

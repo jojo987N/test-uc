@@ -8,6 +8,7 @@ import { SearchNavigator } from './Stacks';
 import RestaurantsMapScreen from '../screens/RestaurantsMapScreen';
 import { MaterialIcons } from '@expo/vector-icons'
 import RestaurantDetail from '../screens/RestaurantDetail';
+import Offers from '../screens/Offers'
 
 
 const Drawer = createDrawerNavigator();
@@ -63,6 +64,21 @@ export default function DrawerNavigator() {
                 )
             }}
         />
+        {/* <Drawer.Screen 
+            name = "rewards"
+            component={Offers}
+            options={{
+                title: "Rewards",
+                drawerIcon: ({focussed, size}) =>(
+                  <Icon 
+                    type="material"
+                    name="search"
+                    color={focussed ? "black":""}
+                    size={size}
+                  />  
+                )
+            }}
+        /> */}
         {/* <Drawer.Screen 
             name = "BusinessConsoleScreen"
             component={BusinessConsoleScreen}
