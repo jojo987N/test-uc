@@ -13,9 +13,6 @@ import BottomTabs from './BottomTabs'
 import RestaurantsMapScreen from '../screens/RestaurantsMapScreen'
 import DrawerNavigator from './DrawerNavigator'
 import menuDetailScreen from '../screens/MenuDetailScreen'
-import SignScreen from '../screens/authScreens/SignScreen'
-import SignUpScreen from '../screens/authScreens/SignUpScreen'
-import SignInWelcomeScreen from '../screens/authScreens/SignInWelcomeScreen'
 import OrderRequest from '../screens/OrderRequest'
 import Splash from '../screens/Splash'
 import SignIn from '../screens/SignIn'
@@ -60,8 +57,6 @@ export default function RootNavigation({statusBarColor}) {
               <Stack.Screen name="Splash" component={Splash}/>
               <Stack.Screen name="SignIn" component={SignIn}/>
               <Stack.Screen name="SignUp" component={SignUp}/>
-              <Stack.Screen name="SignInWelcomeScreen" component={SignInWelcomeScreen}/>
-              <Stack.Screen name="SignScreen" component={SignScreen}/>
               {/* <Stack.Screen name="SignUpScreen" component={SignUpScreen}/> */}
               <Stack.Screen name="DrawerNavigator" component={DrawerNavigator}/>
               {/* <Stack.Screen name="BottomTabs" component={BottomTabs}/> */}

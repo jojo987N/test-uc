@@ -2,7 +2,6 @@ import React from 'react'
 import {createDrawerNavigator} from '@react-navigation/drawer'
 import BottomTabs from './BottomTabs'
 import { Icon } from 'react-native-elements';
-import BusinessConsoleScreen from '../screens/BusinessConsoleScreen';
 import DrawerContent from '../components/DrawerContent';
 import { SearchNavigator } from './Stacks';
 import RestaurantsMapScreen from '../screens/RestaurantsMapScreen';
