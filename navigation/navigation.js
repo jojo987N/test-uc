@@ -14,7 +14,7 @@ import RestaurantsMapScreen from '../screens/RestaurantsMapScreen'
 import DrawerNavigator from './DrawerNavigator'
 import menuDetailScreen from '../screens/MenuDetailScreen'
 import OrderRequest from '../screens/OrderRequest'
-import Splash from '../screens/Splash'
+// import Splash from '../screens/Splash'
 import SignIn from '../screens/SignIn'
 import Loader from '../screens/Loader'
 import Offers from '../screens/Offers'
@@ -54,7 +54,7 @@ export default function RootNavigation({statusBarColor}) {
               {/* <Stack.Screen name="Loader" component={Loader}/> */}
               {/* <Stack.Screen name="SignUpScreen" component={SignUpScreen}/> */}
               <Stack.Screen name="Onboarding" component={OnboardingScreen}/>
-              <Stack.Screen name="Splash" component={Splash}/>
+              {/* <Stack.Screen name="Splash" component={Splash}/> */}
               <Stack.Screen name="SignIn" component={SignIn}/>
               <Stack.Screen name="SignUp" component={SignUp}/>
               {/* <Stack.Screen name="SignUpScreen" component={SignUpScreen}/> */}
