@@ -4,6 +4,9 @@
      "icon": "./assets/images/marker2.png",
      "version": "1.0.0",
      "slug": "good-food-slug0",
+     "notification":{
+      "icon":"./assets/images/car.png"
+   },
      "ios": {
        "bundleIdentifier": "com.goodfood.goodfood0",
        "buildNumber": "1.0.0"
