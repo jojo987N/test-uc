@@ -2,7 +2,8 @@ import { View, Text, StyleSheet, TouchableOpacity} from 'react-native'
 import React from 'react'
 import { Entypo, FontAwesome, FontAwesome5, Ionicons, MaterialIcons} from '@expo/vector-icons'
   
- 
+import { CardField, useStripe } from '@stripe/stripe-react-native';
+
  
 
 export default function AccountScreen({navigation}) {
@@ -29,9 +30,32 @@ export default function AccountScreen({navigation}) {
         <Entypo name="wallet" size={24} color="black" />
         <Text style={styles.text}>Wallet</Text>
       </TouchableOpacity>
+     
+      <PaymentScreen />
+
+    <Text>Bonjour</Text>
     </View>
   )
 }
+
+function PaymentScreen() {
+  // ...
+  return (
+    <View>
+      <CardField
+        postalCodeEnabled={false}
+        placeholder={{
+          number: '4242 4242 4242 4242',
+        }}
+        onCardChange={(cardDetails) => {
+          console.log('cardDetails', cardDetails);
+        }}
+      />
+    </View>
+  );
+}
+
+
 
 const styles = StyleSheet.create({
 container: {

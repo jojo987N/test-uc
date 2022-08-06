@@ -90,7 +90,7 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
                       body: JSON.stringify({
                         amount: 1099,
                         currency: 'usd',
-                        payment_method_types: ['card'],
+                        // payment_method_types: ['card'],
                       }),
                       headers: {
                         'Content-Type': 'application/json'
@@ -101,13 +101,15 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
                             console.log(json)
 
                             stripe.initPaymentSheet({
+                                customerId: json.customer,
+                                customerEphemeralKeySecret: json.ephemeralKey,
+                                paymentIntentClientSecret: json.paymentIntent,
+                                allowsDelayedPaymentMethods: true,
                                 paymentIntentClientSecret: json.clientSecret,
                               }).then(initSheet => {
                                   console.log(initSheet)
 
-                                  stripe.presentPaymentSheet({
-                                    clientSecret: json.clientSecret,
-                                  }).then(presentSheet =>{
+                                  stripe.presentPaymentSheet().then(presentSheet =>{
                                       
                                   })
                               })
