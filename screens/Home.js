@@ -18,6 +18,9 @@ import { AntDesign } from '@expo/vector-icons'
 import Loader from './Loader'
 import { RestaurantsContext } from '../contexts/RestaurantsContext'
 
+import i18n from 'i18n-js';
+
+
 
  
 
@@ -43,7 +46,7 @@ export default function Home({navigation}) {
   //const restaurantData = restaurants
   //const [city, setCity] = useState("San Francisco");
   const [city, setCity] = useState();
-  const [activeTab, setActiveTab]= useState("Delivery")
+  const [activeTab, setActiveTab]= useState(i18n.t('delivery'))
    
 
   const flatlist = useRef(null)
@@ -70,6 +73,8 @@ export default function Home({navigation}) {
   
   }
   useEffect(()=>{
+
+    
    // getRestaurantsFromYelp();
   // getRestaurantsFromFirebase()
    // getRestaurantsFromFirebase().then((restaurants)=> setRestaurantData(restaurants))

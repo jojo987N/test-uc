@@ -1,6 +1,12 @@
 import RootNavigation from "./navigation/navigation";
 import { SafeAreaView, StatusBar} from "react-native";
 import {useFonts} from 'expo-font'
+import * as Localization from 'expo-localization';
+import i18n from 'i18n-js';
+
+import en from './lang/en.json'
+// import fr from './lang/fr.json'
+
 
 
 import { 
@@ -18,6 +24,18 @@ import {
   Roboto_900Black_Italic 
 } from '@expo-google-fonts/roboto'
 import Loader from "./screens/Loader";
+
+
+i18n.translations = {
+  // en: { welcome: 'Hello', name: 'Charlie' },
+  en:en,
+  // ja: { welcome: 'こんにちは' },
+};
+
+i18n.locale = Localization.locale;
+
+i18n.fallbacks = true;
+
  
 
 export default function App() {

@@ -4,6 +4,7 @@ import {GooglePlacesAutocomplete}  from 'react-native-google-places-autocomplete
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import AntDesign from 'react-native-vector-icons/AntDesign' 
 import { apikey } from '../../global'
+import I18n from 'i18n-js'
 
 export default function SearchBar({searchbar, cityHandler, style, setAddress, navigation, restaurantData}) {
   
@@ -40,7 +41,7 @@ export default function SearchBar({searchbar, cityHandler, style, setAddress, na
 
          // console.log(details?.geometry?.location.lat, details?.geometry?.location.lng)
       }}
-      placeholder={!style?"Search":"Address"}
+      placeholder={!style?I18n.t('search'):"Address"}
       styles={{
         textInput :{
 
@@ -77,7 +78,7 @@ export default function SearchBar({searchbar, cityHandler, style, setAddress, na
           }}>
               <AntDesign name='clockcircle' size={11}
                style={{marginRight: 6}}/>
-              <Text>Search</Text>
+              <Text>{I18n.t('search')}</Text>
           </View>
           
           ):()=>{}}/>

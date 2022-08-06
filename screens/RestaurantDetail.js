@@ -19,6 +19,7 @@ import HeaderTabs from '../components/home/HeaderTabs'
 import GroupFoodHeader from '../components/GroupFoodHeader'
 import RestaurantDetailHeader from '../components/restaurantDetail/RestaurantDetailHeader'
 import {LoaderContext} from "../contexts/LoaderContext"
+import I18n from 'i18n-js'
 
 
 
@@ -41,7 +42,7 @@ export default function RestaurantDetail({route, navigation}) {
 
   const value1 = useState(new Animated.ValueXY({x:0,y:0}))[0]
 
-  const [activeTab, setActiveTab]= useState("Delivery")
+  const [activeTab, setActiveTab]= useState(I18n.t('delivery'))
 
   const [categoriesFood, setCategoriesFood] = useState(false)
 
