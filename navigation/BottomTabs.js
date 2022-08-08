@@ -7,6 +7,10 @@ import { Icon, withBadge} from 'react-native-elements'
 
 import Home from '../screens/Home'
 
+import SignUp from '../screens/SignUp'
+
+
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import SearchScreen from '../screens/SearchScreen'
 import MyOrdersScreen from '../screens/MyOrdersScreen'
@@ -14,6 +18,8 @@ import AccountScreen from '../screens/AccountScreen'
 import { HomeNavigator, SearchNavigator } from './Stacks'
 import { OrderNavigator } from './Stacks'
 import { useSelector } from 'react-redux'
+import RestaurantsMapScreen from '../screens/RestaurantsMapScreen'
+import { FontAwesome } from '@expo/vector-icons'
 
 const Tab = createBottomTabNavigator() 
 
@@ -88,9 +94,27 @@ export default function BottomTabs() {
          }}
          />
 
-        <Tab.Screen 
+      <Tab.Screen 
+         name = "Map" 
+          component={RestaurantsMapScreen} 
+        // component={SignUp}
+         options ={{
+          headerShown: false,
+           tabBarIcon: ({color, size}) =>(
+            <FontAwesome 
+            name="map-marker" 
+             
+            color={color}
+            size={size}/>
+           ) 
+         }}
+         />
+         
+
+        {/* <Tab.Screen 
          name = "Account" 
-         component={AccountScreen} 
+          component={AccountScreen} 
+        // component={SignUp}
          options ={{
             
            tabBarIcon: ({color, size}) =>(
@@ -102,7 +126,7 @@ export default function BottomTabs() {
            ) 
          }}
          />
-         
+          */}
        </Tab.Navigator>
     // <View style={{
     //   flexDirection: "row", 

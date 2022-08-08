@@ -10,7 +10,7 @@ import {signOut } from 'firebase/auth'
 import { auth } from '../firebase'
 import { useNavigation } from '@react-navigation/native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { MaterialIcons } from '@expo/vector-icons'
+import { Entypo, MaterialIcons } from '@expo/vector-icons'
 
 
 export default function DrawerContent(props) {
@@ -46,7 +46,7 @@ export default function DrawerContent(props) {
                     rounded
                     avatarStyle={styles.avatar}
                     size={75}
-                    source={{uri: "https://s3-media4.fl.yelpcdn.com/bphoto/ouK2VmW0SrI70jsJpTxJhw/o.jpg"}}/>
+                    source={{uri: "https://cdn.pixabay.com/photo/2017/02/23/13/05/avatar-2092113_960_720.png"}}/>
                 <View style={{marginLeft: 10}}>
                     <Text style={{
                         fontWeight: "bold",
@@ -83,6 +83,19 @@ export default function DrawerContent(props) {
                 )}
                 onPress={()=>{
                     navigation.navigate("Home")
+                }}
+            />
+            <DrawerItem 
+                label= "Wallet"
+                icon = {({color,size})=>(
+                    <Entypo 
+                        name="wallet"
+                        color={color}
+                        size={size}
+                    />
+                )}
+                onPress={()=>{
+                    navigation.navigate("Wallet")
                 }}
             />
              {/* <DrawerItem 
