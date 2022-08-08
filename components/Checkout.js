@@ -98,7 +98,7 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
                     }).then((response)=>{
                         
                         response.json().then(json =>{
-                            console.log(json)
+                            // console.log(json)
 
                             stripe.initPaymentSheet({
                                 customerId: json.customer,

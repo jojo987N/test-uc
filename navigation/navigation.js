@@ -50,7 +50,7 @@ export default function RootNavigation({statusBarColor}) {
     <ReduxProvider store={store}>
       <NavigationContainer>
       <LoaderContext.Provider value={{loading, setLoading}}>
-        <StripeProvider publishableKey="pk_test_vKLlrU7o8gOAVZbP2h3xs81I"> 
+        <StripeProvider publishableKey="pk_test_vKLlrU7o8gOAVZbP2h3xs81I1"> 
           <Stack.Navigator /*initialRouteName='BottomTabs' */ screenOptions={screenOptions}>
               {/* <Stack.Screen name="Home" component={Home}/> */}
               {/* <Stack.Screen name="Loader" component={Loader}/> */}
