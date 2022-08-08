@@ -13,7 +13,7 @@ import { sin } from 'react-native-reanimated'
 import OrderCountDown from '../components/OrderCountDown'
 import { Polyline } from 'react-native-maps'
 import { bearing } from '../utils'
-import { updateInterface, move, PolylineDemo} from '../demo'
+ 
  
 
  
