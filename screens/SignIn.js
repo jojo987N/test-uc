@@ -21,6 +21,8 @@ export default function SignIn({navigation}) {
 
 
    const SignInUser = async ()=>{
+
+     console.log(auth)
     
     setLoginState(true)
 
@@ -97,7 +99,7 @@ useEffect(()=>{
             payload: userData
           });
 
-          navigation.navigate('DrawerNavigator')
+           navigation.navigate('DrawerNavigator')
       }
       
     })
