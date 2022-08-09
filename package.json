@@ -9,7 +9,7 @@
     "@react-navigation/drawer": "^6.4.1",
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/stack": "^6.2.1",
-    "@stripe/stripe-react-native": "^0.16.0",
+    "@stripe/stripe-react-native": "0.2.3",
     "create-react-app": "^5.0.1",
     "expo": "^44.0.0",
     "expo-font": "~10.0.4",

@@ -101,16 +101,19 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
                             // console.log(json)
 
                             stripe.initPaymentSheet({
-                                customerId: json.customer,
-                                customerEphemeralKeySecret: json.ephemeralKey,
+                                // customerId: json.customer,
+                                // customerEphemeralKeySecret: json.ephemeralKey,
                                 paymentIntentClientSecret: json.paymentIntent,
-                                allowsDelayedPaymentMethods: true,
-                                paymentIntentClientSecret: json.clientSecret,
+                                merchantDisplayName: 'Merchant Name',
+                                // allowsDelayedPaymentMethods: true,
+                                // paymentIntentClientSecret: json.clientSecret,
                               }).then(initSheet => {
                                   console.log(initSheet)
 
-                                  stripe.presentPaymentSheet().then(presentSheet =>{
-                                      
+                                  stripe.presentPaymentSheet({
+                                      clientSecret:  json.paymentIntent
+                                  }).then(presentSheet =>{
+                                      console.log(presentSheet)
                                   })
                               })
                             
