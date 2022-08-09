@@ -3,8 +3,13 @@ import React from 'react'
 import { ArrowBack } from '../components/restaurantDetail/About'
 import { grey1 } from '../global'
 import { AntDesign } from '@expo/vector-icons'
+import { stripePayment } from '../utils'
+import { useStripe } from '@stripe/stripe-react-native';
+
 
 export default function Wallet({navigation}) {
+
+    const stripe = useStripe();
   return (
       <View style={styles.container}>
           <ArrowBack navigation={navigation} />
@@ -18,7 +23,11 @@ export default function Wallet({navigation}) {
                   <AntDesign name="right" size={20} color="grey" style={styles.right} />
               </View>
           </View>
-          <TouchableOpacity style={styles.textContainer} onPress={()=>navigation.push("AddCard")}>
+          <TouchableOpacity style={styles.textContainer} onPress={()=>
+            {
+                // navigation.push("AddCard")
+                stripePayment(stripe)
+            }}>
               <Text style={styles.text}>Add payment method</Text>
           </TouchableOpacity>
           <View style={styles.textContainer}>
