@@ -40,10 +40,9 @@ export const bearing = (φ1, λ1, φ2, λ2) => {
   }
 
 
-export const stripePayment = () => {
+export const stripePayment = (stripe) => {
 
-  const stripe = useStripe();
-
+ 
 
   fetch("http://192.241.139.136:3000/", {
     method: 'POST',

@@ -7,6 +7,9 @@ import { CardField, useStripe } from '@stripe/stripe-react-native';
  
 
 export default function AccountScreen({navigation}) {
+
+  const stripe = useStripe();
+
    
   return (
     <View style={styles.container}>
@@ -33,7 +36,7 @@ export default function AccountScreen({navigation}) {
      
       <PaymentScreen />
 
-    <Text>Bonjour</Text>
+     
     </View>
   )
 }
