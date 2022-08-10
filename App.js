@@ -1,4 +1,4 @@
-import RootNavigation from "./navigation/navigation";
+ import RootNavigation from "./navigation/navigation";
 import { SafeAreaView, StatusBar} from "react-native";
 import {useFonts} from 'expo-font'
 
@@ -50,7 +50,8 @@ export default function App() {
     //   backgroundColor: "#eee",
     //   flex: 1
     // }}>
-    <RootNavigation statusBarColor="black"/>
+     <RootNavigation statusBarColor="black"/> //ici
     // </SafeAreaView>
+     
   );
 }
