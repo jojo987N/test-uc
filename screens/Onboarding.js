@@ -2,6 +2,7 @@ import { View, Text, Image, ImageBackground, StyleSheet, TouchableOpacity} from 
 import React, { useEffect, useState } from 'react'
 import Onboarding from 'react-native-onboarding-swiper'
 import * as Animatable from "react-native-animatable"
+import { StatusBar } from 'expo-status-bar';
 
 
 
@@ -22,6 +23,7 @@ export default function OnboardingScreen({navigation}) {
     
       <Text style={styles.splashText}>Good{'\n'}
       <Text style={styles.splashText1}>Foods</Text></Text>
+      <StatusBar style="auto" />
     
   </View>
 
