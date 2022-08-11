@@ -113,7 +113,11 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
                                   stripe.presentPaymentSheet({
                                       clientSecret:  json.paymentIntent
                                   }).then(presentSheet =>{
-                                      console.log(presentSheet)
+                                    //   console.log(presentSheet)
+                                    navigation.navigate('OrderRequest',{
+                                        lat: address.location.lat,
+                                        lng: address.location.lng
+                                    })
                                   })
                               })
                             
