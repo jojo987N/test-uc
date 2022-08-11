@@ -191,7 +191,7 @@ opacity, setCategoriesFood}) {
         if(e.nativeEvent.contentOffset.y === 0){
         setCategoriesFood(false)
         opacity(0).then(()=>{
-          setScrollEnabled(false)
+          // setScrollEnabled(false)
           
        })
 

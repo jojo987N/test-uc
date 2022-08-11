@@ -29,6 +29,7 @@ export default function OnboardingScreen({navigation}) {
 
 
   return (
+    <View style={styles.container}> 
     <ImageBackground style={{ width: "100%", height: "100%" }}
 
       source={require("../assets/images/onboarding.jpg")}>
@@ -50,11 +51,17 @@ export default function OnboardingScreen({navigation}) {
 
 
     </ImageBackground>
+    <StatusBar style="auto" />
+    </View>
      
   )
 }
 
 const styles = StyleSheet.create({
+
+  container: {
+     backgroundColor: "black"
+  },
 
   splash: {
     flex: 1,

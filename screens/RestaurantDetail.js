@@ -52,7 +52,7 @@ export default function RestaurantDetail({route, navigation}) {
 
   const foodsRef = useRef(null)
 
-  const [scrollEnabled, setScrollEnabled] = useState(false)
+  const [scrollEnabled, setScrollEnabled] = useState(true)
 
   const value3 = useState(new Animated.Value(0))[0]
 
@@ -174,14 +174,14 @@ export default function RestaurantDetail({route, navigation}) {
       <Divider width={5} color="white" style={{}} /> 
 
        {/* Mapview  //getLayout() avant */}
-       <Animated.View style={value1.getTranslateTransform()}>   
+       {/* <Animated.View style={value1.getTranslateTransform()}>   
        < DisplayMapview userLocation={userLocation} mapRef={mapRef} apikey={apikey} restaurant={restaurant} />
-       </Animated.View>
+       </Animated.View> */}
 
        
 
 
-       <BottomSheet ref={bottomSheet} index={1} snapPoints={["47%","75%", "100%"]} 
+       <BottomSheet ref={bottomSheet} index={1} snapPoints={["75%","75%"]} 
        handleIndicatorStyle={{ backgroundColor: "#d9d9d9", width: 100 }}
        onChange={(index)=>{ 
          if(index === 2){
