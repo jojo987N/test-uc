@@ -1,3 +1,5 @@
+import { useStripe } from '@stripe/stripe-react-native';
+
 
 export const bearing = (φ1, λ1, φ2, λ2) => {
     
@@ -36,4 +38,47 @@ export const bearing = (φ1, λ1, φ2, λ2) => {
   function deg2rad(deg) {
     return deg * (Math.PI/180)
   }
+
+
+export const stripePayment = () => {
+
+  const stripe = useStripe();
+
+
+  fetch("http://192.241.139.136:3000/", {
+    method: 'POST',
+    body: JSON.stringify({
+      amount: 1099,
+      currency: 'usd',
+      // payment_method_types: ['card'],
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then((response)=>{
+      
+      response.json().then(json =>{
+          // console.log(json)
+
+          stripe.initPaymentSheet({
+              // customerId: json.customer,
+              // customerEphemeralKeySecret: json.ephemeralKey,
+              paymentIntentClientSecret: json.paymentIntent,
+              merchantDisplayName: 'Merchant Name',
+              // allowsDelayedPaymentMethods: true,
+              // paymentIntentClientSecret: json.clientSecret,
+            }).then(initSheet => {
+                console.log(initSheet)
+
+                stripe.presentPaymentSheet({
+                    clientSecret:  json.paymentIntent
+                }).then(presentSheet =>{
+                    console.log(presentSheet)
+                })
+            })
+          
+      })
+      // console.log(JSON.stringify(response.json()))
+  })
+}
   

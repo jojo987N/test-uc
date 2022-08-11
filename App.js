@@ -1,4 +1,4 @@
-import RootNavigation from "./navigation/navigation";
+ import RootNavigation from "./navigation/navigation";
 import { SafeAreaView, StatusBar} from "react-native";
 import {useFonts} from 'expo-font'
 
@@ -18,6 +18,8 @@ import {
   Roboto_900Black_Italic 
 } from '@expo-google-fonts/roboto'
 import Loader from "./screens/Loader";
+
+// import {StripeProvider} from '@storybook/addon-actions'
  
 
 export default function App() {
@@ -48,7 +50,8 @@ export default function App() {
     //   backgroundColor: "#eee",
     //   flex: 1
     // }}>
-    <RootNavigation statusBarColor="black"/>
+     <RootNavigation statusBarColor="black"/> //ici
     // </SafeAreaView>
+     
   );
 }

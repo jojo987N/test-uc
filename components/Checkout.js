@@ -10,6 +10,7 @@ import { useNavigation } from '@react-navigation/native'
 import Loader from '../screens/Loader'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { LoaderContext } from '../contexts/LoaderContext'
+import { useStripe } from '@stripe/stripe-react-native';
 
 
 export default function Checkout({restaurantName, setLoader, setViewCartButton, setModalVisible}) {
@@ -29,6 +30,8 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
     // const [loading, setLoading] = useState(false)
 
     const dispatch = useDispatch();   
+
+     const stripe = useStripe();
 
 
     const addOrderToFirebase = () => {
@@ -79,10 +82,52 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
                   style={styles.checkoutButton}
 
                   onPress={() => {
+
+                    //sk_test_6PfwPBTOfkh5YlxclL6KfQue
+                    
+                    fetch("http://192.241.139.136:3000/", {
+                      method: 'POST',
+                      body: JSON.stringify({
+                        amount: 1099,
+                        currency: 'usd',
+                        // payment_method_types: ['card'],
+                      }),
+                      headers: {
+                        'Content-Type': 'application/json'
+                      }
+                    }).then((response)=>{
+                        
+                        response.json().then(json =>{
+                            // console.log(json)
+
+                            stripe.initPaymentSheet({
+                                // customerId: json.customer,
+                                // customerEphemeralKeySecret: json.ephemeralKey,
+                                paymentIntentClientSecret: json.paymentIntent,
+                                merchantDisplayName: 'Merchant Name',
+                                // allowsDelayedPaymentMethods: true,
+                                // paymentIntentClientSecret: json.clientSecret,
+                              }).then(initSheet => {
+                                  console.log(initSheet)
+
+                                  stripe.presentPaymentSheet({
+                                      clientSecret:  json.paymentIntent
+                                  }).then(presentSheet =>{
+                                      console.log(presentSheet)
+                                  })
+                              })
+                            
+                        })
+                        // console.log(JSON.stringify(response.json()))
+                    })
+
+                    
+                
+
                     //setLoader(true)
                     // setLoading(true)
                     //  addOrderToFirebase()  //ICIII
-                     setModalVisible(false);
+                    //  setModalVisible(false);
                     
                     // setTimeout(()=>{          // Dummy
                     // navigation.navigate('OrderRequest',{   

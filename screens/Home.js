@@ -121,7 +121,7 @@ export default function Home({navigation}) {
 
    
   return (
-    <SafeAreaView style={{
+    <View style={{
       paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
       backgroundColor: "#eee",
       flex: 1
@@ -155,7 +155,7 @@ export default function Home({navigation}) {
       <Divider width={1}/>
       {/* <BottomTabs /> */}
      </View>
-     </SafeAreaView>
+     </View>
   )
 }
 

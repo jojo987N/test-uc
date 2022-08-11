@@ -27,6 +27,7 @@ import AddCard from '../screens/AddCard'
 import SignUp from '../screens/SignUp'
 import { LoaderContext } from '../contexts/LoaderContext'
 import { RestaurantsContext } from '../contexts/RestaurantsContext'
+import {StripeProvider} from '@stripe/stripe-react-native'
  
 
 const store = configureStore();
@@ -52,6 +53,7 @@ export default function RootNavigation({statusBarColor}) {
       <NavigationContainer>
       <LoaderContext.Provider value={{loading, setLoading}}>
         <RestaurantsContext.Provider value={{restaurantData, setRestaurantData}}> 
+        <StripeProvider publishableKey="pk_test_vKLlrU7o8gOAVZbP2h3xs81I"> 
           <Stack.Navigator /*initialRouteName='BottomTabs' */ screenOptions={screenOptions}>
               {/* <Stack.Screen name="Home" component={Home}/> */}
               {/* <Stack.Screen name="Loader" component={Loader}/> */}
@@ -75,6 +77,7 @@ export default function RootNavigation({statusBarColor}) {
               {/* <Stack.Screen name="MenuDetailScreen" component={menuDetailScreen}/> */}
               {/* <Stack.Screen name="RestaurantsMapScreen" component={RestaurantsMapScreen}/> */}
           </Stack.Navigator>
+           </StripeProvider>
           </RestaurantsContext.Provider>
           </LoaderContext.Provider>
       </NavigationContainer>

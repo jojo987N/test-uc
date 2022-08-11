@@ -54,9 +54,9 @@ const HeaderButton = (props) => (
         props.setActiveTab(props.text)
 
         if(props.text && props.navigation)
-        if(props.text === 'Pickup') props.navigation.navigate('RestaurantsMapScreen',{
-          restaurantData: props.restaurantData
-        })
+        // if(props.text === 'Pickup') props.navigation.navigate('RestaurantsMapScreen',{
+        //   restaurantData: props.restaurantData
+        // })
 
         if(props.text === 'Delivery' && !props.delivery){
             props.setCity(null)
