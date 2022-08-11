@@ -5,7 +5,6 @@ import Home from '../screens/Home'
 import RestaurantDetail from '../screens/RestaurantDetail'
 import MenuDetailScreen from '../screens/MenuDetailScreen'
 import MyOrdersScreen from '../screens/MyOrdersScreen'
-import OrderDetails from '../screens/OrderDetails'
 import PreferenceScreen from '../components/PreferenceScreen'
 import SearchResults from '../screens/SearchResults'
 import SearchScreen from '../screens/SearchScreen'
@@ -74,10 +73,6 @@ export function OrderNavigator() {
           component={CartScreen}
           options={{headerShown: true, headerLeft: null}}/>
 
-       <OrderStack.Screen 
-          name="OrderDetails"
-          component={OrderDetails}
-          options={{headerShown: false}}/>
 
        <OrderStack.Screen 
           name="Orders"
