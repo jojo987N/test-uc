@@ -1,9 +1,9 @@
 {
     "expo": {
-     "name": "Good Food 0",
+     "name": "Good Food",
      "icon": "./assets/images/marker2.png",
      "version": "1.0.0",
-     "slug": "good-food-slug0",
+     "slug": "good-food-slug1",
      "notification":{
       "icon":"./assets/images/car.png"
    },
@@ -20,7 +20,7 @@
         "ACCESS_COARSE_LOCATION",
         "ACCESS_FINE_LOCATION"
        ],
-       "package": "com.goodfood.goodfood0",
+       "package": "com.goodfood.goodfood1",
        "versionCode": 1
      },
     }
