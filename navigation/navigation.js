@@ -27,6 +27,7 @@ import AddCard from '../screens/AddCard'
 import SignUp from '../screens/SignUp'
 import { LoaderContext } from '../contexts/LoaderContext'
 import {StripeProvider} from '@stripe/stripe-react-native'
+import AddFunds from '../screens/AddFunds'
  
 
 const store = configureStore();
@@ -70,6 +71,7 @@ export default function RootNavigation({statusBarColor}) {
               <Stack.Screen name="OrderCompleted" component={OrderCompleted}/>
               <Stack.Screen name="Offers" component={Offers}/>
               <Stack.Screen name="Wallet" component={Wallet}/>
+              <Stack.Screen name="AddFunds" component={AddFunds}/>
               <Stack.Screen name="AddCard" component={AddCard}/>
               {/* <Stack.Screen name="MenuDetailScreen" component={menuDetailScreen}/> */}
               {/* <Stack.Screen name="RestaurantsMapScreen" component={RestaurantsMapScreen}/> */}
