@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity} from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, StatusBar} from 'react-native'
 import React from 'react'
 import { ArrowBack } from '../components/restaurantDetail/About'
 import { grey1 } from '../global'
@@ -46,7 +46,9 @@ export default function Wallet({navigation}) {
 
 const styles = StyleSheet.create({
     container: {
-      marginHorizontal: 10
+      marginHorizontal: 10,
+      paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+
     },
     title: {
         fontSize: 35,

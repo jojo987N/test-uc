@@ -5,6 +5,11 @@ import { Icon } from 'react-native-elements';
 import BusinessConsoleScreen from '../screens/BusinessConsoleScreen';
 import DrawerContent from '../components/DrawerContent';
 import { SearchNavigator } from './Stacks';
+import RestaurantsMapScreen from '../screens/RestaurantsMapScreen';
+import { MaterialIcons } from '@expo/vector-icons'
+import RestaurantDetail from '../screens/RestaurantDetail';
+import Offers from '../screens/Offers'
+
 
 const Drawer = createDrawerNavigator();
 
@@ -18,7 +23,7 @@ export default function DrawerNavigator() {
             name = "BottomTabs"
             component={BottomTabs}
             options={{
-                title: "Home",
+                title: "Restaurants",
                 drawerIcon: ({focussed, size}) =>(
                   <Icon 
                     type="material-community"
@@ -26,6 +31,21 @@ export default function DrawerNavigator() {
                     color={focussed ? "black":""}
                     size={size}
                   />  
+                )
+            }}
+        />
+         
+        <Drawer.Screen 
+            name = "Pickup"
+            component={RestaurantsMapScreen}
+            options={{
+                title: "Pickup",
+                drawerIcon: ({focussed, size}) =>(
+                  <MaterialIcons 
+                  name="takeout-dining"
+                  color={focussed}
+                  size={size}
+              /> 
                 )
             }}
         />
@@ -44,6 +64,21 @@ export default function DrawerNavigator() {
                 )
             }}
         />
+        {/* <Drawer.Screen 
+            name = "rewards"
+            component={Offers}
+            options={{
+                title: "Rewards",
+                drawerIcon: ({focussed, size}) =>(
+                  <Icon 
+                    type="material"
+                    name="search"
+                    color={focussed ? "black":""}
+                    size={size}
+                  />  
+                )
+            }}
+        /> */}
         {/* <Drawer.Screen 
             name = "BusinessConsoleScreen"
             component={BusinessConsoleScreen}

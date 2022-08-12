@@ -184,7 +184,7 @@ opacity, setCategoriesFood}) {
         // console.log("dffs")
       }}
 
-      scrollEnabled={scrollEnabled}
+       scrollEnabled={scrollEnabled}
 
        onScrollEndDrag={(e)=>{
          

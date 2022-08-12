@@ -22,8 +22,8 @@ export default function RestaurantDetailHeader({foodsRef, navigation, route}) {
 const styles = StyleSheet.create({
 
     container: {
-       // position: "absolute",
-        // zIndex: 1,
+        position: "absolute",
+        zIndex: 1,
         backgroundColor: "white",
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
 

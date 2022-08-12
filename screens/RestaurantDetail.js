@@ -166,6 +166,7 @@ export default function RestaurantDetail({route, navigation}) {
            
           <RestaurantDetailHeader foodsRef={foodsRef} navigation={navigation} route={route}/>
        </Animated.View>} */}
+
        
        <Animated.View style={value.getTranslateTransform()}>
       <RestaurantImage image={image_url} navigation={navigation}/>
