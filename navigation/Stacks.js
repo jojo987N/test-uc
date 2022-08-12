@@ -5,7 +5,6 @@ import Home from '../screens/Home'
 import RestaurantDetail from '../screens/RestaurantDetail'
 import MenuDetailScreen from '../screens/MenuDetailScreen'
 import MyOrdersScreen from '../screens/MyOrdersScreen'
-import PreferenceScreen from '../components/PreferenceScreen'
 import SearchResults from '../screens/SearchResults'
 import SearchScreen from '../screens/SearchScreen'
 import OrdersScreen from '../screens/OrdersScreen'
@@ -37,10 +36,7 @@ export function HomeNavigator() {
           component={MenuDetailScreen}
           options={{headerShown: false}}/>
 
-      <HomeStack.Screen 
-          name="PreferenceScreen"
-          component={PreferenceScreen}
-          options={{headerShown: false}}/>
+      
 
 <HomeStack.Screen 
           name="RestaurantsMapScreen"

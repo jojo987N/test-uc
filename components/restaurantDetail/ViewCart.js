@@ -14,7 +14,6 @@ import { location } from '../../global'
 import {generateUID} from '../../global'
 import Cart from '../Cart';
 import CartModal from '../CartModal';
-import Loading from '../Loading';
  
 
 LogBox.ignoreLogs(['Setting a timer'])
