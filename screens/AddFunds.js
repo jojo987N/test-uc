@@ -16,7 +16,7 @@ export default function AddFunds({ navigation }) {
             <Divider style={{ marginHorizontal: 10, marginTop: 20, marginBottom: 20 }} />
 
             <CheckBox
-                title={<Text style={{ marginLeft: 10 }}>${25}</Text>}
+                title={<Text style={{ marginLeft: 10, fontSize: 25}}>${25}</Text>}
                 checked={true}
                 checkedIcon="dot-circle-o"
                 uncheckedIcon="circle-o"
@@ -25,16 +25,16 @@ export default function AddFunds({ navigation }) {
             <Divider style={{ marginHorizontal: 20, marginTop: 20, marginBottom: 20 }} />
 
             <CheckBox
-                title={"rtyu"}
-                checked={false}
+                title={<Text style={{ marginLeft: 10, fontSize: 25}}>${50}</Text>}
+                checked={true}
                 checkedIcon="dot-circle-o"
                 uncheckedIcon="circle-o"
                 containerStyle={styles.containerStyle} />
 
             <Divider style={{ marginHorizontal: 20, marginTop: 20, marginBottom: 20 }} />
             <CheckBox
-                title={"dvfhth"}
-                checked={false}
+                title={<Text style={{ marginLeft: 10, fontSize: 25}}>${100}</Text>}
+                checked={true}
                 checkedIcon="dot-circle-o"
                 uncheckedIcon="circle-o"
                 containerStyle={styles.containerStyle} />
