@@ -62,7 +62,21 @@ export default function App() {
   })
 
   useEffect(()=>{
-    registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
+    registerForPushNotificationsAsync().then(token =>{
+      setExpoPushToken(token)
+
+      fetch("http://192.241.139.136:3000/", {
+        method: 'POST',
+        body: JSON.stringify({
+          token: token,
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+
+
+    });
 
     notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
       setNotification(notification);
