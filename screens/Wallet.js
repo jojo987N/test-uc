@@ -26,7 +26,7 @@ export default function Wallet({navigation}) {
           <TouchableOpacity style={styles.textContainer} onPress={()=>
             {
                 // navigation.push("AddCard")
-                stripePayment(stripe)
+                // stripePayment(stripe)
             }}>
               <Text style={styles.text}>Add payment method</Text>
           </TouchableOpacity>
