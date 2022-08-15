@@ -11,7 +11,7 @@ export default function AddFunds({ navigation }) {
     const [amount3, setAmount3] = useState(100)
     return (
         <View style={styles.container}>
-            <ArrowBack navigation={navigation} />
+            {/* <ArrowBack navigation={navigation} /> */}
             <Text style={styles.title}>Add Funds</Text>
             <Divider style={{ marginHorizontal: 10, marginTop: 20, marginBottom: 20 }} />
 
@@ -26,7 +26,7 @@ export default function AddFunds({ navigation }) {
 
             <CheckBox
                 title={<Text style={{ marginLeft: 10, fontSize: 25}}>${50}</Text>}
-                checked={true}
+                checked={false}
                 checkedIcon="dot-circle-o"
                 uncheckedIcon="circle-o"
                 containerStyle={styles.containerStyle} />
@@ -34,7 +34,7 @@ export default function AddFunds({ navigation }) {
             <Divider style={{ marginHorizontal: 20, marginTop: 20, marginBottom: 20 }} />
             <CheckBox
                 title={<Text style={{ marginLeft: 10, fontSize: 25}}>${100}</Text>}
-                checked={true}
+                checked={false}
                 checkedIcon="dot-circle-o"
                 uncheckedIcon="circle-o"
                 containerStyle={styles.containerStyle} />

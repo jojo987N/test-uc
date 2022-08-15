@@ -17,7 +17,7 @@ export default function Wallet({ navigation }) {
             <Modal
                 animationType='slide'
                 visible={true}
-                transparent={true}
+                // transparent={true}
                 onRequestClose={() => setModalVisible(false)}>
                 {/* {checkoutModalContent()} */}
                 <AddFunds />
