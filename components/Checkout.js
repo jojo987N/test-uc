@@ -85,41 +85,35 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
 
                     //sk_test_6PfwPBTOfkh5YlxclL6KfQue
                     
-                    fetch("http://192.241.139.136:3000/", {
-                      method: 'POST',
-                      body: JSON.stringify({
-                        amount: 1099,
-                        currency: 'usd',
-                        // payment_method_types: ['card'],
-                      }),
-                      headers: {
-                        'Content-Type': 'application/json'
-                      }
-                    }).then((response)=>{
+                    // fetch("http://192.241.139.136:3000/", {
+                    //   method: 'POST',
+                    //   body: JSON.stringify({
+                    //     amount: 1099,
+                    //     currency: 'usd',
+                         
+                    //   }),
+                    //   headers: {
+                    //     'Content-Type': 'application/json'
+                    //   }
+                    // }).then((response)=>{
                         
-                        response.json().then(json =>{
-                            // console.log(json)
+                    //     response.json().then(json =>{
 
-                            stripe.initPaymentSheet({
-                                // customerId: json.customer,
-                                // customerEphemeralKeySecret: json.ephemeralKey,
-                                paymentIntentClientSecret: json.paymentIntent,
-                                merchantDisplayName: 'Merchant Name',
-                                // allowsDelayedPaymentMethods: true,
-                                // paymentIntentClientSecret: json.clientSecret,
-                              }).then(initSheet => {
-                                  console.log(initSheet)
+                    //         stripe.initPaymentSheet({
+                    //             paymentIntentClientSecret: json.paymentIntent,
+                    //             merchantDisplayName: 'Merchant Name',
+                    //           }).then(initSheet => {
+                    //               console.log(initSheet)
 
-                                  stripe.presentPaymentSheet({
-                                      clientSecret:  json.paymentIntent
-                                  }).then(presentSheet =>{
-                                      console.log(presentSheet)
-                                  })
-                              })
+                    //               stripe.presentPaymentSheet({
+                    //                   clientSecret:  json.paymentIntent
+                    //               }).then(presentSheet =>{
+                    //                   console.log(presentSheet)
+                    //               })
+                    //           })
                             
-                        })
-                        // console.log(JSON.stringify(response.json()))
-                    })
+                    //     })
+                    // })
 
                     
                 

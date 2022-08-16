@@ -94,22 +94,20 @@ export default function BottomTabs() {
          }}
          />
 
-      <Tab.Screen 
+      {/* <Tab.Screen 
          name = "Map" 
           component={RestaurantsMapScreen} 
-        // component={SignUp}
          options ={{
           headerShown: false,
            tabBarIcon: ({color, size}) =>(
             <FontAwesome 
             name="map-marker" 
-             
             color={color}
             size={size}/>
            ) 
          }}
          />
-         
+          */}
 
         {/* <Tab.Screen 
          name = "Account" 
