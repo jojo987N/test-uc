@@ -53,7 +53,7 @@ export default function RestaurantsMapScreen({route, navigation}) {
 
   const restaurantsRef = useRef(null)
 
-  const [visible, setVisible] = useState(true)
+  const [visible, setVisible] = useState(route.params.visible)
 
   const [scrollEnabled, setScrollEnabled] = useState(false)
 

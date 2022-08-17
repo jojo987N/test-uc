@@ -167,7 +167,14 @@ export default function RestaurantDetail({route, navigation}) {
           <RestaurantDetailHeader foodsRef={foodsRef} navigation={navigation} route={route}/>
        </Animated.View>} */}
 
-       
+ 
+   
+<View style={{position: "absolute", top: Platform.OS === "android" ? StatusBar.currentHeight : 0, zIndex: 1}}>
+    <ArrowBack navigation={navigation}/>
+   </View>
+
+
+
        <Animated.View style={value.getTranslateTransform()}>
       <RestaurantImage image={image_url} navigation={navigation}/>
       </Animated.View>
@@ -273,7 +280,7 @@ const RestaurantImage = (props)=>(
   source={{uri: props.image }}
 >
    <View style={{ paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,}}>
-    <ArrowBack navigation={props.navigation}/>
+    {/* <ArrowBack navigation={props.navigation}/> */}
    </View>
   
 
