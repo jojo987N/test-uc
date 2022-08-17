@@ -35,7 +35,7 @@ export default function Wallet({ navigation }) {
                     </View>
                 </View>
                 <TouchableOpacity style={styles.textContainer} onPress={() => {
-                    navigation.push("AddFunds")
+                    // navigation.push("AddFunds")
                     // stripePayment(stripe)
                 }}>
                     <Text style={styles.text}>Add Funds to your wallet</Text>
