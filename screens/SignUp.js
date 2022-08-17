@@ -122,7 +122,9 @@ export default function SignUp({ navigation }) {
 
         </View>
           
-        <TouchableOpacity onPress={() => {signUp()}}>
+        <TouchableOpacity onPress={() => {
+          // signUp()
+          }}>
 
           <LinearGradient
             colors={['#948E99', '#2E1437']}
