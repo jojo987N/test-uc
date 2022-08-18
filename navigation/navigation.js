@@ -7,8 +7,7 @@ import RestaurantDetail from '../screens/RestaurantDetail'
 import { Provider as ReduxProvider } from 'react-redux'
 //import store from './redux/store'
 import configureStore from '../redux/store'
-import OrderCompleted from '../screens/OrderCompleted'
-
+ 
 import BottomTabs from './BottomTabs'
 import RestaurantsMapScreen from '../screens/RestaurantsMapScreen'
 import DrawerNavigator from './DrawerNavigator'
@@ -63,8 +62,7 @@ export default function RootNavigation({statusBarColor}) {
               {/* <Stack.Screen name="RestaurantDetail" component={RestaurantDetail}/> */}
               {/* <Stack.Screen name="RestaurantsMapScreen" component={RestaurantsMapScreen}/> */}
               <Stack.Screen name="OrderRequest" component={OrderRequest}/>
-              <Stack.Screen name="OrderCompleted" component={OrderCompleted}/>
-              <Stack.Screen name="Offers" component={Offers}/>
+               <Stack.Screen name="Offers" component={Offers}/>
               <Stack.Screen name="Wallet" component={Wallet}/>
               <Stack.Screen name="AddCard" component={AddCard}/>
               {/* <Stack.Screen name="MenuDetailScreen" component={menuDetailScreen}/> */}

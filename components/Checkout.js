@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import {language, currency}  from '../global'
 import { addDoc, serverTimestamp } from 'firebase/firestore'
 import { generateUID } from '../global'
-import { ordersCol } from '../firebase'
+import { ordersCol } from '../firebase/config'
 import { useNavigation } from '@react-navigation/native'
 import Loader from '../screens/Loader'
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -80,8 +80,8 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
                   onPress={() => {
                     //setLoader(true)
                     // setLoading(true)
-                    //  addOrderToFirebase()  //ICIII
-                     setModalVisible(false);
+                     addOrderToFirebase()  //ICIII
+                    //  setModalVisible(false); //recent
                     
                     // setTimeout(()=>{          // Dummy
                     // navigation.navigate('OrderRequest',{   

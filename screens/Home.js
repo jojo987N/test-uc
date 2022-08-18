@@ -11,7 +11,7 @@ import { restaurants, themes } from '../data'
 //import { restaurants } from '../firebase'
 import HomeHeader from '../components/home/HomeHeader'
 
-import { addRestaurants, getRestaurantsFromFirebase } from '../firebase'
+import { addRestaurants, getRestaurantsFromFirebase } from '../firebase/config'
 
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { AntDesign } from '@expo/vector-icons'

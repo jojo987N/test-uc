@@ -1,20 +1,8 @@
-import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth';
 import { addDoc, getFirestore, collection, getDocs, orderBy, query, limit, where, onSnapshot } from 'firebase/firestore'
 import { getStorage } from 'firebase/storage'
 import { LogBox } from 'react-native';
-LogBox.ignoreLogs(['AsyncStorage has been extracted from react-native core'])
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBKG5-vG_pBdRdKHX30UYUF9_F7SOt8Co4",
-  authDomain: "uber-eats-a4c19.firebaseapp.com",
-  projectId: "uber-eats-a4c19",
-  storageBucket: "uber-eats-a4c19.appspot.com",
-  messagingSenderId: "976827322571",
-  appId: "1:976827322571:web:8ba517048bb9928f938b4e"
-};
-const firebaseApp = initializeApp(firebaseConfig);
-export default firebaseApp;
+ 
 export const auth = getAuth(firebaseApp)
 export const db = getFirestore()
 export const storage = getStorage();
@@ -46,7 +34,7 @@ export const getOrders = () => {
       return orders
     })
 }
-export const getDriverInfos = async (setDriverName, setCar, setDriverImage, bottomSheet, setDriverLat, setDriverLng, mapRef) => {
+ export const getDriverInfos = async (setDriverInfos, bottomSheet, mapRef) => {
   onSnapshot(ordersCol, (snapshot) => {
     snapshot.docs.forEach((doc) => {
       if (doc.data().createdAt && doc.data().status === 'ACCEPTED' && doc.data().User.id === auth.currentUser?.uid, doc.data().driverId) {
@@ -58,16 +46,22 @@ export const getDriverInfos = async (setDriverName, setCar, setDriverImage, bott
         driverInfos(doc.data().driverId)
           .then((snapshot) => snapshot.docs.forEach((doc) => {
             console.log(doc.data().lat, doc.data().lng)
-            setDriverName(doc.data().name)
-            setCar(doc.data().Car)
-            setDriverImage({ uri: doc.data().image })
-            setDriverLat(doc.data().lat)
-            setDriverLng(doc.data().lng)
+            setDriverInfos({
+              driverName: doc.data().name,
+              car: doc.data().Car,
+              driverImage: { uri: doc.data().image },
+              driverLat: doc.data().lat,
+              driverLng: doc.data().lng
+
+
+            })
+             
           }))
       }
     })
   })
 }
+LogBox.ignoreLogs(['AsyncStorage has been extracted from react-native core'])
 const productsCol = collection(db, 'products')
 export const getProducts = () => {
   const products = []

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import OrderItem from './OrderItem';
 //import firebase from '../../firebase';
 import {addDoc, serverTimestamp} from 'firebase/firestore'
-import {ordersCol, userInfos, auth} from '../../firebase';
+import {ordersCol, userInfos, auth} from '../../firebase/config';
 import { LogBox } from 'react-native';
 import "intl"
 import "intl/locale-data/jsonp/en"

@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, useWindowDimensions, Image, Animated} from 'react-native'
 import React, { useEffect, useRef, useState } from 'react'
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
-import {getDriverInfos} from '../firebase'
+import {getDriverInfos} from '../firebase/config'
 import BottomSheet from '@gorhom/bottom-sheet'
 import { Icon} from 'react-native-elements'
 import LottieView from 'lottie-react-native';
@@ -22,13 +22,11 @@ export default function OrderRequest({navigation, route}) {
   const {lat, lng} = route.params
   const { width, height } = useWindowDimensions();
   const [driver, setDriver] = useState()
-  const [driverName, setDriverName] = useState()
-  const [car, setCar] = useState()
-  const [driverImage, setDriverImage] = useState()
-  const [driverLat, setDriverLat] = useState()
-  //const [driverLat, setDriverLat] = useState(parseFloat(positions.gpx.wpt[0].lat))
-  const [driverLng, setDriverLng] = useState()
 
+  const [driverInfos, setDriverInfos] = useState({})
+  const [driverName, setDriverName] = useState()
+    
+ 
   const [regionLat, setRegionLat] = useState(lat)
   const [regionLng, setRegionLng] = useState(lng)
   //const [driverLng, setDriverLng] = useState(parseFloat(positions.gpx.wpt[0].lon))
@@ -67,16 +65,9 @@ export default function OrderRequest({navigation, route}) {
 
 
    
-    getDriverInfos(setDriverName, setCar, setDriverImage, bottomSheet, setDriverLat, setDriverLng, mapRef)
-    .then(()=>{
-      if(driverLat  && driverLng){
-
-        // setRegionLat(lat + (driverLat - lat)*0.5)
-        // setRegionLng(lng + (driverLng - lng)*0.5)
-      }
-    //  console.log(driverLat, driverLng)
-      console.log(lat + (driverLat - lat)*0.5, lng + (driverLng - lng)*0.5, "fff")
-    })
+    // getDriverInfos(setDriverName, setCar, setDriverImage, bottomSheet, setDriverLat, setDriverLng, mapRef)
+    getDriverInfos(setDriverInfos, bottomSheet, mapRef)
+    
     
    }, [])
   return (
@@ -111,9 +102,9 @@ export default function OrderRequest({navigation, route}) {
 
         <CustomMarker subject="user" lat={lat} lng={lng}/>
 
-        { driverLat && driverLng ?<CustomMarker subject="driver" lat={driverLat} lng={driverLng} angle={angle} />:<></>}
+        {driverInfos.driverLat && driverInfos.driverLng ?<CustomMarker subject="driver" lat={driverInfos.driverLat} lng={driverInfos.driverLng} angle={angle} />:<></>}
 
-       { driverLat && driverLng && !local ?<DisplayMapviewDirections apikey={apikey} toLat={lat} toLng={lng} fromLat={driverLat} fromLng={driverLng} 
+       { driverInfos.driverLat && driverInfos.driverLng ?<DisplayMapviewDirections apikey={apikey} toLat={lat} toLng={lng} fromLat={driverInfos.driverLat} fromLng={driverInfos.driverLng} 
        setTotalMinutes={setTotalMinutes} setTimeLeft={setTimeLeft}/>:<></>}
       </MapView>
       <NavigationMenu navigation={navigation} />
@@ -123,13 +114,13 @@ export default function OrderRequest({navigation, route}) {
  
       <BottomSheet ref={bottomSheet} index={1} snapPoints={["12%", "95%"]}
           handleIndicatorStyle={{backgroundColor: "grey", width: 100}}>
-     {!driverImage?
+     {!driverInfos.driverImage?
      <View>
        <AnimationCooking />
          
     </View> :<></>}
 
-     {driverImage?( <View style={styles.container}>
+     {driverInfos.driverImage?( <View style={styles.container}>
           <View style={styles.name_image_car}>
 
             {/*<Text style={styles.driverName}>{driverName}</Text>*/}
@@ -138,7 +129,7 @@ export default function OrderRequest({navigation, route}) {
 
             <View style={styles.driverImageContainer}>
               <Image
-                source={driverImage}
+                source={driverInfos.driverImage}
                 style={styles.driverImage} />
             </View>
             {/*<Text style={styles.car}>{car}</Text>*/}
@@ -154,7 +145,7 @@ export default function OrderRequest({navigation, route}) {
          {/* <CarIsHeading lat={lat} lng={lng}/> */}
     </BottomSheet>
 
-    <TimeLeft totalMinutes={totalMinutes} timeLeft={timeLeft} setTimeLeft={setTimeLeft} height={height} driverImage={driverImage}/>
+    <TimeLeft totalMinutes={totalMinutes} timeLeft={timeLeft} setTimeLeft={setTimeLeft} height={height} driverImage={driverInfos.driverImage}/>
 
          
     </View>
