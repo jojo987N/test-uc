@@ -82,15 +82,15 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
                     //setLoader(true)
                     // setLoading(true)
                     //  addOrderToFirebase()  //ICIII
-                     setModalVisible(false);
+                    //  setModalVisible(false); // apk
                     
-                    // setTimeout(()=>{          // Dummy
-                    // navigation.navigate('OrderRequest',{   
-                    //         lat: address.location.lat,
-                    //         lng: address.location.lng,
-                    //     })
-                    // setLoading(false)
-                    // }, 4000)
+                    setTimeout(()=>{          // Dummy
+                    navigation.navigate('OrderRequest',{   
+                            lat: address.location.lat,
+                            lng: address.location.lng,
+                        })
+                    setLoading(false)
+                    }, 4000)
                     
 
                      

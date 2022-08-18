@@ -54,19 +54,19 @@ export default function OrderRequest({navigation, route}) {
    useEffect(()=>{
      
 
-     setTimeout(()=>{    // Demo
+    //  setTimeout(()=>{    // Demo
    
-      updateInterface(bottomSheet)
-      .then(()=>{
-        setDriverImage(require('../assets/images/driver.png'))
-      }).then(()=>{
-        // setLocal(false)
-      })
-      .then(()=>{
-        move(angleValue, setDriverLat, setDriverLng, positions)
-      })
+    //   updateInterface(bottomSheet)
+    //   .then(()=>{
+    //     setDriverImage(require('../assets/images/driver.png'))
+    //   }).then(()=>{
+    //     // setLocal(false)
+    //   })
+    //   .then(()=>{
+    //     move(angleValue, setDriverLat, setDriverLng, positions)
+    //   })
       
-    }, 15000)
+    // }, 15000)
 
 
 
