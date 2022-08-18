@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity} from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, StatusBar} from 'react-native'
 import React, { useState } from 'react'
 import { ArrowBack } from '../components/restaurantDetail/About'
 import { CheckBox, Divider, } from 'react-native-elements'
@@ -6,7 +6,7 @@ import { stripePayment } from '../utils'
 import { useStripe } from '@stripe/stripe-react-native';
 
 
-export default function AddFunds({ navigation }) {
+export default function AddFunds({ navigation, setModalVisible }) {
 
     const [amount1, setAmount1] = useState(25)
     const [amount2, setAmount2] = useState(50)
@@ -43,9 +43,11 @@ export default function AddFunds({ navigation }) {
                 containerStyle={styles.containerStyle} />
             </View>
             <View style={{marginHorizontal: 20, flexDirection: "row", marginBottom: 20}}>
-                <View style={{  flex: 1 }}>
+                <TouchableOpacity style={{  flex: 1 }}   onPress={()=>{
+                    setModalVisible(false)
+                 }}>
                     <Text style={{padding: 20, fontSize: 20 }}>CANCEL</Text>
-                </View>
+                </TouchableOpacity>
                 <TouchableOpacity style={{ backgroundColor: "black", flex: 1 }}
                  onPress={()=>{
                     stripePayment(stripe, amount1)
@@ -62,11 +64,13 @@ export default function AddFunds({ navigation }) {
 
 const styles = StyleSheet.create({
     container: {
-       flex: 1
+       flex: 1,
     },
     title: {
         fontSize: 35,
-        marginLeft: 20
+        marginLeft: 20,
+        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+
     },
     containerStyle:
         { backgroundColor: "transparent" }

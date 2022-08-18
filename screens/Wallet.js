@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity, Modal} from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Modal, StatusBar} from 'react-native'
 import React, { useState } from 'react'
 import { ArrowBack } from '../components/restaurantDetail/About'
 import { grey1 } from '../global'
@@ -16,11 +16,11 @@ export default function Wallet({ navigation }) {
         <>
             <Modal
                 animationType='slide'
-                visible={true}
+                visible={modalVisible}
                 // transparent={true}
                 onRequestClose={() => setModalVisible(false)}>
                 {/* {checkoutModalContent()} */}
-                <AddFunds />
+                <AddFunds setModalVisible={setModalVisible}/>
             </Modal>
             <View style={styles.container}>
                 <ArrowBack navigation={navigation} />
@@ -37,6 +37,7 @@ export default function Wallet({ navigation }) {
                 <TouchableOpacity style={styles.textContainer} onPress={() => {
                     // navigation.push("AddFunds")
                     // stripePayment(stripe)
+                    setModalVisible(true)
                 }}>
                     <Text style={styles.text}>Add Funds to your wallet</Text>
                 </TouchableOpacity>
@@ -57,7 +58,9 @@ export default function Wallet({ navigation }) {
 
 const styles = StyleSheet.create({
     container: {
-        marginHorizontal: 10
+        marginHorizontal: 10,
+        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+
     },
     title: {
         fontSize: 35,

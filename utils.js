@@ -47,7 +47,7 @@ export const stripePayment = (stripe, amount1) => {
   fetch("http://192.241.139.136:3000/", {
     method: 'POST',
     body: JSON.stringify({
-      amount: amount1,
+      amount: amount1*100,
       currency: 'usd',
       // payment_method_types: ['card'],
     }),
