@@ -27,7 +27,8 @@ export default function HeaderTabs(props) {
             setActiveTab={props.setActiveTab}
             navigation={props.navigation}
             restaurantData={props.restaurantData}
-            pickup={props.pickup}/>
+            pickup={props.pickup}
+            setTransactions={props.setTransactions}/>
 
     </View>     
      
@@ -63,6 +64,10 @@ const HeaderButton = (props) => (
             props.searchbar.current?.setAddressText("")
         }
         
+
+        if(props.text === 'Pickup' && !props.pickup) 
+        props.setTransactions("pickup")
+
 
          
         if(props.pickup){

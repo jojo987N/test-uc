@@ -44,6 +44,8 @@ export default function Home({navigation}) {
   //const [city, setCity] = useState("San Francisco");
   const [city, setCity] = useState();
   const [activeTab, setActiveTab]= useState("Delivery")
+
+  const [transactions, setTransactions] = useState()
    
 
   const flatlist = useRef(null)
@@ -70,6 +72,8 @@ export default function Home({navigation}) {
   
   }
   useEffect(()=>{
+
+    
    // getRestaurantsFromYelp();
   // getRestaurantsFromFirebase()
    // getRestaurantsFromFirebase().then((restaurants)=> setRestaurantData(restaurants))
@@ -129,13 +133,13 @@ export default function Home({navigation}) {
      <View style={{flex: 1}}>
       <View style={{ backgroundColor: "white", padding: 15 }}>
 
-        <HeaderTabs activeTab={activeTab} setActiveTab={setActiveTab} navigation={navigation} restaurantData={restaurantData} setCity={setCity} searchbar={searchbar}/>
-       <HomeHeader navigation={navigation}/>
+        <HeaderTabs activeTab={activeTab} setActiveTab={setActiveTab} navigation={navigation} restaurantData={restaurantData} setCity={setCity} searchbar={searchbar} setTransactions={setTransactions}/>
+       <HomeHeader navigation={navigation}  />
         <SearchBar cityHandler={setCity} navigation={navigation} restaurantData={restaurantData} searchbar={searchbar}/>
       </View>
        
        {city?<RestaurantItems restaurantData={restaurantData.filter(restaurant => restaurant.location.city === city)} navigation={navigation}  size="100%"/>
-          :
+          :transactions?<RestaurantItems restaurantData={restaurantData.filter(restaurant => restaurant.transactions.includes(transactions))} navigation={navigation}  size="100%"/>:
         <ScrollView showsVerticalScrollIndicator={false}>
           <Categories navigation={navigation}/>
 
