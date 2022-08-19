@@ -1,7 +1,7 @@
 import { View, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native'
 import React, { useEffect, useState } from 'react'
 
- import { getRestaurantsFromFirebase } from '../firebase/config'
+ import { getRestaurantsFromFirebase } from '../firebase/utils'
 import { categories } from '../data'
 import {RestaurantImage, RestaurantInfo} from '../components/home/RestaurantItems'
 import Loader from './Loader'
