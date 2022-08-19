@@ -12,6 +12,7 @@
     "@stripe/stripe-react-native": "0.2.3",
     "create-react-app": "^5.0.1",
     "expo": "^44.0.0",
+    "expo-firebase-recaptcha": "2.1.0",
     "expo-font": "~10.0.4",
     "expo-linear-gradient": "~11.0.3",
     "expo-localization": "~12.0.0",

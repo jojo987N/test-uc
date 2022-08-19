@@ -31,7 +31,8 @@ import { FlatList } from 'react-native-gesture-handler';
      marginLeft: 20,
      fontWeight: "bold",
      marginVertical: 10
-    }
+    },
+    quantity: {alignItems: "center", paddingBottom: 20}
 }) 
 
 export default function MenuItems({route, activeTab, marginLeft, navigation, foodsRef,
@@ -128,7 +129,7 @@ opacity, setCategoriesFood}) {
                 return (
               
                   <View key={index}>
-               <View style={styles.menuItemStyle}>
+               <TouchableOpacity style={styles.menuItemStyle} onPress={() => navigation.navigate("MenuDetailScreen", { food: item, restaurant: restaurant })}>
                    <View style={{
                      flexDirection: "row"
                    }}>
@@ -138,7 +139,7 @@ opacity, setCategoriesFood}) {
                    }}>
                       <FoodImage food={item} marginLeft={marginLeft ? marginLeft:0}
                        />
-                       <QuantityAnimate id={item.id} food={item} restaurant={restaurant}/>
+                       {/* <QuantityAnimate id={item.id} food={item} restaurant={restaurant}/> */}
                    </View>
               
               
@@ -150,7 +151,11 @@ opacity, setCategoriesFood}) {
               
               
               
+               </TouchableOpacity>
+               <View style={styles.quantity}>
+                  <QuantityAnimate id={item.id} food={item} restaurant={restaurant}/>
                </View>
+
                <Divider width={0.5} orientation="vertical" style={{
                  marginHorizontal: 20
               
@@ -304,9 +309,8 @@ const FoodInfo = (props)=>{
   
   return (
 
-    <TouchableOpacity
-      style={{ flex: 3, justifyContent: "center", paddingHorizontal: 10 }}
-      onPress={() => props.navigation.navigate("MenuDetailScreen", { food: props.food, restaurant: props.restaurant })}>
+    <View
+      style={{ flex: 3, justifyContent: "center", paddingHorizontal: 10 }}>
 
       <Text style={styles.titleStyle}>{props.food.name}</Text>
       <Text>{props.food.description}</Text>
@@ -316,7 +320,7 @@ const FoodInfo = (props)=>{
         currency: currency
       })}</Text>
 
-    </TouchableOpacity>
+    </View>
 )}
 
 const FoodImage = ({marginLeft,...props})=>(
