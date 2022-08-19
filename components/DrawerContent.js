@@ -7,7 +7,7 @@ import {
     DrawerItem
 } from '@react-navigation/drawer'
 import {signOut } from 'firebase/auth'
-import { auth } from '../firebase/config'
+import { auth } from '../firebase/utils'
 import { useNavigation } from '@react-navigation/native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { MaterialIcons } from '@expo/vector-icons'

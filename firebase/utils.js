@@ -1,3 +1,4 @@
+import firebaseApp from './config'
 import { getAuth } from 'firebase/auth';
 import { addDoc, getFirestore, collection, getDocs, orderBy, query, limit, where, onSnapshot } from 'firebase/firestore'
 import { getStorage } from 'firebase/storage'

@@ -98,38 +98,38 @@ export const dataTest = [
 
 
 
-export const filterData = [
-  {
-      id: 1,
-      name: "Bread",
-      image: require('./assets/images/bread.png')
-  },
-  {
-      id: 2,
-      name: "Coffee",
-      image: require('./assets/images/coffee.png')
-  },
-  {
-    id: 3,
-      name: "Deals",
-      image: require('./assets/images/deals.png')
-  },
-  {
-      id: 4,
-      name: "Desserts",
-      image: require('./assets/images/desserts.png')
-  },
-  {   
-      id: 5,
-      name: "Soft-Drink",
-      image: require('./assets/images/soft-drink.png')
-  },
-  {
-      id: 6,
-      name: "Fast-Food",
-      image: require('./assets/images/fast-food.png')
-  }
-]
+// export const filterData = [
+//   {
+//       id: 1,
+//       name: "Bread",
+//        image: require('./assets/images/bread.png')
+//   },
+//   {
+//       id: 2,
+//       name: "Coffee",
+//       image: require('./assets/images/coffee.png')
+//   },
+//   {
+//     id: 3,
+//       name: "Deals",
+//       image: require('./assets/images/deals.png')
+//   },
+//   {
+//       id: 4,
+//       name: "Desserts",
+//       image: require('./assets/images/desserts.png')
+//   },
+//   {   
+//       id: 5,
+//       name: "Soft-Drink",
+//       image: require('./assets/images/soft-drink.png')
+//   },
+//   {
+//       id: 6,
+//       name: "Fast-Food",
+//       image: require('./assets/images/fast-food.png')
+//   }
+// ]
 
 export const filterData2 = [{name:"Fast food",
 image:'https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg' , id:"0"},
