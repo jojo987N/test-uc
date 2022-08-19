@@ -1,26 +1,12 @@
+
 import * as Location from 'expo-location';
 
-
 export const language = "en"
+
 export const currency = "USD"
+
 export const apikey = ""
 
-
-
-export const grey1 = "#e6e6e6"
-
-export const colors = {
-  buttons: "black",
-  grey1: "#43484d",
-  grey2: "#5e6977",
-  grey3: "#86939e",
-  grey4: "#bdc6cf",
-  grey5: "#e1e8ee",
-  cardComment: "#86939e",
-  cardbackground: 'white',
-  statusbar: '#ff8c52',
-  headerText: 'white'
-}
 export const parameters = {
   headerHeight: 40,
   styledButton: {
@@ -42,6 +28,23 @@ export const parameters = {
   }
 }
 
+
+
+
+export const grey1 = "#e6e6e6"
+
+export const colors = {
+  buttons: "black",
+  grey1: "#43484d",
+  grey2: "#5e6977",
+  grey3: "#86939e",
+  grey4: "#bdc6cf",
+  grey5: "#e1e8ee",
+  cardComment: "#86939e",
+  cardbackground: 'white',
+  statusbar: '#ff8c52',
+  headerText: 'white'
+}
 
 export const title = {
   color: "black",
