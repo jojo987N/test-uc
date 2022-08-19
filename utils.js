@@ -40,7 +40,7 @@ export const bearing = (φ1, λ1, φ2, λ2) => {
   }
 
 
-export const stripePayment = (stripe, amount1) => {
+export const stripePayment = (stripe, amount1, setModalVisible, setAmount) => {
 
  
 
@@ -73,6 +73,8 @@ export const stripePayment = (stripe, amount1) => {
                     clientSecret:  json.paymentIntent
                 }).then(presentSheet =>{
                     console.log(presentSheet)
+                    setModalVisible(false)
+                    setAmount(amount1)
                 })
             })
           

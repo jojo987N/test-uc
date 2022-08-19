@@ -6,11 +6,11 @@ import { stripePayment } from '../utils'
 import { useStripe } from '@stripe/stripe-react-native';
 
 
-export default function AddFunds({ navigation, setModalVisible }) {
+export default function AddFunds({ navigation, setModalVisible, setAmount}) {
 
-    const [amount1, setAmount1] = useState(25)
-    const [amount2, setAmount2] = useState(50)
-    const [amount3, setAmount3] = useState(100)
+    const [amount1, setAmount1] = useState(50)
+    const [amount2, setAmount2] = useState(100)
+    const [amount3, setAmount3] = useState(150)
     const stripe = useStripe();
     return (
         <View style={styles.container}>
@@ -50,7 +50,7 @@ export default function AddFunds({ navigation, setModalVisible }) {
                 </TouchableOpacity>
                 <TouchableOpacity style={{ backgroundColor: "black", flex: 1 }}
                  onPress={()=>{
-                    stripePayment(stripe, amount1)
+                    stripePayment(stripe, amount1, setModalVisible, setAmount)
                  }}
                 >
                     <Text style={{ color: "white", padding: 20, fontSize: 20 }}>CONFIRM</Text>

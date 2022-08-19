@@ -6,12 +6,15 @@ import { AntDesign } from '@expo/vector-icons'
 import { stripePayment } from '../utils'
 import { useStripe } from '@stripe/stripe-react-native';
 import AddFunds from './AddFunds'
+import {language, currency}  from '../global'
+
 
 
 export default function Wallet({ navigation }) {
 
     const stripe = useStripe();
     const [modalVisible, setModalVisible] = useState(false)
+    const [amount, setAmount] = useState(0.00)
     return (
         <>
             <Modal
@@ -20,7 +23,7 @@ export default function Wallet({ navigation }) {
                 // transparent={true}
                 onRequestClose={() => setModalVisible(false)}>
                 {/* {checkoutModalContent()} */}
-                <AddFunds setModalVisible={setModalVisible}/>
+                <AddFunds setModalVisible={setModalVisible}  setAmount={setAmount}/>
             </Modal>
             <View style={styles.container}>
                 <ArrowBack navigation={navigation} />
@@ -29,7 +32,10 @@ export default function Wallet({ navigation }) {
                     <View style={styles.cashContainer}>
                         <View style={styles.cashTexts}>
                             <Text style={styles.cashText}>Cash</Text>
-                            <Text style={styles.cashNumber}>$0.00</Text>
+                            <Text style={styles.cashNumber}>{amount.toLocaleString(language, {
+        style: "currency",
+        currency: currency
+      })}</Text>
                         </View>
                         <AntDesign name="right" size={20} color="grey" style={styles.right} />
                     </View>
