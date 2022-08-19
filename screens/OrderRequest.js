@@ -41,8 +41,9 @@ export default function OrderRequest({navigation, route}) {
   const [local, setLocal] = useState(true)  // Demo
   const [totalMinutes, setTotalMinutes]=useState(51)    // Demo
   const [timeLeft, setTimeLeft] = useState(Math.round(51/4)) // Demo
+  const [status, setStatus] = useState("Your order has been accepted")
 
-
+   
    
 
    const angleValue = useState(new Animated.Value(1))[0]
@@ -129,7 +130,7 @@ export default function OrderRequest({navigation, route}) {
           handleIndicatorStyle={{backgroundColor: "grey", width: 100}}>
      {!driverImage?
      <View>
-       <AnimationCooking />
+       <AnimationCooking status={status}/>
          
     </View> :<></>}
 
@@ -158,7 +159,7 @@ export default function OrderRequest({navigation, route}) {
          {/* <CarIsHeading lat={lat} lng={lng}/> */}
     </BottomSheet>
 
-    <TimeLeft totalMinutes={totalMinutes} timeLeft={timeLeft} setTimeLeft={setTimeLeft} height={height} driverImage={driverImage}/>
+    <TimeLeft totalMinutes={totalMinutes} timeLeft={timeLeft} setTimeLeft={setTimeLeft} height={height} driverImage={driverImage} setStatus={setStatus}/>
 
          
     </View>
@@ -239,7 +240,7 @@ export const DisplayMapviewDirections = ({fromLat, fromLng, toLat, toLng, apikey
 )}
 
 
-const AnimationCooking = ()=>{
+const AnimationCooking = ({status})=>{
   return (
     <View>
       <LottieView style={{
@@ -256,7 +257,7 @@ const AnimationCooking = ()=>{
         textAlign: "center",
         marginTop: 40,
         fontFamily: "Roboto_500Medium",
-        fontSize: 15}}>Preparing your order...</Text>
+        fontSize: 15}}>{status}</Text>
     </View>
   )
 }
@@ -269,7 +270,7 @@ const NavigationMenu = ({ navigation }) => (
 </View>
 )
 
-const TimeLeft = ({totalMinutes, timeLeft, setTimeLeft, height, driverImage})=>{
+const TimeLeft = ({totalMinutes, timeLeft, setTimeLeft, height, driverImage, setStatus})=>{
 
   const styles = StyleSheet.create({
     container: {
@@ -283,7 +284,7 @@ const TimeLeft = ({totalMinutes, timeLeft, setTimeLeft, height, driverImage})=>{
   })
   return (
     <View style={styles.container}>
-      <OrderCountDown totalMinutes={totalMinutes} timeLeft={timeLeft} setTimeLeft={setTimeLeft}/>
+      <OrderCountDown totalMinutes={totalMinutes} timeLeft={timeLeft} setTimeLeft={setTimeLeft} setStatus={setStatus}/>
     </View>
     // <View style={styles.container}>
     //   <View style={styles.content}>

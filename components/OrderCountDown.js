@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import { APP_CONSTANT } from '../global';
 
 export default function OrderCountDown({
-  setBottomSheetHeight, setMapdirection, totalMinutes, timeLeft, setTimeLeft
+  setBottomSheetHeight, setMapdirection, totalMinutes, timeLeft, setTimeLeft, setStatus
 }) {
 
 
@@ -52,7 +52,10 @@ export default function OrderCountDown({
      //  console.log(remainingTime)
         if(remainingTime%4 === 0 && timeLeft >=1)
           setTimeLeft(timeLeft-1)
-
+        if(timeLeft < 11)
+         setStatus("Preparing your order...")
+        if(timeLeft < 8)
+         setStatus("Driver is on the way for pickup")
 
       }}
       onComplete={() => {
