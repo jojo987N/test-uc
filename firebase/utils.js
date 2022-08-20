@@ -1,15 +1,14 @@
 import firebaseApp from './config'
 import { getAuth } from 'firebase/auth';
-import { addDoc, getFirestore, collection, getDocs, orderBy, query, limit, where, onSnapshot } from 'firebase/firestore'
+import { addDoc, getFirestore, collection, getDocs, orderBy, query, limit, where } from 'firebase/firestore'
 import { getStorage } from 'firebase/storage'
-import { LogBox } from 'react-native';
  
 export const auth = getAuth(firebaseApp)
 export const db = getFirestore()
 export const storage = getStorage();
 
 const restaurantsCol = collection(db, 'restaurants')
-export const getRestaurantsFromFirebase = () => {
+export const getRestaurantsFromFirebase = async () => {
   const restos = []
   return getDocs(restaurantsCol)
     .then((snapshot) => {
@@ -23,48 +22,20 @@ export const getRestaurantsFromFirebase = () => {
     })
 }
 export const ordersCol = collection(db, 'orders')
-export const getOrders = () => {
+export const getOrders = async () => {
   const q = query(ordersCol, orderBy('createdAt', 'desc'), limit(1))
   const orders = []
   return getDocs(q)
     .then((snapshot) => {
       snapshot.docs.forEach((doc) => {
         orders.push(doc.data())
-        console.log(doc.data())
       })
       return orders
     })
 }
- export const getDriverInfos = async (setDriverInfos, bottomSheet, mapRef) => {
-  onSnapshot(ordersCol, (snapshot) => {
-    snapshot.docs.forEach((doc) => {
-      if (doc.data().createdAt && doc.data().status === 'ACCEPTED' && doc.data().User.id === auth.currentUser?.uid, doc.data().driverId) {
-        bottomSheet?.current.collapse()
-        mapRef?.current?.getCamera().then((cam) => {
-          cam.zoom += 1;
-          mapRef?.current?.animateCamera(cam);
-        })
-        driverInfos(doc.data().driverId)
-          .then((snapshot) => snapshot.docs.forEach((doc) => {
-            console.log(doc.data().lat, doc.data().lng)
-            setDriverInfos({
-              driverName: doc.data().name,
-              car: doc.data().Car,
-              driverImage: { uri: doc.data().image },
-              driverLat: doc.data().lat,
-              driverLng: doc.data().lng
 
-
-            })
-             
-          }))
-      }
-    })
-  })
-}
-LogBox.ignoreLogs(['AsyncStorage has been extracted from react-native core'])
 const productsCol = collection(db, 'products')
-export const getProducts = () => {
+export const getProducts = async () => {
   const products = []
   return getDocs(productsCol)
     .then((snapshot) => {
@@ -87,7 +58,7 @@ export const addUser = async (userCredentials, name, phone, address) => {
     phone: phone,
     address: address
   })
-    .then(() => console.log('user create'))
+
 }
 export const userInfos = (uid) => {
   const q = query(userRef, where("id", "==", uid))
