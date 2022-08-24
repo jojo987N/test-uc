@@ -5,7 +5,7 @@ import RestaurantItems from '../components/home/RestaurantItems'
 import LottieView from 'lottie-react-native'
 import { RestaurantInfo, RestaurantImage} from '../components/home/RestaurantItems'
 //import { getDistanceFromLatLonInKm } from '../global'
-import { location } from '../global'
+import { location, SCREEN_HEIGHT, SCREEN_WIDTH } from '../global'
 import {MaterialIcons} from '@expo/vector-icons';
 import { ArrowBack } from '../components/restaurantDetail/About'
 import SearchBar from '../components/home/SearchBar'
@@ -16,6 +16,7 @@ import {FlatList} from 'react-native-gesture-handler'
 import Reward from '../components/Reward'
 import { getDistanceFromLatLonInKm } from '../utils'
 import RestaurantMarkers from '../components/restaurantComponents/RestaurantMarkers'
+import RestaurantsCarousel from '../components/restaurantComponents/RestaurantsCarousel'
 
 
 
@@ -56,13 +57,12 @@ export default function RestaurantsMapScreen({route, navigation}) {
 
         }}
 
-        style={{
-          height: height,
-          width: width
-        }}
+        style={styles.mapview}
       >
         
             <RestaurantMarkers restaurants={restaurantData} />
+
+            <RestaurantsCarousel restaurants={restaurantData} />
               
              
 
@@ -81,17 +81,10 @@ export default function RestaurantsMapScreen({route, navigation}) {
 
 const styles = StyleSheet.create({
 
-
-   
-   
-
-  
-  restaurantsContainer: 
-    {
-      //backgroundColor: "red",
-      
-      flexDirection: "row"
-    },
+  mapview: {
+    height: SCREEN_HEIGHT,
+    width: SCREEN_WIDTH
+  }
      
     
 
