@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "name": "Buy 1, Get 1 Free"
+    },
+    {
+      "id": 2,
+      "name": "Picked For You"
+    }, {
+      "id": 3,
+      "name": "Breakfast"
+    }, {
+      "id": 4,
+      "name": "Open Faced Sandwiches"
+    }
+    , {
+      "id": 5,
+      "name": "Sandwiches"
+    }
+    , {
+      "id": 6,
+      "name": "Greens and Soup"
+    }
+    , {
+      "id": 7,
+      "name": "Shares"
+    }
+    , {
+      "id": 8,
+      "name": "Entrees"
+    }
+    , {
+      "id": 9,
+      "name": "Desserts"
+    }
+  
+  ]
+  

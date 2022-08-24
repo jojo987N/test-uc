@@ -2,10 +2,8 @@ import { View, Text, FlatList, StyleSheet} from 'react-native'
 import React, { useEffect, useState } from 'react'
 
  import { getRestaurantsFromFirebase } from '../firebase'
-import { categories } from '../data'
 import {RestaurantImage, RestaurantInfo} from '../components/home/RestaurantItems'
 import Loader from './Loader'
-import AsyncStorage from '@react-native-async-storage/async-storage'
 
 
 
@@ -17,37 +15,19 @@ export default function SearchResults({route, navigation}) {
    
   useEffect(()=>{
 
-    AsyncStorage.getItem("restaurants").then(value => {
-
-      let restaurants = JSON.parse(value)
-      setRestaurantData(restaurants.filter((restaurant, index)=> restaurant.categories.some(categorie => categorie.title === route.params.name)))
-        // getRestaurantsFromFirebase().then((restaurants)=> {
-        //   //setLoader(false)
-        //   setRestaurantData(restaurants.filter((restaurant, index)=> restaurant.categories.some(categorie => categorie.title === route.params.name)))
+     getRestaurantsFromFirebase().then((restaurants)=> {
+        setRestaurantData(restaurants.filter((restaurant)=> restaurant.categories.some(categorie => categorie.title === route.params.name)))
           
-        // })
-      
-    })
-    
-    
+        })
 
     navigation.setOptions({title: route.params.name})
 
   },[])
 
-  setTimeout(()=>{
-  
-    setLoader(false)
-  }, 4000)
-
    
     if(loader)
     return <Loader />
   
-
- 
- 
- 
   return (
     <View>
 
@@ -81,6 +61,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     padding: 15,
     backgroundColor: "white",
-    //width: 100
+    
   }
 })

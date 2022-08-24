@@ -137,42 +137,6 @@ export default function RestaurantItems({navigation,...props}) {
   )
 }
 
-export const RestaurantImage= (props)=>{
-    const [liked, setLiked] = useState(false)
-    return(
-    <>
-        <Image
-            source={{
-                uri: props.image
-            }}
-
-            style={{ width: "100%", height: 140 }}
-           // style={{ width: 100, height: 180 }}
-
-
-        />
-
-        <TouchableOpacity style={{position: 'absolute', right: 20, top: 20}}>
-            {liked?(<AntDesign
-                name='heart' 
-                size={25}
-                color="red"
-                
-                onPress={()=>setLiked(false)}
-                />
-            ):(
-                <MaterialCommunityIcons 
-                name="heart-outline" 
-                size={25} 
-                color='#fff'
-                onPress={()=>setLiked(true)}
-                />
-             
-            )}
-        </TouchableOpacity>
-    </>
-
-)}
 
 export const RestaurantInfo = (props)=>(
 

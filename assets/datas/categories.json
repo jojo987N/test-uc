@@ -1,0 +1,93 @@
+[
+    {
+      "id": 1,
+      "alias": "fast-food",
+      "name": "Fast Food",
+      "image": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg"
+    },
+    {
+      "id": 2,
+      "alias": "seafood",
+      "name": "Seafood",
+      "image": "https://cdn.pixabay.com/photo/2010/12/13/10/25/canape-2802_960_720.jpg"
+    },
+    {
+      "id": 3,
+      "alias": "wine_bars",
+      "name": "Wine Bars",
+      "image": "https://cdn.pixabay.com/photo/2019/11/19/20/40/wine-4638457_960_720.jpg"
+    },
+    {
+      "id": 4,
+      "alias": "cocktailbars",
+      "name": "Cocktail Bars",
+      "image": "https://cdn.pixabay.com/photo/2017/08/03/21/48/drinks-2578446_960_720.jpg"
+    },
+    {
+      "id": 5,
+      "alias": "thai",
+      "name": "Thai",
+      "image": "https://cdn.pixabay.com/photo/2018/07/18/06/36/egg-net-3545650_960_720.jpg"
+    },
+    {
+      "id": 6,
+      "alias": "comfortfood",
+      "name": "Comfort Food",
+      "image": "https://cdn.pixabay.com/photo/2017/06/30/21/58/cake-2459954_960_720.jpg"
+    },
+    {
+      "id": 7,
+      "alias": "korean",
+      "name": "Korean",
+      "image": "https://cdn.pixabay.com/photo/2017/08/08/09/44/food-photography-2610863_960_720.jpg"
+    },
+    {
+      "id": 8,
+      "alias": "soup",
+      "name": "Soup",
+      "image": "https://cdn.pixabay.com/photo/2017/11/23/13/50/pumpkin-soup-2972858_960_720.jpg"
+    },
+    {
+      "id": 9,
+      "alias": "noodles",
+      "name": "Noodles",
+      "image": "https://cdn.pixabay.com/photo/2014/11/11/18/20/pasta-527286_960_720.jpg"
+    },
+    {
+      "id": 10,
+      "alias": "peruvian",
+      "name": "Peruvian",
+      "image": "https://cdn.pixabay.com/photo/2018/04/12/23/58/still-physalis-life-3315233_960_720.jpg"
+    },
+    {
+      "id": 11,
+      "alias": "sushi",
+      "name": "Sushi",
+      "image": "https://cdn.pixabay.com/photo/2017/10/15/11/41/sushi-2853382_960_720.jpg"
+    },
+    {
+      "id": 12,
+      "alias": "dimsum",
+      "name": "Dimsum",
+      "image": "https://cdn.pixabay.com/photo/2020/09/21/12/40/meal-5589923_960_720.jpg"
+    },
+    {
+      "id": 13,
+      "alias": "asianfusion",
+      "name": "Asian Fusion",
+      "image": "https://cdn.pixabay.com/photo/2015/11/19/10/38/food-1050813_960_720.jpg"
+    },
+    {
+      "id": 14,
+      "alias": "italian",
+      "name": "Italian",
+      "image": "https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_960_720.jpg"
+    },
+    {
+      "id": 15,
+      "alias": "bars",
+      "name": "Bars",
+      "image": "https://cdn.pixabay.com/photo/2013/11/12/01/29/bar-209148_960_720.jpg"
+    }
+  ]
+  

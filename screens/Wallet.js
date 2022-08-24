@@ -1,43 +1,42 @@
-import { View, Text, StyleSheet, TouchableOpacity} from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import React, { useState } from 'react'
 import { ArrowBack } from '../components/restaurantDetail/About'
-import { grey1 } from '../global'
+import { APP_CONSTANT, colors, grey1, icon, screen } from '../global'
 import { AntDesign } from '@expo/vector-icons'
 
-export default function Wallet({navigation}) {
-  return (
-      <View style={styles.container}>
-          <ArrowBack navigation={navigation} />
-          <Text style={styles.title}>Wallet</Text>
-          <View style={styles.cash}>
-              <View style={styles.cashContainer}>
-                  <View style={styles.cashTexts}>
-                      <Text style={styles.cashText}>Cash</Text>
-                      <Text style={styles.cashNumber}>$0.00</Text>
-                  </View>
-                  <AntDesign name="right" size={20} color="grey" style={styles.right} />
-              </View>
-          </View>
-          <TouchableOpacity style={styles.textContainer} onPress={()=>navigation.push("AddCard")}>
-              <Text style={styles.text}>Add payment method</Text>
-          </TouchableOpacity>
-          <View style={styles.textContainer}>
-              <Text style={styles.text}>Connect Account</Text>
-          </View>
-          <View style={styles.textContainer}>
-              
-              <Text style={styles.text}>Vouchers</Text>
-          </View>
-          <View style={styles.textContainer}>
-              <Text style={styles.text}>Add voucher code </Text>
-          </View>
-      </View>
-  )
+export default function Wallet({ navigation }) {
+    const [cashNumber, setCashNumber] = useState()
+    return (
+        <View style={styles.container}>
+            <ArrowBack navigation={navigation} />
+            <Text style={styles.title}>{APP_CONSTANT.TEXT.WALLET}</Text>
+            <View style={styles.cash}>
+                <View style={styles.cashContainer}>
+                    <View style={styles.cashTexts}>
+                        <Text style={styles.cashText}>{APP_CONSTANT.TEXT.CASH}</Text>
+                        <Text style={styles.cashNumber}>{cashNumber}</Text>
+                    </View>
+                    <AntDesign name={icon.RIGHT} size={20} color={colors.grey3} style={styles.right} />
+                </View>
+            </View>
+            <TouchableOpacity style={styles.textContainer} onPress={() => navigation.push(screen.ADD_CARD)}>
+                <Text style={styles.text}>{APP_CONSTANT.TEXT.ADD_PAYMENT_METHOD}</Text>
+            </TouchableOpacity>
+            <View style={styles.textContainer}>
+                <Text style={styles.text}>{ }</Text>
+            </View>
+            <View style={styles.textContainer}>
+                <Text style={styles.text}>{APP_CONSTANT.TEXT.VOUCHERS}</Text>
+            </View>
+            <View style={styles.textContainer}>
+                <Text style={styles.text}>{APP_CONSTANT.ADD_VOUCHER_CODE}</Text>
+            </View>
+        </View>
+    )
 }
-
 const styles = StyleSheet.create({
     container: {
-      marginHorizontal: 10
+        marginHorizontal: 10
     },
     title: {
         fontSize: 35,
@@ -45,40 +44,36 @@ const styles = StyleSheet.create({
         marginBottom: 30
     },
     cashContainer: {
-       flexDirection: "row",
-       justifyContent: "space-between",
-       alignItems: "center"
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center"
     },
     cash: {
-      backgroundColor: grey1,
-      borderRadius: 10,
-      marginHorizontal: 10,
-      elevation: 5,
-      
+        backgroundColor: grey1,
+        borderRadius: 10,
+        marginHorizontal: 10,
+        elevation: 5,
     },
     cashTexts: {
-       marginLeft: 20 , 
-       paddingVertical: 25,
-       paddingBottom: 30
+        marginLeft: 20,
+        paddingVertical: 25,
+        paddingBottom: 30
     },
     cashNumber: {
         fontSize: 35,
         fontWeight: "bold",
-        //paddingVertical: 30,
-       
     },
     cashText: {
-        
     },
     right: {
-     marginRight: 10
+        marginRight: 10
     },
-    textContainer:{
+    textContainer: {
         borderBottomWidth: 0.5
     },
     text: {
-     paddingVertical: 30,
-     marginLeft: 10,
-     color:"green"
+        paddingVertical: 30,
+        marginLeft: 10,
+        color: colors.green,
     }
 })

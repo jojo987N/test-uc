@@ -1,5 +1,4 @@
 import RootNavigation from "./navigation/navigation";
-import { SafeAreaView, StatusBar} from "react-native";
 import {useFonts} from 'expo-font'
 
 
@@ -43,12 +42,7 @@ export default function App() {
    return <Loader />
    
   return (
-    // <SafeAreaView style={{
-    //   paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-    //   backgroundColor: "#eee",
-    //   flex: 1
-    // }}>
+   
     <RootNavigation statusBarColor="black"/>
-    // </SafeAreaView>
   );
 }

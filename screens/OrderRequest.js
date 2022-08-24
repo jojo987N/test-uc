@@ -163,38 +163,38 @@ export default function OrderRequest({navigation, route}) {
   )
 }
 
-export const CustomMarker = ({subject, lat, lng, angle, })=>{
+// export const CustomMarker = ({subject, lat, lng, angle, })=>{
 
-  return (<Marker.Animated  title="nass" description="nasso"
-  coordinate={{latitude: lat,longitude: lng}}
-  >
-    {subject === "user"?
-    <Image source={require('../assets/images/home1.png')} style={styles.homeMarkerImage}
-    resizeMode="contain"/>
-    :
-     <Animated.View  style={
+//   return (<Marker.Animated  title="nass" description="nasso"
+//   coordinate={{latitude: lat,longitude: lng}}
+//   >
+//     {subject === "user"?
+//     <Image source={require('../assets/images/home1.png')} style={styles.homeMarkerImage}
+//     resizeMode="contain"/>
+//     :
+//      <Animated.View  style={
         
-       {
-      transform: [
-        {
-        // rotate: '-20deg'
-        rotate: angle,
+//        {
+//       transform: [
+//         {
+//         // rotate: '-20deg'
+//         rotate: angle,
          
-      },
-      ]
-    }
+//       },
+//       ]
+//     }
     
-    }>
-      <Image source={require('../assets/images/car2.png')} 
+//     }>
+//       <Image source={require('../assets/images/car2.png')} 
      
-    style={styles.carMarkerImage}
-    resizeMode="contain"/>
-    </Animated.View>
-     }
+//     style={styles.carMarkerImage}
+//     resizeMode="contain"/>
+//     </Animated.View>
+//      }
 
     
-      </Marker.Animated>)
-}
+//       </Marker.Animated>)
+// }
  
 export const DisplayMapviewDirections = ({fromLat, fromLng, toLat, toLng, apikey, setTotalMinutes, setTimeLeft})=>{
   
