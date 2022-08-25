@@ -1,7 +1,7 @@
 import { FlatList, View, StyleSheet} from "react-native"
 import { colors, SCREEN_WIDTH } from "../global"
-import { RestaurantImage } from "./RestaurantImage"
-import RestaurantInfo from "./RestaurantInfo"
+import { RestaurantImage } from "./RestaurantItemImage"
+import RestaurantInfo from "./RestaurantItemInfo"
 
 const RestaurantsCarousel = ({restaurants})=>{
     

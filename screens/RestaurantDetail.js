@@ -56,230 +56,40 @@ export default function RestaurantDetail({route, navigation}) {
   const value3 = useState(new Animated.Value(0))[0]
 
 
-  const opacity = async (val)=>{
-
-   console.log("sdg")
-    Animated.timing(value3, {
-      toValue: val,
-      duration: 1000,
-      useNativeDriver: false
-    }).start()
-  }
-   
-
-  function pickup (){
-
- 
-    Animated.timing(value, {
-      toValue: {x: 0, y: 205},
-      duration: 1000,
-      useNativeDriver: false
-    }).start()
-
-    Animated.timing(value1, {
-      toValue: {x: 0, y: -205},
-      duration: 1000,
-      useNativeDriver: false
-    }).start()
-    
-  }
-
-  function delivery (){
-    Animated.timing(value, {
-      toValue: {x: 0, y: 0},
-      duration: 1000,
-      useNativeDriver: false
-    }).start()
-
-
-    Animated.timing(value1, {
-      toValue: {x: 0, y: 0},
-      duration: 1000,
-      useNativeDriver: false
-    }).start()
-  }
-
-
-  const scrollTo = (n)=>{
-
-     // console.log(foodsRef.current[34])
-     foodsRef.current[n].measure((fx,fy,w,h,px,py)=>{
-      console.log(py, h)
-
-      _scrollView.current?.scrollTo({
-        y: py,
-        animated: true
-      })
-    })
-  //  foodsRef.current[0]?.measure((fx,fy,w,h,px,py)=>{
-  //     console.log(fx)
-  //  })
-  //  view.current?.measure((fx,fy,w,h,px,py)=>{
-    
-  //  console.log(py)
-  //  })
-
-//    _scrollView.current?.scrollTo({
-//    y: 480,
-//    animated: true
-//  })
-
-  }
-
-   
-  
-
   useEffect(()=>{
 
-  //   mapRef?.current?.getCamera().then((cam)=>{
-  //     //cam.zoom += 1;
-  //    // cam.altitude = 0
-  //    // console.log(cam)
-  //   // mapRef?.current?.animateCamera(cam);
-  //  // mapRef?.current?.animateToViewingAngle(80)
-  //    })
-
-     AsyncStorage.getItem("userData").then(value=>{
-    let user = JSON.parse(value)
-    //console.log(user)
-    setUserLocation({
-      latitude: user.address.location.lat,
-      longitude: user.address.location.lng
-    })
-  })
 
   }, [])
 
-
-  if(!userLocation)
-  return <Loader />
-
-   
-   
-  
   return (
-    <>
+     
     <View style={{flex: 1}}>
        
-      {categoriesFood && <Animated.View style={{opacity: value3, backgroundColor:"white", zIndex: 1}}>
-           
-          <RestaurantDetailHeader foodsRef={foodsRef} navigation={navigation} route={route}/>
-       </Animated.View>}
-       
-       <Animated.View style={value.getLayout()}>
       <RestaurantImage image={image_url} navigation={navigation}/>
-      </Animated.View>
+     
 
       <Divider width={5} color="white" style={{}} /> 
 
-       {/* Mapview */}
-       <Animated.View style={value1.getLayout()}>
-       < DisplayMapview userLocation={userLocation} mapRef={mapRef} apikey={apikey} restaurant={restaurant} />
-       </Animated.View>
-
-       
-
-
        <BottomSheet ref={bottomSheet} index={1} snapPoints={["47%","75%", "90%"]} 
        handleIndicatorStyle={{ backgroundColor: "#d9d9d9", width: 100 }}
-       onChange={(index)=>{ 
-         if(index === 2){
-            setCategoriesFood(true)
-
-         opacity(1).then(()=>{
-          setScrollEnabled(true)
-       })
-
-         } 
-         if(index === 0){
-        //   opacity(0).then(()=>{
-        //     setScrollEnabled(false)
-        //  })
-         
-            
-            // setCategoriesFood(false)
-          }
-         
-       }}
-       
       >
       
-      
-       {/* {categoriesFood?<GroupFoodHeader foodsRef={foodsRef}/>:<></>} */}
+        <MenuItems route={route} navigation={navigation} />
 
-
-       {/* <BottomSheetScrollView ref={_scrollView}   > */}
-
-        
-      {/* <About route={route} navigation={navigation} userLocation={userLocation}
-      mapRef={mapRef} apikey={apikey}/> */}
-
-      {/* <HeaderTabs pickup={pickup} delivery={delivery} activeTab={activeTab} setActiveTab={setActiveTab}/> */}
-        {/* <Divider width={1.8} style={{ marginVertical: 20 }} /> */}
-        {/* <MenuItems restaurantName={route.params.name} foods={foods}/> */}
-        {/* <MenuItems restaurantName={route.params.name} foods={route.params.dishes} navigation={navigation}/> */}
-        
-        <MenuItems foodsRef={foodsRef} route={route} navigation={navigation} userLocation={userLocation}
-          mapRef={mapRef} apikey={apikey} activeTab={activeTab} 
-          pickup={pickup} delivery={delivery} setActiveTab={setActiveTab} 
-          scrollEnabled={scrollEnabled} setScrollEnabled={setScrollEnabled}
-          opacity={opacity} setCategoriesFood={setCategoriesFood}/>
-
-
-
-        
-
-
-
-
-          {/* <View style={{height: 80}}  ref={view}
-          // onLayout={(layout)=>{
-             
-          //   //console.log(layout.nativeEvent.layout.x)
-          // }}
-          >
-
-          </View> */}
-        {/* </BottomSheetScrollView> */}
         
       </BottomSheet>
-      <LoaderContext.Provider value={{loading, setLoading}}>
-         <ViewCart navigation={navigation} route={route} />
-      </LoaderContext.Provider>
+      
      
        
     </View>
-    {loading && <Modal
-    animationType='slide'
-    visible={loading}
-    transparent={true}
-    onRequestClose={() => setLoading(false)}
-    >
-     <Loader />
-   </Modal>}
-    </>
+    
+    
   )
 }
 
  
 
-const RestaurantImage = (props)=>(
-
-<ImageBackground
-
-  style={styles.container}
-  source={{uri: props.image }}
->
-   <View style={{ paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,}}>
-    <ArrowBack navigation={props.navigation}/>
-   </View>
-  
-
-
-</ImageBackground>
-
-
-);
+ 
 
 const DisplayPolylines = ()=>{
 
