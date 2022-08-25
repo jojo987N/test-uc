@@ -79,6 +79,9 @@ export const icon = {
 export const ANIMATION = {
   AUTHSCREEN: "fadeInUpBig"
 }
+export const IMAGE = {
+  CAR: '../assets/images/car2.png'
+}
 
 export const SCREEN_WIDTH = Dimensions.get('window').width
 export const SCREEN_HEIGHT = Dimensions.get('window').height
