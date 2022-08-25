@@ -121,7 +121,6 @@ export const ordersCol = collection(db, 'orders')
          // console.log(doc.data().driverId)
           driverInfos(doc.data().driverId)
           .then((snapshot)=>snapshot.docs.forEach((doc)=>{
-              console.log(doc.data().lat, doc.data().lng)
               setDriverName(doc.data().name)
               setCar(doc.data().Car)
               setDriverImage({uri: doc.data().image})
