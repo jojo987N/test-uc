@@ -91,9 +91,7 @@ export default function RestaurantDetail({route, navigation}) {
 
  
 
-const DisplayPolylines = ()=>{
 
-}
  
 
 const styles = StyleSheet.create({

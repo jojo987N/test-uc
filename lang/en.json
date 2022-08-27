@@ -1,3 +1,25 @@
 {
-    "hello": "hello"
+    "WALLET": "Wallet",
+    "CASH": "Cash",
+    "ADD_PAYMENT_METHOD": "Add payment method",
+    "CONNECT_ACCOUNT": "Connect Account",
+    "VOUCHERS": "Vouchers",
+    "ADD_VOUCHER_CODE": "Add voucher code",
+    "REGISTER_NOW": "Register Now !",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "NAME": "Name",
+    "PHONE": "Phone",
+    "SIGN_UP": "Sign Up",
+    "SIGN_IN": "Sign In",
+    "WELCOME": "Welcome !",
+    "APP_NAME": "Good Foods",
+    "DISCOVER_FOODS": "Discover Foods",
+    "CONTINUE": "Continue",
+    "DEALS": "Deals",
+    "DELIVERY": "Delivery",
+    "ARTICLE": "article",
+    "DELIVER_TO" : "deliver to",
+    "HOME": "Home",
+    
 }

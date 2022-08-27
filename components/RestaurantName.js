@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { Text } from 'react-native'
 import React from 'react'
 
 export default function RestaurantName(props) {
@@ -7,7 +7,6 @@ export default function RestaurantName(props) {
         fontSize: 29,
         fontWeight:Platform.OS === "android"?"bold":"600",
         marginTop: 10, 
-       // marginHorizontal: 15,
     }}
     >{props.name}</Text>
   )

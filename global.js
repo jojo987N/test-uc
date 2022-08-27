@@ -19,7 +19,15 @@ export const APP_CONSTANT = {
     PHONE: 'Phone',
     SIGN_UP: 'Sign Up',
     SIGN_IN: "Sign In",
-    WELCOME: "Welcome !"
+    WELCOME: "Welcome !",
+    APP_NAME: "Good Foods",
+    DISCOVER_FOODS: "Discover Foods",
+    CONTINUE: "Continue",
+    DEALS: "Deals",
+    DELIVERY: "Delivery",
+    ARTICLE: "article",
+    DELIVER_TO : "deliver to",
+    HOME: "Home"
   }
 
 
@@ -46,7 +54,10 @@ export const colors = {
     title: "#3d5c5c",
     background: "#b3b3b3",
   },
-  LIKED: "red"
+  LIKED: "red",
+  handleIndicatorStyle: "grey",
+  HOME: "#eee",
+  price: "grey"
 
 }
 
@@ -62,7 +73,28 @@ export const screen = {
   ADD_CARD: "AddCard",
   DRAWER_NAVIGATOR: "DrawerNavigator",
   SIGN_UP: "SignUp",
-  SEARCH_RESULTS:"SearchResults"
+  SEARCH_RESULTS:"SearchResults",
+  HOME: "Home",
+  SIGN_IN: "SignIn",
+  CARTS: "Carts",
+  ORDER_DETAILS: "OrderDetails",
+  ORDERS: "Orders",
+  SEARCH: "SearchScreen",
+  SEARCH_RESULTS: "SearchResults",
+  RESTAURANTS_MAP: "RestaurantsMapScreen",
+  PREFERENCE: "PreferenceScreen",
+  MENU_DETAIL: "MenuDetailScreen",
+  RESTAURANT_DETAIL: "RestaurantDetail",
+  RESTAURANT_SEARCH_RESULTS: "RestaurantSearchResults",
+  ONBOARDING: "Onboarding",
+  SPLASH: "Splash", 
+  DRAWER_NAVIGATOR: "DrawerNavigator",
+  ORDER_REQUEST: "OrderRequest",
+  ORDER_COMPLETED : "OrderCompleted",
+  OFFERS: "Offers",
+  WALLET: "Wallet",
+  ADD_CARD: "AddCard",
+  BOTTOM_TABS: "BottomTabs"
 }
 export const icon = {
   USER: "person",
@@ -72,15 +104,21 @@ export const icon = {
   RIGHT: "right",
   LIKED: 'heart',
   NOT_LIKED: 'heart-outline',
-  RESTAURANT: "restaurant"
+  RESTAURANT: "restaurant",
+  MENU: "menu"
 
 
 }
 export const ANIMATION = {
-  AUTHSCREEN: "fadeInUpBig"
+  AUTHSCREEN: "fadeInUpBig",
+  ONBOARDING: "fadeInUpBig",
+  LOADER: "../assets/animations/food-transition2.json"
 }
 export const IMAGE = {
-  CAR: '../assets/images/car2.png'
+  CAR: '../assets/images/car2.png',
+  USER: '../assets/images/home1.png',
+  COOKING_ANIMATION: "../assets/animations/cooking.json",
+  ONBOARDING: "../assets/images/onboarding.jpg"
 }
 
 export const SCREEN_WIDTH = Dimensions.get('window').width

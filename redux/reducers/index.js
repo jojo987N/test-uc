@@ -6,9 +6,7 @@ let reducers = combineReducers({
     cartReducer: cartReducer,
     userReducer: userReducer,
 })
-
 const rootReducer = (state, action) =>{
     return reducers(state, action);
 }
-
 export default rootReducer;

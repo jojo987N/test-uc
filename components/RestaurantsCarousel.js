@@ -4,7 +4,6 @@ import { RestaurantImage } from "./RestaurantItemImage"
 import RestaurantInfo from "./RestaurantItemInfo"
 
 const RestaurantsCarousel = ({restaurants})=>{
-    
       return (
          <View style={styles.container}>
             <FlatList
@@ -13,7 +12,6 @@ const RestaurantsCarousel = ({restaurants})=>{
              keyExtractor={(item, index)=>index}
              renderItem={({item})=>{
              return <View style={styles.itemContainer}>
-             
              <View style={styles.itemContainerContent}>
                 <RestaurantImage image={item.image_url} />
                 <RestaurantInfo
@@ -21,16 +19,12 @@ const RestaurantsCarousel = ({restaurants})=>{
                             rating={item.rating}
                             city={item.location.city}/>
               </View>
-    
              </View>
-          
              }}
           />
          </View>
-        
       )
     }
-
     const styles = StyleSheet.create({
       container: {
          position: "absolute",
@@ -45,8 +39,6 @@ const RestaurantsCarousel = ({restaurants})=>{
          itemContainerContent:{
             marginHorizontal: 10,
             paddingTop:15, 
-            
            },
     })
-
     export default RestaurantsCarousel;

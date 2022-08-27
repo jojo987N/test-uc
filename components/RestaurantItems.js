@@ -103,72 +103,14 @@ export default function RestaurantItems({navigation,...props}) {
                   showsHorizontalScrollIndicator={false}
               />
              
-          {/* {props.restaurantData.map((restaurant, index) => (
-
-              <TouchableOpacity 
-              key={index}
-              activeOpacity={1} 
-              style={{
-                  marginBottom: 30
-              }}
-              onPress={()=>navigation.navigate("RestaurantDetail",
-              {
-                restaurant: restaurant
-
-              })}
-              >
-                  <View  
-                      style={{
-                          marginTop: 10,
-                          padding: 15,
-                          backgroundColor: "white",
-                          //width: 100
-                      }}>
-                      <RestaurantImage image={restaurant.image_url} />
-                      <RestaurantInfo 
-                          name={restaurant.name}
-                          rating={restaurant.rating} 
-                          city={restaurant.location.city}/>
-                  </View>
-              </TouchableOpacity>
-          ))} */}
+         
            
       </View>
   )
 }
 
 
-export const RestaurantInfo = (props)=>(
 
-    <View style={{
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        marginTop: 10,
-        }}>
-        <View>
-            <Text style={{
-                fontSize: 15,
-                fontWeight:"bold",
-            }}>{props.name} - {props.city}</Text>
-
-            <Text style={{
-                fontSize: 13,
-                color: "grey"
-            }}>30-45 - min</Text>
-        </View>
-        <View style={{
-                backgroundColor: "#eee",
-                height: 30,
-                width: 30,
-                alignItems: "center",
-                justifyContent: "center",
-                borderRadius: 15,
-            }}>
-            <Text>{props.rating}</Text>
-        </View>
-    </View>
-)
 
 const Affiche = (props)=> {
     return (

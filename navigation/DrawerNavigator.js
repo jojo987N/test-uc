@@ -5,6 +5,7 @@ import { Icon } from 'react-native-elements';
 import BusinessConsoleScreen from '../screens/BusinessConsoleScreen';
 import DrawerContent from '../components/DrawerContent';
 import { SearchNavigator } from './Stacks';
+import { APP_CONSTANT, screen } from '../global';
 
 const Drawer = createDrawerNavigator();
 
@@ -15,10 +16,10 @@ export default function DrawerNavigator() {
     drawerContent= {props => <DrawerContent {...props}/>}
     >
         <Drawer.Screen 
-            name = "BottomTabs"
+            name = {screen.BOTTOM_TABS}
             component={BottomTabs}
             options={{
-                title: "Home",
+                title: APP_CONSTANT.TEXT.HOME,
                 drawerIcon: ({focussed, size}) =>(
                   <Icon 
                     type="material-community"

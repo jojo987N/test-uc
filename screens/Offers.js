@@ -1,6 +1,5 @@
 import { View, Text, StyleSheet, ScrollView, StatusBar} from 'react-native'
 import React from 'react'
-import { AntDesign } from '@expo/vector-icons'
 import { ArrowBack } from '../components/restaurantDetail/About'
 import {restaurants} from '../data'
 import { RestaurantInfo, RestaurantImage} from '../components/home/RestaurantItems'
@@ -10,7 +9,6 @@ export default function Offers({navigation}) {
   return (
     <View style={styles.container}>
       <View style={styles.arrow_title}>
-          {/* <AntDesign name='arrowleft' size={24} color="black" /> */}
           <ArrowBack navigation={navigation}/>
           <Text style={styles.title}>Deals</Text>
            

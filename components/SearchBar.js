@@ -6,45 +6,29 @@ import AntDesign from 'react-native-vector-icons/AntDesign'
 import { apikey } from '../../global'
 
 export default function SearchBar({searchbar, cityHandler, style, setAddress, navigation, restaurantData}) {
-  
-  return (
-    <View style={{marginTop: 15, flexDirection: "row"}}>
-
-      <GooglePlacesAutocomplete 
+ return (
+    <View style={styles.container}>
+     <GooglePlacesAutocomplete 
       ref={searchbar}
       query={{ 
         key: apikey,
         language: 'en',
       }}
-
-      fetchDetails
-
-      onPress={(data, details=null)=>{
-         //console.log(data)
-          const city = data.description.split(',')[0];
-
-          if(!style)
+     fetchDetails
+     onPress={(data, details=null)=>{
+         const city = data.description.split(',')[0];
+         if(!style)
           cityHandler(city)
-         // navigation.navigate("RestaurantSearchResults", {city: city, restaurantData})
-          //navigation.navigate("DrawerNavigator", {screen: "SearchNavigator", params: {screen: "SearchResults"}})
-         // navigation.navigate("SearchNavigator", {screen: "SearchResults", params: {city: city}})
-        
-          
-          if(style)
+         if(style)
           setAddress({
             description: data.description,
             location: details?.geometry?.location
           })
-
-         // setLocation(details?.geometry?.location)
-
-         // console.log(details?.geometry?.location.lat, details?.geometry?.location.lng)
-      }}
+     }}
       placeholder={!style?"Search":"Address"}
       styles={{
         textInput :{
-
-            backgroundColor: !style?'#eee':style.backgroundColor,
+           backgroundColor: !style?'#eee':style.backgroundColor,
             borderRadius : 20,
             fontWeight: "700",
             marginTop: 7,
@@ -57,11 +41,9 @@ export default function SearchBar({searchbar, cityHandler, style, setAddress, na
             marginRight : 10,
             ...style?{borderBottomWidth: style.borderBottomWidth, borderBottomColor: style.borderBottomColor}:{}
         }  
-
-          }}
+         }}
           renderLeftButton={()=>(
-
-            <View style={{marginLeft: 10}}>
+           <View style={{marginLeft: 10}}>
                 <Ionicons name="location-sharp" size={24} />
             </View>
           )} 
@@ -73,14 +55,18 @@ export default function SearchBar({searchbar, cityHandler, style, setAddress, na
              padding: 9,
              borderRadius: 30,
              alignItems: "center",
-
-          }}>
+         }}>
               <AntDesign name='clockcircle' size={11}
                style={{marginRight: 6}}/>
               <Text>Search</Text>
           </View>
-          
-          ):()=>{}}/>
+         ):()=>{}}/>
     </View>
   )
 }
+const styles = StyleSheet.create({
+  container: {
+    marginTop: 15, 
+    flexDirection: "row"
+  }
+})

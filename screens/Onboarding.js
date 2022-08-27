@@ -1,77 +1,34 @@
-import { View, Text, Image, ImageBackground, StyleSheet, TouchableOpacity} from 'react-native'
-import React, { useEffect, useState } from 'react'
-import Onboarding from 'react-native-onboarding-swiper'
+import { View, Text, ImageBackground, StyleSheet, TouchableOpacity } from 'react-native'
+import React from 'react'
 import * as Animatable from "react-native-animatable"
+import { ANIMATION, APP_CONSTANT, IMAGE, screen } from '../global'
+import { colors } from 'react-native-elements'
 
-
-
-export default function OnboardingScreen({navigation}) {
-
-  const [splash, setSplash]= useState(true)
-
-  setTimeout(()=>{
-    setSplash(false)
-  }, 4000)
-
-  // useEffect(()=>{
-
-  // }, [])
-
-  if(splash)
-  return <View style={styles.splash}>
-    
-      <Text style={styles.splashText}>Good{'\n'}
-      <Text style={styles.splashText1}>Foods</Text></Text>
-    
-  </View>
-
-
+export default function OnboardingScreen({ navigation }) {
   return (
-    <ImageBackground style={{ width: "100%", height: "100%" }}
-
-      source={require("../assets/images/onboarding.jpg")}>
-      <Text style={styles.title}>Good{'\n'}Foods</Text>
-
-      <Animatable.View style={styles.footer} animation="fadeInUpBig">
-      <View style={styles.box}>
-        <Text style={styles.discoverText}>Discover Foods</Text>
-
-        <TouchableOpacity style={styles.button} onPress={()=>{
-          navigation.navigate("SignIn")
-        }}>
-
-          <Text style={styles.buttonText}>Continue</Text>
-        </TouchableOpacity>
-
-      </View>
+    <ImageBackground style={styles.container}
+      source={require(IMAGE.ONBOARDING)}>
+      <Text style={styles.title}>{APP_CONSTANT.TEXT.APP_NAME}</Text>
+      <Animatable.View style={styles.footer} animation={ANIMATION.ONBOARDING}>
+        <View style={styles.box}>
+          <Text style={styles.discoverText}>{APP_CONSTANT.TEXT.DISCOVER_FOODS}</Text>
+          <TouchableOpacity style={styles.button} onPress={() => {
+            navigation.navigate(screen.SIGN_IN)
+          }}>
+            <Text style={styles.buttonText}>{APP_CONSTANT.TEXT.CONTINUE}</Text>
+          </TouchableOpacity>
+        </View>
       </Animatable.View>
-
-
     </ImageBackground>
-     
   )
 }
-
 const styles = StyleSheet.create({
-
-  splash: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#006600"
-  },
-  splashText: {
-     fontSize: 50,
-     fontFamily: "Roboto_500Medium"
-     //fontWeight: "bold"
-     
-  },
-  splashText1: {
-    fontWeight: "bold",
-    fontSize: 50,
+  container: {
+    width: "100%",
+    height: "100%"
   },
   title: {
-    color: "white",
+    color: colors.white,
     fontSize: 50,
     fontWeight: "bold",
     marginHorizontal: 40,
@@ -79,16 +36,15 @@ const styles = StyleSheet.create({
     flex: 1
   },
   box: {
-    backgroundColor: "white",
-     
+    backgroundColor: colors.white,
   },
   button: {
-    backgroundColor: "black",
+    backgroundColor: colors.black,
     marginHorizontal: 10,
     marginBottom: 10
   },
   buttonText: {
-    color: "white",
+    color: colors.white,
     textAlign: "center",
     paddingVertical: 18,
     fontSize: 20

@@ -10,7 +10,7 @@ import {MaterialIcons} from '@expo/vector-icons';
 import { ArrowBack } from '../components/restaurantDetail/About'
 import SearchBar from '../components/home/SearchBar'
 import BottomSheet from '@gorhom/bottom-sheet'
-import Categories from '../components/home/Categories'
+import Categories from '../components/Categories'
 import {FlatList} from 'react-native-gesture-handler'
 //import { Reward } from './Offers'
 import Reward from '../components/Reward'
@@ -19,57 +19,39 @@ import RestaurantMarkers from '../components/restaurantComponents/RestaurantMark
 import RestaurantsCarousel from '../components/restaurantComponents/RestaurantsCarousel'
 
 
-
-
-
 export default function RestaurantsMapScreen({route, navigation}) {
   
 
   const {restaurantData} = route.params
-
-   
-
-  const { width, height } = useWindowDimensions();
-
+  const [location, setLocation] = useState(null)
 
   useEffect(()=>{
-    location().then((loc)=>{
-      setMyLocation(loc)
-     
-     
+    location().then((location)=>{
+      setLocation(location)
     })
     
-
   },[])
    
    
   return (
-    <View style={{
-    }}>
+    <View>
       <MapView
          ref={_map}
         initialRegion={{
-          latitude: myLocation.coords.latitude,
-         longitude: myLocation.coords.longitude,
-           
+          latitude: location.coords.latitude,
+          longitude: location.coords.longitude,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421
-
         }}
-
-        style={styles.mapview}
-      >
+        style={styles.mapview}>
         
             <RestaurantMarkers restaurants={restaurantData} />
-
-            <RestaurantsCarousel restaurants={restaurantData} />
-              
-             
-
       </MapView>
 
-     
+        <RestaurantsCarousel restaurants={restaurantData} />
+
          <ArrowBack navigation={navigation}/>
+
           
     </View>
   )
