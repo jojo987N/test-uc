@@ -21,14 +21,14 @@ export default function AddFunds({ navigation, setModalVisible, setAmount}) {
             <View style={{flex: 1}}>
                 <CheckBox
                     title={<Text style={{ marginLeft: 10, fontSize: 25}}>${amount1}</Text>}
-                    checked={true}
+                    checked={false}
                     checkedIcon="dot-circle-o"
                     uncheckedIcon="circle-o"
                     containerStyle={styles.containerStyle} />
                 <Divider style={{ marginHorizontal: 20, marginTop: 20, marginBottom: 20 }} />
                 <CheckBox
-                    title={<Text style={{ marginLeft: 10, fontSize: 25}}>${0}</Text>}
-                    checked={false}
+                    title={<Text style={{ marginLeft: 10, fontSize: 25}}>${100}</Text>}
+                    checked={true}
                     checkedIcon="dot-circle-o"
                     uncheckedIcon="circle-o"
                     containerStyle={styles.containerStyle} />
@@ -36,7 +36,7 @@ export default function AddFunds({ navigation, setModalVisible, setAmount}) {
 
             <Divider style={{ marginHorizontal: 20, marginTop: 20, marginBottom: 20 }} />
             <CheckBox
-                title={<Text style={{ marginLeft: 10, fontSize: 25}}>${100}</Text>}
+                title={<Text style={{ marginLeft: 10, fontSize: 25}}>${150}</Text>}
                 checked={false}
                 checkedIcon="dot-circle-o"
                 uncheckedIcon="circle-o"
