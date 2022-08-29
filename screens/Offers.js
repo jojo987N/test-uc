@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, ScrollView, StatusBar} from 'react-native'
 import React from 'react'
 import { ArrowBack } from '../components/About'
 import {restaurants} from '../data'
-import { RestaurantInfo, RestaurantImage} from '../components/home/RestaurantItems'
+import { RestaurantInfo, RestaurantImage} from '../components/RestaurantItems'
 import Reward from '../components/Reward'
 
 export default function Offers({navigation}) {
