@@ -8,7 +8,7 @@ export default function Loader({ checkout }) {
   return (
     <View style={checkout ? styles.checkoutStyle : styles.container}>
       <LottieView style={styles.lottieView}
-        source={require(ANIMATION.LOADER)}
+        source={require("../assets/animations/food-transition2.json")}
         autoPlay
         speed={2}
         loop
