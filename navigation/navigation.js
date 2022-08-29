@@ -3,7 +3,6 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native'
 import { Provider as ReduxProvider } from 'react-redux'
 import configureStore from '../redux/store'
-import OrderCompleted from '../screens/OrderCompleted'
 import DrawerNavigator from './DrawerNavigator'
 import OrderRequest from '../screens/OrderRequest'
 import SignIn from '../screens/SignIn'
@@ -28,7 +27,6 @@ export default function RootNavigation() {
           <Stack.Screen name={screen.SIGN_UP} component={SignUp} />
           <Stack.Screen name={screen.DRAWER_NAVIGATOR} component={DrawerNavigator} />
           <Stack.Screen name={screen.ORDER_REQUEST} component={OrderRequest} />
-          <Stack.Screen name={screen.ORDER_COMPLETED} component={OrderCompleted} />
           <Stack.Screen name={screen.OFFERS} component={Offers} />
           <Stack.Screen name={screen.WALLET} component={Wallet} />
         </Stack.Navigator>
