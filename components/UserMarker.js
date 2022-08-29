@@ -6,7 +6,7 @@ export const UserMarker = ({ lat, lng }) => {
     <Marker
       coordinate={{ latitude: lat, longitude: lng }}
     >
-      <Image source={require(IMAGE.USER)} style={styles.image} resizeMode="contain" />
+      <Image source={IMAGE.USER} style={styles.image} resizeMode="contain" />
     </Marker>)
 }
 const styles = StyleSheet.create({
