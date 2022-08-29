@@ -81,7 +81,7 @@ export default function OrderRequest({navigation, route}) {
        console.log(lat + (driverLat - lat)*0.5, lng + (driverLng - lng)*0.5, "fff")
     })
     
-   }, [])
+   }, [status])
   return (
     <View style={{}}>
       <MapView
