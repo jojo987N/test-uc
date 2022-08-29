@@ -1,7 +1,7 @@
 import { View, Text, Image, ImageBackground, StyleSheet, TouchableOpacity} from 'react-native'
 import React, { useState } from 'react'
 import { Icon } from 'react-native-elements';
-import RestaurantDetailComponent from '../RestaurantDetailComponent';
+import RestaurantDetailComponent from './RestaurantDetailComponent';
 import { apikey } from '../../global';
 
 const yelpRestaurantInfo = {
