@@ -7,7 +7,7 @@ import { colors } from 'react-native-elements'
 export default function OnboardingScreen({ navigation }) {
   return (
     <ImageBackground style={styles.container}
-      source={require(IMAGE.ONBOARDING)}>
+      source={require("../assets/images/onboarding.jpg")}>
       <Text style={styles.title}>{APP_CONSTANT.TEXT.APP_NAME}</Text>
       <Animatable.View style={styles.footer} animation={ANIMATION.ONBOARDING}>
         <View style={styles.box}>
