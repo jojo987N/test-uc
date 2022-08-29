@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, ScrollView, StatusBar} from 'react-native'
 import React from 'react'
-import { ArrowBack } from '../components/restaurantDetail/About'
+import { ArrowBack } from '../components/About'
 import {restaurants} from '../data'
 import { RestaurantInfo, RestaurantImage} from '../components/home/RestaurantItems'
 import Reward from '../components/Reward'
