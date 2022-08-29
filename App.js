@@ -105,7 +105,7 @@ export default function App() {
       flex: 1
     }}>
     <>
-    <Text>Your expo push token: {expoPushToken}</Text>
+    {/* <Text>Your expo push token: {expoPushToken}</Text>
       <View style={{ alignItems: 'center', justifyContent: 'center' }}>
         <Text>Title: {notification && notification.request.content.title} </Text>
         <Text>Body: {notification && notification.request.content.body}</Text>
@@ -116,7 +116,7 @@ export default function App() {
         onPress={async () => {
           await sendPushNotification(expoPushToken);
         }}
-      />
+      /> */}
     <RootNavigation statusBarColor="black"/>
     </>
     
