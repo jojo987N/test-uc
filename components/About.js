@@ -2,7 +2,7 @@ import { View, Text, Image, ImageBackground, StyleSheet, TouchableOpacity} from 
 import React, { useState } from 'react'
 import { Icon } from 'react-native-elements';
 import RestaurantDetailComponent from './RestaurantDetailComponent';
-import { apikey } from '../../global';
+import { apikey } from '../global';
 
 const yelpRestaurantInfo = {
   name: 'Farmouse Kitchen Thai Cuisine',
