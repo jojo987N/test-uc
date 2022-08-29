@@ -43,7 +43,7 @@ export default function OrderCountDown({
 
       isPlaying
       duration={totalMinutes}
-      colors={['#348ac7', '#F7B801', '#A30000', '#A30000']}
+      colors={['#F7B801', '#A30000', '#A30000']}
       colorsTime={[4, 3, 1, 0]}
 
 
