@@ -39,8 +39,8 @@ export default function OrderRequest({navigation, route}) {
   const bottomSheet = useRef(null)
   const mapRef = useRef(null)
   const [local, setLocal] = useState(false)  // Demo
-  const [totalMinutes, setTotalMinutes]=useState(51)    // Demo
-  const [timeLeft, setTimeLeft] = useState(Math.round(51/4)) // Demo
+  const [totalMinutes, setTotalMinutes]=useState(21)    // Demo
+  const [timeLeft, setTimeLeft] = useState(Math.round(21/4)) // Demo
   const [status, setStatus] = useState("Your order has been accepted")
 
 
