@@ -72,14 +72,14 @@ export default function OrderRequest({navigation, route}) {
 
 
 
-   
-    // getDriverInfos(setDriverName, setCar, setDriverImage, bottomSheet, setDriverLat, setDriverLng, mapRef)
-    // .then(()=>{
-    //   if(driverLat  && driverLng){
+    if(status === "Driver is on the way for pickup")
+    getDriverInfos(setDriverName, setCar, setDriverImage, bottomSheet, setDriverLat, setDriverLng, mapRef)
+    .then(()=>{
+      if(driverLat  && driverLng){
  
-    //   }
-    //    console.log(lat + (driverLat - lat)*0.5, lng + (driverLng - lng)*0.5, "fff")
-    // })
+      }
+       console.log(lat + (driverLat - lat)*0.5, lng + (driverLng - lng)*0.5, "fff")
+    })
     
    }, [])
   return (
