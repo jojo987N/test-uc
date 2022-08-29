@@ -20,30 +20,29 @@ import { updateInterface, move, PolylineDemo} from '../demo'
 
 export default function OrderRequest({navigation, route}) {
   
- const lat = 48.8714859    //lat lng pour demo
- const lng = 2.3371311
+//  const lat = 48.8714859    //lat lng pour demo
+//  const lng = 2.3371311
 
- // const {lat, lng} = route.params
+  const {lat, lng} = route.params
   const { width, height } = useWindowDimensions();
   const [driver, setDriver] = useState()
   const [driverName, setDriverName] = useState()
   const [car, setCar] = useState()
   const [driverImage, setDriverImage] = useState()
-  // const [driverLat, setDriverLat] = useState()
-  const [driverLat, setDriverLat] = useState(parseFloat(positions.gpx.wpt[0].lat))
-  //const [driverLng, setDriverLng] = useState()
-  const [driverLng, setDriverLng] = useState(parseFloat(positions.gpx.wpt[0].lon))
+  const [driverLat, setDriverLat] = useState()
+  //const [driverLat, setDriverLat] = useState(parseFloat(positions.gpx.wpt[0].lat))
+  const [driverLng, setDriverLng] = useState()
 
   const [regionLat, setRegionLat] = useState(lat)
   const [regionLng, setRegionLng] = useState(lng)
+  //const [driverLng, setDriverLng] = useState(parseFloat(positions.gpx.wpt[0].lon))
   const bottomSheet = useRef(null)
   const mapRef = useRef(null)
-  const [local, setLocal] = useState(true)  // Demo
+  const [local, setLocal] = useState(false)  // Demo
   const [totalMinutes, setTotalMinutes]=useState(51)    // Demo
   const [timeLeft, setTimeLeft] = useState(Math.round(51/4)) // Demo
-  const [status, setStatus] = useState("Your order has been accepted")
 
-   
+
    
 
    const angleValue = useState(new Animated.Value(1))[0]
@@ -72,16 +71,16 @@ export default function OrderRequest({navigation, route}) {
 
 
    
-    // getDriverInfos(setDriverName, setCar, setDriverImage, bottomSheet, setDriverLat, setDriverLng, mapRef)
-    // .then(()=>{
-    //   if(driverLat  && driverLng){
+    getDriverInfos(setDriverName, setCar, setDriverImage, bottomSheet, setDriverLat, setDriverLng, mapRef)
+    .then(()=>{
+      if(driverLat  && driverLng){
 
-    //     // setRegionLat(lat + (driverLat - lat)*0.5)
-    //     // setRegionLng(lng + (driverLng - lng)*0.5)
-    //   }
-    // //  console.log(driverLat, driverLng)
-    //   console.log(lat + (driverLat - lat)*0.5, lng + (driverLng - lng)*0.5, "fff")
-    // })
+        // setRegionLat(lat + (driverLat - lat)*0.5)
+        // setRegionLng(lng + (driverLng - lng)*0.5)
+      }
+    //  console.log(driverLat, driverLng)
+      console.log(lat + (driverLat - lat)*0.5, lng + (driverLng - lng)*0.5, "fff")
+    })
     
    }, [])
   return (
@@ -89,13 +88,13 @@ export default function OrderRequest({navigation, route}) {
       <MapView
         provider={PROVIDER_GOOGLE}
         ref={mapRef}
-        initialRegion={{latitude: lat,longitude: lng,latitudeDelta: 0.02522,longitudeDelta: 0.01721 }} // demo
-       //region={{latitude: regionLat,longitude: regionLng,latitudeDelta: 0.1122,longitudeDelta: 0.0621 }}
+       // initialRegion={{latitude: lat,longitude: lng,latitudeDelta: 0.02522,longitudeDelta: 0.01721 }} // demo
+       region={{latitude: regionLat,longitude: regionLng,latitudeDelta: 0.1122,longitudeDelta: 0.0621 }}
        style={{height: height, width: width}} showsUserLocation={true}>
 
         
 
-        <Polyline // Demo
+        {/* <Polyline // Demo
             coordinates={[{
               latitude: parseFloat(positions.gpx.wpt[0].lat),
               longitude: parseFloat(positions.gpx.wpt[0].lon)
@@ -105,7 +104,7 @@ export default function OrderRequest({navigation, route}) {
             ]}
                   strokeWidth={5}
                   strokeColor="#86592d"
-                 />
+                 /> */}
 
       {/* <Marker  title="nass" description="nasso"
         coordinate={{latitude: parseFloat(positions.gpx.trk.trkseg.trkpt[1].lat),
@@ -123,14 +122,14 @@ export default function OrderRequest({navigation, route}) {
       </MapView>
       <NavigationMenu navigation={navigation} />
 
-     {!local && <TimeLeft totalMinutes={totalMinutes} timeLeft={timeLeft} setTimeLeft={setTimeLeft}/>}
+     {/* {!local && <TimeLeft totalMinutes={totalMinutes} timeLeft={timeLeft} setTimeLeft={setTimeLeft}/>} */}
       
  
       <BottomSheet ref={bottomSheet} index={1} snapPoints={["12%", "95%"]}
           handleIndicatorStyle={{backgroundColor: "grey", width: 100}}>
      {!driverImage?
      <View>
-       <AnimationCooking status={status}/>
+       <AnimationCooking />
          
     </View> :<></>}
 
@@ -159,7 +158,7 @@ export default function OrderRequest({navigation, route}) {
          {/* <CarIsHeading lat={lat} lng={lng}/> */}
     </BottomSheet>
 
-    <TimeLeft totalMinutes={totalMinutes} timeLeft={timeLeft} setTimeLeft={setTimeLeft} height={height} driverImage={driverImage} setStatus={setStatus}/>
+    <TimeLeft totalMinutes={totalMinutes} timeLeft={timeLeft} setTimeLeft={setTimeLeft} height={height} driverImage={driverImage}/>
 
          
     </View>
@@ -218,9 +217,9 @@ export const DisplayMapviewDirections = ({fromLat, fromLng, toLat, toLng, apikey
 
  onReady={(result)=>{
 
-  // console.log(result.duration)
-   setTotalMinutes(result.duration)
-   setTimeLeft(result.duration)
+  //  console.log(result.duration)
+   setTotalMinutes(parseInt(parseInt(result.duration)))
+   setTimeLeft(parseInt(parseInt(result.duration)))
    
  }}
 
@@ -240,7 +239,7 @@ export const DisplayMapviewDirections = ({fromLat, fromLng, toLat, toLng, apikey
 )}
 
 
-const AnimationCooking = ({status})=>{
+const AnimationCooking = ()=>{
   return (
     <View>
       <LottieView style={{
@@ -257,20 +256,20 @@ const AnimationCooking = ({status})=>{
         textAlign: "center",
         marginTop: 40,
         fontFamily: "Roboto_500Medium",
-        fontSize: 15}}>{status}</Text>
+        fontSize: 15}}>Preparing your order...</Text>
     </View>
   )
 }
 
 const NavigationMenu = ({ navigation }) => (
   
-  <View style={styles.menu1}>
+  <View style={styles.menu}>
    <Icon type="material-community" name='menu' color="black" size={32} 
    onPress={() => navigation.navigate('Home')} />
 </View>
 )
 
-const TimeLeft = ({totalMinutes, timeLeft, setTimeLeft, height, driverImage, setStatus})=>{
+const TimeLeft = ({totalMinutes, timeLeft, setTimeLeft, height, driverImage})=>{
 
   const styles = StyleSheet.create({
     container: {
@@ -284,7 +283,7 @@ const TimeLeft = ({totalMinutes, timeLeft, setTimeLeft, height, driverImage, set
   })
   return (
     <View style={styles.container}>
-      <OrderCountDown totalMinutes={totalMinutes} timeLeft={timeLeft} setTimeLeft={setTimeLeft} setStatus={setStatus}/>
+      <OrderCountDown totalMinutes={totalMinutes} timeLeft={timeLeft} setTimeLeft={setTimeLeft}/>
     </View>
     // <View style={styles.container}>
     //   <View style={styles.content}>
@@ -312,7 +311,7 @@ const CarIsHeading = ({lat, lng})=>{
 
 
 const styles = StyleSheet.create({
-  menu1: {position: "absolute", left: 10, zIndex: 1},
+  // menu: {position: "absolute", left: 10},
   container: { 
    // position: "absolute", 
    // backgroundColor: "grey",
@@ -350,7 +349,7 @@ const styles = StyleSheet.create({
 
   driverImageContainer:{
     backgroundColor: "#e6e6e6",
-    padding: 10,
+    // padding: 10,
     borderRadius: 50
   },
   driverImage: {width: 60, height: 60},
