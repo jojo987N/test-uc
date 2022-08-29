@@ -80,7 +80,7 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
 
                   onPress={() => {
                     //setLoader(true)
-                    // setLoading(true)
+                     setLoading(true)
                     //  addOrderToFirebase()  //ICIII
                     //  setModalVisible(false); // apk
                     
