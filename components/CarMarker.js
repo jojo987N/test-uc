@@ -6,7 +6,7 @@ const CarMarker = ({lat,lng})=>{
     return (<Marker coordinate={{latitude: lat,longitude: lng}}
     >
      <View >
-        <Image source={require(IMAGE.CAR)} style={styles.image} resizeMode="contain"/>
+        <Image source={require('../assets/images/car2.png')} style={styles.image} resizeMode="contain"/>
       </View>
        
       
