@@ -52,9 +52,9 @@ export default function OrderCountDown({
      //  console.log(remainingTime)
         if(remainingTime%4 === 0 && timeLeft >=1)
           setTimeLeft(timeLeft-1)
-        if(timeLeft < 11)
+        if(timeLeft < 4)
          setStatus("Preparing your order...")
-        if(timeLeft < 8)
+        if(timeLeft < 1)
          setStatus("Driver is on the way for pickup")
 
       }}
