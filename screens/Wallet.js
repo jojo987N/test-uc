@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
-import { ArrowBack } from '../components/restaurantDetail/About'
+import { ArrowBack } from '../components/About'
 import { APP_CONSTANT, colors, grey1, icon, screen } from '../global'
 import { AntDesign } from '@expo/vector-icons'
 
