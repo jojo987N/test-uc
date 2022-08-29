@@ -5,7 +5,7 @@ import { addUser, auth } from '../firebase'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { LinearGradient } from 'expo-linear-gradient'
 import * as Animatable from "react-native-animatable"
-import SearchBar from '../components/home/SearchBar'
+import SearchBar from '../components/SearchBar'
 import { APP_CONSTANT, fonts, icon, screen } from '../global'
 import { colors } from '../global'
 
