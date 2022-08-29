@@ -73,16 +73,13 @@ export default function OrderRequest({navigation, route}) {
 
 
    
-    getDriverInfos(setDriverName, setCar, setDriverImage, bottomSheet, setDriverLat, setDriverLng, mapRef)
-    .then(()=>{
-      if(driverLat  && driverLng){
-
-        // setRegionLat(lat + (driverLat - lat)*0.5)
-        // setRegionLng(lng + (driverLng - lng)*0.5)
-      }
-    //  console.log(driverLat, driverLng)
-      console.log(lat + (driverLat - lat)*0.5, lng + (driverLng - lng)*0.5, "fff")
-    })
+    // getDriverInfos(setDriverName, setCar, setDriverImage, bottomSheet, setDriverLat, setDriverLng, mapRef)
+    // .then(()=>{
+    //   if(driverLat  && driverLng){
+ 
+    //   }
+    //    console.log(lat + (driverLat - lat)*0.5, lng + (driverLng - lng)*0.5, "fff")
+    // })
     
    }, [])
   return (
