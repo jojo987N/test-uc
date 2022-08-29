@@ -116,10 +116,10 @@ export const ANIMATION = {
   LOADER: "../assets/animations/food-transition2.json"
 }
 export const IMAGE = {
-  CAR: require('../assets/images/car2.png'),
-  USER: require('../assets/images/home1.png'),
-  COOKING_ANIMATION: "../assets/animations/cooking.json",
-  ONBOARDING: "../assets/images/onboarding.jpg"
+  CAR: require('./assets/images/car2.png'),
+  USER: require('./assets/images/home1.png'),
+  COOKING_ANIMATION: "./assets/animations/cooking.json",
+  ONBOARDING: "./assets/images/onboarding.jpg"
 }
 
 export const SCREEN_WIDTH = Dimensions.get('window').width
