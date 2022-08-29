@@ -2,7 +2,6 @@ import React from 'react'
 'react-native-vector-icons/FontAwesome5'
 import { Icon, withBadge } from 'react-native-elements'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import AccountScreen from '../screens/AccountScreen'
 import { HomeNavigator, SearchNavigator } from './Stacks'
 import { OrderNavigator } from './Stacks'
 import { useSelector } from 'react-redux'
@@ -57,19 +56,6 @@ export default function BottomTabs() {
               size={size}
               color="black"
             />
-          )
-        }}
-      />
-      <Tab.Screen
-        name="Account"
-        component={AccountScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Icon
-              name="person"
-              type="material"
-              color={color}
-              size={size} />
           )
         }}
       />
