@@ -3,6 +3,7 @@ export const language = "en"
 export const currency = "USD"
 export const apikey = {/* Your Google Api Key here */ }
 export const grey1 = "#e6e6e6"
+export const radius = 3;
 
 export const APP_CONSTANT = {
   TEXT: {
