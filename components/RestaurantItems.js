@@ -1,7 +1,7 @@
 import { View, Text,Image, TouchableOpacity, FlatList, useWindowDimensions, StyleSheet} from 'react-native'
 import React from 'react'
 import { AntDesign } from '@expo/vector-icons';
-import Reward from '../Reward';
+import Reward from './Reward';
 import RestaurantImage from './RestaurantItemImage';
 import RestaurantInfo from './RestaurantItemInfo';
 
