@@ -18,7 +18,9 @@ export default function Wallet({navigation}) {
                   <AntDesign name="right" size={20} color="grey" style={styles.right} />
               </View>
           </View>
-          <TouchableOpacity style={styles.textContainer} onPress={()=>navigation.push("AddCard")}>
+          <TouchableOpacity style={styles.textContainer} onPress={()=>{
+            //   navigation.push("AddCard")
+          }}>
               <Text style={styles.text}>Add payment method</Text>
           </TouchableOpacity>
           <View style={styles.textContainer}>
