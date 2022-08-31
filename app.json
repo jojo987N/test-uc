@@ -1,11 +1,9 @@
 {
   "expo": {
-    "name": "uber-eats-clone-test",
-    "slug": "uber-eats-clone-test",
+    "name": "Good Foods",
+    "slug": "good-foods-public",
     "version": "1.0.0",
     "orientation": "portrait",
-     
-    
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -13,10 +11,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.djaga.goodfoodandroiddebug"
     },
     "android": {
-      "package": "com.djaga.ubereatscloneandroiddebug1"
+      "package": "com.djaga.goodfoodandroiddebug"
     }
   }
 }
