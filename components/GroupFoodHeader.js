@@ -39,38 +39,11 @@ export default function GroupFoodHeader({foodsRef}) {
 
           />
       </View>
-
-    //   <ScrollView horizontal style={{height: 10, borderWidth: 1}}>
-    //        <View style={styles.container}>
-    //       {groupFoods.map((groupFood, index )=>{
-    //           return (
-    //             //   <View>
-    //                   <Text   key={index}>{groupFood}</Text>
-    //             //   </View>
-    //           )
-    //       })}
-    //   </View>
-    //   </ScrollView>
-     
-//     <View style={styles.container}>
-//     <TouchableOpacity onPress={()=>{
-       
-//       // scrollTo(4)
-//       foodsRef.current.scrollToIndex({
-//         animated: true,
-//         index: 4
-//       })
-//     }}>
-//       <Text>Bonjour</Text>
-//     </TouchableOpacity>
-//   </View> 
   )
 }
 
 const styles = StyleSheet.create({
     container: {
-     // borderWidth: 1
-     //flex: 1
      height: 60,
      borderBottomWidth: 3,
      borderBottomColor: grey1,
@@ -81,8 +54,6 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     text: {
-       //fontWeight: "bold",
-        //color: "#737373",
         fontFamily: "Roboto_500Medium"
         
 

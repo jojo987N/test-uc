@@ -17,7 +17,7 @@ export default function DrawerContent(props) {
 
     const [isSignedIn, setIsSignedIn] = useState(true)
 
-    //const auth = getAuth();
+    
     const navigation = useNavigation()
 
     const signOutUser = () => {
@@ -25,8 +25,7 @@ export default function DrawerContent(props) {
         .then(()=>{
         signOut(auth)
         .then(()=>{
-            //console.log('c bon')
-            //navigation.replace('SignScreen') // Efface tout
+            
             navigation.navigate('SignIn')
 
         })
@@ -61,17 +60,7 @@ export default function DrawerContent(props) {
              
             <DrawerItemList {...props} />
 
-            {/* <DrawerItem 
-                label= "Payment"
-                icon = {({color,size})=>(
-                    <Icon 
-                        type="material-community"
-                        name="credit-card-outline"
-                        color={color}
-                        size={size}
-                    />
-                )}
-            /> */}
+            
             <DrawerItem 
                 label= "Delivery"
                 icon = {({color,size})=>(
@@ -98,32 +87,7 @@ export default function DrawerContent(props) {
                     navigation.navigate("Wallet")
                 }}
             />
-             {/* <DrawerItem 
-                label= "Pickup"
-                icon = {({color,size})=>(
-                    <MaterialIcons 
-                        name="takeout-dining"
-                        color={color}
-                        size={size}
-                    />
-                )}
-
-                onPress={()=>{
-                    navigation.navigate("RestautsMapScreen")
-                }}
-            /> */}
             
-            {/* <DrawerItem 
-                label= "Settings"
-                icon = {({color,size})=>(
-                    <Icon 
-                        type="material-community"
-                        name="cog-outline"
-                        color={color}
-                        size={size}
-                    />
-                )}
-            /> */}
             
         </DrawerContentScrollView>
        <DrawerItem 

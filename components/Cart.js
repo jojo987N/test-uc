@@ -17,19 +17,13 @@ const Cart = ({restaurantName, setViewCartButton, setModalVisible})=>{
     
     const [loader, setLoader] = useState(false)
 
-    // if(loader)
-    // return <Loader checkout={true}/>
-
     return (
         
             <TouchableOpacity style={styles.modalContainer} onPress={()=> setModalVisible(false)} 
             activeOpacity={1} >
                 <TouchableOpacity activeOpacity={1} onPress={()=>{}} style={styles.modalCheckoutContainer}>
                     <Text style={styles.restaurantName}>{restaurantName}</Text>
-                    {/* {items.map((item, index) => (
-                        <OrderItem key={index} item={item} />
-                    ))} */}
-
+                   
                     {Object.entries(items.map(item => item.name)
                         .reduce((acc, curr) => (acc[curr] = (acc[curr] || 0) + 1, acc), {}))
                         .map(([name, quantity], index) => (

@@ -7,7 +7,6 @@ export default function RestaurantName(props) {
         fontSize: 29,
         fontWeight:Platform.OS === "android"?"bold":"600",
         marginTop: 10, 
-       // marginHorizontal: 15,
     }}
     >{props.name}</Text>
   )
