@@ -16,7 +16,7 @@ export default function Loading() {
     }}>
         <LottieView
             style={{ height: 200 }}
-            source={require('../assets/animations/scanner.json')}
+            source={require('')}
             autoPlay
             speed={3} />
     </View>

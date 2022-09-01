@@ -1,29 +1,18 @@
 import { useState } from "react";
 import { View, Text, Image, Pressable, Modal, StyleSheet, TouchableOpacity } from "react-native";
 import { useSelector } from "react-redux";
-//import { useNavigation } from "@react-navigation/native";
 import OrderItem from '../components/restaurantDetail/OrderItem'
 import {language, currency}  from '../global'
 
-
 const OrderListItem = ({ order, index}) => {
-  //const navigation = useNavigation();
- 
   const [modalVisible, setModalVisible] = useState(false);
-
- // const total = items.reduce((prev, curr)=> prev + curr.price, 0)
-
-
   const checkoutModalContent = ()=>{
-
     return (
         <>
             <View style={styles.modalContainer}>
                 <View style={styles.modalCheckoutContainer}>
                     <Text style={styles.restaurantName}>{order.restaurantName}</Text>
-                     
                         <OrderItem key={index} item={order} />
-                     
                     <View style={styles.subtotalContainer}>
                         <Text style={styles.subtotalText}>Subtotal</Text>
                         <Text>{order.price.toLocaleString(language, {
@@ -31,14 +20,11 @@ const OrderListItem = ({ order, index}) => {
                             currency: currency
                         })}</Text>
                     </View>
-
                     <View style={{
                         flexDirection: "row",
                         justifyContent: "center",
                     }}>
-
                         <TouchableOpacity
-
                             style={{
                                 marginTop: 20,
                                 backgroundColor: "black",
@@ -47,11 +33,8 @@ const OrderListItem = ({ order, index}) => {
                                 borderRadius: 30,
                                 width: 300,
                                 position: "relative",
-
                             }}
-
                             onPress={() => {
-
                                 addOrderToFirebase()
                                 setModalVisible(false);
                             }}>
@@ -64,18 +47,12 @@ const OrderListItem = ({ order, index}) => {
                                 top: 17
                             }}>{}</Text>
                         </TouchableOpacity>
-
                     </View>
-
-
                 </View>
-
             </View>
         </>
-        
     )
 }
-
   return (
     <>
         <Modal
@@ -85,25 +62,18 @@ const OrderListItem = ({ order, index}) => {
                 onRequestClose={() => setModalVisible(false)}>
                 {checkoutModalContent()}
             </Modal>
-
-
     <Pressable
-     // onPress={() => navigation.navigate("Order", { id: order.id })}
       style={{ flexDirection: "row", margin: 10, alignItems: "center" }}
-
       onPress={()=>setModalVisible(true)}
     >
       <Image
-        //source={{ uri: order.Restaurant.image }}
         source={{ uri: order.image }}
         style={{ width: 75, height: 75, marginRight: 5 }}
       />
-
       <View>
         <Text style={{
         fontWeight:Platform.OS === "android"?"bold":"600",
         fontSize: 16 }}>
-          {/* {order.Restaurant.name} */}
           {order.title}
         </Text>
         <Text style={{ marginVertical: 5 }}>3 items &#8226; $38.45</Text>
@@ -113,14 +83,11 @@ const OrderListItem = ({ order, index}) => {
     </>
   );
 };
-
 const styles = StyleSheet.create({
-
   modalContainer: {
       flex: 1,
       justifyContent: "flex-end",
       backgroundColor: "rgba(0,0,0,0.7)"
-
   },
   modalCheckoutContainer: {
       backgroundColor: "white",
@@ -144,11 +111,6 @@ const styles = StyleSheet.create({
     fontWeight:Platform.OS === "android"?"bold":"600",
     fontSize: 15,
     marginBottom: 10
-
   }
-
-  
-
 })
-
 export default OrderListItem;

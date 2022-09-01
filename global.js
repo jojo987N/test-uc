@@ -27,8 +27,9 @@ export const APP_CONSTANT = {
     DEALS: "Deals",
     DELIVERY: "Delivery",
     ARTICLE: "article",
-    DELIVER_TO : "deliver to",
-    HOME: "Home"
+    DELIVER_TO: "deliver to",
+    HOME: "Home",
+    OPEN_UNTIL: "Open until"
   }
 
 
@@ -74,7 +75,7 @@ export const screen = {
   ADD_CARD: "AddCard",
   DRAWER_NAVIGATOR: "DrawerNavigator",
   SIGN_UP: "SignUp",
-  SEARCH_RESULTS:"SearchResults",
+  SEARCH_RESULTS: "SearchResults",
   HOME: "Home",
   SIGN_IN: "SignIn",
   CARTS: "Carts",
@@ -88,10 +89,10 @@ export const screen = {
   RESTAURANT_DETAIL: "RestaurantDetail",
   RESTAURANT_SEARCH_RESULTS: "RestaurantSearchResults",
   ONBOARDING: "Onboarding",
-  SPLASH: "Splash", 
+  SPLASH: "Splash",
   DRAWER_NAVIGATOR: "DrawerNavigator",
   ORDER_REQUEST: "OrderRequest",
-  ORDER_COMPLETED : "OrderCompleted",
+  ORDER_COMPLETED: "OrderCompleted",
   OFFERS: "Offers",
   WALLET: "Wallet",
   ADD_CARD: "AddCard",
@@ -125,7 +126,7 @@ export const IMAGE = {
 export const SCREEN_WIDTH = Dimensions.get('window').width
 export const SCREEN_HEIGHT = Dimensions.get('window').height
 
- 
+
 export const location = async () => {
   let { status } = await Location.requestForegroundPermissionsAsync();
   if (status !== 'granted') {

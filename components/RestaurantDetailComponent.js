@@ -1,60 +1,60 @@
-import { View, Text, Modal, StyleSheet} from 'react-native'
+import { View, Text, Modal, StyleSheet } from 'react-native'
 import React from 'react'
 import { CloseModal, Icon } from './FilterModal'
-//import { RestaurantName } from './restaurantDetail/About'
-//import { RestaurantDescription } from './restaurantDetail/About'
+
+
 import { Divider, } from 'react-native-elements'
 import DisplayMapview from './DisplayMapview'
 import RestaurantName from './RestaurantName'
 import RestaurantDescription from './RestaurantDescription'
 
-export default function RestaurantDetailComponent({restaurant, visible, setVisible, userLocation, mapRef, apikey}) {
+export default function RestaurantDetailComponent({ restaurant, visible, setVisible, userLocation, mapRef, apikey }) {
 
-    const {name, image_url, price, review_count, rating, categories, collectTime, location, deliveryTime} = restaurant;
-    const formattedCategories = categories.map((cat)=>cat.title).join(' • ')
-
-  //console.log(restaurant)
-
-    const description = formattedCategories + ' '+price
-  return (
-
-      <Modal animationType='slide' visible={visible} >
-        < DisplayMapview height={200} userLocation={userLocation} mapRef={mapRef} apikey={apikey} restaurant={restaurant} />
-
-          <View style={styles.container}>
-              <View style={styles.header}>
-                  <CloseModal setVisible={setVisible} />
-                  <RestaurantName name={name} />
-              </View>
-              <View style={styles.header1}>
-                  <RestaurantDescription
-                      description={description}
-                      style={styles.description}
-                  />
-              </View>
-              <Divider />
-              <RestaurantInfo iconName="location-pin" iconType="Entypo"
-                  iconSize={35} text={location.display_address[0] + location.display_address[1]} />
-
-              <RestaurantInfo iconName="time" iconType="Ionicons"
-                  iconSize={35} text="Open until 9:00 AM" />
-
-              <RestaurantInfo iconName="star" iconType="FontAwesome"
-                  iconSize={35} text={`⭐${rating} (${review_count}+ ratings)`} />
-
-<RestaurantInfo iconName="timer" iconType="Ionicons"
-                  iconSize={35} text={"Collect time: "+ collectTime+" min"}/>
-
-                  <RestaurantInfo iconName="delivery-dining" iconType="MaterialIcons"
-                  iconSize={35} text={"Delivery time: "+ deliveryTime+" min"}/>
-          </View>
+    const { name, image_url, price, review_count, rating, categories, collectTime, location, deliveryTime } = restaurant;
+    const formattedCategories = categories.map((cat) => cat.title).join(' • ')
 
 
-      </Modal>
-  )
+
+    const description = formattedCategories + ' ' + price
+    return (
+
+        <Modal animationType='slide' visible={visible} >
+            < DisplayMapview height={200} userLocation={userLocation} mapRef={mapRef} apikey={apikey} restaurant={restaurant} />
+
+            <View style={styles.container}>
+                <View style={styles.header}>
+                    <CloseModal setVisible={setVisible} />
+                    <RestaurantName name={name} />
+                </View>
+                <View style={styles.header1}>
+                    <RestaurantDescription
+                        description={description}
+                        style={styles.description}
+                    />
+                </View>
+                <Divider />
+                <RestaurantInfo iconName="location-pin" iconType="Entypo"
+                    iconSize={35} text={location.display_address[0] + location.display_address[1]} />
+
+                <RestaurantInfo iconName="time" iconType="Ionicons"
+                    iconSize={35} text="Open until 9:00 AM" />
+
+                <RestaurantInfo iconName="star" iconType="FontAwesome"
+                    iconSize={35} text={`⭐${rating} (${review_count}+ ratings)`} />
+
+                <RestaurantInfo iconName="timer" iconType="Ionicons"
+                    iconSize={35} text={"Collect time: " + collectTime + " min"} />
+
+                <RestaurantInfo iconName="delivery-dining" iconType="MaterialIcons"
+                    iconSize={35} text={"Delivery time: " + deliveryTime + " min"} />
+            </View>
+
+
+        </Modal>
+    )
 }
 
-const RestaurantInfo = ({iconName, iconType, iconSize, text})=> {
+const RestaurantInfo = ({ iconName, iconType, iconSize, text }) => {
 
     return (
         <>
@@ -64,39 +64,39 @@ const RestaurantInfo = ({iconName, iconType, iconSize, text})=> {
             </View>
             <Divider />
         </>
-      
+
     )
-    
+
 }
 
 const styles = StyleSheet.create({
     container: {
-      marginHorizontal: 10
+        marginHorizontal: 10
     },
     header: {
-     // flexDirection: "row",
-      marginTop: 20,
-     // marginHorizontal: 10,
-     // alignItems: "center"
+
+        marginTop: 20,
+
+
     },
     header1: {
-     marginTop: 10,
-     marginBottom: 25
+        marginTop: 10,
+        marginBottom: 25
     },
     description: {
         color: "grey",
         fontSize: 15.5,
     },
     restaurantInfo: {
-      flexDirection: "row"  ,
-      alignItems: "center",
-      marginHorizontal: 10,
-      marginVertical: 20
+        flexDirection: "row",
+        alignItems: "center",
+        marginHorizontal: 10,
+        marginVertical: 20
 
     },
     restaurantInfoText: {
         marginLeft: 10,
         fontSize: 20
     }
-    
+
 })

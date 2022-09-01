@@ -59,38 +59,37 @@ export const dataTest = [
 
 
 
-export const filterData = [
+export const items = [
+
   {
-    id: 1,
-    name: "Bread",
-    image: require('./assets/images/bread.png')
+    image: { uri: 'https://cdn.pixabay.com/photo/2010/12/13/10/25/canape-2802_960_720.jpg' },
+    text: "Sea Food",
   },
   {
-    id: 2,
-    name: "Coffee",
-    image: require('./assets/images/coffee.png')
+    image: { uri: 'https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg' },
+    text: "Fast Food",
   },
   {
-    id: 3,
-    name: "Deals",
-    image: require('./assets/images/deals.png')
+    image: { uri: 'https://cdn.pixabay.com/photo/2019/11/19/20/40/wine-4638457_960_720.jpg' },
+    text: "Wine Bars",
   },
   {
-    id: 4,
-    name: "Desserts",
-    image: require('./assets/images/desserts.png')
+    image: { uri: 'https://cdn.pixabay.com/photo/2018/07/18/06/36/egg-net-3545650_960_720.jpg' },
+    text: "Thai",
   },
   {
-    id: 5,
-    name: "Soft-Drink",
-    image: require('./assets/images/soft-drink.png')
+    image: { uri: 'https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_960_720.jpg' },
+    text: "Italian",
   },
   {
-    id: 6,
-    name: "Fast-Food",
-    image: require('./assets/images/fast-food.png')
-  }
-]
+    image: { uri: 'https://cdn.pixabay.com/photo/2017/10/15/11/41/sushi-2853382_960_720.jpg' },
+    text: "Sushi",
+  },
+  {
+    image: { uri: 'https://cdn.pixabay.com/photo/2017/11/23/13/50/pumpkin-soup-2972858_960_720.jpg' },
+    text: "Soup",
+  },
+];
 
 export const filterData2 = [{
   name: "Fast food",
@@ -247,7 +246,7 @@ export const restaurants = [
     "display_phone": "(415) 872-9786",
     "distance": 2730.244177861569,
     "id": "HHtpR0RslupSQ99GIIwW5A",
-    "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/ouK2VmW0SrI70jsJpTxJhw/o.jpg",
+    "image_url": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg",
     "is_closed": false,
     "location": {
       "address1": "1581 Webster St",
@@ -280,14 +279,14 @@ export const restaurants = [
         "title": "Cheese Tequeños",
         "description": "6 pieces of chese with sauce.",
         "price": 6.9,
-        "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant2.jpeg"
+        "image": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg"
       },
       {
         "id": "2",
         "title": "Hamburger La Super Cabo Burger",
         "description": "Double meat, gouda cheese, cheddar cheese, cooked ham, bacon, egg, salad and rustic potatoes.",
         "price": 8.9,
-        "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant3.jpeg"
+        "image": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg"
       },
       {
         "title": "U.S.A. Burger",
@@ -305,13 +304,7 @@ export const restaurants = [
         "price": 7.9
       }
     ],
-    productData: [{ title: "Hand cut chips", price: 29.30, image: "https://s3-media4.fl.yelpcdn.com/bphoto/ouK2VmW0SrI70jsJpTxJhw/o.jpg" },
-    { title: "Big Mac", price: 50.80, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png" }, {
-      title: "Chicken Burger",
-      price: 70, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate3.png"
-    },
-    ],
-    "url": "https://www.yelp.com/biz/marufuku-ramen-san-francisco-5?adjust_creative=J4ZPk7dsHlYZU8xFcIjmJw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=J4ZPk7dsHlYZU8xFcIjmJw",
+    "url": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg",
   },
   {
     "alias": "fog-harbor-fish-house-san-francisco-2",
@@ -340,7 +333,7 @@ export const restaurants = [
     "display_phone": "(415) 969-2010",
     "distance": 5820.143221179387,
     "id": "f-m7-hyFzkf0HSEeQ2s-9A",
-    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/by8Hh63BLPv_HUqRUdsp_w/o.jpg",
+    "image_url": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg",
     "is_closed": false,
     "location": {
       "address1": "39 Pier",
@@ -381,7 +374,7 @@ export const restaurants = [
         "title": "Carolina Honey",
         "description": "Our famous ribs marinated with our Carolina honey sauce, a mixture of honey with our original sauce. Ideal for those looking for a sweet touch. Served with French fries and coleslaw.",
         "price": 18.95,
-        "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant2.jpeg"
+        "image": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg"
       },
       {
         "title": "Onion Rings",
@@ -393,10 +386,6 @@ export const restaurants = [
         "description": "The best selling nachos! with our blend of melted cheeses, accompanied by guacamole, crispy bacon, ranch beans, and sour cream.",
         "price": 10.95
       }
-    ],
-    productData: [{ title: "Hand cut chips", price: 29.30, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate5.png" },
-    { title: "Big Mac", price: 50.80, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png" },
-    { title: "Chicken Burger", price: 70, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate3.png" },
     ],
     "url": "https://www.yelp.com/biz/fog-harbor-fish-house-san-francisco-2?adjust_creative=J4ZPk7dsHlYZU8xFcIjmJw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=J4ZPk7dsHlYZU8xFcIjmJw",
   },
@@ -420,7 +409,7 @@ export const restaurants = [
     "display_phone": "(415) 814-2920",
     "distance": 2201.588555604964,
     "id": "8kck3-K4zYKTJbJko0JlXQ",
-    "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/kUlEaPpv0JGlHG_nrPr7wQ/o.jpg",
+    "image_url": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg",
     "is_closed": false,
     "location": {
       "address1": "710 Florida St",
@@ -474,13 +463,7 @@ export const restaurants = [
         "price": 5.2
       }
     ],
-    productData: [{ name: "Hand cut chips", price: 29.30, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate5.png" },
-    { name: "Big Mac", price: 50.80, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png" }, {
-      name: "Chicken Burger",
-      price: 70, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate3.png"
-    },
-    ],
-    "url": "https://www.yelp.com/biz/farmhouse-kitchen-thai-cuisine-san-francisco?adjust_creative=J4ZPk7dsHlYZU8xFcIjmJw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=J4ZPk7dsHlYZU8xFcIjmJw",
+    "url": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg",
   },
   {
     "alias": "daeho-kalbijjim-and-beef-soup-san-francisco-9",
@@ -506,7 +489,7 @@ export const restaurants = [
     "display_phone": "(415) 563-1388",
     "distance": 2867.8335670207744,
     "id": "dY0Mc_PHH6nLENvWmVtwxQ",
-    "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/HzzU5aVz-eUYJIPdnNGL0A/o.jpg",
+    "image_url": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg",
     "is_closed": false,
     "location": {
       "address1": "1620 Post St",
@@ -559,13 +542,7 @@ export const restaurants = [
         "price": 10.5
       }
     ],
-    productData: [{ name: "Hand cut chips", price: 29.30, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate5.png" },
-    { name: "Big Mac", price: 50.80, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png" }, {
-      name: "Chicken Burger",
-      price: 70, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate3.png"
-    },
-    ],
-    "url": "https://www.yelp.com/biz/daeho-kalbijjim-and-beef-soup-san-francisco-9?adjust_creative=J4ZPk7dsHlYZU8xFcIjmJw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=J4ZPk7dsHlYZU8xFcIjmJw",
+    "url": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg",
   },
   {
     "alias": "kaiyō-rooftop-san-francisco-5",
@@ -593,7 +570,7 @@ export const restaurants = [
     "display_phone": "",
     "distance": 4355.096615628698,
     "id": "8VurRDEj1RpimenhgTmyFQ",
-    "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/IpnkGDpsm94wGzTAdFekPg/o.jpg",
+    "image_url": "https://cdn.pixabay.com/photo/2017/10/15/11/41/sushi-2853382_960_720.jpg",
     "is_closed": false,
     "location": {
       "address1": "701 3rd St",
@@ -645,13 +622,7 @@ export const restaurants = [
         "price": 10.5
       }
     ],
-    productData: [{ name: "Hand cut chips", price: 29.30, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate5.png" },
-    { name: "Big Mac", price: 50.80, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png" }, {
-      name: "Chicken Burger",
-      price: 70, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate3.png"
-    },
-    ],
-    "url": "https://www.yelp.com/biz/kaiy%C5%8D-rooftop-san-francisco-5?adjust_creative=J4ZPk7dsHlYZU8xFcIjmJw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=J4ZPk7dsHlYZU8xFcIjmJw",
+    "url": "",
   },
   {
     "alias": "dumpling-house-san-francisco",
@@ -673,7 +644,7 @@ export const restaurants = [
     "display_phone": "(415) 829-2789",
     "distance": 436.04221561234874,
     "id": "XAYwAF_83becwNnSJDFkpA",
-    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/DNfqq1zYxbJ-gsalml7wng/o.jpg",
+    "image_url": "https://cdn.pixabay.com/photo/2017/10/15/11/41/sushi-2853382_960_720.jpg",
     "is_closed": false,
     "location": {
       "address1": "335 Noe St",
@@ -726,13 +697,7 @@ export const restaurants = [
         "price": 10.5
       }
     ],
-    productData: [{ name: "Hand cut chips", price: 29.30, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate5.png" },
-    { name: "Big Mac", price: 50.80, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png" }, {
-      name: "Chicken Burger",
-      price: 70, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate3.png"
-    },
-    ],
-    "url": "https://www.yelp.com/biz/dumpling-house-san-francisco?adjust_creative=J4ZPk7dsHlYZU8xFcIjmJw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=J4ZPk7dsHlYZU8xFcIjmJw",
+    "url": "https://cdn.pixabay.com/photo/2017/10/15/11/41/sushi-2853382_960_720.jpg",
   },
   {
     "alias": "sotto-mare-oysteria-and-seafood-san-francisco",
@@ -759,7 +724,7 @@ export const restaurants = [
     "display_phone": "(415) 398-3181",
     "distance": 4970.484877370465,
     "id": "8dUaybEPHsZMgr1iKgqgMQ",
-    "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/o3hIcGLMxV_5ynxEjGWGrw/o.jpg",
+    "image_url": "https://cdn.pixabay.com/photo/2017/10/15/11/41/sushi-2853382_960_720.jpg",
     "is_closed": false,
     "location": {
       "address1": "552 Green St",
@@ -812,13 +777,7 @@ export const restaurants = [
         "price": 10.5
       }
     ],
-    productData: [{ name: "Hand cut chips", price: 29.30, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate5.png" },
-    { name: "Big Mac", price: 50.80, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png" }, {
-      name: "Chicken Burger",
-      price: 70, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate3.png"
-    },
-    ],
-    "url": "https://www.yelp.com/biz/sotto-mare-oysteria-and-seafood-san-francisco?adjust_creative=J4ZPk7dsHlYZU8xFcIjmJw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=J4ZPk7dsHlYZU8xFcIjmJw",
+    "url": "https://cdn.pixabay.com/photo/2017/10/15/11/41/sushi-2853382_960_720.jpg",
   },
 ]
 
@@ -835,7 +794,7 @@ export const orders = [
     "Restaurant": {
       "id": "7d7965f7-1b33-4b8c-9bac-0c22bc905030",
       "name": "El Cabo Coffe Bar Tres De Mayo",
-      "image": "https://s3-media4.fl.yelpcdn.com/bphoto/ouK2VmW0SrI70jsJpTxJhw/o.jpg",
+      "image": "https://cdn.pixabay.com/photo/2017/10/15/11/41/sushi-2853382_960_720.jpg",
       "deliveryFee": 0.039448871531492236,
       "minDeliveryTime": 10,
       "maxDeliveryTime": 44,
@@ -857,7 +816,7 @@ export const orders = [
     "Restaurant": {
       "id": "7d7965f7-1b33-4b8c-9bac-0c22bc905030",
       "name": "Jacobs - DuBuque",
-      "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg",
+      "image": "https://cdn.pixabay.com/photo/2017/10/15/11/41/sushi-2853382_960_720.jpg",
       "deliveryFee": 0.039448871531492236,
       "minDeliveryTime": 10,
       "maxDeliveryTime": 44,
@@ -882,7 +841,7 @@ export const orders = [
     "Restaurant": {
       "id": "7d7965f7-1b33-4b8c-9bac-0c22bc905030",
       "name": "Jacobs - DuBuque",
-      "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg",
+      "image": "https://cdn.pixabay.com/photo/2017/10/15/11/41/sushi-2853382_960_720.jp",
       "deliveryFee": 0.039448871531492236,
       "minDeliveryTime": 10,
       "maxDeliveryTime": 44,
@@ -893,162 +852,6 @@ export const orders = [
       "createdAt": "2022-04-16T12:03:33.225Z",
       "updatedAt": "2022-04-16T12:05:12.826Z",
     }
-  }
-]
-
-
-
-
-
-const restaurantN = [
-  {
-    "id": "1",
-    "name": "El Cabo Coffe Bar Tres De Mayo",
-    "deliveryFee": 1.4,
-    "minDeliveryTime": 25,
-    "maxDeliveryTime": 35,
-    "rating": 4.0,
-    "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg",
-    "dishes": [
-      {
-        "id": "1",
-        "name": "Cheese Tequeños",
-        "description": "6 pieces of chese with sauce.",
-        "price": 6.9,
-        "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant2.jpeg"
-      },
-      {
-        "id": "2",
-        "name": "Hamburger La Super Cabo Burger",
-        "description": "Double meat, gouda cheese, cheddar cheese, cooked ham, bacon, egg, salad and rustic potatoes.",
-        "price": 8.9,
-        "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant3.jpeg"
-      },
-      {
-        "name": "U.S.A. Burger",
-        "description": "Beef, gouda cheese, cheddar cheese, cooked ham, bacon, egg and salad.",
-        "price": 5.4
-      },
-      {
-        "name": "Slices of Llanero Cheese",
-        "description": "Ripe plantain with cheese and palm honey.",
-        "price": 5.9
-      },
-      {
-        "name": "Papas Locas El Cabo",
-        "description": "French fries with shredded chicken, gouda cheese and ham.",
-        "price": 7.9
-      }
-    ]
-  },
-  {
-    "id": "2",
-    "name": "Tony Roma's - C.C. Meridiano",
-    "deliveryFee": 0.4,
-    "minDeliveryTime": 25,
-    "maxDeliveryTime": 35,
-    "rating": 4.7,
-    "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant2.jpeg",
-    "dishes": [
-      {
-        "name": "Cajun Ribs",
-        "description": "For lovers of a spicy touch. Ribs bathed in our Original sauce accompanied by Cajun spices. Served with French fries and coleslaw.",
-        "price": 18.95
-      },
-      {
-        "name": "The Original Baby Backs",
-        "description": "The house specialty. Pork ribs cooked on the barbecue and marinated with our original barbecue sauce. Served with French fries and coleslaw.",
-        "price": 19.95
-      },
-      {
-        "name": "Carolina Honey",
-        "description": "Our famous ribs marinated with our Carolina honey sauce, a mixture of honey with our original sauce. Ideal for those looking for a sweet touch. Served with French fries and coleslaw.",
-        "price": 18.95,
-        "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant2.jpeg"
-      },
-      {
-        "name": "Onion Rings",
-        "description": "Los tradicionales aros de cebolla de tony roma´s dorados, crujientes y ligeros. Únicos en el mundo, acompañados de salsa BBQ.",
-        "price": 6.95
-      },
-      {
-        "name": "Nachos Tony Roma's",
-        "description": "The best selling nachos! with our blend of melted cheeses, accompanied by guacamole, crispy bacon, ranch beans, and sour cream.",
-        "price": 10.95
-      }
-    ]
-  },
-  {
-    "id": "3",
-    "name": "Brothers Barbecue",
-    "deliveryFee": 1.4,
-    "minDeliveryTime": 20,
-    "maxDeliveryTime": 30,
-    "rating": 4.3,
-    "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant3.jpeg",
-    "dishes": [
-      {
-        "name": "Burger Mustang",
-        "description": "Homemade bread, burger sauce, lettuce, sweet and sour pickle, bacon, cheddar and BBQ sauce. Beef 180 grams.",
-        "price": 5.9
-      },
-      {
-        "name": "Alabama bread",
-        "description": "Artisan bread, butter sauce, garlic, BBQ chicken and cheddar.",
-        "price": 3.0
-      },
-      {
-        "name": "New York Burger",
-        "description": "Homemade bread, lettuce, burger sauce, 180 grams of beef, goat cheese and roasted apple.",
-        "price": 5.9
-      },
-      {
-        "name": "Mac & Cheese Burger",
-        "description": "Homemade bread, lettuce, burger sauce, 180 grams of beef, mac and cheese, and American-style bacon.",
-        "price": 5.9
-      },
-      {
-        "name": "Nachos Brothers",
-        "description": "Nachos, guacamole, cheddar sauce, beans, bacon, and cream cheese.",
-        "price": 5.2
-      }
-    ]
-  },
-  {
-    "id": "4",
-    "name": "Hamburguesa Nostra La Salle",
-    "deliveryFee": 0.9,
-    "minDeliveryTime": 30,
-    "maxDeliveryTime": 40,
-    "rating": 4.5,
-    "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant4.jpeg",
-    "dishes": [
-      {
-        "name": "English burger",
-        "description": "Beef with bacon, portobello mushrooms, tomato, cheddar cheese, grilled egg and our smoked sauce.",
-        "price": 14.9
-      },
-      {
-        "name": "Mexican Burger",
-        "description": "Beef, with pico de gallo, veggie chili, cheddar cheese, guacamole and smoked sauce.",
-        "price": 14.9
-      },
-      {
-        "name": "Tequeños",
-        "description": "Crispy sticks filled with melted cheese accompanied by tomato chutney.",
-        "price": 9.9
-      },
-      {
-        "name": "Starters Combo",
-        "description": "Tequeños, crispy onion and chicken delicacies.",
-        "price": 13.9
-      },
-      {
-        "name": "Cesar Salad",
-        "description": "Green sprouts, pieces of grilled bacon, chicken delicacies, grated Parmesan, muffin croutons and fried onion confetti dressed with Caesar sauce.",
-        "price": 10.5
-      }
-    ]
   }
 ]
 

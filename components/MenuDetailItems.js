@@ -12,7 +12,6 @@ import { NavigationContainer } from '@react-navigation/native';
   const styles = StyleSheet.create({
     menuItemStyle :{
        flexDirection: "row",
-       //justifyContent: "space-between",
        justifyContent: "space-around",
         margin: 20,     
       
@@ -88,7 +87,7 @@ const FoodInfo = (props)=>(
       }}>
         <Text style={styles.titleStyle}>{props.food.title}</Text>
         <Text>{props.food.description}</Text>
-        {/* <Text>{props.food.price}</Text> */}
+        <Text>{props.food.price}</Text>
         <Text>{props.food.price.toLocaleString(language, {
         style: "currency",
         currency: currency
