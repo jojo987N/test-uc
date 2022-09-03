@@ -66,14 +66,14 @@ export default function SignUp({ navigation }) {
         </View>
         <TouchableOpacity onPress={() => { signUp() }}>
           <LinearGradient
-            colors={colors.signInButton.gradient}
+            colors={colors.signInButton}
             style={styles.signInButton} >
             <Text style={{ ...styles.signInText, color: colors.white }}>{APP_CONSTANT.TEXT.SIGN_UP}</Text>
           </LinearGradient>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <LinearGradient
-            colors={colors.signUpButton}
+            colors={colors.signUpButton.gradient}
             style={styles.signInButton} >
             <Text style={styles.signInText}>{APP_CONSTANT.TEXT.SIGN_IN}</Text>
           </LinearGradient>
