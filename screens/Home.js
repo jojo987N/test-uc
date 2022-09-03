@@ -19,7 +19,7 @@ export default function Home({ navigation }) {
   const searchbar = useRef(null)
   useEffect(() => {
     getRestaurantsFromFirebase().then((restaurants) => {
-      console.log(restaurants)
+      if(restaurants.length > 0)
         setRestaurantData(restaurants)
       })
   }, [])
