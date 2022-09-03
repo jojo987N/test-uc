@@ -1,4 +1,4 @@
-import { Marker } from "react-native-maps";
+import { Marker,  StyleSheet} from "react-native-maps";
 import { IMAGE } from "../global";
 import {Dimensions} from 'react-native';
 
