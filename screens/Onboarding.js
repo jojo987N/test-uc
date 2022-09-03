@@ -51,7 +51,6 @@ const styles = StyleSheet.create({
   },
   discoverText: {
     fontSize: 25,
-    fontFamily: 'Roboto_500Medium',
     marginLeft: 15,
     paddingVertical: 20
   }
