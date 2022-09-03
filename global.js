@@ -78,7 +78,7 @@ export const screen = {
   DRAWER_NAVIGATOR: "DrawerNavigator",
   SIGN_UP: "SignUp",
   SEARCH_RESULTS: "SearchResults",
-  HOME: "Home",
+  HOME: "Home1",
   SIGN_IN: "SignIn",
   CARTS: "Carts",
   ORDER_DETAILS: "OrderDetails",
