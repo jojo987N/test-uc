@@ -2,7 +2,7 @@ import { View, Text, Image, StyleSheet, ScrollView } from 'react-native'
 import React  from 'react'
 import { language, currency } from '../global'
 import { Quantity } from '../components/MenuItems'
-import ViewCart from '../components/restaurantDetail/ViewCart'
+import ViewCart from '../components/ViewCart'
 import DisplayPreferences from '../components/DisplayPreferences'
 
 export default function MenuDetailScreen({ route }) {
