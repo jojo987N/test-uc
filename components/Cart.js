@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import OrderItem from './restaurantDetail/OrderItem'
+import OrderItem from './OrderItem'
 import { language, currency } from '../global'
 import Checkout from './Checkout'
 import Loader from '../screens/Loader'
