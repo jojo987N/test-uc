@@ -1,4 +1,5 @@
 import { View, StyleSheet} from "react-native"
+import { colors } from "../global"
 import RestaurantItems from "./RestaurantItems"
 
 const RestaurantRowsItems = ({themes, restaurantData, navigation}) => {
