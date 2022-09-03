@@ -1,6 +1,6 @@
 import { View, Text, Modal, ImageBackground, StyleSheet, Animated, TouchableOpacity, ScrollView, StatusBar} from 'react-native'
 import React, {useEffect, useRef, useState} from 'react'
-import About from '../components/restaurantDetail/About'
+import About from '../components/About'
 import { Divider } from 'react-native-elements'
 import MenuItems from '../components/restaurantDetail/MenuItems'
 import ViewCart from '../components/restaurantDetail/ViewCart'
