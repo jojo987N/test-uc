@@ -11,9 +11,6 @@ const RestaurantImage= (props)=>{
             }}
 
             style={styles.image}
-            
-
-
         />
 
        <LikeComponent />

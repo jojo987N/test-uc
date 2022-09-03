@@ -11,8 +11,6 @@ export default function OrdersScreen() {
     },[])
   return (
     <View>
-
-       
        <FlatList
        
        data={orders}
