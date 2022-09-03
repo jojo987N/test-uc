@@ -9,7 +9,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { restaurants } from '../data';
 import { AntDesign } from '@expo/vector-icons';
 import { getProducts } from '../firebase/utils';
-import Loader from '../../screens/Loader';
+import Loader from '../screens/Loader';
 import QuantityAnimate from '../Quantity';
 import { BottomSheetFlatList } from '@gorhom/bottom-sheet';
 import About from './About';
