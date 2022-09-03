@@ -13,7 +13,7 @@ import Loader from '../screens/Loader';
 import QuantityAnimate from './Quantity';
 import { BottomSheetFlatList } from '@gorhom/bottom-sheet';
 import About from './About';
-import HeaderTabs from '../home/HeaderTabs';
+import HeaderTabs from './HeaderTabs';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { groupFoods } from '../data';
 import { FlatList } from 'react-native-gesture-handler';
