@@ -2,7 +2,7 @@ import { AntDesign } from "@expo/vector-icons"
 import { TouchableOpacity } from "react-native"
 import { colors, icon } from "../global"
 
-export const LikeComponent = () => {
+const LikeComponent = () => {
     const [liked, setLiked] = useState(false)
     return (
         <TouchableOpacity style={{position: 'absolute', right: 20, top: 20}}>
@@ -25,3 +25,4 @@ export const LikeComponent = () => {
     </TouchableOpacity>
     )
 }
+export default LikeComponent; 
