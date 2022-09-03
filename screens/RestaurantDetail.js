@@ -3,7 +3,7 @@ import React, {useEffect, useRef, useState} from 'react'
 import About from '../components/About'
 import { Divider } from 'react-native-elements'
 import MenuItems from '../components/MenuItems'
-import ViewCart from '../components/restaurantDetail/ViewCart'
+import ViewCart from '../components/ViewCart'
 import BottomSheet, {BottomSheetScrollView} from '@gorhom/bottom-sheet'
 
 export default function RestaurantDetail({route, navigation}) {
