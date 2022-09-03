@@ -1,6 +1,7 @@
 {
   "expo": {
    "name": "Good Foods",
+   "sdkVe
    "icon": "./assets/images/logo512.png",
    "splash": {
     "image": "./assets/images/splash-screen.png",
