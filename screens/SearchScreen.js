@@ -7,7 +7,7 @@ import { categories, dataTest, filterData} from '../data'
 import List from '../components/List'
 import { Menu } from '../components/HomeHeader'
 import { screen } from '../global'
-import CategoryItem from '../components/searchScren/CategoryItem'
+import CategoryItem from '../components/CategoryItem'
 
 const SCREEN_WIDTH = Dimensions.get('window').width
 
