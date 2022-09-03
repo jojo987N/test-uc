@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet, StatusBar} from 'react-native'
 import React from 'react'
-import RestaurantItems from '../components/home/RestaurantItems'
-import HeaderTabs from '../components/home/HeaderTabs'
-import HomeHeader from '../components/home/HomeHeader'
-import SearchBar from '../components/home/SearchBar'
+import RestaurantItems from '../components/RestaurantItems'
+import HeaderTabs from '../components/HeaderTabs'
+import HomeHeader from '../components/HomeHeader'
+import SearchBar from '../components/SearchBar'
 import { colors } from '../global'
 
 export default function RestaurantSearchResults({route, navigation}) {
