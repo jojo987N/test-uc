@@ -5,7 +5,7 @@ import SearchBar from '../components/SearchBar'
 import Categories from '../components/Categories'
 import { Divider } from 'react-native-elements'
 import HomeHeader from '../components/HomeHeader'
-import { getRestaurantsFromFirebase } from '../firebase'
+import { getRestaurantsFromFirebase } from '../firebase/utils'
 import Loader from './Loader'
 import { APP_CONSTANT, colors } from '../global'
 
