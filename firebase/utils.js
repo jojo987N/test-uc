@@ -1,8 +1,6 @@
- import { getAuth } from 'firebase/auth';
-import {
-  addDoc, getFirestore, collection, getDocs, doc, deleteDoc, orderBy, query, limit,
-  where, onSnapshot, serverTimestamp, updateDoc
-} from 'firebase/firestore'
+import firebaseApp from './config';
+import { getAuth } from 'firebase/auth';
+import { addDoc, getFirestore, collection, getDocs, doc, deleteDoc, orderBy, query, limit, where, onSnapshot, serverTimestamp, updateDoc } from 'firebase/firestore'
 import { getStorage, ref, getDownloadURL } from 'firebase/storage'
 import { LogBox } from 'react-native';
 
