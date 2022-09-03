@@ -114,7 +114,7 @@ export const icon = {
 export const ANIMATION = {
   AUTHSCREEN: "fadeInUpBig",
   ONBOARDING: "fadeInUpBig",
-  LOADER: "../assets/animations/food-transition2.json"
+  LOADER: require("../assets/animations/food-transition2.json")
 }
 export const IMAGE = {
   CAR: require('./assets/images/car2.png'),
