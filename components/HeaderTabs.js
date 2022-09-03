@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import React, { useState } from 'react'
-import { grey1 } from '../../global'
+import { grey1 } from '../global'
 
 export default function HeaderTabs(props) {
     return (
