@@ -1,5 +1,7 @@
 import { Marker } from "react-native-maps";
 import { IMAGE } from "../global";
+import {Dimensions} from 'react-native';
+
 
 const CarMarker = ({ lat, lng }) => {
   return (<Marker coordinate={{ latitude: lat, longitude: lng }}

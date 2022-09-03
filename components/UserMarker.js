@@ -1,4 +1,4 @@
-import { Image } from "react-native"
+import { Image, StyleSheet} from "react-native"
 import { Marker } from "react-native-maps"
 import { IMAGE } from "../global"
 export const UserMarker = ({ lat, lng }) => {
