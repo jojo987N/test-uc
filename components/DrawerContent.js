@@ -36,7 +36,8 @@ export default function DrawerContent(props) {
                         rounded
                         avatarStyle={styles.avatar}
                         size={75}
-                        source={{ uri: "" }} />
+                        // source={{ uri: "" }} 
+                        />
                     <View style={{ marginLeft: 10 }}>
                         <Text style={{
                             fontWeight: "bold",
