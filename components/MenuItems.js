@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { language, currency } from '../global'
 import { } from 'react-native-tab-view'
 import { NavigationContainer } from '@react-navigation/native';
-import { restaurants } from '../../data';
+import { restaurants } from '../data';
 import { AntDesign } from '@expo/vector-icons';
 import { getProducts } from '../../firebase';
 import Loader from '../../screens/Loader';
