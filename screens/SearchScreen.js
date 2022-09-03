@@ -5,7 +5,7 @@ import SearchComponent from '../components/SearchComponent'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { categories, dataTest, filterData} from '../data'
 import List from '../components/List'
-import { Menu } from '../components/home/HomeHeader'
+import { Menu } from '../components/HomeHeader'
 import { screen } from '../global'
 import CategoryItem from '../components/searchScren/CategoryItem'
 
