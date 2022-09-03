@@ -1,5 +1,5 @@
 import { TouchableOpacity, StyleSheet, ImageBackground} from "react-native"
-import { colors, screen } from "../../global"
+import { colors, screen } from "../global"
 
 const SCREEN_WIDTH = Dimensions.get('window').width
 
