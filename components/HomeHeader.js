@@ -2,7 +2,7 @@ import { View, Text, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { Icon, withBadge } from 'react-native-elements'
 import { FontAwesome } from '@expo/vector-icons'
-import FilterModal from '../FilterModal'
+import FilterModal from './FilterModal'
 
 export default function HomeHeader({ navigation }) {
 
