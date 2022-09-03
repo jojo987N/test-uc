@@ -1,6 +1,6 @@
-import { Marker,  StyleSheet} from "react-native-maps";
+import { Marker} from "react-native-maps";
 import { IMAGE } from "../global";
-import {Dimensions} from 'react-native';
+import {Dimensions, StyleSheet} from 'react-native';
 
 
 const CarMarker = ({ lat, lng }) => {
