@@ -47,7 +47,7 @@ export default function SignUp({ navigation }) {
             secureTextEntry />
         </View>
         <View style={styles.textInputContainer}>
-          <MaterialIcons name={icon.NAME} size={20} color={colors.inputIcon} style={styles.inputIcon} />
+          <MaterialIcons name={icon.USER} size={20} color={colors.inputIcon} style={styles.inputIcon} />
           <TextInput
             placeholder={APP_CONSTANT.NAME}
             value={name}
