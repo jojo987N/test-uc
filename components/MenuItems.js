@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef, createRef } from 'react'
 import { Divider } from 'react-native-elements';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import { useDispatch, useSelector } from 'react-redux';
-import { language, currency } from '../../global'
+import { language, currency } from '../global'
 import { } from 'react-native-tab-view'
 import { NavigationContainer } from '@react-navigation/native';
 import { restaurants } from '../../data';
@@ -15,7 +15,7 @@ import { BottomSheetFlatList } from '@gorhom/bottom-sheet';
 import About from './About';
 import HeaderTabs from '../home/HeaderTabs';
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { groupFoods } from '../../data';
+import { groupFoods } from '../data';
 import { FlatList } from 'react-native-gesture-handler';
 
 const styles = StyleSheet.create({
