@@ -1,4 +1,6 @@
 import * as Location from 'expo-location';
+import {Dimensions} from 'react-native';
+
 export const language = "en"
 export const currency = "USD"
 export const apikey = {/* Your Google Api Key here */ }
