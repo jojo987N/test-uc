@@ -1,7 +1,7 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import { View } from "react-native";
 import { Marker } from "react-native-maps"
-import { colors, icon } from "../../global";
+import { colors, icon } from "../global";
 
 const CustomMarker = ({restaurant}) =>{
     return (
