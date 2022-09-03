@@ -1,4 +1,5 @@
 import { AntDesign } from "@expo/vector-icons"
+import { useState } from "react"
 import { TouchableOpacity } from "react-native"
 import { colors, icon } from "../global"
 
