@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { View, StyleSheet, Text} from "react-native"
-import { colors } from "../../global";
+import { colors } from "../global";
 
 const RestaurantInfo = (props)=>{
     const [deliveryTime, setDeliveryTime] = useState()
