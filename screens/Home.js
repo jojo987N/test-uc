@@ -9,10 +9,10 @@ import { getRestaurantsFromFirebase } from '../firebase/utils'
 import Loader from './Loader'
 import { APP_CONSTANT, colors } from '../global'
 import RestaurantRowsItems from '../components/RestaurantRowsItems'
-import { themes } from '../data'
+import { restaurants, themes } from '../data'
 
 export default function Home({ navigation }) {
-  const [restaurantData, setRestaurantData] = useState()
+  const [restaurantData, setRestaurantData] = useState(restaurants)
   const [city, setCity] = useState();
   const [activeTab, setActiveTab] = useState(APP_CONSTANT.TEXT.DELIVERY)
   const flatlist = useRef(null)
