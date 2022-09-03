@@ -1,5 +1,5 @@
 import { View} from "react-native";
-import CustomMarker from "../CustomMarkers";
+import CustomMarker from "./CustomMarkers";
 
 const RestaurantMarkers = ({restaurants})=>{
 
