@@ -1,4 +1,4 @@
-import { View } from "react-native"
+import { View, StyleSheet} from "react-native"
 import RestaurantItems from "./RestaurantItems"
 
 const RestaurantRowsItems = ({themes, restaurantData, navigation}) => {
@@ -16,4 +16,17 @@ const RestaurantRowsItems = ({themes, restaurantData, navigation}) => {
       })
     
   }
+
+  const styles = StyleSheet.create({
+    row: { 
+      backgroundColor: colors.white,
+      marginTop: 8 
+    },
+    rowsTitle: {
+       fontSize: 25, 
+       paddingLeft: 15, 
+       paddingTop: 15 
+      }
+  })
+  
   export default RestaurantRowsItems
