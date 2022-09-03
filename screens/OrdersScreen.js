@@ -1,6 +1,6 @@
 import { View, Text, FlatList, Image} from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { getOrders } from '../firebase'
+import { getOrders } from '../firebase/utils'
 
 export default function OrdersScreen() {
 
