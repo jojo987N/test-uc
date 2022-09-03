@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { LogBox } from 'react-native';
 import "intl"
 import "intl/locale-data/jsonp/en"
-import { language, currency } from '../../global'
+import { language, currency } from '../global'
 import CartModal from '../CartModal';
 LogBox.ignoreLogs(['Setting a timer'])
 
