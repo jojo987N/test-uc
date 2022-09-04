@@ -11,7 +11,9 @@ const RestaurantsCarousel = ({restaurants})=>{
              data={restaurants}
              keyExtractor={(item, index)=>index}
              renderItem={({item})=>{
-             
+             return <View style={styles.itemContainer}>
+              
+             </View>
              }}
           />
          </View>
