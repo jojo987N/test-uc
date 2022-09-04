@@ -14,7 +14,7 @@ const RestaurantsCarousel = ({restaurants})=>{
                 console.log(typeof item.image_url)
              return <View style={styles.itemContainer}>
              <View style={styles.itemContainerContent}>
-                <RestaurantImage image={item.image_url} />
+                <RestaurantImage image={"https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg"} />
                 <RestaurantInfo
                             name={item.name}
                             rating={item.rating}
