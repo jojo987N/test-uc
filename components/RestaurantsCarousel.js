@@ -21,6 +21,7 @@ const RestaurantsCarousel = ({restaurants})=>{
               </View>
              </View>
              }}
+             showsHorizontalScrollIndicator={false}
           />
          </View>
       )
