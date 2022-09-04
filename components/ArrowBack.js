@@ -1,4 +1,4 @@
-import { View } from "react-native"
+import { View, StyleSheet} from "react-native"
 import { Icon } from "react-native-elements"
 
 export const ArrowBack = (props) => {
