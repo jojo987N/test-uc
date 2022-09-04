@@ -6,15 +6,7 @@ const RestaurantImage= (props)=>{
    
     return(
     <>
-        <Image
-            source={{
-                uri: props.image
-            }}
-
-            style={styles.image}
-        />
-
-       <LikeComponent />
+      
     </>
 
 )}
