@@ -37,7 +37,7 @@ export default function RestaurantsMapScreen({route, navigation}) {
 
         <RestaurantsCarousel restaurants={restaurantData} />
 
-         <ArrowBack navigation={navigation}/>
+         {/* <ArrowBack navigation={navigation}/> */}
 
           
     </View>
