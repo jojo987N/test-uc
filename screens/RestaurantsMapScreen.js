@@ -1,7 +1,7 @@
 import { View, Text, useWindowDimensions, Image, ScrollView, Animated, StyleSheet, TouchableOpacity, StatusBar} from 'react-native'
 import React, {useEffect, useRef, useState} from 'react'
 import MapView, { Callout, Marker } from 'react-native-maps'
-import { location, SCREEN_HEIGHT, SCREEN_WIDTH } from '../global'
+import { getLocation, SCREEN_HEIGHT, SCREEN_WIDTH } from '../global'
 import { ArrowBack } from '../components/About'
 import RestaurantMarkers from '../components/RestaurantMarkers'
 import RestaurantsCarousel from '../components/RestaurantsCarousel'
@@ -12,7 +12,7 @@ export default function RestaurantsMapScreen({route, navigation}) {
   const [location, setLocation] = useState(null)
 
   useEffect(()=>{
-    location().then((location)=>{
+    getLocation().then((location)=>{
       setLocation(location)
     })
     
