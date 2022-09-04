@@ -37,6 +37,7 @@ export default function MenuItems({ route, activeTab, marginLeft, navigation, fo
   const { restaurant } = route.params
   const [foods, setFoods] = useState([])
   const [loader, setLoader] = useState(false)
+  
   useEffect(() => {
     setLoader(true)
     AsyncStorage.getItem("productsData").then(value => {
