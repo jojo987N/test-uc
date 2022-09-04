@@ -5,6 +5,7 @@ import { getLocation, SCREEN_HEIGHT, SCREEN_WIDTH } from '../global'
 import { ArrowBack } from '../components/About'
 import RestaurantMarkers from '../components/RestaurantMarkers'
 import RestaurantsCarousel from '../components/RestaurantsCarousel'
+import Loading from '../components/Loading'
 
 export default function RestaurantsMapScreen({route, navigation}) {
 
@@ -18,7 +19,8 @@ export default function RestaurantsMapScreen({route, navigation}) {
     
   },[])
    
-   
+  if(!location)
+   return <Loading />
   return (
     <View>
       <MapView
