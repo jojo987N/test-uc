@@ -4,6 +4,7 @@ import LikeComponent from "./LikeComponent"
 
 const RestaurantImage= (props)=>{
    
+     console.log("ttttttt", props.image)
     return(
     <>
         <Image

@@ -14,7 +14,10 @@ const RestaurantsCarousel = ({restaurants})=>{
              return <View style={styles.itemContainer}>
              <View style={styles.itemContainerContent}>
                 <RestaurantImage image={item.image_url} />
-                
+                <RestaurantInfo
+                            name={item.name}
+                            rating={item.rating}
+                            city={item.location.city}/>
               </View>
              </View>
              }}
