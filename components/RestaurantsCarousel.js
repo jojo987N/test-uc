@@ -11,6 +11,7 @@ const RestaurantsCarousel = ({restaurants})=>{
              data={restaurants}
              keyExtractor={(item, index)=>index}
              renderItem={({item})=>{
+                console.log(item.image_url)
              return <View style={styles.itemContainer}>
              <View style={styles.itemContainerContent}>
                 {/* <RestaurantImage image={item.image_url} /> */}
