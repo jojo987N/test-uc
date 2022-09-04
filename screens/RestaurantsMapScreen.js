@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
   },
   arrowBack: {
     position: "absolute",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   }
      
     
