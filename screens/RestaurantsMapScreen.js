@@ -14,6 +14,7 @@ export default function RestaurantsMapScreen({route, navigation}) {
 
   useEffect(()=>{
     getLocation().then((location)=>{
+      console.log(location)
       setLocation(location)
     })
     
