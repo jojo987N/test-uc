@@ -1,4 +1,4 @@
-import { FlatList, View, StyleSheet} from "react-native"
+import { FlatList, View, StyleSheet, Text} from "react-native"
 import { colors, SCREEN_WIDTH } from "../global"
 import { RestaurantImage } from "./RestaurantItemImage"
 import RestaurantInfo from "./RestaurantItemInfo"
@@ -14,7 +14,7 @@ const RestaurantsCarousel = ({restaurants})=>{
                 console.log(typeof item.image_url)
              return <View style={styles.itemContainer}>
              <View style={styles.itemContainerContent}>
-                <RestaurantImage />
+               <Text>Bonjour</Text>
                 <RestaurantInfo
                             name={item.name}
                             rating={item.rating}
