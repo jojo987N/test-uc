@@ -2,7 +2,7 @@ import { View, Text, useWindowDimensions, Image, ScrollView, Animated, StyleShee
 import React, {useEffect, useRef, useState} from 'react'
 import MapView, { Callout, Marker } from 'react-native-maps'
 import { getLocation, SCREEN_HEIGHT, SCREEN_WIDTH } from '../global'
-import  ArrowBack  from '../components/About'
+import  ArrowBack  from '../components/ArrowBack'
 import RestaurantMarkers from '../components/RestaurantMarkers'
 import RestaurantsCarousel from '../components/RestaurantsCarousel'
 import Loading from '../components/Loading'
