@@ -14,4 +14,18 @@ export const ArrowBack = (props) => {
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  view2: {
+    backgroundColor: "white",
+    width: 40,
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 20,
+    margin: 10,
+  },
+  
+})
+
 export default ArrowBack;
