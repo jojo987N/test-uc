@@ -1,6 +1,6 @@
-import { FlatList, View, StyleSheet, Text} from "react-native"
+import { FlatList, View, StyleSheet} from "react-native"
 import { colors, SCREEN_WIDTH } from "../global"
-import { RestaurantImage } from "./RestaurantItemImage"
+import  RestaurantImage from "./RestaurantItemImage"
 import RestaurantInfo from "./RestaurantItemInfo"
 
 const RestaurantsCarousel = ({restaurants})=>{
@@ -11,10 +11,9 @@ const RestaurantsCarousel = ({restaurants})=>{
              data={restaurants}
              keyExtractor={(item, index)=>index}
              renderItem={({item})=>{
-                console.log(typeof item.image_url)
              return <View style={styles.itemContainer}>
              <View style={styles.itemContainerContent}>
-               <Text>Bonjour</Text>
+                <RestaurantImage image={item.image_url} />
                 <RestaurantInfo
                             name={item.name}
                             rating={item.rating}

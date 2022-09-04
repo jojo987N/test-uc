@@ -1,11 +1,21 @@
 import { useState } from "react"
-import { TouchableOpacity, Image, StyleSheet, Text} from "react-native"
+import { TouchableOpacity, Image, StyleSheet} from "react-native"
 import LikeComponent from "./LikeComponent"
 
 const RestaurantImage= (props)=>{
    
     return(
-    <Text>Bonjour</Text>
+    <>
+        <Image
+            source={{
+                uri: props.image
+            }}
+
+            style={styles.image}
+        />
+
+       <LikeComponent />
+    </>
 
 )}
 
