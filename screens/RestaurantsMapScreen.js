@@ -37,7 +37,10 @@ export default function RestaurantsMapScreen({route, navigation}) {
 
         <RestaurantsCarousel restaurants={restaurantData} />
 
-         <ArrowBack navigation={navigation}/>
+         <View style={styles.arrowBack}>
+           <ArrowBack navigation={navigation}/>
+         </View>
+         
 
           
     </View>
@@ -53,6 +56,9 @@ const styles = StyleSheet.create({
   mapview: {
     height: SCREEN_HEIGHT,
     width: SCREEN_WIDTH
+  },
+  arrowBack: {
+    position: "absolute",
   }
      
     
