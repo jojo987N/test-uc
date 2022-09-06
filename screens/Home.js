@@ -165,7 +165,7 @@ const RestaurantRowsItems = ({themes, restaurantData, navigation}) => {
       return(
         <View key={index}>
           <View style={styles.row}>
-            <Text style={styles.rowsTitle}>{theme}</Text>
+            {/* <Text style={styles.rowsTitle}>{theme}</Text> */}
             <RestaurantItems restaurantData={restaurantData.filter(restaurant => restaurant.theme === theme)} navigation={navigation} horizontal={true} />
           </View>
         </View>
