@@ -96,21 +96,21 @@ export default function Home({navigation}) {
       }
     }) 
 
-    let i = 1
-          setInterval(()=>{
+    // let i = 1
+    //       setInterval(()=>{
      
             
-           // setTimeout(()=>{
+    //        // setTimeout(()=>{
 
-              if (flatlist.current)
-              flatlist.current.scrollToIndex({
-                animated: true,
-                index: i%2===0?0:1
-              })
+    //           if (flatlist.current)
+    //           flatlist.current.scrollToIndex({
+    //             animated: true,
+    //             index: i%2===0?0:1
+    //           })
 
-              i++
+    //           i++
   
-          }, 3000)
+    //       }, 3000)
 
         },[])
   
