@@ -42,7 +42,7 @@ export default function Home({navigation}) {
   //const restaurantData = []
   //const restaurantData = restaurants
   //const [city, setCity] = useState("San Francisco");
-  const [city, setCity] = useState();
+  const [city, setCity] = useState("Paris");
   const [activeTab, setActiveTab]= useState("Delivery")
    
 
