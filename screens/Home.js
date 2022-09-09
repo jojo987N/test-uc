@@ -134,8 +134,10 @@ export default function Home({navigation}) {
         <SearchBar cityHandler={setCity} navigation={navigation} restaurantData={restaurantData} searchbar={searchbar}/>
       </View>
        
-       {city?<RestaurantItems restaurantData={restaurantData.filter(restaurant => restaurant.location.city === city)} navigation={navigation}  size="100%"/>
-          :
+       {city?
+      //  <RestaurantItems restaurantData={restaurantData.filter(restaurant => restaurant.location.city === city)} navigation={navigation}  size="100%"/>
+       <RestaurantItems restaurantData={restaurantData} navigation={navigation}  size="100%"/>
+       :
         <ScrollView showsVerticalScrollIndicator={false}>
           <Categories navigation={navigation}/>
 
