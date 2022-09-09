@@ -56,7 +56,7 @@ export default function RestaurantItems({navigation,...props}) {
                                 <RestaurantInfo 
                                     name={item.name.substring(0,20)}
                                     rating={item.rating} 
-                                    city={item.location.city}/>
+                                    city={item.city}/>
                                   
                             </View>
                         </TouchableOpacity>
