@@ -48,7 +48,7 @@ export default function RestaurantItems({navigation,...props}) {
                                    width: props.size?width:width*0.8
                                 }}>
                                 <View >
-                                    <RestaurantImage image={item.image_url} />
+                                    <RestaurantImage image={item.image} />
                                     {props.reward || item.reward ?<Reward restaurant={item}/>:<></>}
                                     {props.ads && <Affiche ads={item.ads} adsColor={item.adsColor}/>}
                                 </View>
