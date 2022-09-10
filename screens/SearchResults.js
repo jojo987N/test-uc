@@ -17,7 +17,7 @@ export default function SearchResults({route, navigation}) {
    
   useEffect(()=>{
 
-    searchRestaurantsByCategory(route.params.name)
+    searchRestaurantsByCategory(route.params.restaurantId)
     .then(restaurantsResult => setRestaurantData(restaurantsResult))
 
     // AsyncStorage.getItem("restaurants").then(value => {

@@ -32,8 +32,8 @@ export default function Categories({navigation}) {
           return (
             <TouchableOpacity
             onPress={()=>navigation.navigate("SearchResults",{
-               name: item.name
-              // restaurantId: item.restaurantId
+              // name: item.name
+              restaurantId: item.restaurantId
             })}
             // onPress={()=>navigation.navigate("DrawerNavigator",{
             //   screen: "SearchNavigator", params: {
