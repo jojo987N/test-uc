@@ -1,7 +1,7 @@
 import { View, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native'
 import React, { useEffect, useState } from 'react'
 
- import { getRestaurantsFromFirebase } from '../firebase'
+ import { getRestaurantsFromFirebase, searchRestaurantsByCategory } from '../firebase'
 import { categories } from '../data'
 import {RestaurantImage, RestaurantInfo} from '../components/home/RestaurantItems'
 import Loader from './Loader'
@@ -17,17 +17,22 @@ export default function SearchResults({route, navigation}) {
    
   useEffect(()=>{
 
-    AsyncStorage.getItem("restaurants").then(value => {
+    searchRestaurantsByCategory(route.params.restaurantId)
+    .then(restaurantsResult => setRestaurantData(restaurantsResult))
 
-      let restaurants = JSON.parse(value)
-      setRestaurantData(restaurants.filter((restaurant, index)=> restaurant.categories.some(categorie => categorie.title === route.params.name)))
-        // getRestaurantsFromFirebase().then((restaurants)=> {
+    // AsyncStorage.getItem("restaurants").then(value => {
+
+      // let restaurants = JSON.parse(value)
+      // setRestaurantData(restaurants.filter((restaurant, index)=> restaurant.categories.some(categorie => categorie.title === route.params.name)))
+       
+      
+      // getRestaurantsFromFirebase().then((restaurants)=> {
         //   //setLoader(false)
         //   setRestaurantData(restaurants.filter((restaurant, index)=> restaurant.categories.some(categorie => categorie.title === route.params.name)))
           
         // })
       
-    })
+    // })
     
     
 

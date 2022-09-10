@@ -7,6 +7,7 @@ where, onSnapshot, serverTimestamp, updateDoc} from 'firebase/firestore'
 //import { restaurants } from './data';
 import {getStorage, ref, getDownloadURL} from 'firebase/storage'
 import { LogBox } from 'react-native';
+import { restaurants } from './data';
 LogBox.ignoreLogs(['AsyncStorage has been extracted from react-native core'])
 
 
@@ -480,6 +481,27 @@ export const getCategories = ()=>{
  }
 
 //populateRestaurant()
+
+export const searchRestaurantsByCategory = (restaurantId) => {
+      
+  const restaurantsResult = []
+  // const q= query(restaurantsCol, where("restaurantId", "==", restaurantID))
+
+  return getDocs(restaurantsCol).then(snapshot=>{
+
+    snapshot.docs.forEach((doc) => {
+
+      if(doc.id === restaurantId)
+       restaurantsResult.push(doc.data())
+
+      // categories.push({...doc.data(), id: doc.id})
+
+     })
+
+     return restaurantsResult
+
+ })
+}
 
 
  
