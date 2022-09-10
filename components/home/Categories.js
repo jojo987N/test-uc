@@ -1,6 +1,7 @@
 import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { FlatList } from 'react-native-gesture-handler';
+import { getCategories } from '../../firebase';
 // import { categories} from '../../data'
 
  
