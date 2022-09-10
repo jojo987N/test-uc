@@ -482,7 +482,7 @@ export const getCategories = ()=>{
 
 //populateRestaurant()
 
-export const searchRestaurantsByCategory = (restaurantId) => {
+export const searchRestaurantsByCategory = (name) => {
       
   const restaurantsResult = []
   // const q= query(restaurantsCol, where("restaurantId", "==", restaurantID))
@@ -491,7 +491,7 @@ export const searchRestaurantsByCategory = (restaurantId) => {
 
     snapshot.docs.forEach((doc) => {
 
-      if(doc.id === restaurantId)
+      if(doc.data().name === name)
        restaurantsResult.push(doc.data())
 
       // categories.push({...doc.data(), id: doc.id})
