@@ -458,6 +458,26 @@ const populateRestaurant = ()=> {
 
 }
 
+export const getCategories = ()=>{
+
+  const categories=[]
+  
+  //const q= query(categoriesCol, orderBy('createdAt', 'desc'))
+
+  return getDocs(categoriesCol).then(snapshot=>{
+
+     snapshot.docs.forEach((doc) => {
+
+       categories.push({...doc.data(), id: doc.id})
+
+      })
+
+      return categories
+
+  })
+
+ }
+
 //populateRestaurant()
 
 

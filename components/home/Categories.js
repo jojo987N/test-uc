@@ -1,12 +1,17 @@
 import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FlatList } from 'react-native-gesture-handler';
-import { categories} from '../../data'
+// import { categories} from '../../data'
 
  
 
 
 export default function Categories({navigation}) {
+
+  const [categories, setCategories] = useState()
+  useEffect(()=> {
+    getCategories().then(categories => setCategories(categories))
+  }, [])
    
   return (
     <View style={{
