@@ -8,7 +8,7 @@ import { FlatList } from 'react-native-gesture-handler';
 
 export default function Categories({navigation}) {
 
-  const [categories, setCategories] = useState()
+  const [categories, setCategories] = useState([])
   useEffect(()=> {
     getCategories().then(categories => setCategories(categories))
   }, [])
