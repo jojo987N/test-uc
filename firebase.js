@@ -56,6 +56,7 @@ export const db = getFirestore()
 export const storage = getStorage();
 
 const restaurantsCol = collection(db, 'restaurants')
+const categoriesCol = collection(db, 'categories')
 
 export const getRestaurantsFromFirebase = () => {
 
