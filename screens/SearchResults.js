@@ -71,7 +71,7 @@ export default function SearchResults({route, navigation}) {
      
                    })}
                    style={styles.itemContainer}>
-                   <RestaurantImage image={item.image_url} />
+                   <RestaurantImage image={item.image} />
                   <RestaurantInfo
                             name={item.name}
                             rating={item.rating}
