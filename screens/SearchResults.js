@@ -75,7 +75,7 @@ export default function SearchResults({route, navigation}) {
                   <RestaurantInfo
                             name={item.name}
                             rating={item.rating}
-                            city={item.location.city}/>
+                            city={item.city}/>
                     </TouchableOpacity>
                 )
          
