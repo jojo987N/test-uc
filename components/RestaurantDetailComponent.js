@@ -7,7 +7,7 @@ import { Divider, } from 'react-native-elements'
 import DisplayMapview from './DisplayMapview'
 import RestaurantName from './RestaurantName'
 import RestaurantDescription from './RestaurantDescription'
-import { CategoriesContext } from '../../contexts/CategoriesContext';
+import { CategoriesContext } from '../contexts/CategoriesContext';
 
 
 export default function RestaurantDetailComponent({restaurant, visible, setVisible, userLocation, mapRef, apikey}) {
