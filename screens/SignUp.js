@@ -31,7 +31,6 @@ export default function SignUp({ navigation }) {
      try{
        const userCredentials = await createUserWithEmailAndPassword(auth, email, password)
    
-       console.log(address)
        addUser(userCredentials,name,phone, address)
        .then(()=> navigation.navigate("SignIn"))
        

@@ -30,11 +30,14 @@ export default function SearchBar({searchbar, cityHandler, style, setAddress, na
          // navigation.navigate("SearchNavigator", {screen: "SearchResults", params: {city: city}})
         
           
-          if(style)
+          if(style){
+            console.log(details?.geometry?.location)
+
           setAddress({
             description: data.description,
             location: details?.geometry?.location
           })
+        }
 
          // setLocation(details?.geometry?.location)
 
