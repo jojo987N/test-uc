@@ -144,8 +144,10 @@ export default function RestaurantDetail({route, navigation}) {
     let user = JSON.parse(value)
     //console.log(user)
     setUserLocation({
-      latitude: user.address.location.lat,
-      longitude: user.address.location.lng
+      // latitude: user.address.location.lat,
+      // longitude: user.address.location.lng
+      latitude: user.lat,
+      longitude: user.lng
     })
   })
 

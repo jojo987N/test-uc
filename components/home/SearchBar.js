@@ -31,7 +31,7 @@ export default function SearchBar({searchbar, cityHandler, style, setAddress, na
         
           
           if(style){
-            console.log(details?.geometry?.location)
+            // console.log(details?.geometry?.location)
 
           setAddress({
             description: data.description,
