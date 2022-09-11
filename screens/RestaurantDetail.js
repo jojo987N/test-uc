@@ -19,6 +19,7 @@ import HeaderTabs from '../components/home/HeaderTabs'
 import GroupFoodHeader from '../components/GroupFoodHeader'
 import RestaurantDetailHeader from '../components/restaurantDetail/RestaurantDetailHeader'
 import {LoaderContext} from "../contexts/LoaderContext"
+import { CategoriesContext } from '../contexts/CategoriesContext'
 
 
 
@@ -37,6 +38,8 @@ export default function RestaurantDetail({route, navigation}) {
  // const [loading, setLoading] = useState(false)
  const {loading,setLoading} = useContext(LoaderContext)
 
+ const {categories} = useContext(CategoriesContext)
+
   const value = useState(new Animated.ValueXY({x:0,y:0}))[0]
 
   const value1 = useState(new Animated.ValueXY({x:0,y:0}))[0]
@@ -44,8 +47,6 @@ export default function RestaurantDetail({route, navigation}) {
   const [activeTab, setActiveTab]= useState("Delivery")
 
   const [categoriesFood, setCategoriesFood] = useState(false)
-
-  const [categories, setCategories] = useState()
 
   const _scrollView = useRef(null)
   const view = useRef(null)
@@ -236,7 +237,8 @@ export default function RestaurantDetail({route, navigation}) {
           mapRef={mapRef} apikey={apikey} activeTab={activeTab} 
           pickup={pickup} delivery={delivery} setActiveTab={setActiveTab} 
           scrollEnabled={scrollEnabled} setScrollEnabled={setScrollEnabled}
-          opacity={opacity} setCategoriesFood={setCategoriesFood} categories={categories} setCategories={setCategories}/>
+          opacity={opacity} setCategoriesFood={setCategoriesFood} 
+          />
 
 
 

@@ -14,6 +14,7 @@ import OrderRequest from '../screens/OrderRequest'
 import CartScreen from '../screens/CartScreen'
 import RestaurantsMapScreen from '../screens/RestaurantsMapScreen'
 import RestaurantSearchResults from '../screens/RestaurantSearchResults'
+import { CategoriesContextProvider } from '../contexts/CategoriesContext'
 
 const  HomeStack = createStackNavigator()
 
@@ -29,12 +30,13 @@ export function HomeNavigator() {
           name="RestaurantSearchResults"
           component={RestaurantSearchResults}
           options={{headerShown: false}}/>
-
-      <HomeStack.Screen 
+          
+      <CategoriesContextProvider>
+        <HomeStack.Screen
           name="RestaurantDetail"
           component={RestaurantDetail}
-          options={{headerShown: false}}/>
-
+          options={{ headerShown: false }} />
+      </CategoriesContextProvider>
       
 
       <HomeStack.Screen 

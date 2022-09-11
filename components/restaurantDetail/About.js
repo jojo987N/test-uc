@@ -1,9 +1,10 @@
 import { View, Text, Image, ImageBackground, StyleSheet, TouchableOpacity} from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Icon } from 'react-native-elements';
 import RestaurantDetailComponent from '../RestaurantDetailComponent';
 import { apikey } from '../../global';
 import { getCategoriesFromRestaurant } from '../../firebase';
+import { CategoriesContext } from '../../contexts/CategoriesContext';
 
   
 export default function About(props) {
@@ -13,6 +14,9 @@ export default function About(props) {
   const {name, image_url, price, review_count, rating, collectTime} = restaurant;
 
   const [restaurantDetail, setRestaurantDetail] = useState(false)
+
+  const {categories, setCategories} = useContext(CategoriesContext)
+
    
   
 let description;
@@ -23,12 +27,15 @@ let description;
 //const formattedCategories = categories.map((cat)=>cat.title).join('•')
 //const description = `${formattedCategories} ${price?'•'+price:""} • 🎫 • ${rating} ⭐ (${review_count}+)`
 //  const description = `⭐${rating} (${review_count}+ ratings) • ${props.categories[0].title} •${price}• 🎫`
+if(categories)
+description = `⭐${rating} (${review_count}+ ratings) • ${categories[0].title} •${price}• 🎫`
 
 useEffect(()=> {
   getCategoriesFromRestaurant(restaurant.restaurantId)
   .then(categories => {
-    console.log(categories)
-     description = `⭐${rating} (${review_count}+ ratings) • ${props.categories[0].title} •${price}• 🎫`
+    // console.log(categories)
+    setCategories(categories)
+    //  description = `⭐${rating} (${review_count}+ ratings) • ${categories[0].title} •${price}• 🎫`
 
     // props.setCategories(categories)
   })
