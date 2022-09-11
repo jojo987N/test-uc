@@ -58,7 +58,7 @@ export default function SignUp({ navigation }) {
 
 
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>Register Now !</Text>
       </View>
@@ -153,7 +153,7 @@ export default function SignUp({ navigation }) {
 
       </Animatable.View>
 
-    </ScrollView>
+    </View>
 
 
   )
