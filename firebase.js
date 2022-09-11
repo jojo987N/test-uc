@@ -342,7 +342,10 @@ export const addRestaurants = (restaurants)=>{
       email: userCredentials.user.email,
       //address: address,
       phone: phone,
-      address: address
+      address: address.description,
+      lat: address.location.lat,
+      lng: address.location.lng
+
      // lat: 40.71,
      // lng: -74,
 
