@@ -181,7 +181,7 @@ export default function RestaurantDetail({route, navigation}) {
 
 
        <Animated.View style={value.getTranslateTransform()}>
-      <RestaurantImage image={image_url} navigation={navigation}/>
+      <RestaurantImage image={image} navigation={navigation}/>
       </Animated.View>
 
       <Divider width={5} color="white" style={{}} /> 
