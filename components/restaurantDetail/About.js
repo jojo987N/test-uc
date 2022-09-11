@@ -26,7 +26,10 @@ const description = `⭐${rating} (${review_count}+ ratings) • ${props.categor
 
 useEffect(()=> {
   getCategoriesFromRestaurant(restaurant.restaurantId)
-  .then(categories => props.setCategories(categories))
+  .then(categories => {
+    console.log(categories)
+    props.setCategories(categories)
+  })
 }, [])
 return (
      
