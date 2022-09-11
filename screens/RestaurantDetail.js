@@ -19,7 +19,6 @@ import HeaderTabs from '../components/home/HeaderTabs'
 import GroupFoodHeader from '../components/GroupFoodHeader'
 import RestaurantDetailHeader from '../components/restaurantDetail/RestaurantDetailHeader'
 import {LoaderContext} from "../contexts/LoaderContext"
-import { CategoriesContext } from '../contexts/CategoriesContext'
 
 
 
@@ -37,8 +36,6 @@ export default function RestaurantDetail({route, navigation}) {
 
  // const [loading, setLoading] = useState(false)
  const {loading,setLoading} = useContext(LoaderContext)
-
- const {categories} = useContext(CategoriesContext)
 
   const value = useState(new Animated.ValueXY({x:0,y:0}))[0]
 
