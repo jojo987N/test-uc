@@ -19,7 +19,7 @@ export default function SearchResults({route, navigation}) {
 
     searchRestaurantsByCategory(route.params.categoryId)
     .then(restaurantsResult => {
-      console.log(restaurantsResult)
+      // console.log(restaurantsResult)
       setRestaurantData(restaurantsResult)
     })
 
