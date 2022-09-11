@@ -28,7 +28,7 @@ export default function RestaurantDetail({route, navigation}) {
 
   const {restaurant} = route.params
 
-  const {image_url} = restaurant;
+  const {image} = restaurant;
 
   const bottomSheet = useRef(null)
   const mapRef = useRef(null)
