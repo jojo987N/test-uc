@@ -1,5 +1,5 @@
 import { View, Text, Modal, StyleSheet} from 'react-native'
-import React from 'react'
+import React, {useContext} from 'react'
 import { CloseModal, Icon } from './FilterModal'
 //import { RestaurantName } from './restaurantDetail/About'
 //import { RestaurantDescription } from './restaurantDetail/About'
@@ -7,11 +7,19 @@ import { Divider, } from 'react-native-elements'
 import DisplayMapview from './DisplayMapview'
 import RestaurantName from './RestaurantName'
 import RestaurantDescription from './RestaurantDescription'
+import { CategoriesContext } from '../../contexts/CategoriesContext';
+
 
 export default function RestaurantDetailComponent({restaurant, visible, setVisible, userLocation, mapRef, apikey}) {
 
-    const {name, image_url, price, review_count, rating, categories, collectTime, location, deliveryTime} = restaurant;
-    const formattedCategories = categories.map((cat)=>cat.title).join(' • ')
+    const {name, image_url, price, review_count, rating, collectTime, location, deliveryTime} = restaurant;
+    
+    const {categories, setCategories} = useContext(CategoriesContext)
+
+    let formattedCategories;
+    
+    if(categories)
+    formattedCategories = categories.map((cat)=>cat.title).join(' • ')
 
   //console.log(restaurant)
 
