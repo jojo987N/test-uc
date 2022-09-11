@@ -63,8 +63,8 @@ export default function SignUp({ navigation }) {
         <Text style={styles.title}>Register Now !</Text>
       </View>
 
-      <Animatable.ScrollView style={styles.footer} animation="fadeInUpBig">
-
+      <Animatable.View style={styles.footer} animation="fadeInUpBig">
+        <ScrollView> 
        <View style={{marginHorizontal: 25}}>
          <SearchBar style={{backgroundColor: "white", borderBottomColor: "grey", borderBottomWidth: 0.3}}
          setAddress={setAddress}/>
@@ -150,8 +150,8 @@ export default function SignUp({ navigation }) {
           </LinearGradient>
 
         </TouchableOpacity>
-
-      </Animatable.ScrollView>
+        </ScrollView>
+      </Animatable.View>
 
     </View>
 
