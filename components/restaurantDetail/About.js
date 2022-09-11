@@ -28,7 +28,7 @@ let description;
 //const description = `${formattedCategories} ${price?'•'+price:""} • 🎫 • ${rating} ⭐ (${review_count}+)`
 //  const description = `⭐${rating} (${review_count}+ ratings) • ${props.categories[0].title} •${price}• 🎫`
 if(categories)
-description = `⭐${rating} (${review_count}+ ratings) • ${categories[0].title} •${price}• 🎫`
+description = `⭐${rating} (${review_count}+ ratings) • ${categories[0].name} •${price}• 🎫`
 
 useEffect(()=> {
   getCategoriesFromRestaurant(restaurant.restaurantId)
