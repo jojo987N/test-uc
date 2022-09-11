@@ -157,7 +157,7 @@ export default function RestaurantDetail({route, navigation}) {
   }, [])
 
 
-  if(!userLocation && !categories)
+  if(!userLocation )
   return <Loader />
 
    
