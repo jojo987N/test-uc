@@ -504,6 +504,7 @@ export const searchRestaurantsByCategory = (categoryId) => {
   return getCategoriesRestaurants().then(categoriesRestaurants => {
     let categoriesRestaurantsResult = categoriesRestaurants.filter(categoriesRestaurant => categoriesRestaurant.categoryId ===  categoryId)
    
+    console.log(categoriesRestaurantsResult)
    
   getRestaurantsFromFirebase().then(restaurants => {
 
