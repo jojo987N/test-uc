@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StatusBar, Image, TextInput, StyleSheet, TouchableOpacity, Alert } from 'react-native'
+import { View, Text, SafeAreaView, StatusBar, Image, TextInput, StyleSheet, TouchableOpacity, Alert, ScrollView} from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { Entypo, MaterialIcons } from '@expo/vector-icons'
 import { addUser, auth } from '../firebase'
@@ -58,7 +58,7 @@ export default function SignUp({ navigation }) {
 
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>Register Now !</Text>
       </View>
@@ -153,7 +153,7 @@ export default function SignUp({ navigation }) {
 
       </Animatable.View>
 
-    </View>
+    </ScrollView>
 
 
   )
