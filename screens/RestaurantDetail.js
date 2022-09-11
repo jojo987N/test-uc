@@ -45,6 +45,8 @@ export default function RestaurantDetail({route, navigation}) {
 
   const [categoriesFood, setCategoriesFood] = useState(false)
 
+  const [categories, setCategories] = useState()
+
   const _scrollView = useRef(null)
   const view = useRef(null)
 
@@ -154,7 +156,7 @@ export default function RestaurantDetail({route, navigation}) {
   }, [])
 
 
-  if(!userLocation)
+  if(!userLocation && !categories)
   return <Loader />
 
    
@@ -234,7 +236,7 @@ export default function RestaurantDetail({route, navigation}) {
           mapRef={mapRef} apikey={apikey} activeTab={activeTab} 
           pickup={pickup} delivery={delivery} setActiveTab={setActiveTab} 
           scrollEnabled={scrollEnabled} setScrollEnabled={setScrollEnabled}
-          opacity={opacity} setCategoriesFood={setCategoriesFood}/>
+          opacity={opacity} setCategoriesFood={setCategoriesFood} categories={categories} setCategories={setCategories}/>
 
 
 

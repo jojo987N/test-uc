@@ -36,7 +36,7 @@ import { FlatList } from 'react-native-gesture-handler';
 
 export default function MenuItems({route, activeTab, marginLeft, navigation, foodsRef,
 pickup, delivery, setActiveTab, userLocation, mapRef, apikey, scrollEnabled, setScrollEnabled,
-opacity, setCategoriesFood}) {
+opacity, setCategoriesFood, categories, setCategories}) {
 
   const {restaurant} = route.params
 
@@ -96,7 +96,7 @@ opacity, setCategoriesFood}) {
 
   if(loader)
   return <View>
-  <About route={route} navigation={navigation} userLocation={userLocation} mapRef={mapRef} apikey={apikey}/>
+  <About route={route} navigation={navigation} userLocation={userLocation} mapRef={mapRef} apikey={apikey} categories={categories} setCategories={setCategories}/>
   <HeaderTabs pickup={pickup} delivery={delivery} activeTab={activeTab} setActiveTab={setActiveTab}/>
   <View style={{marginBottom: 100}}></View>
   <Loader />

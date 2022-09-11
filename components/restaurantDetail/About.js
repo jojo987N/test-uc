@@ -1,17 +1,19 @@
 import { View, Text, Image, ImageBackground, StyleSheet, TouchableOpacity} from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Icon } from 'react-native-elements';
 import RestaurantDetailComponent from '../RestaurantDetailComponent';
 import { apikey } from '../../global';
+import { getCategoriesFromRestaurant } from '../../firebase';
 
   
 export default function About(props) {
 
   const {restaurant} = props.route.params
 
-  const {name, image_url, price, review_count, rating, categories, collectTime} = restaurant;
+  const {name, image_url, price, review_count, rating, collectTime} = restaurant;
 
   const [restaurantDetail, setRestaurantDetail] = useState(false)
+   
   
 
 //const {name, image, price, reviews, rating, categories, collectTime} = props.route.params;
@@ -21,7 +23,12 @@ export default function About(props) {
 //const formattedCategories = categories.map((cat)=>cat.title).join('•')
 //const description = `${formattedCategories} ${price?'•'+price:""} • 🎫 • ${rating} ⭐ (${review_count}+)`
 const description = `⭐${rating} (${review_count}+ ratings) • ${categories[0].title} •${price}• 🎫`
-  return (
+
+useEffect(()=> {
+  getCategoriesFromRestaurant(restaurant.restaurantId)
+  .then(categories => props.setCategories(categories))
+}, [])
+return (
      
     <View style={styles.container}>
       {/* <RestaurantImage image={image_url} navigation={props.navigation}/> */}

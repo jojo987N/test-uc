@@ -499,6 +499,14 @@ export const getCategoriesRestaurants = () => {
  })
 }
 
+export const getCategoriesFromRestaurant = async (restaurantId) => {
+  const categoriesRestaurants = await getCategoriesRestaurants()
+  const categoriesRestaurantsResult = categoriesRestaurants.filter(categoryRestaurant => categoryRestaurant.restaurantId ===  restaurantId)
+  const categories = await getCategories()
+  return categoriesRestaurantsResult.map(categoryRestaurantResult => categories.find(category => category.id === categoryRestaurantResult.categoryId))
+
+}
+
 //populateRestaurant()
 
 export const searchRestaurantsByCategory = async (categoryId) => {
