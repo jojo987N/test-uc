@@ -22,7 +22,7 @@ export default function About(props) {
 
 //const formattedCategories = categories.map((cat)=>cat.title).join('•')
 //const description = `${formattedCategories} ${price?'•'+price:""} • 🎫 • ${rating} ⭐ (${review_count}+)`
-const description = `⭐${rating} (${review_count}+ ratings) • ${categories[0].title} •${price}• 🎫`
+const description = `⭐${rating} (${review_count}+ ratings) • ${props.categories[0].title} •${price}• 🎫`
 
 useEffect(()=> {
   getCategoriesFromRestaurant(restaurant.restaurantId)
