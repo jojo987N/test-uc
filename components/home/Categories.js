@@ -1,7 +1,7 @@
 import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { FlatList } from 'react-native-gesture-handler';
-import { getCategories } from '../../firebase';
+import { getCategories, getCategoriesRestaurants } from '../../firebase';
 // import { categories} from '../../data'
 
  
@@ -10,8 +10,12 @@ import { getCategories } from '../../firebase';
 export default function Categories({navigation}) {
 
   const [categories, setCategories] = useState([])
+  const [categoriesRestaurants, setCategoriesRestaurants] = useState()
   useEffect(()=> {
     getCategories().then(categories => setCategories(categories))
+    // getCategoriesRestaurants().then(categoriesRestaurants => {
+    //   setCategoriesRestaurants(categoriesRestaurants)
+    // })
   }, [])
    
   return (
@@ -25,7 +29,8 @@ export default function Categories({navigation}) {
       <FlatList
 
         horizontal
-        data={categories.slice(0, 7)}
+        // data={categories.slice(0, 7)}
+        data={categories}
         keyExtractor={(item, index) => index}
         renderItem={({ item, index }) => {
 
@@ -33,7 +38,8 @@ export default function Categories({navigation}) {
             <TouchableOpacity
             onPress={()=>navigation.navigate("SearchResults",{
               // name: item.name
-              restaurantId: item.restaurantId
+              // restaurantId: item.restaurantId
+              categoryId: item.id
             })}
             // onPress={()=>navigation.navigate("DrawerNavigator",{
             //   screen: "SearchNavigator", params: {

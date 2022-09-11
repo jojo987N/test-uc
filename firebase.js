@@ -58,6 +58,7 @@ export const storage = getStorage();
 
 const restaurantsCol = collection(db, 'restaurants')
 const categoriesCol = collection(db, 'categories')
+const categoriesRestaurantsCol = collection(db, 'categoriesRestaurants')
 
 export const getRestaurantsFromFirebase = () => {
 
@@ -479,28 +480,43 @@ export const getCategories = ()=>{
   })
 
  }
+export const getCategoriesRestaurants = () => {
+  let categoriesRestaurants = []
 
-//populateRestaurant()
-
-export const searchRestaurantsByCategory = (restaurantId) => {
-      
-  const restaurantsResult = []
-  // const q= query(restaurantsCol, where("restaurantId", "==", restaurantID))
-
-  return getDocs(restaurantsCol).then(snapshot=>{
+  return getDocs(categoriesRestaurantsCol).then(snapshot=>{
 
     snapshot.docs.forEach((doc) => {
 
-      if(doc.id === restaurantId)
-       restaurantsResult.push(doc.data())
-
-      // categories.push({...doc.data(), id: doc.id})
+      categoriesRestaurants.push({...doc.data(), id: doc.id})
 
      })
 
-     return restaurantsResult
+     return categoriesRestaurants
 
  })
+}
+
+//populateRestaurant()
+
+export const searchRestaurantsByCategory = (categoryId) => {
+      
+
+  return getCategoriesRestaurants().then(categoriesRestaurants => {
+    let categoriesRestaurantsResult = categoriesRestaurants.filter(categoriesRestaurant => categoriesRestaurant.categoryId ===  categoryId)
+   
+   
+  getRestaurantsFromFirebase().then(restaurants => {
+
+   return  restaurants.filter(restaurant => categoriesRestaurants.some(categoriesRestaurant => categoriesRestaurant.restaurantId === restaurant.id))
+  })
+  
+  
+  
+  })
+
+
+
+   
 }
 
 
