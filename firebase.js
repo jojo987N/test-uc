@@ -504,8 +504,8 @@ export const searchRestaurantsByCategory = async (categoryId) => {
    const categoriesRestaurantsResult = categoriesRestaurants.filter(categoryRestaurant => categoryRestaurant.categoryId ===  categoryId)
    const restaurants = await getRestaurantsFromFirebase()
     
-   console.log( categoriesRestaurantsResult.map(categoryRestaurantResult => restaurants.find(restaurant => restaurant.restaurantId === categoryRestaurantResult.restaurantId))
-   )
+   return categoriesRestaurantsResult.map(categoryRestaurantResult => restaurants.find(restaurant => restaurant.restaurantId === categoryRestaurantResult.restaurantId))
+   
   //  getCategoriesRestaurants().then(categoriesRestaurants => {
   //   let categoriesRestaurantsResult = categoriesRestaurants.filter(categoriesRestaurant => categoriesRestaurant.categoryId ===  categoryId)
    
@@ -544,12 +544,7 @@ export const searchRestaurantsByCategory = async (categoryId) => {
    
 }
 
-const idToRestaurant = (restaurantId) => {
-
-  const q= query(restaurantsCol, where("restaurantID", "==", restaurantID))
-}
-
-
+ 
  
 
 
