@@ -64,7 +64,7 @@ export default function SignUp({ navigation }) {
       </View>
 
       <Animatable.View style={styles.footer} animation="fadeInUpBig">
-        <ScrollView> 
+        <ScrollView showsVerticalScrollIndicator={false}> 
        <View style={{marginHorizontal: 25}}>
          <SearchBar style={{backgroundColor: "white", borderBottomColor: "grey", borderBottomWidth: 0.3}}
          setAddress={setAddress}/>
