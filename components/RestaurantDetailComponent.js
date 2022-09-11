@@ -12,7 +12,7 @@ import { CategoriesContext } from '../contexts/CategoriesContext';
 
 export default function RestaurantDetailComponent({restaurant, visible, setVisible, userLocation, mapRef, apikey}) {
 
-    const {name, image_url, price, review_count, rating, collectTime, location, deliveryTime} = restaurant;
+    const {name, image_url, price, review_count, rating, collectTime, address, deliveryTime} = restaurant;
     
     const {categories, setCategories} = useContext(CategoriesContext)
 
@@ -42,7 +42,10 @@ export default function RestaurantDetailComponent({restaurant, visible, setVisib
               </View>
               <Divider />
               <RestaurantInfo iconName="location-pin" iconType="Entypo"
-                  iconSize={35} text={location.display_address[0] + location.display_address[1]} />
+                  iconSize={35} 
+                //   text={location.display_address[0] + location.display_address[1]} 
+                text={address}
+                  />
 
               <RestaurantInfo iconName="time" iconType="Ionicons"
                   iconSize={35} text="Open until 9:00 AM" />
