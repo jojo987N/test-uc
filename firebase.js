@@ -498,41 +498,45 @@ export const getCategoriesRestaurants = () => {
 
 //populateRestaurant()
 
-export const searchRestaurantsByCategory = (categoryId) => {
+export const searchRestaurantsByCategory = async (categoryId) => {
       
-
-  return getCategoriesRestaurants().then(categoriesRestaurants => {
-    let categoriesRestaurantsResult = categoriesRestaurants.filter(categoriesRestaurant => categoriesRestaurant.categoryId ===  categoryId)
-   
-    console.log(categoriesRestaurantsResult)
-  getRestaurantsFromFirebase().then(restaurants => {
-
-   console.log(
-
-    //  restaurants.filter(restaurants => {
-    //    return rest
-    //  })
-     
-    restaurants.filter(restaurant => {
-     categoriesRestaurantsResult.some(categoryRestaurantResult => {
-        // console.log(categoryRestaurantResult.restaurantId, restaurant.restaurantId)
-
-        // console.log(categoryRestaurantResult.restaurantId)
-       return categoryRestaurantResult.restaurantId === restaurant.id
-     
-     })
-   })
-
-
+   const categoriesRestaurants = await getCategoriesRestaurants()
+   const restaurants = await getRestaurantsFromFirebase()
+    
+   console.log( categoriesRestaurants.map(categoryRestaurant => restaurants.find(restaurant => restaurant.restaurantId === categoryRestaurant.restaurantId))
    )
+  //  getCategoriesRestaurants().then(categoriesRestaurants => {
+  //   let categoriesRestaurantsResult = categoriesRestaurants.filter(categoriesRestaurant => categoriesRestaurant.categoryId ===  categoryId)
+   
+  //   console.log(categoriesRestaurantsResult)
+  // getRestaurantsFromFirebase().then(restaurants => {
+
+  //  console.log(
+
+  //   //  restaurants.filter(restaurants => {
+  //   //    return rest
+  //   //  })
+     
+  //   restaurants.filter(restaurant => {
+  //    categoriesRestaurantsResult.some(categoryRestaurantResult => {
+  //       // console.log(categoryRestaurantResult.restaurantId, restaurant.restaurantId)
+
+  //       // console.log(categoryRestaurantResult.restaurantId)
+  //      return categoryRestaurantResult.restaurantId === restaurant.id
+     
+  //    })
+  //  })
+
+
+  //  )
 
 
    
-  })
+  // })
   
   
   
-  })
+  // })
 
 
 
