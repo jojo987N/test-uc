@@ -507,13 +507,17 @@ export const searchRestaurantsByCategory = (categoryId) => {
     
   getRestaurantsFromFirebase().then(restaurants => {
 
-   restaurants.filter(restaurant => {
+   console.log(restaurants.filter(restaurant => {
      categoriesRestaurantsResult.some(categoryRestaurantResult => {
         console.log(categoryRestaurantResult.restaurantId, restaurant.restaurantId)
        return categoryRestaurantResult.restaurantId === restaurant.id
      
      })
    })
+
+   )
+
+
    
   })
   
@@ -524,6 +528,11 @@ export const searchRestaurantsByCategory = (categoryId) => {
 
 
    
+}
+
+const idToRestaurant = (restaurantId) => {
+
+  const q= query(restaurantsCol, where("restaurantID", "==", restaurantID))
 }
 
 
