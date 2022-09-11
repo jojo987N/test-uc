@@ -509,7 +509,7 @@ export const searchRestaurantsByCategory = (categoryId) => {
 
    restaurants.filter(restaurant => {
      categoriesRestaurantsResult.some(categoryRestaurantResult => {
-       console.log(categoryRestaurantResult)
+        console.log(categoryRestaurantResult.restaurantId, restaurant.id)
        categoryRestaurantResult.restaurantId === restaurant.id
      
      })
