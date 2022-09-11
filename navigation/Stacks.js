@@ -20,6 +20,7 @@ const  HomeStack = createStackNavigator()
 
 export function HomeNavigator() {
   return (
+    <CategoriesContextProvider> 
       <HomeStack.Navigator>
         <HomeStack.Screen 
           name="HomeScreen"
@@ -30,13 +31,11 @@ export function HomeNavigator() {
           name="RestaurantSearchResults"
           component={RestaurantSearchResults}
           options={{headerShown: false}}/>
-          
-      <CategoriesContextProvider>
+
         <HomeStack.Screen
           name="RestaurantDetail"
           component={RestaurantDetail}
           options={{ headerShown: false }} />
-      </CategoriesContextProvider>
       
 
       <HomeStack.Screen 
@@ -60,11 +59,8 @@ export function HomeNavigator() {
           component={SearchResults}
           options={{headerShown: true}}/>
 
-
-       
-
-
       </HomeStack.Navigator>
+      </CategoriesContextProvider>
       
   )
 }
