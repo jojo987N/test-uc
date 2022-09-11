@@ -19,7 +19,7 @@ export default function RestaurantDetailComponent({restaurant, visible, setVisib
     let formattedCategories;
     
     if(categories)
-    formattedCategories = categories.map((cat)=>cat.title).join(' • ')
+    formattedCategories = categories.map((cat)=>cat.name).join(' • ')
 
   //console.log(restaurant)
 
