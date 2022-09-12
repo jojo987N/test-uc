@@ -10,7 +10,7 @@ import { ANIMATION, APP_CONSTANT, colors, fonts, icon, screen } from '../global'
 export default function SignIn({ navigation }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  // const [loginState, setLoginState] = useState(false)
+  const [loginState, setLoginState] = useState(false)
 
   const SignInUser = async () => {
     setLoginState(true)
