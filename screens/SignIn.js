@@ -6,9 +6,11 @@ import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'
 import { LinearGradient } from 'expo-linear-gradient'
 import * as Animatable from "react-native-animatable"
 import { ANIMATION, APP_CONSTANT, colors, fonts, icon, screen } from '../global'
+
 export default function SignIn({ navigation }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [loginState, setLoginState] = useState(false)
 
   const SignInUser = async () => {
     setLoginState(true)
