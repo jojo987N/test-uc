@@ -13,6 +13,7 @@ export default function SignIn({ navigation }) {
   const [loginState, setLoginState] = useState(false)
 
   const SignInUser = async () => {
+    console.log("dff")
     setLoginState(true)
     try {
       const re = await signInWithEmailAndPassword(auth, email, password)
