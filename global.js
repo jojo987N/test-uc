@@ -3,7 +3,7 @@ import {Dimensions} from 'react-native';
 
 export const language = "en"
 export const currency = "USD"
-export const apikey = {/* Your Google Api Key here */ }
+export const apikey = {"AIzaSyAwLZyznRMu86EDLO-fsRL8BgrCT7hXq7g"/* Your Google Api Key here */ }
 export const grey1 = "#e6e6e6"
 export const radius = 3;
 
