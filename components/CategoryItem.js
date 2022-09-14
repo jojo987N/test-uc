@@ -5,7 +5,7 @@ const SCREEN_WIDTH = Dimensions.get('window').width
 
 const CategoryItem = ({item, navigation}) => {
 
-    <TouchableOpacity
+    return <TouchableOpacity
         onPress={() => navigation.navigate(screen.SEARCH_RESULTS, { name: item.name })} >
         <View style={styles.imageView}>
             <ImageBackground
