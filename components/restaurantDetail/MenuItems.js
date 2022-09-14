@@ -55,7 +55,7 @@ opacity, setCategoriesFood, categories, setCategories}) {
 
   useEffect(()=>{
      setLoader(true)
-    AsyncStorage.getItem("productsData").then(value => {
+    AsyncStorage.getItem("foods").then(value => {
 
       if (!value) {
 
@@ -63,14 +63,14 @@ opacity, setCategoriesFood, categories, setCategories}) {
 
           setFoods(products)
 
-          AsyncStorage.setItem('productsData', JSON.stringify(products))
+          AsyncStorage.setItem('foods', JSON.stringify(products))
         })
           .then(() => {
 
             setLoader(false)
           })
       }else{
-        AsyncStorage.getItem("productsData").then(value=>{
+        AsyncStorage.getItem("foods").then(value=>{
           let productsData = JSON.parse(value)
           setFoods(productsData)
            
