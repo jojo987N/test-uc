@@ -45,17 +45,6 @@ export default function OrderRequest({navigation, route}) {
         ref={mapRef}
         initialRegion={{latitude: lat,longitude: lng,latitudeDelta: 0.02522,longitudeDelta: 0.01721 }} 
        style={{height: height, width: width}} showsUserLocation={true}>
-        <Polyline 
-            coordinates={[{
-              latitude: parseFloat(positions.gpx.wpt[0].lat),
-              longitude: parseFloat(positions.gpx.wpt[0].lon)
-            },...positions.gpx.trk.trkseg.trkpt.map(p => ({
-                  latitude: parseFloat(p.lat), 
-                  longitude: parseFloat(p.lon)}))
-            ]}
-                  strokeWidth={5}
-                  strokeColor="#86592d"
-                 />
         <CustomMarker subject="user" lat={lat} lng={lng}/>
         { driverLat && driverLng ?<CustomMarker subject="driver" lat={driverLat} lng={driverLng} angle={angle} />:<></>}
        { driverLat && driverLng && !local ?<DisplayMapviewDirections apikey={apikey} toLat={lat} toLng={lng} fromLat={driverLat} fromLng={driverLng} 
