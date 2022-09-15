@@ -12,7 +12,6 @@ import { sin } from 'react-native-reanimated'
 import OrderCountDown from '../components/OrderCountDown'
 import { Polyline } from 'react-native-maps'
 import { bearing } from '../utils'
-import { updateInterface, move, PolylineDemo} from '../demo'
 export default function OrderRequest({navigation, route}) {
  const lat = 48.8714859    
  const lng = 2.3371311
