@@ -127,8 +127,8 @@ const RestaurantsView = ({ _map, restaurantsRef, restaurantDataSort, setFocusFun
           let index = Math.round(x / w)
           console.log(index)
           _map.current.animateToRegion({
-            latitude: restaurantDataSort[Math.round(x / w)].coordinates.latitude,
-            longitude: restaurantDataSort[Math.round(x / w)].coordinates.longitude,
+            latitude: restaurantDataSort[Math.round(x / w)].latitude,
+            longitude: restaurantDataSort[Math.round(x / w)].longitude,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421
           })
