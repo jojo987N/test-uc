@@ -20,7 +20,7 @@ export default function RestaurantsMapScreen({ route, navigation }) {
   const { restaurantData } = useContext(RestaurantsContext)
   const restaurantDataSort = restaurantData.filter(c => getDistanceFromLatLonInKm(c.latitude, c.longitude,
     37.769535, -122.429213) < 5)
-    console.log(restaurantDataSort)
+    console.log(restaurantData)
   const { width, height } = useWindowDimensions();
   const [myLocation, setMyLocation] = useState(null)
   const _map = useRef(null)
