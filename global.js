@@ -43,7 +43,7 @@ export const title = {
   fontWeight: "bold"
 }
 
-export const location = async () => {
+export const getLocation = async () => {
  let { status } = await Location.requestForegroundPermissionsAsync();
  if (status !== 'granted') {
     setErrorMsg('Permission to access location was denied');
