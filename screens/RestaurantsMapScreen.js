@@ -113,7 +113,7 @@ const RestaurantsView = ({ _map, restaurantsRef, restaurantData, setFocusFunctio
             restaurant: item
           })}>
             <View style={{ ...styles.restaurantImage_restaurantInfo, paddingTop: horizontal ? 15 : "auto", paddingVertical: horizontal ? "auto" : 10 }}>
-              <RestaurantImage image={item.image_url} />
+              <RestaurantImage image={item.image} />
               <RestaurantInfo
                 name={item.name}
                 rating={item.rating}
@@ -157,7 +157,6 @@ const RestaurantsView = ({ _map, restaurantsRef, restaurantData, setFocusFunctio
 }
 const RestaurantMarkers = ({ restaurantData, focus, setFocusFunction, restaurantsRef, visible, setVisible }) => {
   return restaurantData.map((restaurant, index) => {
-    console.log("marker: ", restaurant.lat, restaurant.lng)
     return (
       <Marker key={index} title={restaurant.name} description="nasso"
         coordinate={{
