@@ -70,7 +70,7 @@ export default function RestaurantsMapScreen({ route, navigation }) {
           width: width
         }}
       >
-        <RestaurantMarkers restaurantDataSort={restaurantDataSort} focus={focus} setFocusFunction={setFocusFunction} restaurantsRef={restaurantsRef}
+        <RestaurantMarkers restaurantData={restaurantData} focus={focus} setFocusFunction={setFocusFunction} restaurantsRef={restaurantsRef}
           visible={visible} setVisible={setVisible} />
       </MapView>
       <View style={{ ...styles.header, width: width, }}>
