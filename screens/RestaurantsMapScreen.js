@@ -4,7 +4,7 @@ import MapView, { Callout, Marker } from 'react-native-maps'
 import RestaurantItems from '../components/home/RestaurantItems'
 import LottieView from 'lottie-react-native'
 import { RestaurantInfo, RestaurantImage } from '../components/home/RestaurantItems'
-import { location } from '../global'
+import { getLocation ,location } from '../global'
 import { MaterialIcons } from '@expo/vector-icons';
 import { ArrowBack } from '../components/restaurantDetail/About'
 import SearchBar from '../components/home/SearchBar'
