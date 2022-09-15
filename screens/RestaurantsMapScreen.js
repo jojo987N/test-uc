@@ -16,12 +16,10 @@ import { getDistanceFromLatLonInKm } from '../utils'
 import { Icon } from 'react-native-elements'
 import { RestaurantsContext } from '../contexts/RestaurantsContext'
 import { useSelector } from 'react-redux'
-import Loading from '../components/Loading'
 
 
 export default function RestaurantsMapScreen({ route, navigation }) {
   const { restaurantData } = useContext(RestaurantsContext)
-  const [location, setLocation] = useState(null)
   const {lat,lng} = useSelector((state)=>state.userReducer)
   let restaurantDataSort = restaurantData.filter(c => getDistanceFromLatLonInKm(c.latitude, c.longitude,
     lat, lng) < 5)
@@ -54,14 +52,7 @@ export default function RestaurantsMapScreen({ route, navigation }) {
     })])
   }
 
-  useEffect(()=>{
-    getLocation().then((location)=>{
-      setLocation(location)
-    })
-    
-  },[])
-  if(!location)
-   return <Loading />
+  
 
   return (
     <View style={{
