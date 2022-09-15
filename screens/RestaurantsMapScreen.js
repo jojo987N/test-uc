@@ -21,9 +21,6 @@ import { useSelector } from 'react-redux'
 export default function RestaurantsMapScreen({ route, navigation }) {
   const { restaurantData } = useContext(RestaurantsContext)
   const {lat,lng} = useSelector((state)=>state.userReducer)
-  let restaurantData = restaurantData.filter(c => getDistanceFromLatLonInKm(c.latitude, c.longitude,
-    lat, lng) < 5)
-    console.log(lat, lng)
   const { width, height } = useWindowDimensions();
   const _map = useRef(null)
   const restaurantsRef = useRef(null)
