@@ -18,13 +18,10 @@ import { RestaurantsContext } from '../contexts/RestaurantsContext'
 
 export default function RestaurantsMapScreen({ route, navigation }) {
   const { restaurantData } = useContext(RestaurantsContext)
-  const {name, phone, address, id} = useSelector((state)=>state.userReducer)
-  
-  const restaurantDataSort = restaurantData.filter(c => getDistanceFromLatLonInKm(c.latitude, c.longitude,
-    37.769535, -122.429213) < 5)
-    console.log(restaurantData)
+  const [location, setLocation] = useState(null)
+
+  let restaurantDataSort; 
   const { width, height } = useWindowDimensions();
-  const [myLocation, setMyLocation] = useState(null)
   const _map = useRef(null)
   const restaurantsRef = useRef(null)
   const [visible, setVisible] = useState(route.params.visible)
@@ -51,6 +48,18 @@ export default function RestaurantsMapScreen({ route, navigation }) {
       zIndex: 1
     })])
   }
+
+  useEffect(()=>{
+    getLocation().then((location)=>{
+      setLocation(location)
+      restaurantDataSort = restaurantData.filter(c => getDistanceFromLatLonInKm(c.latitude, c.longitude,
+        location.coords.latitude, location.coords.longitude) < 5)
+    })
+    
+  },[])
+  if(!location)
+   return <Loading />
+
   return (
     <View style={{
     }}>
