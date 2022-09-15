@@ -21,7 +21,7 @@ import { useSelector } from 'react-redux'
 export default function RestaurantsMapScreen({ route, navigation }) {
   const { restaurantData } = useContext(RestaurantsContext)
   const {lat,lng} = useSelector((state)=>state.userReducer)
-  let restaurantDataSort = restaurantData.filter(c => getDistanceFromLatLonInKm(c.latitude, c.longitude,
+  let restaurantData = restaurantData.filter(c => getDistanceFromLatLonInKm(c.latitude, c.longitude,
     lat, lng) < 5)
     console.log(lat, lng)
   const { width, height } = useWindowDimensions();
@@ -89,12 +89,12 @@ export default function RestaurantsMapScreen({ route, navigation }) {
           }
         }}
       >
-        <RestaurantsView restaurantsRef={restaurantsRef} restaurantDataSort={restaurantDataSort} setFocusFunction={setFocusFunction}
+        <RestaurantsView restaurantsRef={restaurantsRef} restaurantData={restaurantData} setFocusFunction={setFocusFunction}
           focus={focus} _map={_map} width={width} horizontal={false} Categories={Categories} scrollEnabled={scrollEnabled}
           setDirection={setDirection} setOffset={setOffset} offset={offset} direction={direction}
           setScrollEnabled={setScrollEnabled} navigation={navigation}/>
       </BottomSheet>}
-      {!visible && <RestaurantsView restaurantsRef={restaurantsRef} restaurantDataSort={restaurantDataSort} setFocusFunction={setFocusFunction}
+      {!visible && <RestaurantsView restaurantsRef={restaurantsRef} restaurantData={restaurantData} setFocusFunction={setFocusFunction}
         focus={focus} _map={_map} width={width} horizontal={true} setVisible={setVisible} navigation={navigation}/>}
     </View>
   )
@@ -133,8 +133,8 @@ const RestaurantsView = ({ _map, restaurantsRef, restaurantData, setFocusFunctio
           let index = Math.round(x / w)
           console.log(index)
           _map.current.animateToRegion({
-            latitude: restaurantDataSort[Math.round(x / w)].latitude,
-            longitude: restaurantDataSort[Math.round(x / w)].longitude,
+            latitude: restaurantData[Math.round(x / w)].latitude,
+            longitude: restaurantData[Math.round(x / w)].longitude,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421
           })
@@ -158,8 +158,8 @@ const RestaurantsView = ({ _map, restaurantsRef, restaurantData, setFocusFunctio
     </View>
   )
 }
-const RestaurantMarkers = ({ restaurantDataSort, focus, setFocusFunction, restaurantsRef, visible, setVisible }) => {
-  return restaurantDataSort.map((restaurant, index) => {
+const RestaurantMarkers = ({ restaurantData, focus, setFocusFunction, restaurantsRef, visible, setVisible }) => {
+  return restaurantData.map((restaurant, index) => {
     return (
       <Marker key={index} title={restaurant.name} description="nasso"
         coordinate={{
