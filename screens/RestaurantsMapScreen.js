@@ -157,6 +157,7 @@ const RestaurantsView = ({ _map, restaurantsRef, restaurantData, setFocusFunctio
 }
 const RestaurantMarkers = ({ restaurantData, focus, setFocusFunction, restaurantsRef, visible, setVisible }) => {
   return restaurantData.map((restaurant, index) => {
+    console.log("marker: ", restaurant.lat, restaurant.lng)
     return (
       <Marker key={index} title={restaurant.name} description="nasso"
         coordinate={{
