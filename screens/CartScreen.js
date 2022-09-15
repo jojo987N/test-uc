@@ -4,10 +4,6 @@ import {language, currency}  from '../global'
 import { AntDesign } from "@expo/vector-icons";
 import { useState } from "react";
 import CartModal from "../components/CartModal";
-//import {GestureHandler} from "expo"
-
-//const {Swipeable} = GestureHandler;
- 
 
 const CartScreen = ({navigation}) => {
   
@@ -37,7 +33,6 @@ const CartScreen = ({navigation}) => {
 
 {Object.entries(items.map(item => item.restaurantName).reduce((acc, curr) => (acc[curr] = (acc[curr] || 0) + 1, acc), {}))
          .map(([restaurantName, quantity], index)=>(
-          //  <Swipeable>
                <TouchableOpacity style={styles.container} key={index} 
              onPress={() => {setModalVisible(true); setRestaurantName(restaurantName)}}
              >
@@ -52,7 +47,6 @@ const CartScreen = ({navigation}) => {
                
               <AntDesign name="right" size={20} color="black" style={styles.icon}/>
             </TouchableOpacity>
-          //  </Swipeable>
               
          ))}
     </View>

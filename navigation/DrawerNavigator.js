@@ -65,36 +65,6 @@ export default function DrawerNavigator() {
                 )
             }}
         />
-        {/* <Drawer.Screen 
-            name = "rewards"
-            component={Offers}
-            options={{
-                title: "Rewards",
-                drawerIcon: ({focussed, size}) =>(
-                  <Icon 
-                    type="material"
-                    name="search"
-                    color={focussed ? "black":""}
-                    size={size}
-                  />  
-                )
-            }}
-        /> */}
-        {/* <Drawer.Screen 
-            name = "BusinessConsoleScreen"
-            component={BusinessConsoleScreen}
-            options={{
-                title: "Business Console",
-                drawerIcon: ({focussed, size}) =>(
-                  <Icon 
-                    type="material"
-                    name="business"
-                    color={focussed ? "black":""}
-                    size={size}
-                  />  
-                )
-            }}
-        /> */}
     </Drawer.Navigator>
   )
 }

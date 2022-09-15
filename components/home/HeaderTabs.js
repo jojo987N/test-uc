@@ -2,11 +2,7 @@ import { View, Text, TouchableOpacity, StyleSheet} from 'react-native'
 import React, {useState} from 'react'
 import { grey1 } from '../../global'
 
-
-
 export default function HeaderTabs(props) {
-   // const [activeTab, setActiveTab] = useState("Delivery");
-    // console.log(props.delivery)
   return (
     <View style={{flexDirection: "row",...props.pickup || props.delivery?{...styles.pickup_delivery}:{alignSelf: "center"}}}>
         <HeaderButton 
@@ -18,7 +14,6 @@ export default function HeaderTabs(props) {
             delivery={props.delivery}
             setCity={props.setCity}
             searchbar={props.searchbar}/>
-
         <HeaderButton 
             text="Pickup" 
             btnColor="white" 
@@ -28,64 +23,43 @@ export default function HeaderTabs(props) {
             navigation={props.navigation}
             restaurantData={props.restaurantData}
             pickup={props.pickup}/>
-
     </View>     
-     
   )
 }
-
- 
-
 const HeaderButton = (props) => (
- 
     <TouchableOpacity style={props.pickup || props.delivery?{
-
         backgroundColor: props.activeTab == props.text?"white":grey1,
-        
         ...styles.button1
     }:{
         backgroundColor: props.activeTab == props.text?"black":"white",
-        // backgroundColor: props.activeTab == props.text && (props.pickup || props.delivery)?"white" : 
-        // props.activeTab == props.text?"black":props.pickup || props.delivery?grey1:"white",
         ...styles.button 
     }} 
     onPress={()=>{
         if(props.setActiveTab)
         props.setActiveTab(props.text)
-
         if(props.text && props.navigation)
         if(props.text === 'Pickup') props.navigation.navigate('RestaurantsMapScreen',{
           restaurantData: props.restaurantData
         })
-
         if(props.text === 'Delivery' && !props.delivery){
             props.setCity(null)
             props.searchbar.current?.setAddressText("")
         }
-        
-
-         
         if(props.pickup){
             props.pickup()
         }
         if(props.delivery){
             props.delivery()
         }
-         
     }}
     >
         <Text style={props.pickup || props.delivery?{
-
            ...styles.text1 
-
         }:{
             ...styles.text, color:props.activeTab == props.text ?"white":"black" }}>{props.text}</Text>
     </TouchableOpacity>
-
 )
-
 const styles = StyleSheet.create({
-
     container: {
         flexDirection: "row",
     },
@@ -94,7 +68,6 @@ const styles = StyleSheet.create({
         paddingHorizontal: 16,
         borderRadius: 10,
     },
-
     text: {
         fontSize: 15,
         fontWeight: Platform.OS === "android" ? "bold" : "900"
@@ -107,16 +80,12 @@ const styles = StyleSheet.create({
       marginVertical: 5
     },
     button1:{
-       // paddingVertical: 10,
-       // paddingHorizontal: 60,
         borderRadius: 30,
         marginVertical: 5,
         flex: 1,
-        //justifyContent: "center"
     },
     text1: {
         textAlign: "center",
         paddingVertical: 10,
-       // paddingHorizontal: 30
     }
 })

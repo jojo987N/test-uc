@@ -19,7 +19,6 @@ export default function Wallet({navigation}) {
               </View>
           </View>
           <TouchableOpacity style={styles.textContainer} onPress={()=>{
-            //   navigation.push("AddCard")
           }}>
               <Text style={styles.text}>Add payment method</Text>
           </TouchableOpacity>
@@ -68,7 +67,6 @@ const styles = StyleSheet.create({
     cashNumber: {
         fontSize: 35,
         fontWeight: "bold",
-        //paddingVertical: 30,
        
     },
     cashText: {

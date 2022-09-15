@@ -43,12 +43,6 @@ export default function App() {
    return <Loader />
    
   return (
-    // <SafeAreaView style={{
-    //   paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-    //   backgroundColor: "#eee",
-    //   flex: 1
-    // }}>
     <RootNavigation statusBarColor="black"/>
-    // </SafeAreaView>
   );
 }

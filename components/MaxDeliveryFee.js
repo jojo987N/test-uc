@@ -4,27 +4,18 @@ import { Gesture, GestureDetector, PanGestureHandler } from 'react-native-gestur
 import Animated, { useAnimatedGestureHandler } from 'react-native-reanimated'
 import Slider from '@react-native-community/slider'
 
-
 export default function MaxDeliveryFee() {
-
-     
-
   return (
-              
         <View style={styles.container}>
-           
            <FeePrice />
-            
           <Slider style={styles.slider}
           minimumValue={0}
           maximumValue={9}
            step={3}
           />
-          
         </View>
   )
 }
-
 const FeePrice = ()=>{
   return (
     <View style={styles.feePrice}>
@@ -36,21 +27,15 @@ const FeePrice = ()=>{
   )
 }
 const styles = StyleSheet.create({
-   
     container: {
-     // marginTop: 20,
       marginHorizontal: 10,
     },
     feePrice: {
       flexDirection: "row",
       justifyContent: "space-between",
       marginHorizontal: 10,
-     // marginTop: 10
-       
     },
     slider: {
-     // width: 200,
       height: 20,
-      //marginHorizontal: 10
     }
 })

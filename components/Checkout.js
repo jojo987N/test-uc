@@ -10,32 +10,15 @@ import { useNavigation } from '@react-navigation/native'
 import Loader from '../screens/Loader'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { LoaderContext } from '../contexts/LoaderContext'
-
-
 export default function Checkout({restaurantName, setLoader, setViewCartButton, setModalVisible}) {
-
     const {setLoading} = useContext(LoaderContext)
-
-     
     const {name, phone, address, id} = useSelector((state)=>state.userReducer)
-     
-    
      const navigation = useNavigation()
-
     const items = useSelector((state)=>state.cartReducer).filter(item => item.restaurantName === restaurantName)
-     
     const total = items.reduce((prev, curr)=> prev + curr.price, 0)
-
-    // const [loading, setLoading] = useState(false)
-
     const dispatch = useDispatch();   
-
-
     const addOrderToFirebase = () => {
-
         setViewCartButton(false)
-       // setLoading(true)
-      // setLoader(true)
         addDoc(ordersCol, {
             orderId: generateUID(),
             restaurantId: items[0].restaurant.restaurantId,
@@ -54,61 +37,33 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
                     phone: phone,
                     address: address.description,
                     items: items,
-
                 },
                 status: "pending",
                 createdAt: serverTimestamp(),
         }).then(()=> {
             dispatch({ type: 'CLEAR_RESTAURANT', payload: restaurantName })
-            //setLoader(false)
             setLoading(false)
-           // navigation.navigate('OrderRequest', {loc: loc})
            navigation.navigate('OrderRequest',{
                lat: address.location.lat,
                lng: address.location.lng
            })
         })
     }
-
   return (
       <>
           <View style={styles.container}>
-
               <TouchableOpacity
-
                   style={styles.checkoutButton}
-
                   onPress={() => {
-                    //setLoader(true)
-                    //  setLoading(true)
-                    //  addOrderToFirebase()  //ICIII
-                    //  setModalVisible(false); // current
-                    
-                    //  setTimeout(()=>{          // Dummy
-                    // navigation.navigate('OrderRequest',{   
-                    //         lat: address.location.lat,
-                    //         lng: address.location.lng,
-                    //     })
-                    // setLoading(false)
-                    // setModalVisible(false);
-                    // }, 4000)
                     setModalVisible(false);
-
-                     
                   }}>
                   <Text style={styles.checkoutText}>Checkout</Text>
                   <Text style={styles.total}>{total ? total.toLocaleString(language, { style: "currency", currency: currency }) : ""}</Text>
               </TouchableOpacity>
-
           </View>
-         {/* {loading?(<Loader />):(<></>)}  */}
       </>
-
   )
 }
-
-
-
 const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
@@ -122,8 +77,6 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         width: 300,
         position: "relative",
-         
-
     },
     checkoutText: { 
         color: "white", 

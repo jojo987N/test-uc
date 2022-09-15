@@ -9,16 +9,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 export default function Splash() {
   const navigation = useNavigation()
 
-  // useEffect(()=>{
-
-  //   AsyncStorage.getItem("userId")
-  //   .then((value)=>{
-  //     if(value)
-  //     navigation.navigate('DrawerNavigator')
-  //   })
-     
-  // }, [])
-
   return (
     <View style={styles.container}>
      <View style={styles.container1}>
@@ -70,7 +60,6 @@ const styles = StyleSheet.create({
         height: 300
     },
     signInText: {
-        //padding: 20
         fontWeight: "bold",
         color: "#3d5c5c"
     },

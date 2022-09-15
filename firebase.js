@@ -1,567 +1,244 @@
-//import firebase from 'firebase'
-import {initializeApp} from 'firebase/app'
+import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth';
-
-import {addDoc, getFirestore, collection, getDocs, doc, deleteDoc, orderBy, query, limit,
-where, onSnapshot, serverTimestamp, updateDoc} from 'firebase/firestore'
-//import { restaurants } from './data';
-import {getStorage, ref, getDownloadURL} from 'firebase/storage'
+import {
+  addDoc, getFirestore, collection, getDocs, doc, deleteDoc, orderBy, query, limit,
+  where, onSnapshot, serverTimestamp, updateDoc
+} from 'firebase/firestore'
+import { getStorage, ref, getDownloadURL } from 'firebase/storage'
 import { LogBox } from 'react-native';
 import { restaurants } from './data';
 LogBox.ignoreLogs(['AsyncStorage has been extracted from react-native core'])
 
-
 const firebaseConfig = {
+  apiKey: {/* Your firebase config here */ },
 
-    // apiKey: "AIzaSyBKG5-vG_pBdRdKHX30UYUF9_F7SOt8Co4",
-  
-    // authDomain: "uber-eats-a4c19.firebaseapp.com",
-  
-    // projectId: "uber-eats-a4c19",
-  
-    // storageBucket: "uber-eats-a4c19.appspot.com",
-  
-    // messagingSenderId: "976827322571",
-  
-    // appId: "1:976827322571:web:8ba517048bb9928f938b4e"
+  authDomain: {/* Your firebase config here */ },
 
-    apiKey: "AIzaSyDrKqjM-fKGWBqj0-wpOOrIbeVlViEW-3c",
-    authDomain: "good-food-c84d4.firebaseapp.com",
-    projectId: "good-food-c84d4",
-    storageBucket: "good-food-c84d4.appspot.com",
-    messagingSenderId: "716731554402",
-    appId: "1:716731554402:web:bc8a1748f6cdd6885e8f3b",
-    measurementId: "G-VLK10R4D2P"
-  
-  };
+  projectId: {/* Your firebase config here */ },
 
-  const firebaseApp = initializeApp(firebaseConfig);
+  storageBucket: {/* Your firebase config here */ },
 
-  //!firebase.apps.length?firebase.initializeApp(firebaseConfig):firebase.app();
-  
-  export default firebaseApp;
-  export const auth = getAuth(firebaseApp)
+  messagingSenderId: {/* Your firebase config here */ },
 
- //export default firebase;
-
-
-
-// const db = getFirestore(firebaseApp)
-
-// export const usersColRef = collection(db, 'users')
-
-// export const restaurantsColRef = collection(db, 'restaurants')
-
+  appId: {/* Your firebase config here */ },
+};
+const firebaseApp = initializeApp(firebaseConfig);
+export default firebaseApp;
+export const auth = getAuth(firebaseApp)
 export const db = getFirestore()
-
 export const storage = getStorage();
-
 const restaurantsCol = collection(db, 'restaurants')
 const categoriesCol = collection(db, 'categories')
 const categoriesRestaurantsCol = collection(db, 'categoriesRestaurants')
-
 export const getRestaurantsFromFirebase = () => {
-
   const restos = []
-
   return getDocs(restaurantsCol)
     .then((snapshot) => {
       snapshot.docs.forEach((doc) => {
-
-       // restaurants.push(doc.data())
-      
-       restos.push({
-         restaurantId: doc.id,
-         ...doc.data()
-       })
-
-
+        restos.push({
+          restaurantId: doc.id,
+          ...doc.data()
+        })
       })
       return restos
     })
-    //.then(()=> setRestaurantData(restaurants))
-
 }
-
 export const ordersCol = collection(db, 'orders')
-
-  export const getOrders = ()=>{
-   
-   const q= query(ordersCol, orderBy('createdAt', 'desc'), limit(1))
-    const orders = []
-
-    return getDocs(q)
+export const getOrders = () => {
+  const q = query(ordersCol, orderBy('createdAt', 'desc'), limit(1))
+  const orders = []
+  return getDocs(q)
     .then((snapshot) => {
-       
       snapshot.docs.forEach((doc) => {
-
         orders.push(doc.data())
-       console.log(doc.data())
+        console.log(doc.data())
       })
-
       return orders
-       
     })
-     
-
-  }
-
-  export const getDriverInfos = async (setDriverName, setCar, setDriverImage, bottomSheet, setDriverLat, setDriverLng, mapRef)=>{
-
-    //const q= query(ordersCol, orderBy('createdAt', 'desc'), limit(1))
-    //const q= query(ordersCol, where('createdAt', 'desc'), limit(1))
-
-   // const orders = []
-
-    //const unsuscribe = onSnapshot(q, (snapshot)=>{
-      const unsuscribe = onSnapshot(ordersCol, (snapshot)=>{
-
-          //console.log('on entre')
-         
-         snapshot.docs.forEach((doc) => {
-          
-        if(doc.data().createdAt && doc.data().status === 'ACCEPTED' && doc.data().User.id === auth.currentUser?.uid, doc.data().driverId) {
-          
-          bottomSheet?.current.collapse()
-
-          mapRef?.current?.getCamera().then((cam)=>{
-            cam.zoom += 1;
-            mapRef?.current?.animateCamera(cam);
-           })
-
-         // console.log(doc.data().driverId)
-          driverInfos(doc.data().driverId)
-          .then((snapshot)=>snapshot.docs.forEach((doc)=>{
-              console.log(doc.data().lat, doc.data().lng)
-              setDriverName(doc.data().name)
-              setCar(doc.data().Car)
-              setDriverImage({uri: doc.data().image})
-              setDriverLat(doc.data().lat)
-              setDriverLng(doc.data().lng)
+}
+export const getDriverInfos = async (setDriverName, setCar, setDriverImage, bottomSheet, setDriverLat, setDriverLng, mapRef) => {
+  const unsuscribe = onSnapshot(ordersCol, (snapshot) => {
+    snapshot.docs.forEach((doc) => {
+      if (doc.data().createdAt && doc.data().status === 'ACCEPTED' && doc.data().User.id === auth.currentUser?.uid, doc.data().driverId) {
+        bottomSheet?.current.collapse()
+        mapRef?.current?.getCamera().then((cam) => {
+          cam.zoom += 1;
+          mapRef?.current?.animateCamera(cam);
+        })
+        driverInfos(doc.data().driverId)
+          .then((snapshot) => snapshot.docs.forEach((doc) => {
+            console.log(doc.data().lat, doc.data().lng)
+            setDriverName(doc.data().name)
+            setCar(doc.data().Car)
+            setDriverImage({ uri: doc.data().image })
+            setDriverLat(doc.data().lat)
+            setDriverLng(doc.data().lng)
           }))
-
-        //  console.log(doc.data())
-        //  console.log(doc.id)
-         // orders.push(doc.data())
-        //  setOrder({id: doc.id, 
-        //           ...doc.data()
-        //           })
-        // setShowOrderCountDown(true)
-        // setMapdirection(true)
-          // setDestination({
-          //   latitude: doc.data().Restaurant.lat,
-          //   longitude: doc.data().Restaurant.lng,
-          // })
-        }
-       
-      })
-      
-
+      }
     })
-
-   // unsuscribe()
-    
-
-  }
-
-   
-  //getOrders()
-  //.then((orders)=>orders.map((order)=>order.items.map((item)=>item.restaurantName)))
-   
-
-
-const testt = ()=>{
-
-  //const db = getFirestore()
-
+  })
+}
+const testt = () => {
   const colRef = collection(db, 'orders')
- const q= query(colRef, orderBy('createdAt', 'desc'))
+  const q = query(colRef, orderBy('createdAt', 'desc'))
   return getDocs(q)
     .then((snapshot) => {
-
       console.log(snapshot.docs[0].data())
-      // snapshot.docs.forEach((doc) => {
-
-      //   console.log(doc.data())
-
-      // })
-       
     })
-
 }
-//testt()
-
-// ADD DOCS TO FIREBASE
-export const addRestaurants = (restaurants)=>{
-
-  restaurants.forEach((restaurant)=>{
+export const addRestaurants = (restaurants) => {
+  restaurants.forEach((restaurant) => {
     addDoc(restaurantsCol, restaurant)
-    .then(()=>console.log("ajouté"))
-   })
+      .then(() => console.log("ajouté"))
+  })
 }
-
-//addRestaurants()
-  
-
- //addDoc(colRef, restaurants[0].dishes[0])
- //.then(()=>console.log('c bon '))
-
-  const productsCol = collection(db, 'products')
-
-  const addProducts = () => {
-
-    getDocs(restaurantsCol)
-      .then(snapshot => snapshot.docs.forEach((doc) => {
-
-        doc.data().dishes.forEach((dishe) => {
-
-         //console.log(dishe.hasOwnProperty('name'))
-
-          addDoc(productsCol, dishe.name?{
-            restaurantID: doc.id,
-            ...dishe,
-            createdAt: serverTimestamp()        
-          }:{
-            restaurantID: doc.id,
-            ...dishe,
-             name: dishe.title,
-             createdAt: serverTimestamp()
-          }).then(()=>console.log("ADDED"))
-
-        })
-
-      }))
-
-  }
-
- // addProducts()
-
-  export const getProducts = (restaurantID) => {
-
-     
-    const products = []
-    //const q= query(productsCol, where("restaurantID", "==", restaurantID))
-    return getDocs(productsCol)
-      .then((snapshot) => {
-        snapshot.docs.forEach((doc) => {
-
-          products.push({
-            ...doc.data(), 
-            id: doc.id})
-        })
-        return products
-      }
-      )
-
-  }
-
-  
-
-  const getProductsAll = () => {
-     
-    getDocs(productsCol)
-      .then((snapshot) => {
-
-        console.log(snapshot.docs.map((doc) => doc.data()))
-      
+const productsCol = collection(db, 'products')
+const addProducts = () => {
+  getDocs(restaurantsCol)
+    .then(snapshot => snapshot.docs.forEach((doc) => {
+      doc.data().dishes.forEach((dishe) => {
+        addDoc(productsCol, dishe.name ? {
+          restaurantID: doc.id,
+          ...dishe,
+          createdAt: serverTimestamp()
+        } : {
+          restaurantID: doc.id,
+          ...dishe,
+          name: dishe.title,
+          createdAt: serverTimestamp()
+        }).then(() => console.log("ADDED"))
       })
-
-  }
-
-   //getProductsAll()
-
-  const addGroupToProducts = ()=> {
-
-     //console.log(Math.floor(Math.random()*9+1))
-      
-    getDocs(productsCol)
+    }))
+}
+export const getProducts = (restaurantID) => {
+  const products = []
+  return getDocs(productsCol)
+    .then((snapshot) => {
+      snapshot.docs.forEach((doc) => {
+        products.push({
+          ...doc.data(),
+          id: doc.id
+        })
+      })
+      return products
+    }
+    )
+}
+const getProductsAll = () => {
+  getDocs(productsCol)
+    .then((snapshot) => {
+      console.log(snapshot.docs.map((doc) => doc.data()))
+    })
+}
+const addGroupToProducts = () => {
+  getDocs(productsCol)
     .then(snapshot => {
-      
-      snapshot.docs.forEach(docc =>{
-         
-
-        updateDoc( doc(db, 'products', docc.id), {
-
-          group : Math.floor(Math.random()*9+1)
-       
-        }).then(()=> console.log('Updated'))
+      snapshot.docs.forEach(docc => {
+        updateDoc(doc(db, 'products', docc.id), {
+          group: Math.floor(Math.random() * 9 + 1)
+        }).then(() => console.log('Updated'))
       })
     })
-  }
-
- // addGroupToProducts()
-  
-
- //GET DOCS Firebase
-
- //export const restaurants = []
-//  getDocs(colRef)
-//  .then((snapshot)=>{
-//    snapshot.docs.forEach((doc)=>{
-    
-//    // restaurants.push(doc.data())
-//   //console.log(doc.id)
-
-//    console.log(doc.data())
-      
-//    }) 
-//   })
-  //console.log(restaurants)
-  
-
-  //console.log(restaurants) 
-
-//  const docRef = doc(db, 'restaurants', "vMO2dkUnCNQLZJ3zex1Y")
-
-//  deleteDoc(docRef)
-//  .then(()=>{
-//    console.log("supprimé")
-//  })
-
-//  48rjIlNtPylbqPfJLpof
-// pu5E232csfnRrxvpNnn1
-// vMO2dkUnCNQLZJ3zex1Y
-
-// doc(db, 'restaurants', 'jeteste').set({
-
-// })
-
- //console.log(colRef)
-
- //Collection User
-  const userRef = collection(db, 'users')
-
-  export const addUser = async (userCredentials,name,phone, address) => {
-
-   // const userRef = collection(db, 'users')
-    addDoc(userRef, {
-      //id: auth.currentUser?.uid,
-      id: userCredentials.user.uid,
-      name: name,
-     // email: auth.currentUser?.email,
-      email: userCredentials.user.email,
-      //address: address,
-      phone: phone,
-      address: address.description,
-      lat: address.location.lat,
-      lng: address.location.lng
-
-     // lat: 40.71,
-     // lng: -74,
-
-
-    })
-      .then(() => console.log('user create'))
-
-  }
-
-  export const userInfos = (uid)=>{
-
-     
-    const q= query(userRef, where("id", "==", uid))
-
-    return getDocs(q)
-
-  }
-  
-//console.log(auth.currentUser?.uid)
-
-const driversCol = collection(db, 'drivers')
-
-export const driverInfos = (driverId)=>{
-
-     
-  const q= query(driversCol, where("Id", "==", driverId))
-
+}
+const userRef = collection(db, 'users')
+export const addUser = async (userCredentials, name, phone, address) => {
+  addDoc(userRef, {
+    id: userCredentials.user.uid,
+    name: name,
+    email: userCredentials.user.email,
+    phone: phone,
+    address: address.description,
+    lat: address.location.lat,
+    lng: address.location.lng
+  })
+    .then(() => console.log('user create'))
+}
+export const userInfos = (uid) => {
+  const q = query(userRef, where("id", "==", uid))
   return getDocs(q)
-
 }
-
-const getImageFromStorage = (imagePath)=>{
-
+const driversCol = collection(db, 'drivers')
+export const driverInfos = (driverId) => {
+  const q = query(driversCol, where("Id", "==", driverId))
+  return getDocs(q)
+}
+const getImageFromStorage = (imagePath) => {
   const fileRef = ref(storage, imagePath);
-  return getDownloadURL(fileRef) 
-
+  return getDownloadURL(fileRef)
 }
-
-// getImageFromStorage('restaurant/bonmange').then((url)=>{
-//   console.log(url)
-// })
-
-//'restaurant/bonmange'
-
 const addOrderToFirebase = () => {
-    
-  //setLoading(true)
-
-           addDoc(ordersCol, {
-               //     title: item.title,
-               //     image: item.image,
-               //     restaurantName: restaurantName,
-               //    // createdAt: firebase.firestore.fieldValue.serverTimestamp()
-               //    createdAt: serverTimestamp(),
-               //    status: "New",
-               //    total: total 
-               orderId: generateUID(),
-               restaurantId: restaurant.restaurantId,
-                Restaurant: {
-               //     id: restaurant.id,
-                    lat: restaurant.coordinates.latitude,
-                    lng: restaurant.coordinates.longitude,
-                    address: restaurant.location.display_address.toString(),
-                    phone: restaurant.phone,
-               //     image: restaurant.image_url,
-                    name: restaurant.name,
-                },
-               User: {
-                   //id: auth.currentUser?.uid,
-                   name: name,
-                    lat: loc.coords.latitude,
-                    lng: loc.coords.longitude,
-                   phone: phone,
-                   address: address,
-                   // items : ["Big Mac", "Cheese Burger","juice"]
-                   items: items
-               },
-              // driverID: "",
-               status: "pending",
-               createdAt: serverTimestamp(),
-
-           }).then(()=> {
-               dispatch({ type: 'CLEAR', })
-               setLoading(false)
-               navigation.navigate('OrderRequest', {loc: loc})
-              //navigation.navigate('OrderRequest')
-           })
-
-     
+  addDoc(ordersCol, {
+    orderId: generateUID(),
+    restaurantId: restaurant.restaurantId,
+    Restaurant: {
+      lat: restaurant.coordinates.latitude,
+      lng: restaurant.coordinates.longitude,
+      address: restaurant.location.display_address.toString(),
+      phone: restaurant.phone,
+      name: restaurant.name,
+    },
+    User: {
+      name: name,
+      lat: loc.coords.latitude,
+      lng: loc.coords.longitude,
+      phone: phone,
+      address: address,
+      items: items
+    },
+    status: "pending",
+    createdAt: serverTimestamp(),
+  }).then(() => {
+    dispatch({ type: 'CLEAR', })
+    setLoading(false)
+    navigation.navigate('OrderRequest', { loc: loc })
+  })
 }
-
-const populateRestaurant = ()=> {
-
+const populateRestaurant = () => {
   const themes = [
     "In a rush?",
     "Best Overall",
     "Popular near you",
     "Rewards for you",
     "National brands",
-     "Only on Good Food",
-     "Everyday savings"
+    "Only on Good Food",
+    "Everyday savings"
   ]
-
   getDocs(restaurantsCol)
-    .then( snapshot => {
+    .then(snapshot => {
       snapshot.docs.forEach((docc) => {
-
-        updateDoc( doc(db, 'restaurants', docc.id), {
-
-          theme : themes[Math.floor(Math.random()*7)]
-       
-        }).then(()=> console.log('Updated'))
-
+        updateDoc(doc(db, 'restaurants', docc.id), {
+          theme: themes[Math.floor(Math.random() * 7)]
+        }).then(() => console.log('Updated'))
       })
-})
-
+    })
 }
-
-export const getCategories = ()=>{
-
-  const categories=[]
-  
-  //const q= query(categoriesCol, orderBy('createdAt', 'desc'))
-
-  return getDocs(categoriesCol).then(snapshot=>{
-
-     snapshot.docs.forEach((doc) => {
-
-       categories.push({...doc.data(), id: doc.id})
-
-      })
-
-      return categories
-
+export const getCategories = () => {
+  const categories = []
+  return getDocs(categoriesCol).then(snapshot => {
+    snapshot.docs.forEach((doc) => {
+      categories.push({ ...doc.data(), id: doc.id })
+    })
+    return categories
   })
-
- }
+}
 export const getCategoriesRestaurants = () => {
   let categoriesRestaurants = []
-
-  return getDocs(categoriesRestaurantsCol).then(snapshot=>{
-
+  return getDocs(categoriesRestaurantsCol).then(snapshot => {
     snapshot.docs.forEach((doc) => {
-
-      categoriesRestaurants.push({...doc.data(), id: doc.id})
-
-     })
-
-     return categoriesRestaurants
-
- })
+      categoriesRestaurants.push({ ...doc.data(), id: doc.id })
+    })
+    return categoriesRestaurants
+  })
 }
-
 export const getCategoriesFromRestaurant = async (restaurantId) => {
   const categoriesRestaurants = await getCategoriesRestaurants()
-  const categoriesRestaurantsResult = categoriesRestaurants.filter(categoryRestaurant => categoryRestaurant.restaurantId ===  restaurantId)
+  const categoriesRestaurantsResult = categoriesRestaurants.filter(categoryRestaurant => categoryRestaurant.restaurantId === restaurantId)
   const categories = await getCategories()
   return categoriesRestaurantsResult.map(categoryRestaurantResult => categories.find(category => category.id === categoryRestaurantResult.categoryId))
-
 }
-
-//populateRestaurant()
-
 export const searchRestaurantsByCategory = async (categoryId) => {
-      
-   const categoriesRestaurants = await getCategoriesRestaurants()
-   const categoriesRestaurantsResult = categoriesRestaurants.filter(categoryRestaurant => categoryRestaurant.categoryId ===  categoryId)
-   const restaurants = await getRestaurantsFromFirebase()
-    
-   return categoriesRestaurantsResult.map(categoryRestaurantResult => restaurants.find(restaurant => restaurant.restaurantId === categoryRestaurantResult.restaurantId))
-   
-  //  getCategoriesRestaurants().then(categoriesRestaurants => {
-  //   let categoriesRestaurantsResult = categoriesRestaurants.filter(categoriesRestaurant => categoriesRestaurant.categoryId ===  categoryId)
-   
-  //   console.log(categoriesRestaurantsResult)
-  // getRestaurantsFromFirebase().then(restaurants => {
-
-  //  console.log(
-
-  //   //  restaurants.filter(restaurants => {
-  //   //    return rest
-  //   //  })
-     
-  //   restaurants.filter(restaurant => {
-  //    categoriesRestaurantsResult.some(categoryRestaurantResult => {
-  //       // console.log(categoryRestaurantResult.restaurantId, restaurant.restaurantId)
-
-  //       // console.log(categoryRestaurantResult.restaurantId)
-  //      return categoryRestaurantResult.restaurantId === restaurant.id
-     
-  //    })
-  //  })
-
-
-  //  )
-
-
-   
-  // })
-  
-  
-  
-  // })
-
-
-
-   
+  const categoriesRestaurants = await getCategoriesRestaurants()
+  const categoriesRestaurantsResult = categoriesRestaurants.filter(categoryRestaurant => categoryRestaurant.categoryId === categoryId)
+  const restaurants = await getRestaurantsFromFirebase()
+  return categoriesRestaurantsResult.map(categoryRestaurantResult => restaurants.find(restaurant => restaurant.restaurantId === categoryRestaurantResult.restaurantId))
 }
-
- 
- 
-
-
-  
-
-
-
-
-  

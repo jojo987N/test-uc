@@ -36,8 +36,6 @@ export default function AccountScreen({navigation}) {
 const styles = StyleSheet.create({
 container: {
   flex: 1,
- // alignItems: "center",
- // justifyContent: "center",
  marginHorizontal: 15,
  },
 
@@ -49,7 +47,6 @@ container: {
 },
  text:{
   marginLeft: 20,
-  //fontWeight: '800',
   fontSize: 20
 }
 

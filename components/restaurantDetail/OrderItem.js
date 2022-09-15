@@ -3,9 +3,9 @@ import React from 'react'
 import {language, currency} from '../../global'
 import { MaterialIcons} from '@expo/vector-icons';
 
-//export default function OrderItem({item}) {
+
   export default function OrderItem({name, quantity, items}) {
-   // const {title, price} = item
+   
   return (
     <View style={styles.container}>
       <View style={styles.title_icon_quantity}>
@@ -14,7 +14,6 @@ import { MaterialIcons} from '@expo/vector-icons';
           <Text style={styles.quantity}>{quantity}</Text>
       </View>
       <Text style={styles.price}>{items.reduce((a, v) => v.name === name ? a + v.price : a, 0).toLocaleString(language, {style: "currency", currency: currency})}</Text>
-      {/* <Text style={styles.price}>{price.toLocaleString(language, {style: "currency", currency: currency})}</Text> */}
     </View>
   )
 }
@@ -30,8 +29,8 @@ const styles = StyleSheet.create({
      
 },
 title_icon_quantity: {
-   //flex: 5,
-   //borderWidth: 1,
+   
+   
    flexDirection: "row",
    alignItems: "center"
 },
@@ -43,13 +42,13 @@ title_icon_quantity: {
     
 },
 price: {
-  //flex: 1,
+  
   opacity: 0.7,
   fontSize: 16,
-  //borderWidth: 1
+  
 },
 quantity: {
- //padding: 2
+ 
 }
 
 })

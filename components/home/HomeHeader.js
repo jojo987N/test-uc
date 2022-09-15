@@ -13,7 +13,6 @@ export default function HomeHeader({navigation}) {
             flexDirection : "row",
             alignItems: "center",
             justifyContent: "space-between",
-            //padding: 10
           }}>
              <Menu navigation={navigation}/>
               <TouchableOpacity onPress={()=>setFilter(true)}>
@@ -35,7 +34,6 @@ export default function HomeHeader({navigation}) {
 export const Menu = ({navigation}) => {
 
     return  <View style={{
-        // marginLeft: 15
      }}>
          <Icon
              type="material-community"

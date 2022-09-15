@@ -10,7 +10,6 @@ export default function Offers({navigation}) {
   return (
     <View style={styles.container}>
       <View style={styles.arrow_title}>
-          {/* <AntDesign name='arrowleft' size={24} color="black" /> */}
           <ArrowBack navigation={navigation}/>
           <Text style={styles.title}>Deals</Text>
            
@@ -33,16 +32,10 @@ export default function Offers({navigation}) {
   )
 }
 
-// export const Reward = ({restaurant})=>(
-  
-//     <View style={styles.reward}>
-//         <Text style={styles.rewardText}>{restaurant.reward}</Text>
-//     </View>
-// )
 
 const styles = StyleSheet.create({
     container:{
-    //marginTop: 10,
+    
     marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     marginHorizontal: 10
 
@@ -59,19 +52,19 @@ const styles = StyleSheet.create({
     restaurantsContainer: {
         marginVertical: 10
     }, 
-    // reward: {
-    //     position: "absolute",
-    //     backgroundColor: "green",
-    //     top: 20,
-    //     borderTopRightRadius: 20,
-    //     borderBottomRightRadius: 20
+    
+    
+    
+    
+    
+    
          
-    // },
-    // rewardText: {
-    //     paddingVertical : 5,
-    //     //fontSize: 20,
-    //     color: "white",
-    //     paddingHorizontal: 20
-    // }
+    
+    
+    
+    
+    
+    
+    
 
 })

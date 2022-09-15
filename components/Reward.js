@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
     },
     rewardText: {
         paddingVertical : 5,
-        //fontSize: 20,
         color: "white",
         paddingHorizontal: 20
     }

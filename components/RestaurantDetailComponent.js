@@ -1,8 +1,8 @@
 import { View, Text, Modal, StyleSheet} from 'react-native'
 import React, {useContext} from 'react'
 import { CloseModal, Icon } from './FilterModal'
-//import { RestaurantName } from './restaurantDetail/About'
-//import { RestaurantDescription } from './restaurantDetail/About'
+
+
 import { Divider, } from 'react-native-elements'
 import DisplayMapview from './DisplayMapview'
 import RestaurantName from './RestaurantName'
@@ -21,7 +21,7 @@ export default function RestaurantDetailComponent({restaurant, visible, setVisib
     if(categories)
     formattedCategories = categories.map((cat)=>cat.name).join(' • ')
 
-  //console.log(restaurant)
+  
 
     const description = formattedCategories + ' '+price
   return (
@@ -43,7 +43,7 @@ export default function RestaurantDetailComponent({restaurant, visible, setVisib
               <Divider />
               <RestaurantInfo iconName="location-pin" iconType="Entypo"
                   iconSize={35} 
-                //   text={location.display_address[0] + location.display_address[1]} 
+                
                 text={address}
                   />
 
@@ -85,10 +85,10 @@ const styles = StyleSheet.create({
       marginHorizontal: 10
     },
     header: {
-     // flexDirection: "row",
+     
       marginTop: 20,
-     // marginHorizontal: 10,
-     // alignItems: "center"
+     
+     
     },
     header1: {
      marginTop: 10,

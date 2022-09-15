@@ -2,58 +2,34 @@ import { View, Text, Image, ImageBackground, StyleSheet, TouchableOpacity} from 
 import React, { useEffect, useState } from 'react'
 import Onboarding from 'react-native-onboarding-swiper'
 import * as Animatable from "react-native-animatable"
-
-
-
 export default function OnboardingScreen({navigation}) {
-
   const [splash, setSplash]= useState(true)
-
   setTimeout(()=>{
     setSplash(false)
   }, 4000)
-
-  // useEffect(()=>{
-
-  // }, [])
-
   if(splash)
   return <View style={styles.splash}>
-    
       <Text style={styles.splashText}>Good{'\n'}
       <Text style={styles.splashText1}>Foods</Text></Text>
-    
   </View>
-
-
   return (
     <ImageBackground style={{ width: "100%", height: "100%" }}
-
       source={require("../assets/images/onboarding.jpg")}>
       <Text style={styles.title}>Good{'\n'}Foods</Text>
-
       <Animatable.View style={styles.footer} animation="fadeInUpBig">
       <View style={styles.box}>
         <Text style={styles.discoverText}>Discover Foods</Text>
-
         <TouchableOpacity style={styles.button} onPress={()=>{
           navigation.navigate("SignIn")
         }}>
-
           <Text style={styles.buttonText}>Continue</Text>
         </TouchableOpacity>
-
       </View>
       </Animatable.View>
-
-
     </ImageBackground>
-     
   )
 }
-
 const styles = StyleSheet.create({
-
   splash: {
     flex: 1,
     alignItems: "center",
@@ -63,8 +39,6 @@ const styles = StyleSheet.create({
   splashText: {
      fontSize: 50,
      fontFamily: "Roboto_500Medium"
-     //fontWeight: "bold"
-     
   },
   splashText1: {
     fontWeight: "bold",
@@ -80,7 +54,6 @@ const styles = StyleSheet.create({
   },
   box: {
     backgroundColor: "white",
-     
   },
   button: {
     backgroundColor: "black",

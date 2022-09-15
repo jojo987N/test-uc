@@ -73,12 +73,6 @@ const Filter = ({iconName, text, icon})=> {
     return (
         <View style={styles.bloc}>
              
-        {/* {icon==="AntDesign"?<AntDesign name={iconName} size={24} color="black"/>:<></>}
-        {icon==="Ionicons"?<Ionicons name={iconName} size={24} color="black"/>:<></>}
-        {icon==="FontAwesome"?<FontAwesome name={iconName} size={24} color="black"/>:<></>}
-        {icon==="MaterialIcons"?<MaterialIcons name={iconName} size={24} color="black"/>:<></>}
-           */}
-
            <Icon name={iconName} type={icon}/>
             <Text style={styles.title}>{text}</Text>
         </View>
@@ -105,7 +99,6 @@ export const  Icon = ({name, type, size})=>{
 const styles = StyleSheet.create({
     container: {
        flex: 1,
-       //backgroundColor: "red"
        marginHorizontal: 10,
        
         
