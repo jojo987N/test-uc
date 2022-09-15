@@ -18,6 +18,8 @@ import { RestaurantsContext } from '../contexts/RestaurantsContext'
 
 export default function RestaurantsMapScreen({ route, navigation }) {
   const { restaurantData } = useContext(RestaurantsContext)
+  const {name, phone, address, id} = useSelector((state)=>state.userReducer)
+  
   const restaurantDataSort = restaurantData.filter(c => getDistanceFromLatLonInKm(c.latitude, c.longitude,
     37.769535, -122.429213) < 5)
     console.log(restaurantData)
