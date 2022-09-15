@@ -107,7 +107,7 @@ const RestaurantsView = ({ _map, restaurantsRef, restaurantDataSort, setFocusFun
       <FlatList
         ref={restaurantsRef}
         horizontal={horizontal}
-        data={restaurantDataSort}
+        data={restaurantData}
         keyExtractor={(item, index) => index}
         renderItem={({ item, index }) => {
           return (
