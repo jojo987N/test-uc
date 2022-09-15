@@ -4,7 +4,7 @@ import MapView, { Callout, Marker } from 'react-native-maps'
 import RestaurantItems from '../components/home/RestaurantItems'
 import LottieView from 'lottie-react-native'
 import { RestaurantInfo, RestaurantImage } from '../components/home/RestaurantItems'
-import { getLocation ,location } from '../global'
+import { location } from '../global'
 import { MaterialIcons } from '@expo/vector-icons';
 import { ArrowBack } from '../components/restaurantDetail/About'
 import SearchBar from '../components/home/SearchBar'
@@ -15,14 +15,14 @@ import Reward from '../components/Reward'
 import { getDistanceFromLatLonInKm } from '../utils'
 import { Icon } from 'react-native-elements'
 import { RestaurantsContext } from '../contexts/RestaurantsContext'
-import Loading from '../components/Loading'
-
 
 export default function RestaurantsMapScreen({ route, navigation }) {
   const { restaurantData } = useContext(RestaurantsContext)
   const [location, setLocation] = useState(null)
-
-  let restaurantDataSort; 
+  const {lat,lng} = useSelector((state)=>state.userReducer)
+  let restaurantDataSort = restaurantData.filter(c => getDistanceFromLatLonInKm(c.latitude, c.longitude,
+    lat, lng) < 5)
+    console.log(restaurantData)
   const { width, height } = useWindowDimensions();
   const _map = useRef(null)
   const restaurantsRef = useRef(null)
@@ -54,8 +54,6 @@ export default function RestaurantsMapScreen({ route, navigation }) {
   useEffect(()=>{
     getLocation().then((location)=>{
       setLocation(location)
-      restaurantDataSort = restaurantData.filter(c => getDistanceFromLatLonInKm(c.latitude, c.longitude,
-        location.coords.latitude, location.coords.longitude) < 5)
     })
     
   },[])
