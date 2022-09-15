@@ -160,8 +160,8 @@ const RestaurantMarkers = ({ restaurantData, focus, setFocusFunction, restaurant
     return (
       <Marker key={index} title={restaurant.name} description="nasso"
         coordinate={{
-          latitude: restaurant.latitude,
-          longitude: restaurant.longitude,
+          latitude: restaurant.lat,
+          longitude: restaurant.lng,
         }}
         onPress={() => {
           if (visible)
