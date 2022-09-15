@@ -96,63 +96,6 @@ export const dataTest = [
   }
 ]
 
-
-
-export const filterData = [
-  {
-      id: 1,
-      name: "Bread",
-      image: require('./assets/images/bread.png')
-  },
-  {
-      id: 2,
-      name: "Coffee",
-      image: require('./assets/images/coffee.png')
-  },
-  {
-    id: 3,
-      name: "Deals",
-      image: require('./assets/images/deals.png')
-  },
-  {
-      id: 4,
-      name: "Desserts",
-      image: require('./assets/images/desserts.png')
-  },
-  {   
-      id: 5,
-      name: "Soft-Drink",
-      image: require('./assets/images/soft-drink.png')
-  },
-  {
-      id: 6,
-      name: "Fast-Food",
-      image: require('./assets/images/fast-food.png')
-  }
-]
-
-export const filterData2 = [{name:"Fast food",
-image:'https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg' , id:"0"},
-{name:"Burgers",
-image: 'https://bukasapics.s3.us-east-2.amazonaws.com/macdo.png',id:"1"},
-{name:"Salads",
-image:"https://bukasapics.s3.us-east-2.amazonaws.com/nandos.png",id:"2"},
-{name:"Hotdog",
-image: "https://bukasapics.s3.us-east-2.amazonaws.com/pizza.png",id:"3"},
-{name:"Chinese",
-image:"https://bukasapics.s3.us-east-2.amazonaws.com/pizza6.png",id:"4"},
-{name:"Mexican",
-image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate1.png",id:"5"},  
-{name:"Sea food",
-image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate2.png",id:"6"},
-{name:"Chinese Food",
-image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate3.png",id:"7"},
-{name:"Mexican pie",
-image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png",id:"8"},  
-{name:"Ocean dish",
-image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate5.png",id:"9"},
-];
-
 export const categories = [
   {
       id: 1,
@@ -266,7 +209,7 @@ export const restaurants = [
       "display_phone": "(415) 872-9786",
       "distance": 2730.244177861569,
       "id": "HHtpR0RslupSQ99GIIwW5A",
-      "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/ouK2VmW0SrI70jsJpTxJhw/o.jpg",
+      "image_url": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg",
       "is_closed": false,
       "location":  {
         "address1": "1581 Webster St",
@@ -299,14 +242,14 @@ export const restaurants = [
           "title": "Cheese Tequeños",
           "description": "6 pieces of chese with sauce.",
           "price": 6.9,
-          "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant2.jpeg"
+          "image": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg"
         },
         {
           "id": "2",
           "title": "Hamburger La Super Cabo Burger",
           "description": "Double meat, gouda cheese, cheddar cheese, cooked ham, bacon, egg, salad and rustic potatoes.",
           "price": 8.9,
-          "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant3.jpeg"
+          "image": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg"
         },
         {
           "title": "U.S.A. Burger",
@@ -324,11 +267,7 @@ export const restaurants = [
           "price": 7.9
         }
       ],
-      productData:[{title:"Hand cut chips", price:29.30,image:"https://s3-media4.fl.yelpcdn.com/bphoto/ouK2VmW0SrI70jsJpTxJhw/o.jpg"},
-                  {title:"Big Mac", price:50.80,image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png"},{title:"Chicken Burger",
-                   price:70,image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate3.png"},
-                    ],
-      "url": "https://www.yelp.com/biz/marufuku-ramen-san-francisco-5?adjust_creative=J4ZPk7dsHlYZU8xFcIjmJw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=J4ZPk7dsHlYZU8xFcIjmJw",
+      "url": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg",
     },
      {
       "alias": "fog-harbor-fish-house-san-francisco-2",
@@ -357,7 +296,7 @@ export const restaurants = [
       "display_phone": "(415) 969-2010",
       "distance": 5820.143221179387,
       "id": "f-m7-hyFzkf0HSEeQ2s-9A",
-      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/by8Hh63BLPv_HUqRUdsp_w/o.jpg",
+      "image_url": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg",
       "is_closed": false,
       "location":  {
         "address1": "39 Pier",
@@ -398,7 +337,7 @@ export const restaurants = [
           "title": "Carolina Honey",
           "description": "Our famous ribs marinated with our Carolina honey sauce, a mixture of honey with our original sauce. Ideal for those looking for a sweet touch. Served with French fries and coleslaw.",
           "price": 18.95,
-          "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant2.jpeg"
+          "image": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg"
         },
         {
           "title": "Onion Rings",
@@ -411,10 +350,6 @@ export const restaurants = [
           "price": 10.95
         }
       ],
-      productData:[{title:"Hand cut chips", price:29.30,image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate5.png"},
-                  {title:"Big Mac", price:50.80,image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png"},
-                  {title:"Chicken Burger", price:70,image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate3.png"},
-                      ],
       "url": "https://www.yelp.com/biz/fog-harbor-fish-house-san-francisco-2?adjust_creative=J4ZPk7dsHlYZU8xFcIjmJw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=J4ZPk7dsHlYZU8xFcIjmJw",
     },
      {
@@ -437,7 +372,7 @@ export const restaurants = [
       "display_phone": "(415) 814-2920",
       "distance": 2201.588555604964,
       "id": "8kck3-K4zYKTJbJko0JlXQ",
-      "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/kUlEaPpv0JGlHG_nrPr7wQ/o.jpg",
+      "image_url": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg",
       "is_closed": false,
       "location":  {
         "address1": "710 Florida St",
@@ -491,11 +426,7 @@ export const restaurants = [
           "price": 5.2
         }
       ],
-      productData:[{name:"Hand cut chips", price:29.30,image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate5.png"},
-                    {name:"Big Mac", price:50.80,image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png"},{name:"Chicken Burger",
-                     price:70,image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate3.png"},
-                      ],
-      "url": "https://www.yelp.com/biz/farmhouse-kitchen-thai-cuisine-san-francisco?adjust_creative=J4ZPk7dsHlYZU8xFcIjmJw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=J4ZPk7dsHlYZU8xFcIjmJw",
+      "url": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg",
     },
      {
       "alias": "daeho-kalbijjim-and-beef-soup-san-francisco-9",
@@ -521,7 +452,7 @@ export const restaurants = [
       "display_phone": "(415) 563-1388",
       "distance": 2867.8335670207744,
       "id": "dY0Mc_PHH6nLENvWmVtwxQ",
-      "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/HzzU5aVz-eUYJIPdnNGL0A/o.jpg",
+      "image_url": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg",
       "is_closed": false,
       "location":  {
         "address1": "1620 Post St",
@@ -574,11 +505,7 @@ export const restaurants = [
           "price": 10.5
         }
       ],
-      productData:[{name:"Hand cut chips", price:29.30,image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate5.png"},
-                    {name:"Big Mac", price:50.80,image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png"},{name:"Chicken Burger",
-                     price:70,image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate3.png"},
-                      ],
-      "url": "https://www.yelp.com/biz/daeho-kalbijjim-and-beef-soup-san-francisco-9?adjust_creative=J4ZPk7dsHlYZU8xFcIjmJw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=J4ZPk7dsHlYZU8xFcIjmJw",
+      "url": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg",
     },
      {
       "alias": "kaiyō-rooftop-san-francisco-5",
@@ -606,7 +533,7 @@ export const restaurants = [
       "display_phone": "",
       "distance": 4355.096615628698,
       "id": "8VurRDEj1RpimenhgTmyFQ",
-      "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/IpnkGDpsm94wGzTAdFekPg/o.jpg",
+      "image_url": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg",
       "is_closed": false,
       "location":  {
         "address1": "701 3rd St",
@@ -658,11 +585,7 @@ export const restaurants = [
           "price": 10.5
         }
       ],
-      productData:[{name:"Hand cut chips", price:29.30,image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate5.png"},
-                    {name:"Big Mac", price:50.80,image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png"},{name:"Chicken Burger",
-                     price:70,image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate3.png"},
-                      ],
-      "url": "https://www.yelp.com/biz/kaiy%C5%8D-rooftop-san-francisco-5?adjust_creative=J4ZPk7dsHlYZU8xFcIjmJw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=J4ZPk7dsHlYZU8xFcIjmJw",
+      "url": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg",
     },
      {
       "alias": "dumpling-house-san-francisco",
@@ -684,7 +607,7 @@ export const restaurants = [
       "display_phone": "(415) 829-2789",
       "distance": 436.04221561234874,
       "id": "XAYwAF_83becwNnSJDFkpA",
-      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/DNfqq1zYxbJ-gsalml7wng/o.jpg",
+      "image_url": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg",
       "is_closed": false,
       "location":  {
         "address1": "335 Noe St",
@@ -737,11 +660,7 @@ export const restaurants = [
           "price": 10.5
         }
       ],
-      productData:[{name:"Hand cut chips", price:29.30,image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate5.png"},
-                    {name:"Big Mac", price:50.80,image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png"},{name:"Chicken Burger",
-                     price:70,image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate3.png"},
-                      ],
-      "url": "https://www.yelp.com/biz/dumpling-house-san-francisco?adjust_creative=J4ZPk7dsHlYZU8xFcIjmJw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=J4ZPk7dsHlYZU8xFcIjmJw",
+      "url": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg",
     },
      {
       "alias": "sotto-mare-oysteria-and-seafood-san-francisco",
@@ -768,7 +687,7 @@ export const restaurants = [
       "display_phone": "(415) 398-3181",
       "distance": 4970.484877370465,
       "id": "8dUaybEPHsZMgr1iKgqgMQ",
-      "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/o3hIcGLMxV_5ynxEjGWGrw/o.jpg",
+      "image_url": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg",
       "is_closed": false,
       "location":  {
         "address1": "552 Green St",
@@ -821,11 +740,6 @@ export const restaurants = [
           "price": 10.5
         }
       ],
-      productData:[{name:"Hand cut chips", price:29.30,image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate5.png"},
-                    {name:"Big Mac", price:50.80,image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png"},{name:"Chicken Burger",
-                     price:70,image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate3.png"},
-                      ],
-      "url": "https://www.yelp.com/biz/sotto-mare-oysteria-and-seafood-san-francisco?adjust_creative=J4ZPk7dsHlYZU8xFcIjmJw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=J4ZPk7dsHlYZU8xFcIjmJw",
     },
 ]
 
