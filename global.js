@@ -51,11 +51,6 @@ export const location = async () => {
   }
  return await Location.getCurrentPositionAsync({});
 
-
-
-
-
-
 };
 
 export function generateUID() {

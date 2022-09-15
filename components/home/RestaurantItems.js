@@ -3,39 +3,27 @@ import React, {useState, useEffect, useRef} from 'react'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { AntDesign } from '@expo/vector-icons';
 import Categories from './Categories';
-//import { Reward } from '../../screens/Offers';
 import Reward from '../Reward';
 
-
 export default function RestaurantItems({navigation,...props}) {
-
     const { width, height } = useWindowDimensions();
-
-    
-     
   return (
       <View style={{
-         // flexDirection: "row"
           }}>
-
               <FlatList 
                   ref={props.flatlist}
                   data={props.reward?props.restaurantData.filter(restaurant => restaurant.reward === props.reward):props.ads?props.restaurantData.filter(restaurant => restaurant.ads ):props.restaurantData}
                   keyExtractor={(item, index)=>index}
                   renderItem={({item, index})=> {
-
                     return (
-                           
                         <TouchableOpacity 
                         key={index}
                         activeOpacity={1} 
                         style={{
-                           // marginBottom: 30
                         }}
                         onPress={()=>navigation.navigate("RestaurantDetail",
                         {
                           restaurant: item
-          
                         })}
                         >
                             <View  
@@ -43,8 +31,6 @@ export default function RestaurantItems({navigation,...props}) {
                                     marginTop: 8,
                                     padding: 15,
                                     backgroundColor: "white",
-                                    //width: 100
-                                   // marginHorizontal: 10
                                    width: props.size?width:width*0.8
                                 }}>
                                 <View >
@@ -52,60 +38,20 @@ export default function RestaurantItems({navigation,...props}) {
                                     {props.reward || item.reward ?<Reward restaurant={item}/>:<></>}
                                     {props.ads && <Affiche ads={item.ads} adsColor={item.adsColor}/>}
                                 </View>
-                                
                                 <RestaurantInfo 
                                     name={item.name.substring(0,20)}
                                     rating={item.rating} 
                                     city={item.city}/>
-                                  
                             </View>
                         </TouchableOpacity>
-                        
-                        
-
                     )
                   }}
-
-                  
-                  //scrollEnabled={false}
                   horizontal={props.horizontal}
                   showsHorizontalScrollIndicator={false}
               />
-             
-          {/* {props.restaurantData.map((restaurant, index) => (
-
-              <TouchableOpacity 
-              key={index}
-              activeOpacity={1} 
-              style={{
-                  marginBottom: 30
-              }}
-              onPress={()=>navigation.navigate("RestaurantDetail",
-              {
-                restaurant: restaurant
-
-              })}
-              >
-                  <View  
-                      style={{
-                          marginTop: 10,
-                          padding: 15,
-                          backgroundColor: "white",
-                          //width: 100
-                      }}>
-                      <RestaurantImage image={restaurant.image_url} />
-                      <RestaurantInfo 
-                          name={restaurant.name}
-                          rating={restaurant.rating} 
-                          city={restaurant.location.city}/>
-                  </View>
-              </TouchableOpacity>
-          ))} */}
-           
       </View>
   )
 }
-
 export const RestaurantImage= (props)=>{
     const [liked, setLiked] = useState(false)
     return(
@@ -114,19 +60,13 @@ export const RestaurantImage= (props)=>{
             source={{
                 uri: props.image
             }}
-
             style={{ width: "100%", height: 140 }}
-           // style={{ width: 100, height: 180 }}
-
-
         />
-
         <TouchableOpacity style={{position: 'absolute', right: 20, top: 20}}>
             {liked?(<AntDesign
                 name='heart' 
                 size={25}
                 color="red"
-                
                 onPress={()=>setLiked(false)}
                 />
             ):(
@@ -136,15 +76,11 @@ export const RestaurantImage= (props)=>{
                 color='#fff'
                 onPress={()=>setLiked(true)}
                 />
-             
             )}
         </TouchableOpacity>
     </>
-
 )}
-
 export const RestaurantInfo = (props)=>(
-
     <View style={{
         flexDirection: "row",
         justifyContent: "space-between",
@@ -156,7 +92,6 @@ export const RestaurantInfo = (props)=>(
                 fontSize: 15,
                 fontWeight:"bold",
             }}>{props.name} - {props.city}</Text>
-
             <Text style={{
                 fontSize: 13,
                 color: "grey"
@@ -174,11 +109,9 @@ export const RestaurantInfo = (props)=>(
         </View>
     </View>
 )
-
 const Affiche = (props)=> {
     return (
       <View style={styles.container}>
-         
           <View style={{...styles.container1, backgroundColor: props.adsColor}}>
             <Text style={{...styles.text, color: props.adsColor==="#800000"?"white":"black"}}>{props.ads}</Text>
             <View style={styles.button}>
@@ -186,31 +119,22 @@ const Affiche = (props)=> {
               <AntDesign name="arrowright" size={18} color="black" />
             </View>
           </View>
-          
       </View>
     )
   }
-
   const styles = StyleSheet.create({
-
     container: {
-  
       position: "absolute",
       height: "100%",
       width: "100%"
-  
     },
-
     container1: {
         backgroundColor: "#e0ccff",
        height: "100%",
-        //borderWidth: 2,
         padding: 10,
         width: "60%"
     },
-     
     button: {
-  
       flexDirection: "row",
       paddingVertical: 2,
      backgroundColor: "white",
@@ -220,9 +144,6 @@ const Affiche = (props)=> {
       borderRadius: 10,
       justifyContent: "space-between",
       alignItems: "center",
-
-       
-  
     },
     buttonText: {
         fontFamily: "Roboto_500Medium"  
@@ -231,5 +152,4 @@ const Affiche = (props)=> {
         fontSize: 25,
         fontFamily: "Roboto_500Medium"
     }
-  
   })

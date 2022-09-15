@@ -8,10 +8,6 @@ export default function RestaurantDetailHeader({foodsRef, navigation, route}) {
     const {restaurant} = route.params
     return (
     <View style={styles.container}>
-     {/* <View style={styles.head}>
-          <ArrowBack navigation={navigation}/>
-          <Text style={styles.title}>{restaurant.name}</Text>
-     </View> */}
      
       <GroupFoodHeader foodsRef={foodsRef}/>
     </View>
