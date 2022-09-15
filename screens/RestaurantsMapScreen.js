@@ -15,6 +15,7 @@ import Reward from '../components/Reward'
 import { getDistanceFromLatLonInKm } from '../utils'
 import { Icon } from 'react-native-elements'
 import { RestaurantsContext } from '../contexts/RestaurantsContext'
+import { useSelector } from 'react-redux'
 
 export default function RestaurantsMapScreen({ route, navigation }) {
   const { restaurantData } = useContext(RestaurantsContext)
