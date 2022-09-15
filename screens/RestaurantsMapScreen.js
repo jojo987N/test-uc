@@ -99,7 +99,7 @@ export default function RestaurantsMapScreen({ route, navigation }) {
     </View>
   )
 }
-const RestaurantsView = ({ _map, restaurantsRef, restaurantDataSort, setFocusFunction, focus, width, horizontal,
+const RestaurantsView = ({ _map, restaurantsRef, restaurantData, setFocusFunction, focus, width, horizontal,
   Categories, scrollEnabled, offset, setOffset, direction, setDirection, setScrollEnabled, setVisible, navigation}) => {
   return (
     <View style={horizontal ? styles.flatlist : {}}>
