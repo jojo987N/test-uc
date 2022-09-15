@@ -18,7 +18,7 @@ import { RestaurantsContext } from '../contexts/RestaurantsContext'
 
 export default function RestaurantsMapScreen({ route, navigation }) {
   const { restaurantData } = useContext(RestaurantsContext)
-  const restaurantDataSort = restaurantData.filter(c => getDistanceFromLatLonInKm(c.coordinates.latitude, c.coordinates.longitude,
+  const restaurantDataSort = restaurantData.filter(c => getDistanceFromLatLonInKm(c.latitude, c.longitude,
     37.769535, -122.429213) < 5)
   const { width, height } = useWindowDimensions();
   const [myLocation, setMyLocation] = useState(null)
@@ -157,8 +157,8 @@ const RestaurantMarkers = ({ restaurantDataSort, focus, setFocusFunction, restau
     return (
       <Marker key={index} title={restaurant.name} description="nasso"
         coordinate={{
-          latitude: restaurant.coordinates.latitude,
-          longitude: restaurant.coordinates.longitude,
+          latitude: restaurant.latitude,
+          longitude: restaurant.longitude,
         }}
         onPress={() => {
           if (visible)
