@@ -117,7 +117,7 @@ const RestaurantsView = ({ _map, restaurantsRef, restaurantData, setFocusFunctio
               <RestaurantInfo
                 name={item.name}
                 rating={item.rating}
-                city={item.location.city} />
+                city={item.city} />
               {!horizontal && <Reward restaurant={item} />}
             </View>
           </TouchableOpacity>)
@@ -184,7 +184,7 @@ const RestaurantMarkers = ({ restaurantData, focus, setFocusFunction, restaurant
             <RestaurantInfo
               name={restaurant.name}
               rating={restaurant.rating}
-              city={restaurant.location.city} />
+              city={restaurant.city} />
           </View>
         </Callout>
       </Marker>
