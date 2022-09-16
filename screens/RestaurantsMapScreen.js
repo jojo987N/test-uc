@@ -128,7 +128,6 @@ const RestaurantsView = ({ _map, restaurantsRef, restaurantData, setFocusFunctio
           let x = event.nativeEvent.contentOffset.x
           let w = event.nativeEvent.layoutMeasurement.width
           let index = Math.round(x / w)
-          console.log(index)
           _map.current.animateToRegion({
             latitude: restaurantData[Math.round(x / w)].latitude,
             longitude: restaurantData[Math.round(x / w)].longitude,
