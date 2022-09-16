@@ -101,12 +101,12 @@ export const addRestaurants = (restaurants) => {
       .then(() => console.log("ajouté"))
   })
 }
-const productsCol = collection(db, 'products')
-const addProducts = () => {
+const foodsCol = collection(db, 'foods')
+const addfoods = () => {
   getDocs(restaurantsCol)
     .then(snapshot => snapshot.docs.forEach((doc) => {
       doc.data().dishes.forEach((dishe) => {
-        addDoc(productsCol, dishe.name ? {
+        addDoc(foodsCol, dishe.name ? {
           restaurantID: doc.id,
           ...dishe,
           createdAt: serverTimestamp()
@@ -119,31 +119,31 @@ const addProducts = () => {
       })
     }))
 }
-export const getProducts = (restaurantID) => {
-  const products = []
-  return getDocs(productsCol)
+export const getFoods = (restaurantID) => {
+  const foods = []
+  return getDocs(foodsCol)
     .then((snapshot) => {
       snapshot.docs.forEach((doc) => {
-        products.push({
+        foods.push({
           ...doc.data(),
           id: doc.id
         })
       })
-      return products
+      return foods
     }
     )
 }
-const getProductsAll = () => {
-  getDocs(productsCol)
+const getFoodsAll = () => {
+  getDocs(foodsCol)
     .then((snapshot) => {
       console.log(snapshot.docs.map((doc) => doc.data()))
     })
 }
-const addGroupToProducts = () => {
-  getDocs(productsCol)
+const addGroupToFoods = () => {
+  getDocs(foodsCol)
     .then(snapshot => {
       snapshot.docs.forEach(docc => {
-        updateDoc(doc(db, 'products', docc.id), {
+        updateDoc(doc(db, 'foods', docc.id), {
           group: Math.floor(Math.random() * 9 + 1)
         }).then(() => console.log('Updated'))
       })

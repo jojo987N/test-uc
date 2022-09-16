@@ -8,7 +8,7 @@ import {} from 'react-native-tab-view'
 import { NavigationContainer } from '@react-navigation/native';
 import { restaurants } from '../../data';
 import { AntDesign } from '@expo/vector-icons';
-import { getProducts } from '../../firebase';
+import { getfoods } from '../../firebase';
 import Loader from '../../screens/Loader';
 import QuantityAnimate from '../Quantity';  
 import { BottomSheetFlatList } from '@gorhom/bottom-sheet';
@@ -43,17 +43,17 @@ opacity, setCategoriesFood}) {
      setLoader(true)
     AsyncStorage.getItem("foods").then(value => {
       if (!value) {
-        getProducts(restaurant.restaurantId).then((products) => {
-          setFoods(products)
-          AsyncStorage.setItem('foods', JSON.stringify(products))
+        getfoods(restaurant.restaurantId).then((Foods) => {
+          setFoods(foods)
+          AsyncStorage.setItem('foods', JSON.stringify(foods))
         })
           .then(() => {
             setLoader(false)
           })
       }else{
         AsyncStorage.getItem("foods").then(value=>{
-          let productsData = JSON.parse(value)
-          setFoods(productsData)
+          let foodsData = JSON.parse(value)
+          setFoods(foodsData)
         }).then(() => {
           setTimeout(()=>{
             setLoader(false)
