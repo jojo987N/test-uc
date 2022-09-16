@@ -73,7 +73,7 @@ opacity, setCategoriesFood, categories, setCategories}) {
     <View style={{flex: 1, }} >
       <FlatList
       ref={foodsRef}
-      // data={groupFoods}
+      //  data={groupFoods}
       data={categories.filter(category => category.type === "food")}
       keyExtractor={(item, index)=>index}
       renderItem={({item, index})=> {
