@@ -1,10 +1,13 @@
 import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { FlatList } from 'react-native-gesture-handler';
 import { getCategories, getCategoriesRestaurants } from '../../firebase';
+import { CategoriesContext } from '../../contexts/CategoriesContext';
 
 export default function Categories({navigation}) {
-  const [categories, setCategories] = useState([])
+  // const [categories, setCategories] = useState([])
+  const {categories, setCategories} = useContext(CategoriesContext)
+
   const [categoriesRestaurants, setCategoriesRestaurants] = useState()
   useEffect(()=> {
     getCategories().then(categories => setCategories(categories))
