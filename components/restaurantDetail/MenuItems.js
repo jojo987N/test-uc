@@ -34,7 +34,7 @@ import { CategoriesContext } from '../../contexts/CategoriesContext';
 }) 
 export default function MenuItems({route, activeTab, marginLeft, navigation, foodsRef,
 pickup, delivery, setActiveTab, userLocation, mapRef, apikey, scrollEnabled, setScrollEnabled,
-opacity, setCategoriesFood, categories, setCategories}) {
+opacity, setCategoriesFood}) {
   const {restaurant} = route.params
   const {categories, setCategories} = useContext(CategoriesContext)
   const [foods, setFoods] = useState([])
