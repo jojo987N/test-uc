@@ -81,7 +81,8 @@ opacity, setCategoriesFood}) {
           <View>
             <Text style={styles.groupTitle}>{item.name}</Text> 
             <FlatList 
-               data={foods.filter((food)=>food.group === item.id)}
+              //  data={foods.filter((food)=>food.group === item.id)}
+              data={foods.filter((food)=>food.category === item.name)}
                keyExtractor={(item, index)=>index}
                renderItem={({item, index})=>{
                 return (
