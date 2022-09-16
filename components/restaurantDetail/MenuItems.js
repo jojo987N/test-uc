@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet,Image, ScrollView, TouchableOpacity} from 'react-native'
-import React, {useState, useEffect, useRef, createRef} from 'react'
+import React, {useState, useEffect, useRef, createRef, useContext} from 'react'
 import { Divider } from 'react-native-elements';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,6 +17,7 @@ import HeaderTabs from '../home/HeaderTabs';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { groupFoods } from '../../data';
 import { FlatList } from 'react-native-gesture-handler';
+import { CategoriesContext } from '../../contexts/CategoriesContext';
 
   const styles = StyleSheet.create({
     menuItemStyle :{flex: 1,},
@@ -35,6 +36,7 @@ export default function MenuItems({route, activeTab, marginLeft, navigation, foo
 pickup, delivery, setActiveTab, userLocation, mapRef, apikey, scrollEnabled, setScrollEnabled,
 opacity, setCategoriesFood, categories, setCategories}) {
   const {restaurant} = route.params
+  const {categories, setCategories} = useContext(CategoriesContext)
   const [foods, setFoods] = useState([])
    const [loader, setLoader] = useState(false)
   useEffect(()=>{
@@ -71,7 +73,8 @@ opacity, setCategoriesFood, categories, setCategories}) {
     <View style={{flex: 1, }} >
       <FlatList
       ref={foodsRef}
-      data={groupFoods}
+      // data={groupFoods}
+      data={categories.filter(category => category.type === "food")}
       keyExtractor={(item, index)=>index}
       renderItem={({item, index})=> {
         return (
