@@ -64,7 +64,7 @@ opacity, setCategoriesFood}) {
   },[activeTab])
   if(loader)
   return <View>
-  <About route={route} navigation={navigation} userLocation={userLocation} mapRef={mapRef} apikey={apikey} categories={categories} setCategories={setCategories}/>
+  {/* <About route={route} navigation={navigation} userLocation={userLocation} mapRef={mapRef} apikey={apikey} categories={categories} setCategories={setCategories}/> */}
   <HeaderTabs pickup={pickup} delivery={delivery} activeTab={activeTab} setActiveTab={setActiveTab}/>
   <View style={{marginBottom: 100}}></View>
   <Loader />
@@ -114,7 +114,7 @@ opacity, setCategoriesFood}) {
         )
       }}
       ListHeaderComponent={()=> <View>
-        <About route={route} navigation={navigation} userLocation={userLocation} mapRef={mapRef} apikey={apikey}/>
+        {/* <About route={route} navigation={navigation} userLocation={userLocation} mapRef={mapRef} apikey={apikey}/> */}
         <HeaderTabs pickup={pickup} delivery={delivery} activeTab={activeTab} setActiveTab={setActiveTab}/>
         </View>}
       ListFooterComponent={()=><View style={{ height: 250}} />}
