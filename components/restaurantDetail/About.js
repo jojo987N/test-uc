@@ -10,7 +10,8 @@ export default function About(props) {
   const {restaurant} = props.route.params
   const {name, image_url, price, review_count, rating, collectTime} = restaurant;
   const [restaurantDetail, setRestaurantDetail] = useState(false)
-  const {categories, setCategories} = useContext(CategoriesContext)
+  // const {categories, setCategories} = useContext(CategoriesContext)
+  const [categories, setCategories] = useState()
 let description;
  if(categories)
 description = `⭐${rating} (${review_count}+ ratings) • ${categories[0].name} •${price}• 🎫`
