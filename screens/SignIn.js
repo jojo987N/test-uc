@@ -85,31 +85,31 @@ loginState && setTimeout(()=>{
   setLoginState(false)
 }, 10000)
 
-useEffect(()=>{
-    AsyncStorage.getItem("userData")
-    .then((value)=>{
-      if(value){
+// useEffect(()=>{
+//     AsyncStorage.getItem("userData")
+//     .then((value)=>{
+//       if(value){
 
-        let userData = JSON.parse(value)
+//         let userData = JSON.parse(value)
 
-        dispatch({
-            type: 'ADD_USER',
-            payload: userData
-          });
+//         dispatch({
+//             type: 'ADD_USER',
+//             payload: userData
+//           });
 
-          navigation.navigate('DrawerNavigator')
-      }
-      
-    })
-//   const checkAuth = onAuthStateChanged(auth, (user)=>{
-       
-//       if(user){
-//        // navigation.navigate('OrdersScreen')
+//           navigation.navigate('DrawerNavigator')
 //       }
-//   })
-//   return checkAuth
+      
+//     })
+// //   const checkAuth = onAuthStateChanged(auth, (user)=>{
+       
+// //       if(user){
+// //        // navigation.navigate('OrdersScreen')
+// //       }
+// //   })
+// //   return checkAuth
 
-})
+// })
 
        if(loginState)
        return <Loader />

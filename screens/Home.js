@@ -37,7 +37,7 @@ export default function Home({navigation}) {
 
   // const [restaurantData, setRestaurantData]= useState()
 
-  const {restaurantData, setRestaurantData} = useContext(RestaurantsContext)
+   const {restaurantData, setRestaurantData} = useContext(RestaurantsContext)
      
   //const restaurantData = []
   //const restaurantData = restaurants
