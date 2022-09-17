@@ -12,8 +12,6 @@ export default function Categories({navigation}) {
   useEffect(()=> {
     getCategories().then(categories => setCategories(categories))
   }, [])
-  if(categories)
-  console.log("------------------------",categories)
   return (
     <View style={{
       marginTop: 5,
