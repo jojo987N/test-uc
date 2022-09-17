@@ -57,8 +57,8 @@ export default function RestaurantsMapScreen({ route, navigation }) {
       <MapView
         ref={_map}
         initialRegion={{
-          latitude: 37.769535,
-          longitude: -122.429213,
+          latitude: lat,
+          longitude: lng,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421
         }}
