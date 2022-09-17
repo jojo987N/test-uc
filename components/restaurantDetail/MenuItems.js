@@ -90,11 +90,11 @@ opacity, setCategoriesFood}) {
                keyExtractor={(item, index)=>index}
                renderItem={({item, index})=>{
                 return (
-                  <View key={index}>
+                  <View key={index} style={{borderWidth: 5}}>
                <View style={styles.menuItemStyle}>
                    <View style={{
                      flexDirection: "row",
-                     borderWidth: 10
+                      
                    }}>
                    <View style={{
                      alignItems: "center",
