@@ -14,12 +14,12 @@ export default function About(props) {
 let description;
 if(categories)
 description = `⭐${rating} (${review_count}+ ratings) • ${categories[0].name} •${price}• 🎫`
-useEffect(()=> {
-  getCategoriesFromRestaurant(restaurant.restaurantId)
-  .then(categories => {
-    setCategories(categories)
-  })
-}, [])
+// useEffect(()=> {
+//   getCategoriesFromRestaurant(restaurant.restaurantId)
+//   .then(categories => {
+//     setCategories(categories)
+//   })
+// }, [])
 return (
     <View style={styles.container}>
       <RestaurantName name={name}/>
