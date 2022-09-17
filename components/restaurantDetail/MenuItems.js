@@ -71,6 +71,7 @@ opacity, setCategoriesFood}) {
   </View>
   return (
     <View style={{flex: 1, }} >
+      <Text>BONJOUR</Text>
       <FlatList
       ref={foodsRef}
       //  data={groupFoods}
