@@ -96,6 +96,7 @@ export default function BottomTabs() {
 
       <Tab.Screen 
          name = "Map" 
+         initialParams={{visible: true}}
           component={RestaurantsMapScreen} 
         // component={SignUp}
          options ={{

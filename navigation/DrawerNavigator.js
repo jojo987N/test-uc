@@ -37,6 +37,7 @@ export default function DrawerNavigator() {
          
         <Drawer.Screen 
             name = "Pickup"
+            initialParams={{visible: false}}
             component={RestaurantsMapScreen}
             options={{
                 title: "Pickup",
