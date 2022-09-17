@@ -12,7 +12,7 @@ export default function About(props) {
   const [restaurantDetail, setRestaurantDetail] = useState(false)
   const {categories, setCategories} = useContext(CategoriesContext)
 let description;
-if(categories)
+// if(categories)
 description = `⭐${rating} (${review_count}+ ratings) • ${categories[0].name} •${price}• 🎫`
 // useEffect(()=> {
 //   getCategoriesFromRestaurant(restaurant.restaurantId)
