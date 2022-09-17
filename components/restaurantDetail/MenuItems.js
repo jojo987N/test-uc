@@ -93,7 +93,8 @@ opacity, setCategoriesFood}) {
                   <View key={index}>
                <View style={styles.menuItemStyle}>
                    <View style={{
-                     flexDirection: "row"
+                     flexDirection: "row",
+                     borderWidth: 10
                    }}>
                    <View style={{
                      alignItems: "center",
