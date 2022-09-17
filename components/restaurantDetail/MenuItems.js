@@ -78,12 +78,13 @@ opacity, setCategoriesFood}) {
       data={categories.filter(category => category.type === "food")}
       keyExtractor={(item, index)=>index}
       renderItem={({item, index})=> {
+        let data = foods.filter((food)=>food.category === item.name)
         return (
           <View>
-            <Text style={styles.groupTitle}>{item.name}</Text> 
-            {/* <FlatList 
+            <Text style={styles.groupTitle}>{data?item.name:""}</Text> 
+            <FlatList 
               //  data={foods.filter((food)=>food.group === item.id)}
-              data={foods.filter((food)=>food.category === item.name)}
+              data={data}
                keyExtractor={(item, index)=>index}
                renderItem={({item, index})=>{
                 return (
@@ -109,7 +110,7 @@ opacity, setCategoriesFood}) {
                  </View>
                 )
               }}
-            /> */}
+            />
           </View>
         )
       }}
