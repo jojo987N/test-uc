@@ -1,6 +1,6 @@
 {
   "expo": {
-   "name": "Good Foods",
+   "name": "Good Foods app",
    "icon": "./assets/images/logo512.png",
    "splash": {
     "image": "./assets/images/splash-screen.png",
@@ -8,14 +8,17 @@
     "backgroundColor": "#ffffff"
   },
    "version": "1.0.0",
-   "slug": "good-foods-slug0",
+   "slug": "good-foods-slug19",
    "ios": {
-     "bundleIdentifier": "com.goodfoods.goodfoods",
+     "bundleIdentifier": "com.goodfoods.goodfoodsapp",
      "buildNumber": "1.0.0"
    },
    "android": {
-     
-     "package": "com.goodfoods.goodfoods",
+     "permissions":[
+      "ACCESS_COARSE_LOCATION",
+      "ACCESS_FINE_LOCATION"
+     ],
+     "package": "com.goodfoods.goodfoodsapp",
      "versionCode": 1
    }
   }
