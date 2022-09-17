@@ -82,7 +82,7 @@ opacity, setCategoriesFood}) {
       renderItem={({item, index})=> {
         let data = foods.filter((food)=>food.category === item.name)
         return (
-          <View>
+          <View style={{borderWidth: 5}}>
             <Text style={styles.groupTitle}>{data.length?item.name:""}</Text> 
             <FlatList 
               //  data={foods.filter((food)=>food.group === item.id)}
@@ -90,7 +90,7 @@ opacity, setCategoriesFood}) {
                keyExtractor={(item, index)=>index}
                renderItem={({item, index})=>{
                 return (
-                  <View key={index} style={{borderWidth: 5}}>
+                  <View key={index} >
                <View style={styles.menuItemStyle}>
                    <View style={{
                      flexDirection: "row",
