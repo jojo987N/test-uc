@@ -39,7 +39,9 @@ opacity, setCategoriesFood}) {
   const {categories, setCategories} = useContext(CategoriesContext)
   const [foods, setFoods] = useState([])
    const [loader, setLoader] = useState(false)
+
   useEffect(()=>{
+    console.log(restaurant.restaurantId)
      setLoader(true)
     AsyncStorage.getItem("foods").then(value => {
       if (!value) {
