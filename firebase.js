@@ -119,9 +119,10 @@ const addfoods = () => {
       })
     }))
 }
-export const getFoods = (restaurantID) => {
+export const getFoods = (restaurantId) => {
   const foods = []
-  return getDocs(foodsCol)
+  const q = query(foodsCol, where("restaurantId", "==", restaurantId))
+  return getDocs(q)
     .then((snapshot) => {
       snapshot.docs.forEach((doc) => {
         foods.push({
