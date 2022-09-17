@@ -130,6 +130,7 @@ export const getFoods = (restaurantId) => {
           id: doc.id
         })
       })
+      console.log(foods)
       return foods
     }
     )
