@@ -43,26 +43,27 @@ opacity, setCategoriesFood}) {
   useEffect(()=>{
     console.log(restaurant.restaurantId)
      setLoader(true)
-    AsyncStorage.getItem("foods").then(value => {
-      if (!value) {
+    // AsyncStorage.getItem("foods").then(value => {
+      // if (!value) {
         getFoods(restaurant.restaurantId).then((foods) => {
           setFoods(foods)
-          AsyncStorage.setItem('foods', JSON.stringify(foods))
+          // AsyncStorage.setItem('foods', JSON.stringify(foods))
         })
           .then(() => {
             setLoader(false)
           })
-      }else{
-        AsyncStorage.getItem("foods").then(value=>{
-          let foodsData = JSON.parse(value)
-          setFoods(foodsData)
-        }).then(() => {
-          setTimeout(()=>{
-            setLoader(false)
-          }, 1000)
-        })
-      }
-    })
+      // }
+      // else{
+      //   AsyncStorage.getItem("foods").then(value=>{
+      //     let foodsData = JSON.parse(value)
+      //     setFoods(foodsData)
+      //   }).then(() => {
+      //     setTimeout(()=>{
+      //       setLoader(false)
+      //     }, 1000)
+      //   })
+      // }
+    // })
   },[activeTab])
   if(loader)
   return <View>
