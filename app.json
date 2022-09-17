@@ -14,10 +14,7 @@
      "buildNumber": "1.0.0"
    },
    "android": {
-     "permissions":[
-      "ACCESS_COARSE_LOCATION",
-      "ACCESS_FINE_LOCATION"
-     ],
+     
      "package": "com.goodfoods.goodfoods",
      "versionCode": 1
    }
