@@ -19,7 +19,7 @@ export default function Categories({navigation}) {
       paddingVertical: 10,
       paddingLeft: 10,
     }}>
-      <FlatList
+      {categories?<FlatList
         horizontal
         data={categories.filter(category => category.type !== "foods")}
         keyExtractor={(item, index) => index}
@@ -47,7 +47,7 @@ export default function Categories({navigation}) {
           )
         }}
         showsHorizontalScrollIndicator={false}
-      />
+      />:<></>}
       
     </View>
   )
