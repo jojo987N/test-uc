@@ -23,7 +23,7 @@ export default function Categories({navigation}) {
     }}>
       {categories?<FlatList
         horizontal
-        data={categories.filter(category => category.type === "foods")}
+        data={categories.filter(category => category.type !== "food")}
         keyExtractor={(item, index) => index}
         renderItem={({ item, index }) => {
           return (
