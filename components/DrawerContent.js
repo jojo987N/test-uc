@@ -46,7 +46,7 @@ export default function DrawerContent(props) {
                     rounded
                     avatarStyle={styles.avatar}
                     size={75}
-                    source={{uri: "https://cdn.pixabay.com/photo/2017/02/23/13/05/avatar-2092113_960_720.png"}}/>
+                    source={{uri: "https://cdn-icons-png.flaticon.com/512/149/149071.png"}}/>
                 <View style={{marginLeft: 10}}>
                     <Text style={{
                         fontWeight: "bold",
