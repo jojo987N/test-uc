@@ -71,7 +71,6 @@ opacity, setCategoriesFood}) {
   </View>
   return (
     <View style={{flex: 1, }} >
-      <Text>BONJOUR</Text>
       <FlatList
       ref={foodsRef}
       //  data={groupFoods}
@@ -115,7 +114,7 @@ opacity, setCategoriesFood}) {
         )
       }}
       ListHeaderComponent={()=> <View>
-        {/* <About route={route} navigation={navigation} userLocation={userLocation} mapRef={mapRef} apikey={apikey}/> */}
+        <About route={route} navigation={navigation} userLocation={userLocation} mapRef={mapRef} apikey={apikey}/>
         <HeaderTabs pickup={pickup} delivery={delivery} activeTab={activeTab} setActiveTab={setActiveTab}/>
         </View>}
       ListFooterComponent={()=><View style={{ height: 250}} />}
