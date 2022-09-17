@@ -82,7 +82,7 @@ opacity, setCategoriesFood}) {
       renderItem={({item, index})=> {
         let data = foods.filter((food)=>food.category === item.name)
         return (
-          <View style={{borderWidth: 5}}>
+          <View >
            {data.length? <Text style={styles.groupTitle}>{item.name}</Text>:<></>} 
             <FlatList 
               //  data={foods.filter((food)=>food.group === item.id)}
