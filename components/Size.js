@@ -14,7 +14,7 @@ const Size = ({ food }) => {
                     textStyle={styles.checkboxText}
                     containerStyle={styles.checkboxContainer}
                 />
-                <Text style={styles.price}>{food.size[key]}</Text>
+                <Text style={styles.price}>{Number(food.size[key])}</Text>
             </View>
         )
     })
