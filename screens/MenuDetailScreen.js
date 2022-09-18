@@ -21,7 +21,7 @@ export default function MenuDetailScreen({route}) {
       </View>
       <View style={styles.divider1}></View>
 
-      <Size food={food}/>
+      <Size food={food} restaurant={restaurant}/>
       <View style={styles.section2}>
       {/* <DisplayPreferences /> */}
        
