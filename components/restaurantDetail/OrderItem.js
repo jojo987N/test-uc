@@ -13,7 +13,7 @@ import { MaterialIcons} from '@expo/vector-icons';
           <MaterialIcons name="close" size={12} color="black" />
           <Text style={styles.quantity}>{quantity}</Text>
       </View>
-      <Text style={styles.price}>{items.reduce((a, v) => v.name === name ? a + v.price : a, 0).toLocaleString(language, {style: "currency", currency: currency})}</Text>
+      <Text style={styles.price}>{Number(items.reduce((a, v) => v.name === name ? a + v.price : a, 0)).toLocaleString(language, {style: "currency", currency: currency})}</Text>
     </View>
   )
 }
