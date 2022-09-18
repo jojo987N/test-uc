@@ -22,7 +22,8 @@ const Size = ({ food }) => {
 const styles = StyleSheet.create({
     container: {
         flexDirection: "row", 
-        alignItems: "center"
+        alignItems: "center",
+        justifyContent: "space-between"
     }
 })
 export default Size
