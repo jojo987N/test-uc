@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Text, View, StyleSheet } from "react-native"
 import { CheckBox } from "react-native-elements"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { currency, language } from "../global"
 
 const Size = ({ food, restaurant}) => {
