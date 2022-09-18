@@ -22,7 +22,7 @@ const Size = ({ food, restaurant}) => {
                         dispatch({
                             type: 'UPDATE_FROM_CART',
                             payload: {
-                                food,
+                                ...food,
                                 size: {
                                     title: key,
                                     price: food.size[key]
