@@ -19,17 +19,17 @@ const Size = ({ food, restaurant}) => {
                     checkedIcon='dot-circle-o'
                     onPress={() => {
                         // if(!items.some(item => item.name === food.name))
-                        // dispatch({
-                        //     type: 'UPDATE_FROM_CART',
-                        //     payload: {
-                        //         food,
-                        //         size: {
-                        //             title: key,
-                        //             price: food.size[key]
-                        //         }
+                        dispatch({
+                            type: 'UPDATE_FROM_CART',
+                            payload: {
+                                food,
+                                size: {
+                                    title: key,
+                                    price: food.size[key]
+                                }
 
-                        //     }
-                        //   });
+                            }
+                          });
                         setChecked([...Array(index).fill(false), true, ...Array(checked.length - index).fill(false)])
                     }}
                     textStyle={styles.checkboxText}
