@@ -21,8 +21,15 @@ const Size = ({ food, restaurant}) => {
                         // if(!items.some(item => item.name === food.name))
                         console.log("fggg")
                         dispatch({
-                            type: 'UPDATE_FROM_CART',
-                            payload: 2
+                            type: 'UPDATE_FROM_CARD',
+                            payload: {
+                                ...food,
+                                size: {
+                                    title: key,
+                                    price: food.size[key]
+                                }
+
+                            }
                           });
                         setChecked([...Array(index).fill(false), true, ...Array(checked.length - index).fill(false)])
                     }}
