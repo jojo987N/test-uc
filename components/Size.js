@@ -22,14 +22,7 @@ const Size = ({ food, restaurant}) => {
                         console.log("fggg")
                         dispatch({
                             type: 'UPDATE_FROM_CART',
-                            payload: {
-                                ...food,
-                                size: {
-                                    title: key,
-                                    price: food.size[key]
-                                }
-
-                            }
+                            payload: 2
                           });
                         setChecked([...Array(index).fill(false), true, ...Array(checked.length - index).fill(false)])
                     }}
