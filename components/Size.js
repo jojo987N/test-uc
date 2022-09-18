@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { Text, View, StyleSheet } from "react-native"
 import { CheckBox } from "react-native-elements"
 import { currency, language } from "../global"
