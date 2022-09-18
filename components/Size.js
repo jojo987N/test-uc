@@ -10,8 +10,8 @@ const Size = ({ food }) => {
                     title={key}
                     checked={false}
                     onPress={() => {
-                        
                     }}
+                    textStyle={{fontSize: 25}}
                 />
                 <Text>{food.size[key]}</Text>
             </View>
