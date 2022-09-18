@@ -19,6 +19,7 @@ const Size = ({ food, restaurant}) => {
                     checkedIcon='dot-circle-o'
                     onPress={() => {
                         // if(!items.some(item => item.name === food.name))
+                        console.log("fggg")
                         dispatch({
                             type: 'UPDATE_FROM_CART',
                             payload: {
