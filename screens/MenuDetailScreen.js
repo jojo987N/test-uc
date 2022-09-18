@@ -20,9 +20,11 @@ export default function MenuDetailScreen({route}) {
         <Text style={styles.description}>{food.description}</Text>
       </View>
       <View style={styles.divider1}></View>
+
+      <Size food={food}/>
       <View style={styles.section2}>
       {/* <DisplayPreferences /> */}
-      <Size food={food}/>
+       
       </View>
       <Quantity id={food.id} food={food} restaurant={restaurant} screen="mds"/>
       <View style={{height: 100}} />
