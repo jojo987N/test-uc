@@ -138,20 +138,11 @@ opacity, setCategoriesFood}) {
   )
 }
 const FoodInfo = (props)=>{
-  const dispatch = useDispatch();
+  
   return (
     <TouchableOpacity
       style={{ flex: 3, justifyContent: "center", paddingHorizontal: 10 }}
       onPress={() => {
-        dispatch({
-          type: 'ADD_TO_CART',
-          payload: {
-            ...props.food,
-            restaurantName: props.restaurant.name,
-            restaurantImage: props.restaurant.image,
-            restaurant: props.restaurant
-          }
-        });
         props.navigation.navigate("MenuDetailScreen", { food: props.food, restaurant: props.restaurant })
       }}>
       <Text style={styles.titleStyle}>{props.food.name}</Text>
