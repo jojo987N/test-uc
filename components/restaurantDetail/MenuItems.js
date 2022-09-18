@@ -187,7 +187,7 @@ export const Quantity = ({id, food, restaurant, screen}) => {
           payload: {
             ...food,
             restaurantName: restaurant.name,
-            restaurantImage: restaurant.image_url,
+            restaurantImage: restaurant.image,
             restaurant: restaurant
           }
         });
