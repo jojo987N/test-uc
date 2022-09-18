@@ -4,11 +4,11 @@ import { CheckBox } from "react-native-elements"
 import { useDispatch, useSelector } from "react-redux"
 import { currency, language } from "../global"
 
-const Size = ({ food, restaurant}) => {
+const Size = ({ food, restaurant }) => {
     const dispatch = useDispatch();
     // const items = useSelector((state)=>state.cartReducer).filter(item => item.restaurantName === restaurant.name)
     const [checked, setChecked] = useState(new Array(Object.keys(food.size).length).fill(false))
-   
+
     return Object.keys(food.size).map((key, index) => {
         return (
             <View key={index} style={styles.container}>
@@ -26,10 +26,13 @@ const Size = ({ food, restaurant}) => {
                                 size: {
                                     title: key,
                                     price: food.size[key]
-                                }
+                                },
+                                restaurantName: restaurant.name,
+                                restaurantImage: restaurant.image,
+                                restaurant: restaurant
 
                             }
-                          });
+                        });
                         setChecked([...Array(index).fill(false), true, ...Array(checked.length - index).fill(false)])
                     }}
                     textStyle={styles.checkboxText}
