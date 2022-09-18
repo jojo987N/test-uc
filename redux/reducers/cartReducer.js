@@ -9,7 +9,7 @@ let cartReducer = (state = [], action) =>{
         }
         case 'UPDATE_FROM_CARD': {
             var idx = state.findIndex((food) => food.id === action.payload.id)
-            return [...state.slice(0, idx), food,...state.slice(idx + 1)]
+            return [...state.slice(0, idx), action.payload,...state.slice(idx + 1)]
         }
         case 'CLEAR_RESTAURANT':
             return state.filter(item => item.restaurantName !== action.payload)
