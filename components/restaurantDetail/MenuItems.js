@@ -138,6 +138,7 @@ opacity, setCategoriesFood}) {
   )
 }
 const FoodInfo = (props)=>{
+  const dispatch = useDispatch();
   return (
     <TouchableOpacity
       style={{ flex: 3, justifyContent: "center", paddingHorizontal: 10 }}
