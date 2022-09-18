@@ -66,7 +66,7 @@ export default function ViewCart({navigation, route, params}) {
                         <Text style={{
                             color: "white",
                             fontSize: 20
-                        }}>{ total.toLocaleString(language, {
+                        }}>{ Number(total).toLocaleString(language, {
                             style: "currency",
                             currency: currency
                         })}</Text>
