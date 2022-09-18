@@ -11,6 +11,7 @@ const Size = ({ food }) => {
                     title={key}
                     checked={true}
                     uncheckedIcon='circle-o'
+                    checkedIcon='dot-circle-o'
                     onPress={() => {
                     }}
                     textStyle={styles.checkboxText}
