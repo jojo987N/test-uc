@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         // borderWidth: 2,
         marginHorizontal: 10,
         paddingRight: 10,
-        backgroundColor: "red"
+        backgroundColor: "white"
     },
     checkboxText: {
         fontSize: 20
