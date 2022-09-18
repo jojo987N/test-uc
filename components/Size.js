@@ -7,17 +7,14 @@ import { currency, language } from "../global"
 const Size = ({ food, restaurant}) => {
     const dispatch = useDispatch();
     // const items = useSelector((state)=>state.cartReducer).filter(item => item.restaurantName === restaurant.name)
-    const [checkboxs, setCheckboxs] = useState(new Array(Object.keys(food.size).length).fill({
-        checked: false,
-        title: "",
-    }))
+    const [checked, setChecked] = useState(new Array(Object.keys(food.size).length).fill(false))
    
     return Object.keys(food.size).map((key, index) => {
         return (
             <View key={index} style={styles.container}>
                 <CheckBox
                     title={key}
-                    checked={checkboxs[index].checked}
+                    checked={checked[index]}
                     uncheckedIcon='circle-o'
                     checkedIcon='dot-circle-o'
                     onPress={() => {
@@ -33,7 +30,7 @@ const Size = ({ food, restaurant}) => {
 
                         //     }
                         //   });
-                        setCheckboxs([...Array(index).fill(false), {checked: true, title: key}, ...Array(checked.length - index).fill(false)])
+                        setChecked([...Array(index).fill(false), true, ...Array(checked.length - index).fill(false)])
                     }}
                     textStyle={styles.checkboxText}
                     containerStyle={styles.checkboxContainer}
