@@ -11,10 +11,10 @@ const Size = ({ food }) => {
                     checked={false}
                     onPress={() => {
                     }}
-                    textStyle={{fontSize: 20}}
-                    containerStyle={{backgroundColor: "white", borderWidth: 0}}
+                    textStyle={styles.checkboxText}
+                    containerStyle={styles.checkboxContainer}
                 />
-                <Text>{food.size[key]}</Text>
+                <Text style={styles.price}>{food.size[key]}</Text>
             </View>
         )
     })
@@ -29,6 +29,16 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
         paddingRight: 10,
         backgroundColor: "white"
+    },
+    checkboxText: {
+        fontSize: 20
+    },
+    checkboxContainer: {
+        backgroundColor: "white", 
+        borderWidth: 0
+    },
+    price: {
+        fontSize: 20
     }
 })
 export default Size
