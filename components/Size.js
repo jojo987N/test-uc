@@ -3,10 +3,10 @@ import { Text, View, StyleSheet } from "react-native"
 import { CheckBox } from "react-native-elements"
 import { currency, language } from "../global"
 
-const Size = ({ food }) => {
-
+const Size = ({ food, restaurant}) => {
+    const dispatch = useDispatch();
     const [checked, setChecked] = useState(new Array(Object.keys(food.size).length).fill(false))
-
+   
     return Object.keys(food.size).map((key, index) => {
         return (
             <View key={index} style={styles.container}>
@@ -16,6 +16,15 @@ const Size = ({ food }) => {
                     uncheckedIcon='circle-o'
                     checkedIcon='dot-circle-o'
                     onPress={() => {
+                        dispatch({
+                            type: 'ADD_TO_CART',
+                            payload: {
+                              ...food,
+                              restaurantName: restaurant.name,
+                              restaurantImage: restaurant.image,
+                              restaurant: restaurant
+                            }
+                          });
                         setChecked([...Array(index).fill(false), true, ...Array(checked.length - index).fill(false)])
                     }}
                     textStyle={styles.checkboxText}
