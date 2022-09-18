@@ -16,7 +16,7 @@ export default function MenuDetailScreen({route}) {
       <Image source={{uri: food.image}} style={styles.image}/> 
       <View style={styles.section1}>
         <Text style={styles.title}>{food.name}</Text>
-        <Text style={styles.price}>{food.price.toLocaleString(language, {style: "currency",currency: currency})}</Text>
+        <Text style={styles.price}>{Number(food.price).toLocaleString(language, {style: "currency",currency: currency})}</Text>
         <Text style={styles.description}>{food.description}</Text>
       </View>
       <View style={styles.divider1}></View>
