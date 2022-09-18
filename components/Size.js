@@ -27,6 +27,7 @@ const Size = ({ food, restaurant }) => {
                                     title: key,
                                     price: food.size[key]
                                 },
+                                price: food.size[key] + food.price,
                                 restaurantName: restaurant.name,
                                 restaurantImage: restaurant.image,
                                 restaurant: restaurant
