@@ -11,7 +11,7 @@ const Size = ({ food }) => {
                     checked={false}
                     onPress={() => {
                     }}
-                    textStyle={{fontSize: 25}}
+                    textStyle={{fontSize: 20}}
                     containerStyle={{backgroundColor: "white", borderWidth: 0}}
                 />
                 <Text>{food.size[key]}</Text>
