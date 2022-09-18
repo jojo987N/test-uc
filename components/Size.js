@@ -12,7 +12,7 @@ const Size = ({ food }) => {
                     onPress={() => {
                     }}
                     textStyle={{fontSize: 25}}
-                    containerStyle={{backgroundColor: "white"}}
+                    containerStyle={{backgroundColor: "white", borderWidth: 0}}
                 />
                 <Text>{food.size[key]}</Text>
             </View>
