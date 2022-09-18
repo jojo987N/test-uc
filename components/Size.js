@@ -3,7 +3,7 @@ import { CheckBox } from "react-native-elements"
 
 const Size = ({ food }) => {
 
-    Object.keys(food.size).map((key, index) => {
+    return Object.keys(food.size).map((key, index) => {
         return (
             <View key={index}>
                 <CheckBox
