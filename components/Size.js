@@ -5,7 +5,7 @@ const Size = ({ food }) => {
 
     return Object.keys(food.size).map((key, index) => {
         return (
-            <View key={index}>
+            <View key={index} style={{flexDirection: "row"}}>
                 <CheckBox
                     title={key}
                     checked={false}
