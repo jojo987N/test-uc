@@ -1,11 +1,11 @@
-import { Text, View } from "react-native"
+import { Text, View, StyleSheet} from "react-native"
 import { CheckBox } from "react-native-elements"
 
 const Size = ({ food }) => {
 
     return Object.keys(food.size).map((key, index) => {
         return (
-            <View key={index} style={{flexDirection: "row"}}>
+            <View key={index} style={styles.container}>
                 <CheckBox
                     title={key}
                     checked={false}
@@ -19,5 +19,11 @@ const Size = ({ food }) => {
     })
 
 }
+const styles = StyleSheet.create({
+    container: {
+        flexDirection: "row", 
+        alignItems: "center"
+    }
+})
 export default Size
 
