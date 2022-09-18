@@ -1,5 +1,6 @@
 import { Text, View, StyleSheet} from "react-native"
 import { CheckBox } from "react-native-elements"
+import { currency, language } from "../global"
 
 const Size = ({ food }) => {
 
@@ -14,7 +15,7 @@ const Size = ({ food }) => {
                     textStyle={styles.checkboxText}
                     containerStyle={styles.checkboxContainer}
                 />
-                <Text style={styles.price}>{Number(food.size[key])}</Text>
+                <Text style={styles.price}>{Number(food.size[key]).toLocaleString(language, {style: "currency",currency: currency})}</Text>
             </View>
         )
     })
