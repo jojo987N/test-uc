@@ -6,7 +6,7 @@ import { currency, language } from "../global"
 
 const Size = ({ food, restaurant}) => {
     const dispatch = useDispatch();
-    const items = useSelector((state)=>state.cartReducer).filter(item => item.restaurantName === restaurant.name)
+    // const items = useSelector((state)=>state.cartReducer).filter(item => item.restaurantName === restaurant.name)
     const [checked, setChecked] = useState(new Array(Object.keys(food.size).length).fill(false))
    
     return Object.keys(food.size).map((key, index) => {
@@ -18,15 +18,10 @@ const Size = ({ food, restaurant}) => {
                     uncheckedIcon='circle-o'
                     checkedIcon='dot-circle-o'
                     onPress={() => {
-                        if(!items.some(item => item.name === food.name))
+                        // if(!items.some(item => item.name === food.name))
                         dispatch({
-                            type: 'ADD_TO_CART',
-                            payload: {
-                              ...food,
-                              restaurantName: restaurant.name,
-                              restaurantImage: restaurant.image,
-                              restaurant: restaurant
-                            }
+                            type: 'UPDATE_FROM_CART',
+                            payload: food
                           });
                         setChecked([...Array(index).fill(false), true, ...Array(checked.length - index).fill(false)])
                     }}
