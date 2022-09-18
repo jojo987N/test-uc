@@ -5,6 +5,7 @@ import { CheckBox } from 'react-native-elements'
 import { Quantity } from '../components/restaurantDetail/MenuItems'
 import ViewCart from '../components/restaurantDetail/ViewCart'
 import DisplayPreferences from '../components/DisplayPreferences'
+import Size from '../components/Size'
 export default function MenuDetailScreen({route}) {
   const {food, restaurant} = route.params
   const [checkbox1, setCheckbox1] = useState(true)
@@ -20,7 +21,8 @@ export default function MenuDetailScreen({route}) {
       </View>
       <View style={styles.divider1}></View>
       <View style={styles.section2}>
-      <DisplayPreferences />
+      {/* <DisplayPreferences /> */}
+      <Size food={food}/>
       </View>
       <Quantity id={food.id} food={food} restaurant={restaurant} screen="mds"/>
       <View style={{height: 100}} />
