@@ -25,7 +25,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "space-between",
         borderWidth: 2,
-        marginHorizontal: 10
+        marginHorizontal: 10,
+        paddingRight: 10
     }
 })
 export default Size
