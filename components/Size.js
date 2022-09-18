@@ -9,7 +9,7 @@ const Size = ({ food }) => {
             <View key={index} style={styles.container}>
                 <CheckBox
                     title={key}
-                    checked={false}
+                    checked={true}
                     uncheckedIcon='circle-o'
                     onPress={() => {
                     }}
