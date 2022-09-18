@@ -7,7 +7,6 @@ const Size = ({ food }) => {
         return (
             <View key={index}>
                 <CheckBox
-                    key={i}
                     title={key}
                     checked={false}
                     onPress={() => {
