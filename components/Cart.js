@@ -23,7 +23,7 @@ const Cart = ({restaurantName, setViewCartButton, setModalVisible})=>{
                         ))}
                     <View style={styles.subtotalContainer}>
                         <Text style={styles.subtotalText}>Subtotal</Text>
-                        <Text>{total.toLocaleString(language, {
+                        <Text>{Number(total).toLocaleString(language, {
                             style: "currency",
                             currency: currency
                         })}</Text>
