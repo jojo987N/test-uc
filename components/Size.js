@@ -13,7 +13,7 @@ const Size = ({ food }) => {
                         
                     }}
                 />
-                <Text>{food[key]}</Text>
+                <Text>{food.size[key]}</Text>
             </View>
         )
     })
