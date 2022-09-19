@@ -68,12 +68,16 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
                   onPress={() => {
                     // setLoading(true)
                     setModalVisible(false);
-                    navigation.navigate('OrderRequest',{   
-                        // lat: address.location.lat,
-                        // lng: address.location.lng,
-                        lat,
-                        lng
-                    })
+
+                    addOrderToFirebase()
+
+
+                    // navigation.navigate('OrderRequest',{   
+                    //     // lat: address.location.lat,
+                    //     // lng: address.location.lng,
+                    //     lat,
+                    //     lng
+                    // })
                      
                   }}>
                   <Text style={styles.checkoutText}>Checkout</Text>
