@@ -13,7 +13,6 @@ import { LoaderContext } from '../contexts/LoaderContext'
 export default function Checkout({restaurantName, setLoader, setViewCartButton, setModalVisible}) {
     const {setLoading} = useContext(LoaderContext)
     const {name, phone, address, id, lat, lng} = useSelector((state)=>state.userReducer)
-    console.log(useSelector((state)=>state.userReducer))
      const navigation = useNavigation()
     const items = useSelector((state)=>state.cartReducer).filter(item => item.restaurantName === restaurantName)
     const total = items.reduce((prev, curr)=> prev + curr.price, 0)
@@ -37,16 +36,16 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
                      name: items[0].restaurant.name,
                  },
             User: {
-                    id: id,
-                    name: name,
-                    //  lat: address.location.lat,
-                    //  lng: address.location.lng,
-                    lat,
-                    lng,
-                    phone: phone,
-                    // address: address.description,
-                    address,
-                    items: items,
+                    // id: id,
+                    // name: name,
+                    // //  lat: address.location.lat,
+                    // //  lng: address.location.lng,
+                    // lat,
+                    // lng,
+                    // phone: phone,
+                    // // address: address.description,
+                    // address,
+                    // items: items,
                 },
                 status: "pending",
                 createdAt: serverTimestamp(),
