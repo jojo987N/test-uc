@@ -66,7 +66,7 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
               <TouchableOpacity
                   style={styles.checkoutButton}
                   onPress={() => {
-                    // setLoading(true)
+                    setLoading(true)
                     setModalVisible(false);
 
                     addOrderToFirebase()
