@@ -45,21 +45,21 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
                     phone: phone,
                     // address: address.description,
                     address,
-                     items: items[0],
+                     item: items[0],
                 },
                 status: "pending",
                 createdAt: serverTimestamp(),
         })
-        // .then(()=> {
-        //     dispatch({ type: 'CLEAR_RESTAURANT', payload: restaurantName })
-        //     setLoading(false)
-        //    navigation.navigate('OrderRequest',{
-        //     //    lat: address.location.lat,
-        //     //    lng: address.location.lng
-        //     lat,
-        //     lng
-        //    })
-        // })
+        .then(()=> {
+            dispatch({ type: 'CLEAR_RESTAURANT', payload: restaurantName })
+            setLoading(false)
+           navigation.navigate('OrderRequest',{
+            //    lat: address.location.lat,
+            //    lng: address.location.lng
+            lat,
+            lng
+           })
+        })
     }
   return (
       <>
