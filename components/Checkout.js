@@ -17,7 +17,7 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
     const items = useSelector((state)=>state.cartReducer).filter(item => item.restaurantName === restaurantName)
     const total = items.reduce((prev, curr)=> prev + curr.price, 0)
 
-    console.log("IMAGE : ",items[0].restaurant.restaurantImage)
+    console.log("IMAGE : ",items[0].restaurantImage)
     const dispatch = useDispatch();   
     const addOrderToFirebase = () => {
         setViewCartButton(false)
