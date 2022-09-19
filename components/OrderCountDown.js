@@ -17,16 +17,20 @@ export default function OrderCountDown({
       colors={['#348ac7', '#F7B801', '#A30000', '#A30000']}
       colorsTime={[23, 17, 8, 0]}
       onUpdate={(remainingTime) => {
-        if(remainingTime%4 === 0 && timeLeft >=1)
-          setTimeLeft(timeLeft-1)
+        // if(remainingTime%4 === 0 && timeLeft >=1)
+        //   setTimeLeft(timeLeft-1)
       }}
       onComplete={() => {
       }}
       size={100}
       strokeWidth={5}
     >
-      {() => <View style={styles.container}>
+      {/* {() => <View style={styles.container}>
         <Text style={styles.text}>{timeLeft} </Text>
+        <Text style={styles.text1}>min </Text>
+      </View>} */}
+       {( remainingTime ) => <View style={styles.container}>
+        <Text style={styles.text}>{remainingTime} </Text>
         <Text style={styles.text1}>min </Text>
       </View>}
     </CountdownCircleTimer>
