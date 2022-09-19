@@ -29,7 +29,7 @@ export default function OrderCountDown({
         <Text style={styles.text}>{timeLeft} </Text>
         <Text style={styles.text1}>min </Text>
       </View>} */}
-       {( remainingTime ) => <View style={styles.container}>
+       {( {remainingTime} ) => <View style={styles.container}>
         <Text style={styles.text}>{remainingTime} </Text>
         <Text style={styles.text1}>min </Text>
       </View>}
