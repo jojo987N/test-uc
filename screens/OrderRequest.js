@@ -171,7 +171,9 @@ export const CustomMarker = ({subject, lat, lng, angle, })=>{
   coordinate={{latitude: lat,longitude: lng}}
   >
     {subject === "user"?
-    <Image source={require('../assets/images/home1.png')} style={styles.homeMarkerImage}
+    // <Image source={require('../assets/images/home1.png')} style={styles.homeMarkerImage}
+    <Image source={require('../assets/images/logo512.png')} style={styles.homeMarkerImage}
+
     resizeMode="contain"/>
     :
      <Animated.View  style={
