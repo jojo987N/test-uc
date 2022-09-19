@@ -25,8 +25,12 @@ export default function OrderCountDown({
       size={100}
       strokeWidth={5}
     >
-      {() => <View style={styles.container}>
+      {/* {() => <View style={styles.container}>
         <Text style={styles.text}>{timeLeft} </Text>
+        <Text style={styles.text1}>min </Text>
+      </View>} */}
+       {( remainingTime ) => <View style={styles.container}>
+        <Text style={styles.text}>{remainingTime} </Text>
         <Text style={styles.text1}>min </Text>
       </View>}
     </CountdownCircleTimer>
