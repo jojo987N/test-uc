@@ -13,6 +13,7 @@ import { LoaderContext } from '../contexts/LoaderContext'
 export default function Checkout({restaurantName, setLoader, setViewCartButton, setModalVisible}) {
     const {setLoading} = useContext(LoaderContext)
     const {name, phone, address, id, lat, lng} = useSelector((state)=>state.userReducer)
+    console.log(useSelector((state)=>state.userReducer))
      const navigation = useNavigation()
     const items = useSelector((state)=>state.cartReducer).filter(item => item.restaurantName === restaurantName)
     const total = items.reduce((prev, curr)=> prev + curr.price, 0)
@@ -29,11 +30,11 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
                     //  phone: items[0].restaurant.phone,
                     //  name: items[0].restaurant.name,
 
-                    // lat: items[0].restaurant.lat,
-                    //  lng: items[0].restaurant.lng,
-                    //  address: items[0].restaurant.address,
-                    //  phone: items[0].restaurant.phone,
-                    //  name: items[0].restaurant.name,
+                    lat: items[0].restaurant.lat,
+                     lng: items[0].restaurant.lng,
+                     address: items[0].restaurant.address,
+                     phone: items[0].restaurant.phone,
+                     name: items[0].restaurant.name,
                  },
             User: {
                     id: id,
