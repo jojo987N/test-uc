@@ -77,7 +77,7 @@ export default function QuantityAnimate({ id, food, restaurant }) {
             payload: {
               ...food,
               restaurantName: restaurant.name,
-              restaurantImage: restaurant.image_url,
+              restaurantImage: restaurant.image,
               restaurant: restaurant
             }
           });
