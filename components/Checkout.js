@@ -12,7 +12,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { LoaderContext } from '../contexts/LoaderContext'
 export default function Checkout({restaurantName, setLoader, setViewCartButton, setModalVisible}) {
     const {setLoading} = useContext(LoaderContext)
-    const {name, phone, address, id} = useSelector((state)=>state.userReducer)
+    const {name, phone, address, id, lat, lng} = useSelector((state)=>state.userReducer)
      const navigation = useNavigation()
     const items = useSelector((state)=>state.cartReducer).filter(item => item.restaurantName === restaurantName)
     const total = items.reduce((prev, curr)=> prev + curr.price, 0)
@@ -23,7 +23,13 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
             orderId: generateUID(),
             restaurantId: items[0].restaurant.restaurantId,
             Restaurant: {
-                     lat: items[0].restaurant.coordinates.latitude,
+                    //  lat: items[0].restaurant.coordinates.latitude,
+                    //  lng: items[0].restaurant.coordinates.longitude,
+                    //  address: items[0].restaurant.location.display_address.toString(),
+                    //  phone: items[0].restaurant.phone,
+                    //  name: items[0].restaurant.name,
+
+                    lat: items[0].restaurant.coordinates.latitude,
                      lng: items[0].restaurant.coordinates.longitude,
                      address: items[0].restaurant.location.display_address.toString(),
                      phone: items[0].restaurant.phone,
@@ -32,10 +38,13 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
             User: {
                     id: id,
                     name: name,
-                     lat: address.location.lat,
-                     lng: address.location.lng,
+                    //  lat: address.location.lat,
+                    //  lng: address.location.lng,
+                    lat,
+                    lng,
                     phone: phone,
-                    address: address.description,
+                    // address: address.description,
+                    address,
                     items: items,
                 },
                 status: "pending",
@@ -44,8 +53,10 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
             dispatch({ type: 'CLEAR_RESTAURANT', payload: restaurantName })
             setLoading(false)
            navigation.navigate('OrderRequest',{
-               lat: address.location.lat,
-               lng: address.location.lng
+            //    lat: address.location.lat,
+            //    lng: address.location.lng
+            lat,
+            lng
            })
         })
     }
@@ -58,8 +69,10 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
                     // setLoading(true)
                     setModalVisible(false);
                     navigation.navigate('OrderRequest',{   
-                        lat: address.location.lat,
-                        lng: address.location.lng,
+                        // lat: address.location.lat,
+                        // lng: address.location.lng,
+                        lat,
+                        lng
                     })
                      
                   }}>
