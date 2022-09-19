@@ -55,7 +55,13 @@ export default function Checkout({restaurantName, setLoader, setViewCartButton, 
               <TouchableOpacity
                   style={styles.checkoutButton}
                   onPress={() => {
+                    // setLoading(true)
                     setModalVisible(false);
+                    navigation.navigate('OrderRequest',{   
+                        lat: address.location.lat,
+                        lng: address.location.lng,
+                    })
+                     
                   }}>
                   <Text style={styles.checkoutText}>Checkout</Text>
                   <Text style={styles.total}>{total ? total.toLocaleString(language, { style: "currency", currency: currency }) : ""}</Text>
