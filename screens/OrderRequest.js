@@ -8,7 +8,7 @@ import LottieView from 'lottie-react-native';
 import MapViewDirections from 'react-native-maps-directions';
 import { apikey } from '../global'
 import ProgressComponent from '../components/ProgressComponent'
-import { positions } from '../positions'
+// import { positions } from '../positions'
 import { sin } from 'react-native-reanimated'
 import OrderCountDown from '../components/OrderCountDown'
 import { Polyline } from 'react-native-maps'
