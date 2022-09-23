@@ -7,7 +7,7 @@ import { apikey } from '../../global'
 import { location } from '../../utils'
 import { useDispatch } from 'react-redux'
 
-export default function SearchBar({ searchbar, cityHandler, style, setAddress, update, navigation, restaurantData }) {
+export default function SearchBar({ searchbar, cityHandler, style, setAddress, address, update, navigation, restaurantData }) {
   const [value, setValue] = useState()
   const dispatch = useDispatch();
   return (
@@ -69,7 +69,7 @@ export default function SearchBar({ searchbar, cityHandler, style, setAddress, u
             <Text>Search</Text>
           </View>
         ) : () => { }}
-      // textInputProps={{
+       textInputProps={{
       //   onTouchStart: ()=>  {
       //     location().then(Location =>{
 
@@ -90,9 +90,10 @@ export default function SearchBar({ searchbar, cityHandler, style, setAddress, u
       //     })
       //     // alert("Hello...")
       //   },
-      //   value: value,
+      ...address?{value: address}:{}
+        //  value: value,
       //   onChangeText: (text) => setValue(text)
-      // }}
+       }}
       />
     </View>
   )
