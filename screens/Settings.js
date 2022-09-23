@@ -37,10 +37,10 @@ export default function Settings({ navigation }) {
 
       <Animatable.View style={styles.footer} animation="fadeInUpBig">
 
-        <View style={{ marginHorizontal: 25 }}>
+        {/* <View style={{ marginHorizontal: 25 }}>
           <SearchBar style={{ backgroundColor: "white", borderBottomColor: "grey", borderBottomWidth: 0.3 }}
             setAddress={setAddress} />
-        </View>
+        </View> */}
 
         <ScrollView showsVerticalScrollIndicator={false} >
 
