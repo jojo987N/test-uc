@@ -1,3 +1,5 @@
+import * as Location from 'expo-location';
+
 
 export const bearing = (φ1, λ1, φ2, λ2) => {
 
