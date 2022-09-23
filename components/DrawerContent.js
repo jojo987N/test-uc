@@ -10,7 +10,7 @@ import {signOut } from 'firebase/auth'
 import { auth } from '../firebase'
 import { useNavigation } from '@react-navigation/native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { Entypo, MaterialIcons } from '@expo/vector-icons'
+import { Entypo, Ionicons, MaterialIcons } from '@expo/vector-icons'
 
 
 export default function DrawerContent(props) {
@@ -84,7 +84,20 @@ export default function DrawerContent(props) {
                     navigation.navigate("Wallet")
                 }}
             />
-            
+            <DrawerItem 
+                label= "Settings"
+                icon = {({color,size})=>(
+                    <Ionicons 
+                    name="settings"
+                    color="black"
+                    size={size}
+
+                  />  
+                )}
+                onPress={()=>{
+                    navigation.navigate("Settings")
+                }}
+            />
         </DrawerContentScrollView>
        <DrawerItem 
                 label= "Sign out"
