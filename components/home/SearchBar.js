@@ -1,5 +1,5 @@
 import { View, Text } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import {GooglePlacesAutocomplete}  from 'react-native-google-places-autocomplete'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import AntDesign from 'react-native-vector-icons/AntDesign' 
@@ -7,6 +7,7 @@ import { apikey } from '../../global'
 import { location } from '../../utils'
 
 export default function SearchBar({searchbar, cityHandler, style, setAddress, navigation, restaurantData}) {
+  const [value, setValue] = useState()
   return (
     <View style={{marginTop: 15, flexDirection: "row"}}>
       <GooglePlacesAutocomplete 
@@ -74,12 +75,13 @@ export default function SearchBar({searchbar, cityHandler, style, setAddress, na
                      latitude: location.coords.latitude,
                      longitude: location.coords.longitude
                    })
-                   .then(a => console.log(a))
+                   .then(res => setValue(res.name))
                 )
                 
               })
               // alert("Hello...")
-            }
+            },
+            value: value
           }}
           />
     </View>
