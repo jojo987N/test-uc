@@ -46,7 +46,7 @@ export default function Settings({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Register Now !</Text>
+        <Text style={styles.title}>Settings !</Text>
       </View>
 
       <Animatable.View style={styles.footer} animation="fadeInUpBig">
@@ -115,11 +115,11 @@ export default function Settings({ navigation }) {
             <LinearGradient
               colors={['#948E99', '#2E1437']}
               style={styles.signInButton} >
-              <Text style={{ ...styles.signInText, color: 'white' }}>Sign Up</Text>
+              <Text style={{ ...styles.signInText, color: 'white' }}>Settings</Text>
             </LinearGradient>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => navigation.goBack()}>
+          {/* <TouchableOpacity onPress={() => navigation.goBack()}>
 
             <LinearGradient
               colors={['#ada996', '#f2f2f2', '#dbdbdb', '#eaeaea']}
@@ -127,7 +127,7 @@ export default function Settings({ navigation }) {
               <Text style={styles.signInText}>Sign In</Text>
             </LinearGradient>
 
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </ScrollView>
       </Animatable.View>
 
