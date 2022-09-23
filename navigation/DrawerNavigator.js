@@ -9,6 +9,7 @@ import RestaurantsMapScreen from '../screens/RestaurantsMapScreen';
 import { MaterialIcons } from '@expo/vector-icons'
 import RestaurantDetail from '../screens/RestaurantDetail';
 import Offers from '../screens/Offers'
+import Settings from '../screens/Settings';
 
 
 const Drawer = createDrawerNavigator();
@@ -61,6 +62,22 @@ export default function DrawerNavigator() {
                     name="search"
                     color={focussed ? "black":""}
                     size={size}
+                  />  
+                )
+            }}
+        />
+         <Drawer.Screen 
+            name = "Settings"
+            component={Settings}
+            options={{
+                title: "Settings",
+                headerShown: true,
+                drawerIcon: ({focussed, size}) =>(
+                  <Ionicons 
+                    name="settings"
+                    color="black"
+                    size={size}
+
                   />  
                 )
             }}
