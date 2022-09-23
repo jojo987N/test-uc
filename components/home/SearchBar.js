@@ -66,8 +66,11 @@ export default function SearchBar({searchbar, cityHandler, style, setAddress, na
           textInputProps={{
             onTouchStart: ()=>  {
               location().then(Location =>{
+                 
                 Location.getCurrentPositionAsync({})
-                .then(location => console.log(location))
+                .then(location => console.log(
+                  Location.reverseGeocodeAsync(location)
+                ))
                 
               })
               // alert("Hello...")
