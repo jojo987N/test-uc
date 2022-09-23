@@ -23,7 +23,7 @@ export default function Settings({ navigation }) {
   // const [phone, setPhone] = useState('')
   // const [name, setName] = useState('')
   // const [address, setAddress] = useState('')
-
+  console.log(address)
   // const dispatch = useDispatch();
   const [loginState, setLoginState] = useState(false)
 
