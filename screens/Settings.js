@@ -115,7 +115,7 @@ export default function Settings({ navigation }) {
             <LinearGradient
               colors={['#948E99', '#2E1437']}
               style={styles.signInButton} >
-              <Text style={{ ...styles.signInText, color: 'white' }}>Settings</Text>
+              <Text style={{ ...styles.signInText, color: 'white' }}>Update</Text>
             </LinearGradient>
           </TouchableOpacity>
 
