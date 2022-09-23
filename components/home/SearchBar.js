@@ -84,7 +84,8 @@ export default function SearchBar({searchbar, cityHandler, style, setAddress, na
               })
               // alert("Hello...")
             },
-            value: value
+            value: value,
+            onChangeText: (text) => setValue(text)
           }}
           />
     </View>
