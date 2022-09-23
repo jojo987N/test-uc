@@ -64,30 +64,30 @@ export default function SearchBar({searchbar, cityHandler, style, setAddress, na
               <Text>Search</Text>
           </View>
           ):()=>{}}
-          textInputProps={{
-            onTouchStart: ()=>  {
-              location().then(Location =>{
+          // textInputProps={{
+          //   onTouchStart: ()=>  {
+          //     location().then(Location =>{
                  
-                Location.getCurrentPositionAsync({})
-                .then(location => 
-                  // location
-                   Location.reverseGeocodeAsync({
-                     latitude: location.coords.latitude,
-                     longitude: location.coords.longitude
-                   })
-                   .then(res => {
-                     let addr = (res[0]?.streetNumber +' ' || '') + res[0]?.street +' '+ res[0]?.city
-                     console.log(addr)
-                     setValue(addr)
-                   })
-                )
+          //       Location.getCurrentPositionAsync({})
+          //       .then(location => 
+          //         // location
+          //          Location.reverseGeocodeAsync({
+          //            latitude: location.coords.latitude,
+          //            longitude: location.coords.longitude
+          //          })
+          //          .then(res => {
+          //            let addr = (res[0]?.streetNumber +' ' || '') + res[0]?.street +' '+ res[0]?.city
+          //            console.log(addr)
+          //            setValue(addr)
+          //          })
+          //       )
                 
-              })
-              // alert("Hello...")
-            },
-            value: value,
-            onChangeText: (text) => setValue(text)
-          }}
+          //     })
+          //     // alert("Hello...")
+          //   },
+          //   value: value,
+          //   onChangeText: (text) => setValue(text)
+          // }}
           />
     </View>
   )
