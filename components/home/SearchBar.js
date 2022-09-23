@@ -9,7 +9,6 @@ export default function SearchBar({searchbar, cityHandler, style, setAddress, na
   return (
     <View style={{marginTop: 15, flexDirection: "row"}}>
       <GooglePlacesAutocomplete 
-      currentLocation
       ref={searchbar}
       query={{ 
         key: apikey,
