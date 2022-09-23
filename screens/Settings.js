@@ -52,7 +52,7 @@ export default function Settings({ navigation }) {
             <TextInput
               placeholder='Email'
               value={email}
-              onChangeText={(text) => dispatch({ type: 'UPDATE_USER', payload: {email: text} })}
+              // onChangeText={(text) => dispatch({ type: 'UPDATE_USER', payload: {email: text} })}
               style={styles.textInput} />
 
           </View>
