@@ -61,7 +61,11 @@ export default function SearchBar({searchbar, cityHandler, style, setAddress, na
                style={{marginRight: 6}}/>
               <Text>Search</Text>
           </View>
-          ):()=>{}}/>
+          ):()=>{}}
+          textInputProps={{
+            onTouchStart: ()=>  alert("Hello...")
+          }}
+          />
     </View>
   )
 }
