@@ -63,7 +63,7 @@ export default function Settings({ navigation }) {
             }} />
             <TextInput
               placeholder='Password'
-              value={password}
+              // value={password}
               // onChangeText={(text) => setPassword(text)}
               style={styles.textInput}
               secureTextEntry />
