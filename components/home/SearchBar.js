@@ -6,7 +6,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign'
 import { apikey } from '../../global'
 import { location } from '../../utils'
 
-export default function SearchBar({searchbar, cityHandler, style, setAddress, navigation, restaurantData}) {
+export default function SearchBar({searchbar, cityHandler, style, setAddress, address, navigation, restaurantData}) {
   const [value, setValue] = useState()
   return (
     <View style={{marginTop: 15, flexDirection: "row"}}>
@@ -64,7 +64,7 @@ export default function SearchBar({searchbar, cityHandler, style, setAddress, na
               <Text>Search</Text>
           </View>
           ):()=>{}}
-          // textInputProps={{
+           textInputProps={{
           //   onTouchStart: ()=>  {
           //     location().then(Location =>{
                  
@@ -85,9 +85,12 @@ export default function SearchBar({searchbar, cityHandler, style, setAddress, na
           //     })
           //     // alert("Hello...")
           //   },
-          //   value: value,
-          //   onChangeText: (text) => setValue(text)
-          // }}
+          ...address?{
+            value: address.description,
+             onChangeText: (text) => setAddress(text)
+          }:{}
+              
+           }}
           />
     </View>
   )

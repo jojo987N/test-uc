@@ -39,7 +39,7 @@ export default function Settings({ navigation }) {
 
         <View style={{ marginHorizontal: 25 }}>
           <SearchBar style={{ backgroundColor: "white", borderBottomColor: "grey", borderBottomWidth: 0.3 }}
-            setAddress={setAddress} />
+            setAddress={setAddress} address={_address}/>
         </View>
 
         <ScrollView showsVerticalScrollIndicator={false} >
