@@ -22,6 +22,7 @@ import AddCard from '../screens/AddCard'
 import SignUp from '../screens/SignUp'
 import { LoaderContext } from '../contexts/LoaderContext'
 import { RestaurantsContext } from '../contexts/RestaurantsContext'
+import Settings from '../screens/Settings'
 const store = configureStore();
 export default function RootNavigation({statusBarColor}) {
     const Stack = createStackNavigator();
@@ -46,6 +47,7 @@ export default function RootNavigation({statusBarColor}) {
               <Stack.Screen name="Offers" component={Offers}/>
               <Stack.Screen name="Wallet" component={Wallet}/>
               <Stack.Screen name="AddCard" component={AddCard}/>
+              <Stack.Screen name="Settings" component={Settings}/>
           </Stack.Navigator>
           </RestaurantsContext.Provider>
           </LoaderContext.Provider>
