@@ -17,6 +17,15 @@ export const bearing = (φ1, λ1, φ2, λ2) => {
 
 }
 
+export const location = async () => {
+  let { status } = await Location.requestForegroundPermissionsAsync();
+  if (status !== 'granted') {
+     setErrorMsg('Permission to access location was denied');
+     return;
+   }
+  return await Location.getCurrentPositionAsync({});
+ 
+ };
 
 
 export function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {

@@ -4,6 +4,7 @@ import {GooglePlacesAutocomplete}  from 'react-native-google-places-autocomplete
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import AntDesign from 'react-native-vector-icons/AntDesign' 
 import { apikey } from '../../global'
+import { location } from '../../utils'
 
 export default function SearchBar({searchbar, cityHandler, style, setAddress, navigation, restaurantData}) {
   return (
@@ -63,7 +64,12 @@ export default function SearchBar({searchbar, cityHandler, style, setAddress, na
           </View>
           ):()=>{}}
           textInputProps={{
-            onTouchStart: ()=>  alert("Hello...")
+            onTouchStart: ()=>  {
+              location().then(location =>{
+                console.log(location)
+              })
+              // alert("Hello...")
+            }
           }}
           />
     </View>
