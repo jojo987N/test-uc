@@ -66,7 +66,7 @@ export default function DrawerNavigator() {
                 )
             }}
         />
-         <Drawer.Screen 
+         {/* <Drawer.Screen 
             name = "Settings"
             component={Settings}
             options={{
@@ -81,7 +81,7 @@ export default function DrawerNavigator() {
                   />  
                 )
             }}
-        />
+        /> */}
     </Drawer.Navigator>
   )
 }
