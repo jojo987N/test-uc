@@ -6,7 +6,7 @@ import BusinessConsoleScreen from '../screens/BusinessConsoleScreen';
 import DrawerContent from '../components/DrawerContent';
 import { SearchNavigator } from './Stacks';
 import RestaurantsMapScreen from '../screens/RestaurantsMapScreen';
-import { MaterialIcons } from '@expo/vector-icons'
+import { Ionicons, MaterialIcons } from '@expo/vector-icons'
 import RestaurantDetail from '../screens/RestaurantDetail';
 import Offers from '../screens/Offers'
 import Settings from '../screens/Settings';
