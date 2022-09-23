@@ -24,7 +24,7 @@ export default function Settings({ navigation }) {
   // const [name, setName] = useState('')
   // const [address, setAddress] = useState('')
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [loginState, setLoginState] = useState(false)
 
 
@@ -37,10 +37,11 @@ export default function Settings({ navigation }) {
 
       <Animatable.View style={styles.footer} animation="fadeInUpBig">
 
-        {/* <View style={{ marginHorizontal: 25 }}>
+        <View style={{ marginHorizontal: 25 }}>
           <SearchBar style={{ backgroundColor: "white", borderBottomColor: "grey", borderBottomWidth: 0.3 }}
-            setAddress={setAddress} />
-        </View> */}
+            update={true} 
+            />
+        </View>
 
         <ScrollView showsVerticalScrollIndicator={false} >
 
