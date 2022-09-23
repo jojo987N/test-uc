@@ -18,12 +18,12 @@ import SearchBar from '../components/home/SearchBar'
 export default function Settings({ navigation }) {
 
   const {email, name, phone, address, id, lat, lng} = useSelector((state)=>state.userReducer)
-  // const [email, setEmail] = useState(email)
-  // const [password, setPassword] = useState('')
-  // const [phone, setPhone] = useState('')
-  // const [name, setName] = useState('')
-  // const [address, setAddress] = useState('')
-  console.log(address)
+  const [_email, setEmail] = useState(email)
+  const [password, setPassword] = useState('')
+  const [_phone, setPhone] = useState(phone)
+  const [_name, setName] = useState(name)
+  const [_address, setAddress] = useState(address)
+
   // const dispatch = useDispatch();
   const [loginState, setLoginState] = useState(false)
 
@@ -39,8 +39,7 @@ export default function Settings({ navigation }) {
 
         <View style={{ marginHorizontal: 25 }}>
           <SearchBar style={{ backgroundColor: "white", borderBottomColor: "grey", borderBottomWidth: 0.3 }}
-            update={true} address={address}
-            />
+            setAddress={setAddress} />
         </View>
 
         <ScrollView showsVerticalScrollIndicator={false} >
