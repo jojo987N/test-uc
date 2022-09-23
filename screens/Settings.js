@@ -11,35 +11,21 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import Loader from './Loader'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
 import SearchBar from '../components/home/SearchBar'
+ 
 
 
 
 export default function Settings({ navigation }) {
 
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [phone, setPhone] = useState('')
-  const [name, setName] = useState('')
-  const [address, setAddress] = useState('')
+  const {email, name, phone, address, id, lat, lng} = useSelector((state)=>state.userReducer)
+  // const [email, setEmail] = useState(email)
+  // const [password, setPassword] = useState('')
+  // const [phone, setPhone] = useState('')
+  // const [name, setName] = useState('')
+  // const [address, setAddress] = useState('')
 
   const dispatch = useDispatch();
   const [loginState, setLoginState] = useState(false)
-
-
-  async function signUp() {
-
-    try {
-      const userCredentials = await createUserWithEmailAndPassword(auth, email, password)
-
-      addUser(userCredentials, name, phone, address)
-        .then(() => navigation.navigate("SignIn"))
-
-      console.log("USER ACCOUNT CREATED")
-    } catch (error) {
-      console.log(error.code)
-
-    }
-  }
 
 
 
@@ -66,7 +52,7 @@ export default function Settings({ navigation }) {
             <TextInput
               placeholder='Email'
               value={email}
-              onChangeText={(text) => setEmail(text)}
+              onChangeText={(text) => dispatch({ type: 'UPDATE_USER', payload: {email: text} })}
               style={styles.textInput} />
 
           </View>
@@ -78,7 +64,7 @@ export default function Settings({ navigation }) {
             <TextInput
               placeholder='Password'
               value={password}
-              onChangeText={(text) => setPassword(text)}
+              // onChangeText={(text) => setPassword(text)}
               style={styles.textInput}
               secureTextEntry />
 
@@ -91,7 +77,7 @@ export default function Settings({ navigation }) {
             <TextInput
               placeholder='Name'
               value={name}
-              onChangeText={(text) => setName(text)}
+              // onChangeText={(text) => setName(text)}
               style={styles.textInput}
             />
 
@@ -104,13 +90,13 @@ export default function Settings({ navigation }) {
             <TextInput
               placeholder='Phone'
               value={phone}
-              onChangeText={(text) => setPhone(text)}
+              // onChangeText={(text) => setPhone(text)}
               style={styles.textInput}
             />
 
           </View>
 
-          <TouchableOpacity onPress={() => { signUp() }}>
+          <TouchableOpacity onPress={() => {  }}>
 
             <LinearGradient
               colors={['#948E99', '#2E1437']}
