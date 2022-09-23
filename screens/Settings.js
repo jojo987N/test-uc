@@ -5,7 +5,7 @@ import { addUser, auth } from '../firebase'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { LinearGradient } from 'expo-linear-gradient'
 import * as Animatable from "react-native-animatable"
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import Loader from './Loader'
