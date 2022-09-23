@@ -24,6 +24,7 @@ export default function Settings({ navigation }) {
   const [_name, setName] = useState(name)
   const [_address, setAddress] = useState(address)
 
+  console.log(address)
   // const dispatch = useDispatch();
   const [loginState, setLoginState] = useState(false)
 
