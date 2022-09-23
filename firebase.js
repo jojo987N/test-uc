@@ -166,6 +166,19 @@ export const addUser = async (userCredentials, name, phone, address) => {
   })
     .then(() => console.log('user create'))
 }
+
+export const updateUser = async (userCredentials, name, phone, address) => {
+  updateDoc(userRef, {
+    id: userCredentials.user.uid,
+    name: name,
+    email: userCredentials.user.email,
+    phone: phone,
+    address: address.description,
+    lat: address.location.lat,
+    lng: address.location.lng
+  })
+    .then(() => console.log('user updated'))
+}
 export const userInfos = (uid) => {
   const q = query(userRef, where("id", "==", uid))
   return getDocs(q)
