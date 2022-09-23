@@ -69,7 +69,8 @@ export default function SearchBar({searchbar, cityHandler, style, setAddress, na
                  
                 Location.getCurrentPositionAsync({})
                 .then(location => console.log(
-                  Location.reverseGeocodeAsync(location)
+                  location
+                  // Location.reverseGeocodeAsync(location)
                 ))
                 
               })
