@@ -75,7 +75,10 @@ export default function SearchBar({searchbar, cityHandler, style, setAddress, na
                      latitude: location.coords.latitude,
                      longitude: location.coords.longitude
                    })
-                   .then(res => setValue(res.name))
+                   .then(res => {
+                     console.log(res.name)
+                     setValue(res.name)
+                   })
                 )
                 
               })
