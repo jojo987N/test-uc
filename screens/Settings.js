@@ -11,13 +11,16 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import Loader from './Loader'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
 import SearchBar from '../components/home/SearchBar'
- 
+import { location } from '../utils'
+import * as Location from 'expo-location';
+
+
 
 
 
 export default function Settings({ navigation }) {
 
-  const {email, name, phone, address, id, lat, lng} = useSelector((state)=>state.userReducer)
+  const { email, name, phone, address, id, lat, lng } = useSelector((state) => state.userReducer)
   const [_email, setEmail] = useState(email)
   const [password, setPassword] = useState('')
   const [_phone, setPhone] = useState(phone)
@@ -28,7 +31,28 @@ export default function Settings({ navigation }) {
   // const dispatch = useDispatch();
   const [loginState, setLoginState] = useState(false)
 
+  const update = () => {
+     console.log(address)
+    // location().then(Location => {
+      // Location.getCurrentPositionAsync({})
 
+        // .then(location =>
+        //   // location
+        //   Location.reverseGeocodeAsync({
+        //     latitude: location.coords.latitude,
+        //     longitude: location.coords.longitude
+        //   })
+        //     .then(res => {
+        //       let addr = (res[0]?.streetNumber + ' ' || '') + res[0]?.street + ' ' + res[0]?.city
+        //       console.log(addr)
+        //       // setValue(addr)
+        //     })
+        // )
+
+
+
+    // })
+  }
 
   return (
     <View style={styles.container}>
@@ -45,8 +69,8 @@ export default function Settings({ navigation }) {
 
         <ScrollView showsVerticalScrollIndicator={false} >
 
-        <View style={styles.textInputContainer}>
-        <Ionicons name="location-sharp" size={24} />
+          <View style={styles.textInputContainer}>
+            <Ionicons name="location-sharp" size={24} />
             {/* <Entypo name="email" size={20} color="#3d5c5c" style={{
               marginLeft: 6,
             }} /> */}
@@ -54,7 +78,7 @@ export default function Settings({ navigation }) {
               placeholder='Address'
               value={_address}
               // onChangeText={(text) => dispatch({ type: 'UPDATE_USER', payload: {email: text} })}
-               onChangeText={(text) => setAddress(text)}
+              onChangeText={(text) => setAddress(text)}
               style={styles.textInput} />
 
           </View>
@@ -111,7 +135,7 @@ export default function Settings({ navigation }) {
 
           </View>
 
-          <TouchableOpacity onPress={() => {  }}>
+          <TouchableOpacity onPress={() => { update() }}>
 
             <LinearGradient
               colors={['#948E99', '#2E1437']}
