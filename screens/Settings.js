@@ -1,6 +1,6 @@
 import { View, Text, SafeAreaView, StatusBar, Image, TextInput, StyleSheet, TouchableOpacity, Alert, ScrollView } from 'react-native'
 import React, { useState, useEffect } from 'react'
-import { Entypo, MaterialIcons } from '@expo/vector-icons'
+import { Entypo, Ionicons, MaterialIcons } from '@expo/vector-icons'
 import { addUser, auth } from '../firebase'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { LinearGradient } from 'expo-linear-gradient'
