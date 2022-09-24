@@ -46,7 +46,7 @@ opacity, setCategoriesFood}) {
           const wait = new Promise(resolve => setTimeout(resolve, 500));
           wait.then(()=>{
             setFoods(foods.map(food => ({...food, price: Number(food.price)}) ))
-            setLoader(false)
+            // setLoader(false)
           })
         })
           // .then(() => {
