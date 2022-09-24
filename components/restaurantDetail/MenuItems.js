@@ -45,9 +45,16 @@ opacity, setCategoriesFood}) {
         getFoods(restaurant.restaurantId).then((foods) => {
             setFoods(foods.map(food => ({...food, price: Number(food.price)}) ))
         })
-          // .then(() => {
-          //   setLoader(false)
-          // })
+        .then(() => {
+           
+          setTimeout(()=>{
+  
+            setLoader(false)
+
+          }, 1000)
+
+        })
+
       
   },[activeTab])
   if(loader)
