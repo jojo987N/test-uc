@@ -13,8 +13,8 @@ const DisplayMapview = ({userLocation, mapRef, apikey, restaurant, height}) => {
           // ...userLocation,
           latitude: restaurant.lat,
           longitude: restaurant.lng,
-          latitudeDelta: 0.18,
-          longitudeDelta: 0.08 
+          latitudeDelta: 0.09,
+          longitudeDelta: 0.04 
         }}
        style={{height: height?height:200, width: "100%",
        }} showsUserLocation={true}
