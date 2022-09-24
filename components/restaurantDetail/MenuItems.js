@@ -41,12 +41,12 @@ opacity, setCategoriesFood}) {
    const [loader, setLoader] = useState(false)
 
   useEffect(()=>{
-       setLoader(true)
+      //  setLoader(true)
         getFoods(restaurant.restaurantId).then((foods) => {
           const wait = new Promise(resolve => setTimeout(resolve, 2000));
           wait.then(()=>{
             setFoods(foods.map(food => ({...food, price: Number(food.price)}) ))
-             setLoader(false)
+            //  setLoader(false)
           })
         })
           // .then(() => {
@@ -54,13 +54,13 @@ opacity, setCategoriesFood}) {
           // })
       
   },[activeTab])
-  if(loader)
-  return <View>
-  <About route={route} navigation={navigation} userLocation={userLocation} mapRef={mapRef} apikey={apikey} categories={categories} setCategories={setCategories}/>
-  <HeaderTabs pickup={pickup} delivery={delivery} activeTab={activeTab} setActiveTab={setActiveTab}/>
-  <View style={{marginBottom: 100}}></View>
-  <Loader />
-  </View>
+  // if(loader)
+  // return <View>
+  // <About route={route} navigation={navigation} userLocation={userLocation} mapRef={mapRef} apikey={apikey} categories={categories} setCategories={setCategories}/>
+  // <HeaderTabs pickup={pickup} delivery={delivery} activeTab={activeTab} setActiveTab={setActiveTab}/>
+  // <View style={{marginBottom: 100}}></View>
+  // <Loader />
+  // </View>
   return (
     <View style={{flex: 1, }} >
       <FlatList
