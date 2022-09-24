@@ -4,6 +4,7 @@ import MapView, { Marker, Polyline, PROVIDER_GOOGLE } from 'react-native-maps'
 import MapViewDirections from 'react-native-maps-directions';
 import { CustomMarker, DisplayMapviewDirections } from '../screens/OrderRequest'
 const DisplayMapview = ({userLocation, mapRef, apikey, restaurant, height}) => {
+  console.log(restaurant.lat)
   return (
     <MapView
         provider={PROVIDER_GOOGLE}
