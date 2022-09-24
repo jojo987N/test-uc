@@ -32,7 +32,11 @@ export default function Settings({ navigation }) {
   const [loginState, setLoginState] = useState(false)
 
   const update = () => {
-     console.log(_address)
+     Location.geocodeAsync(_address)
+     .then(res => {
+       console.log(res)
+     })
+
     // location().then(Location => {
       // Location.getCurrentPositionAsync({})
 
