@@ -86,7 +86,7 @@ export default function SearchBar({searchbar, cityHandler, style, setAddress, ad
           //     })
           //     // alert("Hello...")
           //   },
-          value: "bonjour",
+          value: address,
           ...address?{
             value: address,
              onChangeText: (text) => setAddress(text)
