@@ -41,7 +41,7 @@ opacity, setCategoriesFood}) {
    const [loader, setLoader] = useState(false)
 
   useEffect(()=>{
-      setLoader(true)
+      // setLoader(true)
         getFoods(restaurant.restaurantId).then((foods) => {
           const wait = new Promise(resolve => setTimeout(resolve, 500));
           wait.then(()=>{
