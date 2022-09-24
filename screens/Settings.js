@@ -66,26 +66,22 @@ export default function Settings({ navigation }) {
 
       <Animatable.View style={styles.footer} animation="fadeInUpBig">
 
-        {/* <View style={{ marginHorizontal: 25 }}>
+        <View style={{ marginHorizontal: 25 }}>
           <SearchBar style={{ backgroundColor: "white", borderBottomColor: "grey", borderBottomWidth: 0.3 }}
-            setAddress={setAddress} address={_address}/>
-        </View> */}
+            setAddress={setAddress} />
+        </View>
 
         <ScrollView showsVerticalScrollIndicator={false} >
 
-          <View style={styles.textInputContainer}>
+          {/* <View style={styles.textInputContainer}>
             <Ionicons name="location-sharp" size={24} />
-            {/* <Entypo name="email" size={20} color="#3d5c5c" style={{
-              marginLeft: 6,
-            }} /> */}
             <TextInput
               placeholder='Address'
               value={_address}
-              // onChangeText={(text) => dispatch({ type: 'UPDATE_USER', payload: {email: text} })}
               onChangeText={(text) => setAddress(text)}
               style={styles.textInput} />
 
-          </View>
+          </View> */}
 
 
           <View style={styles.textInputContainer}>
