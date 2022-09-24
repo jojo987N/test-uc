@@ -86,11 +86,11 @@ export default function SearchBar({searchbar, cityHandler, style, setAddress, ad
           //     })
           //     // alert("Hello...")
           //   },
-          value: address,
-          // ...address?{
-          //   value: address,
-          //    onChangeText: (text) => setAddress(text)
-          // }:{}
+          // value: address,
+          ...address?{
+            value: address,
+             onChangeText: (text) => {}
+          }:{}
               
            }}
           />
