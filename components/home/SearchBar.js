@@ -65,7 +65,7 @@ export default function SearchBar({searchbar, cityHandler, style, setAddress, ad
               <Text>Search</Text>
           </View>
           ):()=>{}}
-           textInputProps={{
+          //  textInputProps={{
           //   onTouchStart: ()=>  {
           //     location().then(Location =>{
                  
@@ -87,16 +87,17 @@ export default function SearchBar({searchbar, cityHandler, style, setAddress, ad
           //     // alert("Hello...")
           //   },
           // value: address,
-          ...address?{
-            value: address,
-             onChangeText: (text) => {
-               if(text)
-                setAddress("fvffbbgd")
+
+          // ...address?{
+          //   value: address,
+          //    onChangeText: (text) => {
+          //      if(text)
+          //       setAddress("fvffbbgd")
                
-              }
-          }:{}
+          //     }
+          // }:{}
               
-           }}
+          //  }}
           />
     </View>
   )
