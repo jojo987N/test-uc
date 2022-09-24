@@ -167,12 +167,9 @@ export const addUser = async (userCredentials, name, phone, address) => {
     .then(() => console.log('user create'))
 }
 
-export const updateUser = async (userCredentials, name, phone, address) => {
-  return updateDoc(userRef, {
-    id: userCredentials.user.uid,
-    name: name,
-    email: userCredentials.user.email,
-    phone: phone,
+export const updateUser = async (address, userId) => {
+  const docRef = doc(db, 'users', userId)
+  return updateDoc(docRef, {
     address: address.description,
     lat: address.location.lat,
     lng: address.location.lng

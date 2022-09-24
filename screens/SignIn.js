@@ -36,6 +36,7 @@ export default function SignIn({ navigation }) {
           type: 'ADD_USER',
           payload: {
             ...snapshot.docs[0].data(),
+            userId: snapshot.docs[0].id
 
           }
         });

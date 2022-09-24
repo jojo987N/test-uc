@@ -1,7 +1,7 @@
 import { View, Text, SafeAreaView, StatusBar, Image, TextInput, StyleSheet, TouchableOpacity, Alert, ScrollView } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { Entypo, Ionicons, MaterialIcons } from '@expo/vector-icons'
-import { addUser, auth } from '../firebase'
+import { addUser, auth, updateUser } from '../firebase'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { LinearGradient } from 'expo-linear-gradient'
 import * as Animatable from "react-native-animatable"
@@ -20,7 +20,7 @@ import * as Location from 'expo-location';
 
 export default function Settings({ navigation }) {
 
-  const { email, name, phone, address, id, lat, lng } = useSelector((state) => state.userReducer)
+  const { email, name, phone, address, id, lat, lng, userId } = useSelector((state) => state.userReducer)
   const [_email, setEmail] = useState(email)
   const [password, setPassword] = useState('')
   const [_phone, setPhone] = useState(phone)
@@ -36,6 +36,7 @@ export default function Settings({ navigation }) {
     //  .then(res => {
     //    console.log(res)
     //  })
+    
 
 
     
@@ -118,7 +119,7 @@ export default function Settings({ navigation }) {
 
           </View>
 
-          <TouchableOpacity onPress={() => { update() }}>
+          <TouchableOpacity onPress={() => {  updateUser(_address, userId) }}>
 
             <LinearGradient
               colors={['#948E99', '#2E1437']}
