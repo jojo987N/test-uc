@@ -168,7 +168,7 @@ export const addUser = async (userCredentials, name, phone, address) => {
 }
 
 export const updateUser = async (userCredentials, name, phone, address) => {
-  updateDoc(userRef, {
+  return updateDoc(userRef, {
     id: userCredentials.user.uid,
     name: name,
     email: userCredentials.user.email,

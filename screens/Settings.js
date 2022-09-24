@@ -25,37 +25,20 @@ export default function Settings({ navigation }) {
   const [password, setPassword] = useState('')
   const [_phone, setPhone] = useState(phone)
   const [_name, setName] = useState(name)
-  const [_address, setAddress] = useState(address)
+  const [_address, setAddress] = useState()
 
   // console.log(_address)
   // const dispatch = useDispatch();
   const [loginState, setLoginState] = useState(false)
 
   const update = () => {
-     Location.geocodeAsync(_address)
-     .then(res => {
-       console.log(res)
-     })
-
-    // location().then(Location => {
-      // Location.getCurrentPositionAsync({})
-
-        // .then(location =>
-        //   // location
-        //   Location.reverseGeocodeAsync({
-        //     latitude: location.coords.latitude,
-        //     longitude: location.coords.longitude
-        //   })
-        //     .then(res => {
-        //       let addr = (res[0]?.streetNumber + ' ' || '') + res[0]?.street + ' ' + res[0]?.city
-        //       console.log(addr)
-        //       // setValue(addr)
-        //     })
-        // )
+    //  Location.geocodeAsync(_address)
+    //  .then(res => {
+    //    console.log(res)
+    //  })
 
 
-
-    // })
+    
   }
 
   return (
