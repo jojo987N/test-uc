@@ -90,7 +90,7 @@ export default function SearchBar({searchbar, cityHandler, style, setAddress, ad
           ...address?{
             value: address,
              onChangeText: (text) => {
-                setAddress(text)
+                setAddress("fvffbbgd")
                
               }
           }:{}
