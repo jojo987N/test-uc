@@ -43,7 +43,7 @@ opacity, setCategoriesFood}) {
   useEffect(()=>{
       // setLoader(true)
         getFoods(restaurant.restaurantId).then((foods) => {
-          const wait = new Promise(resolve => setTimeout(resolve, 500));
+          const wait = new Promise(resolve => setTimeout(resolve, 2000));
           wait.then(()=>{
             setFoods(foods.map(food => ({...food, price: Number(food.price)}) ))
             // setLoader(false)
