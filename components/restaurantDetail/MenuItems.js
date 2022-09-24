@@ -41,29 +41,14 @@ opacity, setCategoriesFood}) {
    const [loader, setLoader] = useState(false)
 
   useEffect(()=>{
-    // console.log(restaurant.restaurantId)
     //  setLoader(true)
-    // // AsyncStorage.getItem("foods").then(value => {
-    //   // if (!value) {
-    //     getFoods(restaurant.restaurantId).then((foods) => {
-    //        setFoods(foods.map(food => ({...food, price: Number(food.price)}) ))
-    //       // AsyncStorage.setItem('foods', JSON.stringify(foods))
-    //     })
-    //       .then(() => {
-    //         setLoader(false)
-    //       })
-    //   // }
-    //   // else{
-    //   //   AsyncStorage.getItem("foods").then(value=>{
-    //   //     let foodsData = JSON.parse(value)
-    //   //     setFoods(foodsData)
-    //   //   }).then(() => {
-    //   //     setTimeout(()=>{
-    //   //       setLoader(false)
-    //   //     }, 1000)
-    //   //   })
-    //   // }
-    // // })
+        getFoods(restaurant.restaurantId).then((foods) => {
+          //  setFoods(foods.map(food => ({...food, price: Number(food.price)}) ))
+        })
+          // .then(() => {
+          //   setLoader(false)
+          // })
+      
   },[activeTab])
   if(loader)
   return <View>

@@ -121,7 +121,6 @@ const addfoods = () => {
 }
 export const getFoods = (restaurantId) => {
 
-  console.log("foods")
   const foods = []
   const q = query(foodsCol, where("restaurantId", "==", restaurantId))
   return getDocs(q)
