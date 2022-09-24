@@ -177,12 +177,12 @@ export default function RestaurantDetail({ route, navigation }) {
         >
 
 
-          {/* <MenuItems foodsRef={foodsRef} route={route} navigation={navigation} userLocation={userLocation}
+          <MenuItems foodsRef={foodsRef} route={route} navigation={navigation} userLocation={userLocation}
             mapRef={mapRef} apikey={apikey} activeTab={activeTab}
             pickup={pickup} delivery={delivery} setActiveTab={setActiveTab}
             scrollEnabled={scrollEnabled} setScrollEnabled={setScrollEnabled}
             opacity={opacity} setCategoriesFood={setCategoriesFood}
-          /> */}
+          />
 
         </BottomSheet>
         <ViewCart navigation={navigation} route={route} />
