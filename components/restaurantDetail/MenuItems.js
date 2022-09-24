@@ -42,15 +42,15 @@ opacity, setCategoriesFood}) {
 
   useEffect(()=>{
     console.log(restaurant.restaurantId)
-    //  setLoader(true)
+     setLoader(true)
     // AsyncStorage.getItem("foods").then(value => {
       // if (!value) {
         getFoods(restaurant.restaurantId).then((foods) => {
-          setFoods(foods.map(food => ({...food, price: Number(food.price)}) ))
+          // setFoods(foods.map(food => ({...food, price: Number(food.price)}) ))
           // AsyncStorage.setItem('foods', JSON.stringify(foods))
         })
           .then(() => {
-            // setLoader(false)
+            setLoader(false)
           })
       // }
       // else{
