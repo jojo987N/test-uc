@@ -91,6 +91,7 @@ export default function SearchBar({searchbar, cityHandler, style, setAddress, ad
             value: address,
              onChangeText: (text) => {
               //  setAddress(text)
+              console.log(text)
               }
           }:{}
               
