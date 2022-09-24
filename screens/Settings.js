@@ -32,7 +32,7 @@ export default function Settings({ navigation }) {
   const [loginState, setLoginState] = useState(false)
 
   const update = () => {
-     console.log(address)
+     console.log(_address)
     // location().then(Location => {
       // Location.getCurrentPositionAsync({})
 
