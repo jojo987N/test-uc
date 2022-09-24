@@ -8,7 +8,6 @@ import { location } from '../../utils'
 
 export default function SearchBar({searchbar, cityHandler, style, setAddress, navigation, restaurantData}) {
   const [value, setValue] = useState()
-  console.log("zer", address)
   return (
     <View style={{marginTop: 15, flexDirection: "row"}}>
       <GooglePlacesAutocomplete 
