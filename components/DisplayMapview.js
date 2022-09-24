@@ -8,7 +8,13 @@ const DisplayMapview = ({userLocation, mapRef, apikey, restaurant, height}) => {
     <MapView
         provider={PROVIDER_GOOGLE}
         ref={mapRef}
-        initialRegion={{...userLocation,latitudeDelta: 0.18,longitudeDelta: 0.08 }}
+        initialRegion={{
+          // ...userLocation,
+          latitude: restaurant.lat,
+          longitude: restaurant.lng,
+          latitudeDelta: 0.18,
+          longitudeDelta: 0.08 
+        }}
        style={{height: height?height:200, width: "100%",
        }} showsUserLocation={true}
        >
@@ -17,8 +23,11 @@ const DisplayMapview = ({userLocation, mapRef, apikey, restaurant, height}) => {
          longitude: userLocation.longitude
        },
         {
-          latitude: 48.904634,
-          longitude: 2.432682
+          // latitude: 48.904634,
+          // longitude: 2.432682
+
+          latitude: restaurant.lat,
+          longitude: restaurant.lng
         }]}
         strokeColor="#000"
         strokeColors={[
