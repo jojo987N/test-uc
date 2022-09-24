@@ -41,7 +41,7 @@ opacity, setCategoriesFood}) {
    const [loader, setLoader] = useState(false)
 
   useEffect(()=>{
-    //  setLoader(true)
+      setLoader(true)
         getFoods(restaurant.restaurantId).then((foods) => {
             setFoods(foods.map(food => ({...food, price: Number(food.price)}) ))
         })
