@@ -88,8 +88,9 @@ export default function SearchBar({searchbar, cityHandler, style, setAddress, ad
           //   },
           // value: address,
           ...address?{
-            // value: address,
+            value: address,
              onChangeText: (text) => {
+               if(text)
                 setAddress("fvffbbgd")
                
               }
