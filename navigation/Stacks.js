@@ -20,7 +20,7 @@ const  HomeStack = createStackNavigator()
 
 export function HomeNavigator() {
   return (
-    <CategoriesContextProvider> 
+    // <CategoriesContextProvider> 
       <HomeStack.Navigator>
         <HomeStack.Screen 
           name="HomeScreen"
@@ -60,7 +60,7 @@ export function HomeNavigator() {
           options={{headerShown: true}}/>
 
       </HomeStack.Navigator>
-      </CategoriesContextProvider>
+      // </CategoriesContextProvider>
       
   )
 }

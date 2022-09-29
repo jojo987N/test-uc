@@ -36,6 +36,7 @@ export default function RootNavigation({statusBarColor}) {
       <NavigationContainer>
       <LoaderContext.Provider value={{loading, setLoading}}>
         <RestaurantsContext.Provider value={{restaurantData, setRestaurantData}}> 
+        <CategoriesContextProvider> 
           <Stack.Navigator screenOptions={screenOptions}>
               <Stack.Screen name="Onboarding" component={OnboardingScreen}/>
               <Stack.Screen name="Splash" component={Splash}/>
@@ -49,6 +50,7 @@ export default function RootNavigation({statusBarColor}) {
               <Stack.Screen name="AddCard" component={AddCard}/>
               <Stack.Screen name="Settings" component={Settings}/>
           </Stack.Navigator>
+          </CategoriesContextProvider> 
           </RestaurantsContext.Provider>
           </LoaderContext.Provider>
       </NavigationContainer>
