@@ -25,7 +25,6 @@ export const location = async () => {
      setErrorMsg('Permission to access location was denied');
      return;
    }
-  // return await Location.getCurrentPositionAsync({});
      return Location
  };
 
