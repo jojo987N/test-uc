@@ -23,6 +23,7 @@ import SignUp from '../screens/SignUp'
 import { LoaderContext } from '../contexts/LoaderContext'
 import { RestaurantsContext } from '../contexts/RestaurantsContext'
 import Settings from '../screens/Settings'
+import { CategoriesContextProvider } from '../contexts/CategoriesContext'
 const store = configureStore();
 export default function RootNavigation({statusBarColor}) {
     const Stack = createStackNavigator();
