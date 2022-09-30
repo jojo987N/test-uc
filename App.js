@@ -1,9 +1,6 @@
-import RootNavigation from "./navigation/navigation";
-import { SafeAreaView, StatusBar} from "react-native";
-import {useFonts} from 'expo-font'
+import { useFonts } from "expo-font";
 
-
-import { 
+import {
   Roboto_100Thin,
   Roboto_100Thin_Italic,
   Roboto_300Light,
@@ -15,15 +12,13 @@ import {
   Roboto_700Bold,
   Roboto_700Bold_Italic,
   Roboto_900Black,
-  Roboto_900Black_Italic 
-} from '@expo-google-fonts/roboto'
+  Roboto_900Black_Italic,
+} from "@expo-google-fonts/roboto";
+import RootNavigation from "./navigation/navigation";
 import Loader from "./screens/Loader";
- 
 
 export default function App() {
-
-  let [fontsLoaded, error] = useFonts({
-
+  const [fontsLoaded, error] = useFonts({
     Roboto_100Thin,
     Roboto_100Thin_Italic,
     Roboto_300Light,
@@ -35,14 +30,12 @@ export default function App() {
     Roboto_700Bold,
     Roboto_700Bold_Italic,
     Roboto_900Black,
-    Roboto_900Black_Italic
+    Roboto_900Black_Italic,
+  });
 
-  })
+  if (!fontsLoaded) {
+    return <Loader />;
+  }
 
-   if(!fontsLoaded)
-   return <Loader />
-   
-  return (
-    <RootNavigation statusBarColor="black"/>
-  );
+  return <RootNavigation statusBarColor="black" />;
 }

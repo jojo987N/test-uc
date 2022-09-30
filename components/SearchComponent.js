@@ -1,15 +1,18 @@
+import { Entypo, Feather } from "@expo/vector-icons";
 import React from "react";
-import { StyleSheet, TextInput, View, Keyboard, Button } from "react-native";
-import { Feather, Entypo } from "@expo/vector-icons";
+import { Keyboard, StyleSheet, TextInput, View } from "react-native";
 
-const SearchComponent = ({clicked, searchPhrase, setSearchPhrase, setCLicked}) => {
+const SearchComponent = ({
+  clicked,
+  searchPhrase,
+  setSearchPhrase,
+  setCLicked,
+}) => {
   return (
     <View style={styles.container}>
       <View
         style={
-          clicked
-            ? styles.searchBar__clicked
-            : styles.searchBar__unclicked
+          clicked ? styles.searchBar__clicked : styles.searchBar__unclicked
         }
       >
         <Feather
@@ -28,11 +31,17 @@ const SearchComponent = ({clicked, searchPhrase, setSearchPhrase, setCLicked}) =
           }}
         />
         {clicked && (
-          <Entypo name="cross" size={20} color="black" style={{ padding: 1 }} onPress={() => {
-              setSearchPhrase("")
+          <Entypo
+            name="cross"
+            size={20}
+            color="black"
+            style={{ padding: 1 }}
+            onPress={() => {
+              setSearchPhrase("");
               Keyboard.dismiss();
               setCLicked(false);
-          }}/>
+            }}
+          />
         )}
       </View>
     </View>
@@ -40,15 +49,9 @@ const SearchComponent = ({clicked, searchPhrase, setSearchPhrase, setCLicked}) =
 };
 export default SearchComponent;
 
-
 const styles = StyleSheet.create({
   container: {
-    
-    
     alignItems: "center",
-    
-   
-
   },
   searchBar__unclicked: {
     padding: 10,
@@ -61,7 +64,7 @@ const styles = StyleSheet.create({
   searchBar__clicked: {
     padding: 10,
     flexDirection: "row",
-    
+
     width: "95%",
     backgroundColor: "#d9dbda",
     borderRadius: 15,
@@ -74,129 +77,3 @@ const styles = StyleSheet.create({
     width: "90%",
   },
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
