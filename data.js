@@ -350,7 +350,6 @@ export const restaurants = [
           "price": 10.95
         }
       ],
-      "url": "https://www.yelp.com/biz/fog-harbor-fish-house-san-francisco-2?adjust_creative=J4ZPk7dsHlYZU8xFcIjmJw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=J4ZPk7dsHlYZU8xFcIjmJw",
     },
      {
       "alias": "farmhouse-kitchen-thai-cuisine-san-francisco",
