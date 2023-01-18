@@ -122,7 +122,7 @@ export default function Home({navigation}) {
    
   return (
     <SafeAreaView style={{
-      paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+      //paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
       backgroundColor: "#eee",
       flex: 1
     }}>
