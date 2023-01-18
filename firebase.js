@@ -3,7 +3,7 @@ import {initializeApp} from 'firebase/app'
 import { getAuth } from 'firebase/auth';
 
 import {addDoc, getFirestore, collection, getDocs, doc, deleteDoc, orderBy, query, limit,
-where, onSnapshot, serverTimestamp, updateDoc} from 'firebase/firestore'
+where, onSnapshot, serverTimestamp, updateDoc, initializeFirestore} from 'firebase/firestore'
 //import { restaurants } from './data';
 import {getStorage, ref, getDownloadURL} from 'firebase/storage'
 import { LogBox } from 'react-native';
@@ -43,7 +43,9 @@ const firebaseConfig = {
 
 // export const restaurantsColRef = collection(db, 'restaurants')
 
-export const db = getFirestore()
+//export const db = getFirestore()
+
+const db = initializeFirestore(firebaseApp, {experimentalForceLongPolling: true});
 
 export const storage = getStorage();
 
@@ -342,6 +344,14 @@ export const addRestaurants = (restaurants)=>{
   }
 
   export const userInfos = (uid)=>{
+
+
+    getDocs(restaurantsCol)
+      .then((snapshot) => {
+
+       // console.log(snapshot.docs.map((doc) => doc.data()))
+      
+      })
 
      
     const q= query(userRef, where("id", "==", uid))

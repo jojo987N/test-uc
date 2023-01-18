@@ -29,9 +29,11 @@ export default function SignIn({navigation}) {
     
      try{
          const re = await signInWithEmailAndPassword(auth, email, password)
-
+        // console.log(auth)
 
         userInfos(re.user.uid).then(snapshot =>{
+          
+          //console.log(re.user.uid)
 
             dispatch({
               type: 'ADD_USER',

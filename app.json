@@ -1,26 +1,30 @@
 {
   "expo": {
-   "name": "Good Foods app",
-   "icon": "./assets/images/logo512.png",
-   "splash": {
-    "image": "./assets/images/splash-screen.png",
-    "resizeMode": "contain",
-    "backgroundColor": "#ffffff"
-  },
-   "version": "1.0.0",
-   "slug": "good-foods-slug19",
-   "ios": {
-     "bundleIdentifier": "com.goodfoods.goodfoodsapp",
-     "buildNumber": "1.0.0"
-   },
-   "android": {
-     "permissions":[
-      "ACCESS_COARSE_LOCATION",
-      "ACCESS_FINE_LOCATION"
-     ],
-     "package": "com.goodfoods.goodfoodsapp",
-     "versionCode": 1
-   }
+    "name": "Good Foods app",
+    "icon": "./assets/images/logo512.png",
+    "splash": {
+      "image": "./assets/images/splash-screen.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "version": "1.0.0",
+    "slug": "good-foods-slug19",
+    "ios": {
+      "bundleIdentifier": "com.goodfoods.goodfoodsapp",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION"
+      ],
+      "package": "com.goodfoods.goodfoodsapp",
+      "versionCode": 1
+    },
+    "extra": {
+      "eas": {
+        "projectId": "4f7e27b7-ba6d-417c-8f38-b7b9665a092f"
+      }
+    }
   }
 }
-

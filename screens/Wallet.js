@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 import { ArrowBack } from '../components/restaurantDetail/About'
 import { grey1 } from '../global'
 import { AntDesign } from '@expo/vector-icons'
-import { stripePayment } from '../utils'
-import { useStripe } from '@stripe/stripe-react-native';
+//import { stripePayment } from '../utils'
+//import { useStripe } from '@stripe/stripe-react-native';
 import AddFunds from './AddFunds'
 import {language, currency}  from '../global'
 
@@ -12,7 +12,7 @@ import {language, currency}  from '../global'
 
 export default function Wallet({ navigation }) {
 
-    const stripe = useStripe();
+    //const stripe = useStripe();
     const [modalVisible, setModalVisible] = useState(false)
     const [amount, setAmount] = useState(0.00)
     return (

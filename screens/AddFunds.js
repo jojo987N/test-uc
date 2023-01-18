@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { ArrowBack } from '../components/restaurantDetail/About'
 import { CheckBox, Divider, } from 'react-native-elements'
 // import { stripePayment } from '../utils'
-import { useStripe } from '@stripe/stripe-react-native';
+//import { useStripe } from '@stripe/stripe-react-native';
 
 
 export default function AddFunds({ navigation, setModalVisible, setAmount}) {

@@ -3,7 +3,7 @@ import * as Location from 'expo-location';
 
 export const language = "en"
 export const currency = "USD"
-export const apikey = ""
+export const apikey = "AIzaSyAwLZyznRMu86EDLO-fsRL8BgrCT7hXq7g"
 
 
 
