@@ -3,13 +3,14 @@ import React from 'react'
 import MapView, { Marker, Polyline, PROVIDER_GOOGLE } from 'react-native-maps' 
 import MapViewDirections from 'react-native-maps-directions';
 import { CustomMarker, DisplayMapviewDirections } from '../screens/OrderRequest'
+import MapboxGL from "@react-native-mapbox-gl/maps";
 
 
 
 
 const DisplayMapview = ({userLocation, mapRef, apikey, restaurant, height}) => {
   return (
-    <MapView
+    <MapboxGL.MapView
         provider={PROVIDER_GOOGLE}
         ref={mapRef}
         initialRegion={{...userLocation,latitudeDelta: 0.18,longitudeDelta: 0.08 }}
@@ -50,7 +51,7 @@ const DisplayMapview = ({userLocation, mapRef, apikey, restaurant, height}) => {
       {/* <DisplayMapviewDirections apikey={apikey} fromLat={userLocation.latitude} fromLng={userLocation.longitude} toLat={restaurant.coordinates.latitude} toLng={restaurant.coordinates.longitude} /> */}
  
        
-       </MapView>
+       </MapboxGL.MapView>
   )
 }
 
