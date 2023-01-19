@@ -25,6 +25,16 @@ const DisplayMapview = ({userLocation, mapRef, apikey, restaurant, height}) => {
          
        >
 
+
+<MapboxGL.Camera
+          //ref={camera}
+          defaultSettings={{
+            centerCoordinate: [userLocation.longitude, userLocation.latitude],
+            //zoomLevel: 17.4,
+            zoomLevel: 11.4,
+          }}
+        />
+
 <Polyline coordinates={[{
          latitude: userLocation.latitude,
          longitude: userLocation.longitude
