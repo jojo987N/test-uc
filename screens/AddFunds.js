@@ -11,7 +11,7 @@ export default function AddFunds({ navigation, setModalVisible, setAmount}) {
     const [amount1, setAmount1] = useState(50)
     const [amount2, setAmount2] = useState(100)
     const [amount3, setAmount3] = useState(150)
-    const stripe = useStripe();
+    // const stripe = useStripe();
     return (
         <View style={styles.container}>
             {/* <ArrowBack navigation={navigation} /> */}
